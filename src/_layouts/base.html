@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="{{ '/assets/css/tailwind.css' | url }}" />
+    <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
+    <meta name="generator" content="11ty" />
+    <!-- META -->
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ descripcion }}" />
+    <!-- Open Graph data -->
+    <meta property="og:title" content="{{ title }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="url" />
+    <meta property="og:image" content="/assets/img/ogg.webp" />
+    <meta property="og:description" content="{{ descripcion }}" />
+  </head>
+  <body>
+    {% block content %}{% endblock %}
+  </body>
+</html>
