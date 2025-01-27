@@ -6,9 +6,9 @@
     "start": "npm-run-all -p dev:*",
     "build": "run-s build:*",
     "dev:11ty": "eleventy --serve",
-    "dev:css": "tailwindcss -i src/assets/css/input.css -o _site/assets/css/tailwind.css --watch --postcss",
+    "dev:css": "npx @tailwindcss/cli -i src/assets/css/tailwind.css -o _site/assets/css/tailwind.css --watch",
     "build:11ty": "eleventy",
-    "build:css": "tailwindcss -i src/assets/css/input.css -o _site/assets/css/tailwind.css --postcss"
+    "build:css": "npx @tailwindcss/cli -i src/assets/css/input.css -o _site/assets/css/tailwind.css"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +16,8 @@
   "description": "",
   "dependencies": {
     "@11ty/eleventy": "^3.0.0",
+    "@fontsource-variable/rubik": "^5.1.1",
+    "@fontsource/sorts-mill-goudy": "^5.1.1",
     "@tailwindcss/cli": "^4.0.0",
     "@tailwindcss/postcss": "^4.0.0",
     "postcss": "^8.5.1",

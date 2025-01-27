@@ -3,11 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="{{ '/assets/fonts/bundle.css' | url }}" />
     <link rel="stylesheet" href="{{ '/assets/css/tailwind.css' | url }}" />
     <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
     <meta name="generator" content="11ty" />
     <!-- META -->
-    <title>{{ title }}</title>
+    <title>{{ title }} | Fundación Florencio Delgado Gurriarán</title>
     <meta name="description" content="{{ descripcion }}" />
     <!-- Open Graph data -->
     <meta property="og:title" content="{{ title }}" />
@@ -17,6 +18,6 @@
     <meta property="og:description" content="{{ descripcion }}" />
   </head>
   <body>
-    {% block content %}{% endblock %}
+    {% include 'navbar.html' %} {% block content %}{% endblock %}
   </body>
 </html>

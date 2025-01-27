@@ -1,14 +1,17 @@
 {% extends "./base.html" %} {% block content %}
-<div class="px-6 pt-36">
-  <div class="flex w-fit mx-auto scale-[0.5]">
-    <div>{% include "cocina.html" %}</div>
-    <div>{% include "modulo.html" %}</div>
-    <div>{% include "modulo.html" %}</div>
-    <div>{% include "bano.html" %}</div>
-    <div>{% include "aire.html" %}</div>
-    <div>{% include "dormitorio.html" %}</div>
-    <div>{% include "aire.html" %}</div>
-    <div>{% include "dormitorio_principal.html" %}</div>
+<div class="caixa !max-w-none">
+  <div class="dupla">
+    <div>
+      <div class="mx-auto w-fit">
+        <span class="text-3xl">{{ pretitular }}</span>
+        <h1 class="text-8xl max-w-lg mt-6">{{ titular }}</h1>
+        <div class="uppercase max-w-xs border-l border-texto mt-9 ml-20 pl-9">{{ destacado }}</div>
+      </div>
+    </div>
+    <div>
+      <img src="/media/florencio_cuadrado.jpg" alt="Manuscrito {{ titular }}" />
+    </div>
   </div>
+  <hr />
 </div>
 {% endblock %}

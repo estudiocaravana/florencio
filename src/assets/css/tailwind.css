@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+html {
+  @apply scroll-smooth antialiased;
+}
+body {
+  @apply bg-fondo font-sans text-lg leading-relaxed sm:text-xl sm:leading-normal;
+}
+.caixa {
+  @apply max-w-screen-xl mx-auto px-6 sm:px-12 xl:px-20 relative;
+}
+.dupla {
+  @apply flex flex-col xl:flex-row items-center *:flex-1;
+}
+h1,
+h2 {
+  @apply font-serif block;
+}
+
+@theme {
+  --font-serif: "Sorts Mill Goudy", "serif";
+  --font-sans: "Rubik Variable", sans-serif;
+  --color-fondo: #f7f5f2;
+  --color-oscuro: #ebe7e0;
+  --color-texto: #1c2528;
+  --color-verde: #56b093;
+}
