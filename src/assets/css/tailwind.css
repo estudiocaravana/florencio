@@ -7,7 +7,7 @@ body {
   @apply bg-fondo font-sans text-lg leading-relaxed sm:text-xl sm:leading-normal;
 }
 .caixa {
-  @apply max-w-screen-xl mx-auto px-6 sm:px-12 xl:px-20 relative;
+  @apply mx-auto px-6 sm:px-12 xl:px-20 relative;
 }
 .dupla {
   @apply flex flex-col xl:flex-row items-center *:flex-1;
@@ -15,6 +15,12 @@ body {
 h1,
 h2 {
   @apply font-serif block;
+}
+p {
+  @apply mt-6;
+}
+p > a {
+  @apply underline underline-offset-4;
 }
 
 @theme {
