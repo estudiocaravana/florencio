@@ -5,34 +5,24 @@ descripcion: Unha institución creada para poñer en valor o legado do poeta FDG
 pretitular: FUNDACIÓN
 titular: Florencio Delgado Gurriarán
 destacado: Unha institución para poñer en valor o legado do poeta FDG e dinamizar a lingua e a cultura de Valdeorras.
-fechas:
-  - fecha: 1903
-    evento: Nace en Córgomo
-  - fecha: 1931
-    evento: Entra no Partido Galeguista
-  - fecha: 1934
-    evento: Publica o libro 'Bebedeira'
-  - fecha: 1939
-    evento: Trala Guerra, exíliase a México
-  - fecha: 1943
-    evento: Co-autor do 'Cancioneiro da loita galega'
-  - fecha: 1959
-    evento: Cofunda a revista 'Vieiros'
-  - fecha: 1963
-    evento: Publica o libro 'Galicia Infinda'
-  - fecha: 1968
-    evento: Primer retorno a Galicia
-  - fecha: 1981
-    evento: Novo poemario 'Cantarenas'
-  - fecha: 1986
-    evento: Publica 'O soño do guieiro'
-  - fecha: 1987
-    evento: Falece en Fair Oaks, California
-p_uno: '<p>Un poeta valdeorrés, republicano e galeguista. Así define a Florencio Delgado Gurriarán o seu biógrafo o historiador Ricardo Gurriarán, quen en 1999 publica a primeira investigación sobre o autor de Córgomo. Nesa aldea de Vilamartín de Valdeorras nacera en 1903, nunha bocarribeira co val do Sil ao fondo.</p>
-
-<p>Florencio vivíu alí só ata os seis anos e non volvería a vivir en Valdeorras ata rematar os estudos universitarios, en 1928. Despois, forzado polo seu activismo político e social, viuse obrigado a fuxir ao inicio da Guerra Civil para despois exiliarse á que sería a súa segunda casa, o estado de Nova Galicia, en México. Só regresaría a Galicia de visita en tres ocasións. Tras o seu falecemento, os seus restos repousan no cemiterio de Córgomo onde quixo ser soterrado.</p>
-
-<p>A pesares de pasar só 14 anos da súa vida na comarca, as lembranzas da infancia, as estancias vacacionais e o período xuvenil, deixarían nel un gran impacto, como demostrará a súa creación poética.</p>'
-p_dos: '<p>Florencio escribe dende moi novo, comezando a publicar poesías en revistas e xornais e sempre en galego. En México continúa a súa acción cultural e política, sendo un membro moi activo do exilio mexicano galego. No ano 2022, a Real Academia Galega recoñéceo dedicándolle o <a href="https://academia.gal/letras-galegas/2022/florencio-delgado-gurriaran">Día das Letras Galegas</a> colocando a Florencio e Valdeorras no lugar que lle corresponde no relato cultural do País.</p>'
-comillas: 'Miña noiva, miña terra:<br>Á beira do Sil deitada,<br>para ollar a túa beleza do mesmo xeito que a Venus do espello, nel se contempla.'
+florencio: '<p>Un poeta valdeorrés, republicano e galeguista. No ano 2022, a Real Academia Galega recoñéceo dedicándolle o <a href="https://academia.gal/letras-galegas/2022/florencio-delgado-gurriaran">Día das Letras Galegas</a> colocando a Florencio e Valdeorras no lugar que lle corresponde no relato cultural do País.</p>'
+comillas: "Miña noiva, miña terra:<br>Á beira do Sil deitada,<br>para ollar a túa beleza<br>do mesmo xeito que a Venus do<br>espello, nel se contempla."
+fundacion_presentacion: "Obxectivos: poñer en valor a figura e obra de Florencio, aproveitando a súa proxección para dinamizar a cultura e lingua en Valdeorras. Idioma, historia, territorio, natureza, gastronomía e creación artística."
+proxectos:
+  - fecha: 2019-2024
+    titulo: Premio de Poesía FDG
+    subtitulo: V EDICIÓN
+    cuerpo: "Damos continuidade, cunha <b>nova edición</b> neste 2024, ao Premio de Poesía Florencio Delgado Gurriarán que se ven celebrando dende 2019."
+  - fecha: 2016-2024
+    titulo: Xornadas
+    subtitulo: LINGUA, LITERATURA, HISTORIA
+    cuerpo: "Ciclo de conferencias dedicado a Florencio e a cultura galega das que tamén recollemos o testigo e que terán continuidade a partires deste 2024."
+  - fecha: 2024-2025
+    titulo: Fala valdeorresa
+    subtitulo: DICCIONARIO COLABORATIVO
+    cuerpo: "Proxecto en desenvolvemento para elaborar un glosario do galego de Valdeorras coa axuda de expertos e a participación de centros educativos e veciñanza."
+  - fecha: 2022 e 2025
+    titulo: Residencias poéticas
+    subtitulo: ENCONTRO DE CREADORES
+    cuerpo: "No 2025 recuperaremos o encontro de poetas celebrado nas Letras Galegas de 2022 convertendo a Valdeorras na capital lírica galega."
 ---

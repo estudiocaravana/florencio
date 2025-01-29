@@ -22,6 +22,9 @@ p {
 p > a {
   @apply underline underline-offset-4;
 }
+a.boton {
+  @apply rounded-full h-14 flex items-center px-12 text-white;
+}
 
 @theme {
   --font-serif: "Sorts Mill Goudy", "serif";
