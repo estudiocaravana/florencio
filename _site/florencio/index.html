@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="/assets/fonts/bundle.css" />
     <link rel="stylesheet" href="/assets/css/tailwind.css" />
+    <script src="/assets/alpine.js" defer></script>
     <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
     <meta name="generator" content="11ty" />
     <!-- META -->
@@ -18,14 +19,67 @@
     <meta property="og:description" content="Un poeta valdeorrés, republicano e galeguista. No ano 2022, a Real Academia Galega recoñéceo dedicándolle o Día das letras Galegas colocando a Florencio e Valdeorras no lugar que lle corresponde no relato cultural do País." />
   </head>
   <body>
-    <div class="caixa">
+    <div class="max-w-[2400px] mx-auto"><div x-data="{menu : false}">
+  <!-- movil -->
+  <div class="caixa xl:hidden">
+    <div class="flex justify-between items-center py-6">
+      <div>
+        <a href="/">
+          <img class="w-20" src="/assets/img/logo.webp" alt="" />
+        </a>
+      </div>
+      <div class="sticky top-0">
+        <button class="w-12 h-9 border-y-2 border-texto" @click="menu = true" aria-label="Abrir o menú">
+          <div class="border-t-2 border-texto"></div>
+        </button>
+      </div>
+    </div>
+    <hr />
+  </div>
+  <!-- sidebar -->
+  <div
+    class="fixed top-0 right-0 w-full h-full sm:w-md lg:w-1/2 bg-texto text-white z-20"
+    x-cloak
+    x-show="menu"
+    @click.outside="menu = false"
+    x-transition:enter-start="translate-x-1/2 opacity-0"
+    x-transition:enter-end="translate-x-0 opacity-100"
+    x-transition:leave-start="translate-x-0 opacity-100"
+    x-transition:leave-end="translate-x-1/2 opacity-0"
+    x-transition:enter="transition ease-out duration-500"
+    x-transition:leave="transition ease-in duration-500"
+  >
+    <div>
+      <button class="w-12 h-9 mx-9 my-12 ml-auto block border-y-2 border-white" @click="menu = false" aria-label="Abrir o menú">
+        <div class="border-t-2 border-white"></div>
+      </button>
+    </div>
+    <ul class="pb-9 text-3xl block ml-12 font-serif space-y-4">
+      <li>
+        <a href="/" class="text-verde font-bold"> Inicio </a>
+      </li>
+      <li><a href="/florencio">Florencio</a></li>
+      <li><a href="#">A Fundación</a></li>
+      <li><a href="#">Premio de poesía</a></li>
+      <li><a href="#">Novidades</a></li>
+      <li><a href="#">Diccionario</a></li>
+      <br />
+      <hr class="w-12" />
+      <br />
+      <li><a href="#">Contacto</a></li>
+      <li><a href="#">Textos legales</a></li>
+    </ul>
+  </div>
+</div>
+<!-- grandes -->
+<div class="caixa hidden xl:block">
   <div class="flex justify-between items-center">
     <div>
       <ul class="flex gap-9 py-9 items-center">
         <li>
-          <a href="#" class="text-verde font-bold"> Inicio </a>
+          <a href="/" class="text-verde font-bold"> Inicio </a>
         </li>
-        <li><a href="#">Florencio</a></li>
+        <li><a href="/florencio">Florencio</a></li>
         <li><a href="#">A Fundación</a></li>
         <li><a href="#">Premio de poesía</a></li>
         <li><a href="#">Novidades</a></li>
@@ -92,6 +146,29 @@
   </div>
   <hr />
 </div>
-
+ <footer class="caixa mt-36">
+  <hr />
+  <div class="py-20 flex flex-col gap-12 xl:flex-row xl:justify-between 2xl:gap-20 max-w-sm xl:max-w-6xl mx-auto">
+    <div class="pb-6 xl:pb-0"><img class="h-32" src="/assets/img/logo_completo.webp" alt="" /></div>
+    <div>
+      <span class="block text-gray-400">Dirección</span>
+      Rúa San Roque 8<br />O Barco de Valdeorras
+      <a href="https://maps.app.goo.gl/6zkQmYFnaqYMoP6R7" target="_blank">Google maps</a>
+    </div>
+    <div>
+      <span class="block text-gray-400">Redes sociais</span>
+      <a href="https://www.instagram.com/fundacionfdg/" target="_blank">instagram.com<span class="text-gray-400">/fundacionfdg</span></a>
+      <a href="https://www.facebook.com/FundacionFlorencioDG" target="_blank">facebook.com<span class="text-gray-400">/FundacionFlorencioDG</span></a>
+      <a href="https://x.com/asletrasdeFDG" target="_blank">x.com<span class="text-gray-400">/asletrasdeFDG</span></a>
+    </div>
+  </div>
+  <div class="xl:pt-6 pb-20 max-w-sm mx-auto">
+    <div class="ml-auto xl:text-center">
+      <a class="boton bg-verde inline-block w-fit mb-8 xl:mx-auto" href="/florencio">Contacta con nós <span class="ml-3 inline-block">></span></a>
+      <a href="mailto:fundación@florenciodelgadogurriaran.gal">fundación@florenciodelgadogurriaran.gal</a>
+    </div>
+  </div>
+</footer>
+</div>
   </body>
 </html>

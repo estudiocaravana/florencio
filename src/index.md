@@ -25,4 +25,24 @@ proxectos:
     titulo: Residencias poéticas
     subtitulo: ENCONTRO DE CREADORES
     cuerpo: "No 2025 recuperaremos o encontro de poetas celebrado nas Letras Galegas de 2022 convertendo a Valdeorras na capital lírica galega."
+apoios: "A Fundación FDG é a primeira institución cultural comarcal creada en Valdeorras. Ademais dos membros do padroado, conta co apoio de diferentes institucións e empresas coas que está a asinar convenios de colaboración."
+logos:
+  - tit: arua
+    alt: Concello A Rúa
+  - tit: iev
+    alt: Concello A Rúa
+  - tit: larouco
+    alt: Concello A Rúa
+  - tit: obolo
+    alt: Concello A Rúa
+  - tit: petin
+    alt: Concello A Rúa
+  - tit: rubia
+    alt: Concello A Rúa
+  - tit: vilamartin
+    alt: Concello de Vilamartín
+  - tit: xunta
+    alt: Xunta de Galicia
+  - tit: obarco
+    alt: O Barco de Valdeorras
 ---

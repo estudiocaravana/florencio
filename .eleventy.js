@@ -9,6 +9,9 @@ module.exports = async function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets/fonts");
   eleventyConfig.addPassthroughCopy("src/assets/img");
   eleventyConfig.addPassthroughCopy("src/media");
+  eleventyConfig.addPassthroughCopy({
+    "node_modules/alpinejs/dist/cdn.min.js": "/assets/alpine.js",
+  });
   return {
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",

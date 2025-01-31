@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+[x-cloak] {
+  display: none !important;
+}
 html {
   @apply scroll-smooth antialiased;
 }
@@ -10,11 +13,14 @@ body {
   @apply mx-auto px-6 sm:px-12 xl:px-20 relative;
 }
 .dupla {
-  @apply flex flex-col xl:flex-row items-center *:flex-1;
+  @apply flex flex-col xl:flex-row xl:items-center *:flex-1;
 }
 h1,
 h2 {
   @apply font-serif block;
+}
+a {
+  @apply transition-all duration-300;
 }
 p {
   @apply mt-6;
@@ -23,7 +29,13 @@ p > a {
   @apply underline underline-offset-4;
 }
 a.boton {
-  @apply rounded-full h-14 flex items-center px-12 text-white;
+  @apply rounded-full h-14 flex items-center px-12 text-white shadow-md shadow-texto/20 hover:shadow-none no-underline;
+}
+footer a {
+  @apply block underline underline-offset-4;
+}
+button {
+  @apply cursor-pointer;
 }
 
 @theme {

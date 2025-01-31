@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="/assets/fonts/bundle.css" />
     <link rel="stylesheet" href="/assets/css/tailwind.css" />
+    <script src="/assets/alpine.js" defer></script>
     <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
     <meta name="generator" content="11ty" />
     <!-- META -->
@@ -18,14 +19,67 @@
     <meta property="og:description" content="Unha institución creada para poñer en valor o legado do poeta FDG e mais dinamizar a lingua e a cultura de Valdeorras." />
   </head>
   <body>
-    <div class="caixa">
+    <div class="max-w-[2400px] mx-auto"><div x-data="{menu : false}">
+  <!-- movil -->
+  <div class="caixa xl:hidden">
+    <div class="flex justify-between items-center py-6">
+      <div>
+        <a href="/">
+          <img class="w-20" src="/assets/img/logo.webp" alt="" />
+        </a>
+      </div>
+      <div class="sticky top-0">
+        <button class="w-12 h-9 border-y-2 border-texto" @click="menu = true" aria-label="Abrir o menú">
+          <div class="border-t-2 border-texto"></div>
+        </button>
+      </div>
+    </div>
+    <hr />
+  </div>
+  <!-- sidebar -->
+  <div
+    class="fixed top-0 right-0 w-full h-full sm:w-md lg:w-1/2 bg-texto text-white z-20"
+    x-cloak
+    x-show="menu"
+    @click.outside="menu = false"
+    x-transition:enter-start="translate-x-1/2 opacity-0"
+    x-transition:enter-end="translate-x-0 opacity-100"
+    x-transition:leave-start="translate-x-0 opacity-100"
+    x-transition:leave-end="translate-x-1/2 opacity-0"
+    x-transition:enter="transition ease-out duration-500"
+    x-transition:leave="transition ease-in duration-500"
+  >
+    <div>
+      <button class="w-12 h-9 mx-9 my-12 ml-auto block border-y-2 border-white" @click="menu = false" aria-label="Abrir o menú">
+        <div class="border-t-2 border-white"></div>
+      </button>
+    </div>
+    <ul class="pb-9 text-3xl block ml-12 font-serif space-y-4">
+      <li>
+        <a href="/" class="text-verde font-bold"> Inicio </a>
+      </li>
+      <li><a href="/florencio">Florencio</a></li>
+      <li><a href="#">A Fundación</a></li>
+      <li><a href="#">Premio de poesía</a></li>
+      <li><a href="#">Novidades</a></li>
+      <li><a href="#">Diccionario</a></li>
+      <br />
+      <hr class="w-12" />
+      <br />
+      <li><a href="#">Contacto</a></li>
+      <li><a href="#">Textos legales</a></li>
+    </ul>
+  </div>
+</div>
+<!-- grandes -->
+<div class="caixa hidden xl:block">
   <div class="flex justify-between items-center">
     <div>
       <ul class="flex gap-9 py-9 items-center">
         <li>
-          <a href="#" class="text-verde font-bold"> Inicio </a>
+          <a href="/" class="text-verde font-bold"> Inicio </a>
         </li>
-        <li><a href="#">Florencio</a></li>
+        <li><a href="/florencio">Florencio</a></li>
         <li><a href="#">A Fundación</a></li>
         <li><a href="#">Premio de poesía</a></li>
         <li><a href="#">Novidades</a></li>
@@ -54,7 +108,7 @@
       </div>
     </div>
     <div>
-      <img src="/media/florencio_cuadrado.jpg" alt="Manuscrito Florencio Delgado Gurriarán" />
+      <img src="/media/florencio.webp" alt="Manuscrito Florencio Delgado Gurriarán" />
     </div>
   </div>
   <hr />
@@ -62,73 +116,146 @@
 <!-- banda oculta en grandes -->
 <div class="caixa 2xl:hidden">
   <div class="flex gap-12 my-12 w-fit mx-auto">
-    <div><img class="w-28" src="/assets/img/logo.webp" alt="" /></div>
+    <div class="hidden md:block"><img class="w-28" src="/assets/img/logo.webp" alt="" /></div>
     <div class="max-w-xs">Unha institución para poñer en valor o legado do poeta FDG e dinamizar a lingua e a cultura de Valdeorras.</div>
   </div>
   <hr />
 </div>
 <!-- Florencio -->
-<div class="caixa max-w-screen-xl mx-auto py-24">
-  <div class="dupla !items-end gap-0 mx-auto">
-    <div>
-      <div class="text-2xl sm:text-3xl font-serif flex gap-6 max-w-2xl">
-        <div class="text-7xl">&ldquo;</div>
-        <div class="inline-block leading-snug">Miña noiva, miña terra:<br>Á beira do Sil deitada,<br>para ollar a túa beleza<br>do mesmo xeito que a Venus do<br>espello, nel se contempla.</div>
-      </div>
+<div class="caixa max-w-screen-xl mx-auto py-12 md:py-24 w-fit">
+  <div class="dupla xl:!items-end gap-12 xl:gap-0 mx-auto">
+    <div class="text-2xl sm:text-3xl font-serif flex gap-6 max-w-xl">
+      <div class="text-7xl">&ldquo;</div>
+      <div class="inline-block leading-snug">Miña noiva, miña terra:<br>Á beira do Sil deitada,<br>para ollar a túa beleza<br>do mesmo xeito que a Venus do<br>espello, nel se contempla.</div>
     </div>
-    <div>
-      <div class="max-w-lg">
-        <h2 class="font-bold text-3xl mb-3 mt-2">Florencio</h2>
-        <p>Un poeta valdeorrés, republicano e galeguista. No ano 2022, a Real Academia Galega recoñéceo dedicándolle o <a href="https://academia.gal/letras-galegas/2022/florencio-delgado-gurriaran">Día das Letras Galegas</a> colocando a Florencio e Valdeorras no lugar que lle corresponde no relato cultural do País.</p>
-      </div>
+    <div class="max-w-lg">
+      <h2 class="font-bold text-3xl mb-3 mt-2">Florencio</h2>
+      <p>Un poeta valdeorrés, republicano e galeguista. No ano 2022, a Real Academia Galega recoñéceo dedicándolle o <a href="https://academia.gal/letras-galegas/2022/florencio-delgado-gurriaran">Día das Letras Galegas</a> colocando a Florencio e Valdeorras no lugar que lle corresponde no relato cultural do País.</p>
     </div>
   </div>
-  <div class="mt-20">
+  <div class="mt-24">
     <a class="boton bg-texto inline-block w-fit mx-auto" href="/florencio">Todo sobre Florencio <span class="ml-3 inline-block">></span></a>
   </div>
 </div>
 <div class="caixa my-20">
-  <div class="caixa py-36 bg-verde text-white">
+  <div class="caixa py-36 bg-verde text-white overflow-hidden">
+    <div class="absolute bottom-0 right-0 w-5xl">
+      <img src="/assets/img/xente_dos.webp" alt="" />
+    </div>
+    <div class="absolute right-6 left-auto xl:left-1/2 -top-16 w-60 -translate-x-1/2 2xl:-top-24 2xl:left-36 2xl:w-96 opacity-20">
+      <img src="/assets/img/logo_branco.webp" alt="" />
+    </div>
     <!-- presentación -->
-    <div class="max-w-screen-xl mx-auto 2xl:px-20">
-      <div class="grid grid-cols-3">
+    <div class="max-w-screen-xl mx-auto 2xl:px-20 relative">
+      <div class="md:grid md:grid-cols-2 xl:grid-cols-3 gap-x-12 gap-y-24">
         <div class="col-span-2">
           <h2 class="text-6xl mb-6">A Fundación</h2>
-          Obxectivos: poñer en valor a figura e obra de Florencio, aproveitando a súa proxección para dinamizar a cultura e lingua en Valdeorras. Idioma, historia, territorio, natureza, gastronomía e creación artística.
+          <div class="max-w-xl">Obxectivos: poñer en valor a figura e obra de Florencio, aproveitando a súa proxección para dinamizar a cultura e lingua en Valdeorras. Idioma, historia, territorio, natureza, gastronomía e creación artística.</div>
         </div>
         
-        <div>
+        <div class="mt-12 md:mt-0">
           <span>2019-2024</span>
           <h3 class="font-bold text-2xl">Premio de Poesía FDG</h3>
-          <span>V EDICIÓN</span>
+          <span class="block text-sm mb-3">V EDICIÓN</span>
           Damos continuidade, cunha <b>nova edición</b> neste 2024, ao Premio de Poesía Florencio Delgado Gurriarán que se ven celebrando dende 2019.
         </div>
         
-        <div>
+        <div class="mt-12 md:mt-0">
           <span>2016-2024</span>
           <h3 class="font-bold text-2xl">Xornadas</h3>
-          <span>LINGUA, LITERATURA, HISTORIA</span>
+          <span class="block text-sm mb-3">LINGUA, LITERATURA, HISTORIA</span>
           Ciclo de conferencias dedicado a Florencio e a cultura galega das que tamén recollemos o testigo e que terán continuidade a partires deste 2024.
         </div>
         
-        <div>
+        <div class="mt-12 md:mt-0">
           <span>2024-2025</span>
           <h3 class="font-bold text-2xl">Fala valdeorresa</h3>
-          <span>DICCIONARIO COLABORATIVO</span>
+          <span class="block text-sm mb-3">DICCIONARIO COLABORATIVO</span>
           Proxecto en desenvolvemento para elaborar un glosario do galego de Valdeorras coa axuda de expertos e a participación de centros educativos e veciñanza.
         </div>
         
-        <div>
+        <div class="mt-12 md:mt-0">
           <span>2022 e 2025</span>
           <h3 class="font-bold text-2xl">Residencias poéticas</h3>
-          <span>ENCONTRO DE CREADORES</span>
+          <span class="block text-sm mb-3">ENCONTRO DE CREADORES</span>
           No 2025 recuperaremos o encontro de poetas celebrado nas Letras Galegas de 2022 convertendo a Valdeorras na capital lírica galega.
         </div>
         
       </div>
     </div>
+    <div class="mt-60 2xl:mt-36 relative">
+      <a class="boton bg-white !text-texto inline-block w-fit mx-auto" href="/florencio">A Fundación <span class="ml-3 inline-block">></span></a>
+    </div>
   </div>
 </div>
- 
+ <div class="caixa max-w-4xl py-36 text-center">
+  <div class="max-w-lg mx-auto mb-12">
+    <h3 class="text-3xl font-bold mb-3">Apoios</h3>
+    A Fundación FDG é a primeira institución cultural comarcal creada en Valdeorras. Ademais dos membros do padroado, conta co apoio de diferentes institucións e empresas coas que está a asinar convenios de colaboración.
+  </div>
+  <div class="grid grid-cols-2 md:grid-cols-3 border-t border-l border-texto">
+    
+    <div class="p-6 border-b border-r border-texto">
+      <img src="/assets/img/logos/arua.webp" alt="Logo Concello A Rúa" />
+    </div>
+    
+    <div class="p-6 border-b border-r border-texto">
+      <img src="/assets/img/logos/iev.webp" alt="Logo Concello A Rúa" />
+    </div>
+    
+    <div class="p-6 border-b border-r border-texto">
+      <img src="/assets/img/logos/larouco.webp" alt="Logo Concello A Rúa" />
+    </div>
+    
+    <div class="p-6 border-b border-r border-texto">
+      <img src="/assets/img/logos/obolo.webp" alt="Logo Concello A Rúa" />
+    </div>
+    
+    <div class="p-6 border-b border-r border-texto">
+      <img src="/assets/img/logos/petin.webp" alt="Logo Concello A Rúa" />
+    </div>
+    
+    <div class="p-6 border-b border-r border-texto">
+      <img src="/assets/img/logos/rubia.webp" alt="Logo Concello A Rúa" />
+    </div>
+    
+    <div class="p-6 border-b border-r border-texto">
+      <img src="/assets/img/logos/vilamartin.webp" alt="Logo Concello de Vilamartín" />
+    </div>
+    
+    <div class="p-6 border-b border-r border-texto">
+      <img src="/assets/img/logos/xunta.webp" alt="Logo Xunta de Galicia" />
+    </div>
+    
+    <div class="p-6 border-b border-r border-texto">
+      <img src="/assets/img/logos/obarco.webp" alt="Logo O Barco de Valdeorras" />
+    </div>
+    
+  </div>
+</div>
+  <footer class="caixa mt-36">
+  <hr />
+  <div class="py-20 flex flex-col gap-12 xl:flex-row xl:justify-between 2xl:gap-20 max-w-sm xl:max-w-6xl mx-auto">
+    <div class="pb-6 xl:pb-0"><img class="h-32" src="/assets/img/logo_completo.webp" alt="" /></div>
+    <div>
+      <span class="block text-gray-400">Dirección</span>
+      Rúa San Roque 8<br />O Barco de Valdeorras
+      <a href="https://maps.app.goo.gl/6zkQmYFnaqYMoP6R7" target="_blank">Google maps</a>
+    </div>
+    <div>
+      <span class="block text-gray-400">Redes sociais</span>
+      <a href="https://www.instagram.com/fundacionfdg/" target="_blank">instagram.com<span class="text-gray-400">/fundacionfdg</span></a>
+      <a href="https://www.facebook.com/FundacionFlorencioDG" target="_blank">facebook.com<span class="text-gray-400">/FundacionFlorencioDG</span></a>
+      <a href="https://x.com/asletrasdeFDG" target="_blank">x.com<span class="text-gray-400">/asletrasdeFDG</span></a>
+    </div>
+  </div>
+  <div class="xl:pt-6 pb-20 max-w-sm mx-auto">
+    <div class="ml-auto xl:text-center">
+      <a class="boton bg-verde inline-block w-fit mb-8 xl:mx-auto" href="/florencio">Contacta con nós <span class="ml-3 inline-block">></span></a>
+      <a href="mailto:fundación@florenciodelgadogurriaran.gal">fundación@florenciodelgadogurriaran.gal</a>
+    </div>
+  </div>
+</footer>
+</div>
   </body>
 </html>
