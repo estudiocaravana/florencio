@@ -1,33 +1,10 @@
 {% extends "./base.html" %} {% block content %}
-<!-- Hero -->
-<div class="caixa">
-  <div class="dupla">
-    <div>
-      <div class="mx-auto w-fit">
-        <span class="text-xl 2xl:text-2xl">{{ pretitular }}</span>
-        <h1 class="text-7xl 2xl:text-8xl max-w-lg mt-4 2xl:mt-6">{{ titular }}</h1>
-        <div class="gap-12 mt-9 hidden 2xl:flex">
-          <div><img class="w-28" src="/assets/img/logo.webp" alt="" /></div>
-          <div class="max-w-xs">{{ destacado }}</div>
-        </div>
-      </div>
-    </div>
-    <div>
-      <img src="/media/florencio_cuadrado.jpg" alt="Manuscrito {{ titular }}" />
-    </div>
-  </div>
-  <hr />
-</div>
-<!-- banda oculta en grandes -->
-<div class="caixa 2xl:hidden">
-  <div class="flex gap-12 my-12 w-fit mx-auto">
-    <div><img class="w-28" src="/assets/img/logo.webp" alt="" /></div>
-    <div class="max-w-xs">{{ destacado }}</div>
-  </div>
-  <hr />
+<!-- Header -->
+<div class="caixa max-w-screen-xl mx-auto pt-20">
+  <h1 class="text-7xl sm:text-9xl">{{ title }}</h1>
 </div>
 <!-- Florencio -->
-<div class="caixa max-w-screen-xl mx-auto py-20">
+<div class="caixa max-w-screen-xl mx-auto py-12">
   <div class="dupla !items-start gap-20">
     <div>{{ p_uno | safe }}</div>
     <div>
@@ -38,13 +15,11 @@
       {{ p_dos | safe }}
     </div>
   </div>
-  <div class="">
-    <a class="boton bg-texto inline-block w-fit mx-auto" href="/florencio">Todo sobre Florencio</a>
-  </div>
 </div>
 <!-- Fechas -->
-<div class="caixa hidden">
-  <div class="overflow-x-scroll">
+<div class="caixa py-20">
+  <hr />
+  <div>
     <div class="grid lg:grid-cols-4 2xl:grid-cols-6 gap-12 my-20">
       {%- for item in fechas -%}
       <div class="flex-1"><span class="block text-2xl font-bold pb-1">{{ item.fecha }}</span> {{ item.evento }}</div>
@@ -53,4 +28,11 @@
   </div>
   <hr />
 </div>
-{% endblock %}
+<!-- Recursos -->
+{%- for recurso in collections.recurso -%}
+<div class="caixa max-w-screen-xl mx-auto pt-36">
+  <span class="mb-3 block">Recurso</span>
+  <h2 class="text-4xl md:text-5xl max-w-2xl !font-sans font-semibold">{{ recurso.data.title }}</h2>
+  <div class="content max-w-3xl mx-auto mt-20">{{ recurso.content | safe }}</div>
+</div>
+{%- endfor -%} {% endblock %}

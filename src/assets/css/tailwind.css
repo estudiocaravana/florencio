@@ -37,6 +37,21 @@ footer a {
 button {
   @apply cursor-pointer;
 }
+.content h2 {
+  @apply text-3xl mt-12 font-bold font-sans;
+}
+.content h3 {
+  @apply text-2xl mt-12 font-bold font-sans;
+}
+.content ul {
+  @apply list-disc list-inside mt-9 sm:ml-9;
+}
+.content img {
+  @apply mt-12 mb-6 shadow-md shadow-texto/20 p-6 bg-verde;
+}
+iframe {
+  @apply shadow-md shadow-texto/20 p-6 bg-verde mt-12 aspect-video w-full;
+}
 
 @theme {
   --font-serif: "Sorts Mill Goudy", "serif";
