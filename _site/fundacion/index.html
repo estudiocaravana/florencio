@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="/assets/fonts/bundle.css" />
+    <link rel="stylesheet" href="/assets/css/tailwind.css" />
+    <script src="/assets/alpine.js" defer></script>
+    <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
+    <meta name="generator" content="11ty" />
+    <!-- META -->
+    <title>A Fundación | Fundación Florencio Delgado Gurriarán</title>
+    <meta name="description" content="" />
+    <!-- Open Graph data -->
+    <meta property="og:title" content="A Fundación" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="url" />
+    <meta property="og:image" content="/assets/img/ogg.webp" />
+    <meta property="og:description" content="" />
+  </head>
+  <body>
+    <div class="max-w-[2400px] mx-auto"><div x-data="{menu : false}">
+  <!-- movil -->
+  <div class="caixa xl:hidden">
+    <div class="flex justify-between items-center py-6">
+      <div>
+        <a href="/">
+          <img class="w-20" src="/assets/img/logo.webp" alt="" />
+        </a>
+      </div>
+      <div class="sticky top-0">
+        <button class="w-12 h-9 border-y-2 border-texto" @click="menu = true" aria-label="Abrir o menú">
+          <div class="border-t-2 border-texto"></div>
+        </button>
+      </div>
+    </div>
+    <hr />
+  </div>
+  <!-- sidebar -->
+  <div
+    class="fixed top-0 right-0 w-full h-full sm:w-md lg:w-1/2 bg-texto text-white z-20"
+    x-cloak
+    x-show="menu"
+    @click.outside="menu = false"
+    x-transition:enter-start="translate-x-1/2 opacity-0"
+    x-transition:enter-end="translate-x-0 opacity-100"
+    x-transition:leave-start="translate-x-0 opacity-100"
+    x-transition:leave-end="translate-x-1/2 opacity-0"
+    x-transition:enter="transition ease-out duration-500"
+    x-transition:leave="transition ease-in duration-500"
+  >
+    <div>
+      <button class="w-12 h-9 mx-9 my-12 ml-auto block border-y-2 border-white" @click="menu = false" aria-label="Abrir o menú">
+        <div class="border-t-2 border-white"></div>
+      </button>
+    </div>
+    <ul class="pb-9 text-3xl block ml-12 font-serif space-y-4">
+      <li>
+        <a href="/" class="text-verde font-bold"> Inicio </a>
+      </li>
+      <li><a href="/florencio">Florencio</a></li>
+      <li><a href="/fundacion">A Fundación</a></li>
+      <li><a href="#">Premio de poesía</a></li>
+      <li><a href="#">Novidades</a></li>
+      <li><a href="#">Diccionario</a></li>
+      <br />
+      <hr class="w-12" />
+      <br />
+      <li><a href="#">Contacto</a></li>
+      <li><a href="#">Textos legales</a></li>
+    </ul>
+  </div>
+</div>
+<!-- grandes -->
+<div class="caixa hidden xl:block">
+  <div class="flex justify-between items-center">
+    <div>
+      <ul class="flex gap-9 py-9 items-center">
+        <li>
+          <a href="/" class="text-verde font-bold"> Inicio </a>
+        </li>
+        <li><a href="/florencio">Florencio</a></li>
+        <li><a href="/fundacion">A Fundación</a></li>
+        <li><a href="#">Premio de poesía</a></li>
+        <li><a href="#">Novidades</a></li>
+      </ul>
+    </div>
+    <div>
+      <ul>
+        <li><a class="boton bg-verde" href="#">Diccionario valdeorrés</a></li>
+      </ul>
+    </div>
+  </div>
+  <hr />
+</div>
+ 
+<!-- Header -->
+<div class="caixa max-w-screen-xl mx-auto pt-20">
+  <h1 class="text-7xl sm:text-9xl">A Fundación</h1>
+</div>
+<div class="caixa max-w-screen-xl mx-auto pt-12">
+  <div class="content"><p>Esta institución é froito da iniciativa das administracións, asociacións e persoas implicadas dende hai décadas na recuperación da memoria de Florencio Delgado Gurriarán, e que no 2022 viron cumprido o obxectivo de que a Real Academia Galega lle dedicase o Día das Letras Galegas. Ese proxecto, coñecido como As Letras de Florencio, será agora continuado pola Fundación.</p>
+<p>Os seus obxectivos son continuar poñendo en valor a figura e obra de Florencio, aproveitando a súa proxección para dinamizar a cultura e lingua en Valdeorras. Idioma, historia, territorio, natureza, gastronomía, creación artística... Nos versos de Florencio tiñan cabida moitos elementos que identifican a Valdeorras e sobre eles traballará a Fundación, coa poesía como principal eixo vertebrador.</p>
+<p><img src="/media/padroado.jpg" alt="Portada"></p>
+</div>
+</div>
+<div class="caixa max-w-screen-xl mx-auto pt-20">
+  <h2 class="font-bold !font-sans text-5xl mb-20">Padroado</h2>
+  <div class="md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:gap-12"><div class="min-h-20 xl:min-h-24">
+      <strong class="block">Maruxa Delgado</strong>
+      Presidenta e patroa electa
+    </div><div class="min-h-20 xl:min-h-24">
+      <strong class="block">Emilio Vega</strong>
+      Vicepresidente e patrón electo
+    </div><div class="min-h-20 xl:min-h-24">
+      <strong class="block">Elva Delgado</strong>
+      Secretaria e patroa electa
+    </div><div class="min-h-20 xl:min-h-24">
+      <strong class="block">Celia Delgado</strong>
+      Patroa electa
+    </div><div class="min-h-20 xl:min-h-24">
+      <strong class="block">Miguel Bautista</strong>
+      Patrón electo
+    </div><div class="min-h-20 xl:min-h-24">
+      <strong class="block">Lucio Santalla</strong>
+      Patrón electo
+    </div><div class="min-h-20 xl:min-h-24">
+      <strong class="block">Anxo Baranga</strong>
+      Patrón electo
+    </div><div class="min-h-20 xl:min-h-24">
+      <strong class="block">Camilo Valdehorras</strong>
+      Patrón electo
+    </div><div class="min-h-20 xl:min-h-24">
+      <strong class="block">Ángel Fernández</strong>
+      Patrón electo
+    </div><div class="min-h-20 xl:min-h-24">
+      <strong class="block">Aurelio Trincado</strong>
+      Patrón electo
+    </div></div>
+
+  <h2 class="font-bold !font-sans text-5xl my-20">Apoian</h2>
+  <div class="md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12"><div class="min-h-20 xl:min-h-24">
+      <strong class="block">Concello Vilamartín</strong>
+      Representanción: Enrique Álvarez Barreiro
+    </div><div class="min-h-20 xl:min-h-24">
+      <strong class="block">Concello O Barco</strong>
+      Representanción: Margarida Pizcueta
+    </div><div class="min-h-20 xl:min-h-24">
+      <strong class="block">Concello Petín</strong>
+      Representanción: Raquel Bautista
+    </div><div class="min-h-20 xl:min-h-24">
+      <strong class="block">Concello A Rúa</strong>
+      Representanción: Luis Gudiña
+    </div><div class="min-h-20 xl:min-h-24">
+      <strong class="block">Concello Larouco</strong>
+      Representanción: Patricia Lamela
+    </div><div class="min-h-20 xl:min-h-24">
+      <strong class="block">Concello O Bolo</strong>
+      Representanción: Alberto Vázquez
+    </div><div class="min-h-20 xl:min-h-24">
+      <strong class="block">Instituto de Estudios Valdeorreses</strong>
+      Representanción: Aurelio Trincado
+    </div><div class="min-h-20 xl:min-h-24">
+      <strong class="block">Deputación de Ourense</strong>
+      Representanción: Luis Menor
+    </div><div class="min-h-20 xl:min-h-24">
+      <strong class="block">Xunta de Galicia</strong>
+      Representanción: Valentín García, Director Xeral de Política Lingüística
+    </div></div>
+</div>
+ <footer class="caixa mt-36">
+  <hr />
+  <div class="py-20 flex flex-col gap-12 xl:flex-row xl:justify-between 2xl:gap-20 max-w-sm xl:max-w-6xl mx-auto">
+    <div class="pb-6 xl:pb-0"><img class="h-32" src="/assets/img/logo_completo.webp" alt="" /></div>
+    <div>
+      <span class="block text-gray-400">Dirección</span>
+      Rúa San Roque 8<br />O Barco de Valdeorras
+      <a href="https://maps.app.goo.gl/6zkQmYFnaqYMoP6R7" target="_blank">Google maps</a>
+    </div>
+    <div>
+      <span class="block text-gray-400">Redes sociais</span>
+      <a href="https://www.instagram.com/fundacionfdg/" target="_blank">instagram.com<span class="text-gray-400">/fundacionfdg</span></a>
+      <a href="https://www.facebook.com/FundacionFlorencioDG" target="_blank">facebook.com<span class="text-gray-400">/FundacionFlorencioDG</span></a>
+      <a href="https://x.com/asletrasdeFDG" target="_blank">x.com<span class="text-gray-400">/asletrasdeFDG</span></a>
+    </div>
+  </div>
+  <div class="xl:pt-6 pb-20 max-w-sm mx-auto">
+    <div class="ml-auto xl:text-center">
+      <a class="boton bg-verde inline-block w-fit mb-8 xl:mx-auto" href="/florencio">Contacta con nós <span class="ml-3 inline-block">></span></a>
+      <a href="mailto:fundación@florenciodelgadogurriaran.gal">fundación@florenciodelgadogurriaran.gal</a>
+    </div>
+  </div>
+  <div class="flex items center justify-between pb-12">
+    <div>
+      <a href="/legal">Aviso Legal</a>
+    </div>
+    <div>
+      <button x-data="{}" @click="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Ir arriba">Ir arriba</button>
+    </div>
+  </div>
+</footer>
+</div>
+  </body>
+</html>

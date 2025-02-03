@@ -33,6 +33,15 @@
 <div class="caixa max-w-screen-xl mx-auto pt-36">
   <span class="mb-3 block">Recurso</span>
   <h2 class="text-4xl md:text-5xl max-w-2xl !font-sans font-semibold">{{ recurso.data.title }}</h2>
+  <div class="mt-4 lg:flex lg:gap-6">
+    <div>Ano: <strong>{{ recurso.data.ano }}</strong></div>
+    <div>Autor: <strong>{{ recurso.data.autor }}</strong></div>
+    {%- if recurso.data.editorial -%}
+    <div>Editorial: <strong>{{ recurso.data.editorial }}</strong></div>
+    {%- endif -%} {%- if recurso.data.producion -%}
+    <div>Producion: <strong>{{ recurso.data.producion }}</strong></div>
+    {%- endif -%}
+  </div>
   <div class="content max-w-3xl mx-auto mt-20">{{ recurso.content | safe }}</div>
 </div>
 {%- endfor -%} {% endblock %}
