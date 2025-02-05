@@ -19,6 +19,11 @@ module.exports = async function (eleventyConfig) {
       return a.data.order - b.data.order;
     });
   });
+  eleventyConfig.addCollection("premio", function (collections) {
+    return collections.getFilteredByTag("premio").sort(function (a, b) {
+      return a.data.order - b.data.order;
+    });
+  });
   return {
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",

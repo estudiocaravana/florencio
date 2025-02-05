@@ -1,0 +1,26 @@
+{% extends "./base.html" %} {% block content %}
+
+<!-- Header -->
+<div class="caixa max-w-screen-xl mx-auto pt-20">
+  <h1 class="text-7xl sm:text-9xl">{{ title }}</h1>
+  <div class="content max-w-4xl">{{ content | safe }}</div>
+</div>
+<div class="caixa max-w-screen-xl mx-auto pt-20">
+  <ul class="flex gap-12">
+    {%- for item in collections.premio -%}
+    <li>
+      <a href="#{{ item.data.ancla }}">{{ item.data.ancla }}</a>
+    </li>
+    {%- endfor -%}
+  </ul>
+</div>
+<!-- Recursos -->
+{%- for item in collections.premio -%}
+<div id="{{ item.data.ancla }}" class="caixa">
+  <hr />
+</div>
+<div class="caixa max-w-screen-xl mx-auto">
+  <h2 class="text-4xl md:text-5xl max-w-2xl !font-sans font-semibold leading-tight mt-12">{{ item.data.title }}</h2>
+  <div class="content max-w-3xl mx-auto mt-20">{{ item.content | safe }}</div>
+</div>
+{%- endfor -%} {% endblock %}

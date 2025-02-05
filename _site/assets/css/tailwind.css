@@ -560,6 +560,9 @@
   .left-auto {
     left: auto;
   }
+  .z-9 {
+    z-index: 9;
+  }
   .z-20 {
     z-index: 20;
   }
@@ -580,9 +583,6 @@
   }
   .mt-2 {
     margin-top: calc(var(--spacing) * 2);
-  }
-  .mt-3 {
-    margin-top: calc(var(--spacing) * 3);
   }
   .mt-4 {
     margin-top: calc(var(--spacing) * 4);
@@ -650,6 +650,9 @@
   .inline-block {
     display: inline-block;
   }
+  .h-8 {
+    height: calc(var(--spacing) * 8);
+  }
   .h-9 {
     height: calc(var(--spacing) * 9);
   }
@@ -658,9 +661,6 @@
   }
   .h-full {
     height: 100%;
-  }
-  .min-h-12 {
-    min-height: calc(var(--spacing) * 12);
   }
   .min-h-20 {
     min-height: calc(var(--spacing) * 20);
@@ -861,9 +861,6 @@
   .\!font-sans {
     font-family: var(--font-sans) !important;
   }
-  .font-sans {
-    font-family: var(--font-sans);
-  }
   .font-serif {
     font-family: var(--font-serif);
   }
@@ -970,12 +967,6 @@
       line-height: var(--tw-leading, var(--text-3xl--line-height));
     }
   }
-  .sm\:text-5xl {
-    @media (width >= 40rem) {
-      font-size: var(--text-5xl);
-      line-height: var(--tw-leading, var(--text-5xl--line-height));
-    }
-  }
   .sm\:text-6xl {
     @media (width >= 40rem) {
       font-size: var(--text-6xl);
@@ -1011,16 +1002,6 @@
   .md\:grid-cols-3 {
     @media (width >= 48rem) {
       grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-  }
-  .md\:gap-6 {
-    @media (width >= 48rem) {
-      gap: calc(var(--spacing) * 6);
-    }
-  }
-  .md\:gap-9 {
-    @media (width >= 48rem) {
-      gap: calc(var(--spacing) * 9);
     }
   }
   .md\:gap-12 {
@@ -1082,11 +1063,6 @@
   .xl\:hidden {
     @media (width >= 80rem) {
       display: none;
-    }
-  }
-  .xl\:min-h-12 {
-    @media (width >= 80rem) {
-      min-height: calc(var(--spacing) * 12);
     }
   }
   .xl\:min-h-24 {
@@ -1330,15 +1306,22 @@ button {
 }
 .content img {
   margin-top: calc(var(--spacing) * 12);
-  margin-bottom: calc(var(--spacing) * 6);
+  margin-bottom: calc(var(--spacing) * 9);
+  display: block;
   background-color: var(--color-verde);
   padding: calc(var(--spacing) * 6);
   --tw-shadow: 0 4px 6px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 2px 4px -2px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
   box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   --tw-shadow-color: color-mix(in oklab, var(--color-texto) 20%, transparent);
 }
+.content hr {
+  margin-top: calc(var(--spacing) * 12);
+  margin-bottom: calc(var(--spacing) * 12);
+  display: block;
+}
 iframe {
   margin-top: calc(var(--spacing) * 12);
+  margin-bottom: calc(var(--spacing) * 9);
   aspect-ratio: var(--aspect-video);
   width: 100%;
   background-color: var(--color-verde);

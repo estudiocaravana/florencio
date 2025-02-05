@@ -47,10 +47,13 @@ button {
   @apply list-disc list-inside mt-9 sm:ml-9;
 }
 .content img {
-  @apply mt-12 mb-6 shadow-md shadow-texto/20 p-6 bg-verde;
+  @apply block mt-12 mb-9 shadow-md shadow-texto/20 p-6 bg-verde;
+}
+.content hr {
+  @apply mt-12 mb-12 block;
 }
 iframe {
-  @apply shadow-md shadow-texto/20 p-6 bg-verde mt-12 aspect-video w-full;
+  @apply shadow-md shadow-texto/20 p-6 bg-verde mt-12 mb-9 aspect-video w-full;
 }
 
 @theme {
