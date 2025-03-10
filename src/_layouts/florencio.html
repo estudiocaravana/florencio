@@ -1,18 +1,15 @@
 {% extends "./base.html" %} {% block content %}
 <!-- Header -->
-<div class="caixa max-w-screen-xl mx-auto pt-20">
-  <h1 class="text-7xl sm:text-9xl">{{ title }}</h1>
+<div class="caixa max-w-screen-xl mx-auto py-20">
+  <h1 class="text-7xl sm:text-8xl text-center">{{ title }}</h1>
 </div>
 <!-- Florencio -->
-<div class="caixa max-w-screen-xl mx-auto py-12">
-  <div class="dupla !items-start gap-20">
-    <div>{{ p_uno | safe }}</div>
-    <div>
-      <div class="text-4xl font-serif flex gap-6 mt-6 mb-20">
-        <div class="text-7xl">&ldquo;</div>
-        <div class="inline-block leading-tight">{{ comillas | safe }}</div>
-      </div>
-      {{ p_dos | safe }}
+<div class="caixa max-w-screen-2xl columns-2 *:!mt-0 gap-20">{{ content | safe }}</div>
+<div class="caixa">
+  <div>
+    <div class="text-4xl font-serif flex gap-6 mt-6 mb-20">
+      <div class="text-7xl">&ldquo;</div>
+      <div class="inline-block leading-tight">{{ comillas | safe }}</div>
     </div>
   </div>
 </div>

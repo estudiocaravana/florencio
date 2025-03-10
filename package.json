@@ -16,6 +16,7 @@
   "description": "",
   "dependencies": {
     "@11ty/eleventy": "^3.0.0",
+    "@fontsource-variable/crimson-pro": "^5.2.5",
     "@fontsource-variable/rubik": "^5.1.1",
     "@fontsource/sorts-mill-goudy": "^5.1.1",
     "@tailwindcss/cli": "^4.0.0",

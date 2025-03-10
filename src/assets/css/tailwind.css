@@ -19,11 +19,14 @@ h1,
 h2 {
   @apply font-serif block;
 }
+hr {
+  @apply border-t-2;
+}
 a {
   @apply transition-all duration-300;
 }
 p {
-  @apply mt-6;
+  @apply leading-relaxed indent-10;
 }
 p > a {
   @apply underline underline-offset-4;
@@ -38,10 +41,10 @@ button {
   @apply cursor-pointer;
 }
 .content h2 {
-  @apply text-3xl mt-12 font-bold font-sans;
+  @apply text-3xl mt-12 mb-3 font-bold font-sans;
 }
 .content h3 {
-  @apply text-2xl mt-12 font-bold font-sans;
+  @apply text-2xl mt-12 mb-3 font-bold font-sans;
 }
 .content ul {
   @apply list-disc list-inside mt-9 sm:ml-9;
@@ -50,14 +53,14 @@ button {
   @apply block mt-12 mb-9 shadow-md shadow-texto/20 p-6 bg-verde;
 }
 .content hr {
-  @apply mt-12 mb-12 block;
+  @apply mt-12 mb-12 block border-2;
 }
 iframe {
   @apply shadow-md shadow-texto/20 p-6 bg-verde mt-12 mb-9 aspect-video w-full;
 }
 
 @theme {
-  --font-serif: "Sorts Mill Goudy", "serif";
+  --font-serif: "Crimson Pro Variable", "serif";
   --font-sans: "Rubik Variable", sans-serif;
   --color-fondo: #f7f5f2;
   --color-oscuro: #ebe7e0;

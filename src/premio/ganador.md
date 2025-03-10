@@ -2,6 +2,15 @@
 order: 1
 title: Aleixandre Lago, gañador do V Premio de Poesía FDG
 ancla: O Gañador
+galeria:
+  - imagen: /media/gala/1.jpg
+    alt: alt
+    caption: lo que sea
+    order: 1
+  - imagen: /media/gala/2.jpg
+    alt: alt
+    caption: lo que sea dos
+    order: 2
 ---
 
 ![Aleixandre Lago Barcala recibe o premio do alcalde do Bolo](/media/O-ganador-Aleixandre-Lago-Barcala-recibe-o-premio-do-alcalde-do-Bolo_01-1024x576.jpg)
