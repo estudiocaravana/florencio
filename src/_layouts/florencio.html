@@ -1,23 +1,22 @@
 {% extends "./base.html" %} {% block content %}
 <!-- Header -->
-<div class="caixa max-w-screen-xl mx-auto py-20">
-  <h1 class="text-7xl sm:text-8xl text-center">{{ title }}</h1>
+<div class="caixa max-w-screen-2xl mx-auto pt-20">
+  <h1 class="text-7xl sm:text-8xl">{{ title }}</h1>
 </div>
-<!-- Florencio -->
-<div class="caixa max-w-screen-2xl columns-2 *:!mt-0 gap-20">{{ content | safe }}</div>
-<div class="caixa">
-  <div>
-    <div class="text-4xl font-serif flex gap-6 mt-6 mb-20">
-      <div class="text-7xl">&ldquo;</div>
-      <div class="inline-block leading-tight">{{ comillas | safe }}</div>
-    </div>
+<!-- Content -->
+<div class="caixa max-w-screen-2xl lg:columns-2 gap-20 mt-9 content">{{ content | safe }}</div>
+<!-- Conmillas -->
+<div class="caixa mt-20">
+  <div class="text-5xl font-serif italic flex gap-6 my-20 p-20 max-w-screen-2xl w-fit mx-auto">
+    <div class="text-9xl">&ldquo;</div>
+    <div class="inline-block leading-none">{{ comillas | safe }}</div>
   </div>
 </div>
 <!-- Fechas -->
 <div class="caixa py-20">
   <hr />
   <div>
-    <div class="grid lg:grid-cols-4 2xl:grid-cols-6 gap-12 my-20">
+    <div class="grid lg:grid-cols-4 2xl:grid-cols-6 gap-12 my-12">
       {%- for item in fechas -%}
       <div class="flex-1"><span class="block text-2xl font-bold pb-1">{{ item.fecha }}</span> {{ item.evento }}</div>
       {%- endfor -%}
@@ -25,20 +24,4 @@
   </div>
   <hr />
 </div>
-<!-- Recursos -->
-{%- for recurso in collections.recurso -%}
-<div class="caixa max-w-screen-xl mx-auto pt-36">
-  <span class="mb-3 block">Recurso</span>
-  <h2 class="text-4xl md:text-5xl max-w-2xl !font-sans font-semibold">{{ recurso.data.title }}</h2>
-  <div class="mt-4 lg:flex lg:gap-6">
-    <div>Ano: <strong>{{ recurso.data.ano }}</strong></div>
-    <div>Autor: <strong>{{ recurso.data.autor }}</strong></div>
-    {%- if recurso.data.editorial -%}
-    <div>Editorial: <strong>{{ recurso.data.editorial }}</strong></div>
-    {%- endif -%} {%- if recurso.data.producion -%}
-    <div>Producion: <strong>{{ recurso.data.producion }}</strong></div>
-    {%- endif -%}
-  </div>
-  <div class="content max-w-3xl mx-auto mt-20">{{ recurso.content | safe }}</div>
-</div>
-{%- endfor -%} {% endblock %}
+{% endblock %}

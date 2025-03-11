@@ -6,7 +6,7 @@ pretitular: FUNDACIÓN
 titular: Florencio Delgado Gurriarán
 destacado: Unha institución para poñer en valor o legado do poeta FDG e dinamizar a lingua e a cultura de Valdeorras.
 florencio: '<p>Un poeta valdeorrés, republicano e galeguista. No ano 2022, a Real Academia Galega recoñéceo dedicándolle o <a href="https://academia.gal/letras-galegas/2022/florencio-delgado-gurriaran">Día das Letras Galegas</a> colocando a Florencio e Valdeorras no lugar que lle corresponde no relato cultural do País.</p>'
-comillas: "Miña noiva, miña terra:<br>Á beira do Sil deitada,<br>para ollar a túa beleza<br>do mesmo xeito que a Venus do<br>espello, nel se contempla."
+comillas: "Miña noiva, miña terra:<br>Á beira do Sil deitada,<br>para ollar a túa beleza<br>do mesmo xeito que a Venus do espello,<br> nel se contempla."
 fundacion_presentacion: "Obxectivos: poñer en valor a figura e obra de Florencio, aproveitando a súa proxección para dinamizar a cultura e lingua en Valdeorras. Idioma, historia, territorio, natureza, gastronomía e creación artística."
 proxectos:
   - fecha: 2019-2024

@@ -1,19 +1,18 @@
 <div x-data="{menu : false}">
   <!-- movil -->
-  <div class="caixa xl:hidden">
+  <div class="caixa xl:hidden bg-white">
     <div class="flex justify-between items-center py-6">
       <div>
         <a href="/">
-          <img class="w-20" src="/assets/img/logo.webp" alt="" />
+          <img class="w-14" src="/assets/img/logo.webp" alt="" />
         </a>
       </div>
       <div class="sticky top-0">
-        <button class="w-12 h-9 border-y-2 border-texto" @click="menu = true" aria-label="Abrir o menú">
-          <div class="border-t-2 border-texto"></div>
+        <button class="w-12 h-9 border-y-[3px] border-verde" @click="menu = true" aria-label="Abrir o menú">
+          <div class="border-t-[3px] border-verde"></div>
         </button>
       </div>
     </div>
-    <hr />
   </div>
   <!-- sidebar -->
   <div
@@ -37,10 +36,9 @@
       <li>
         <a href="/" class="text-verde font-bold"> Inicio </a>
       </li>
-      <li><a href="/florencio">Florencio</a></li>
-      <li><a href="/fundacion">A Fundación</a></li>
-      <li><a href="/premio">Premio de poesía</a></li>
-      <li><a href="/novidades">Novidades</a></li>
+      {%- for item in nav.items -%}
+      <li><a href="{{ item.url }}">{{ item.text }}</a></li>
+      {%- endfor -%}
       <li><a href="/diccionario">Diccionario</a></li>
       <br />
       <hr class="w-12" />
@@ -51,24 +49,19 @@
   </div>
 </div>
 <!-- grandes -->
-<div class="caixa hidden xl:block">
+<div class="caixa hidden bg-white xl:block sticky">
   <div class="flex justify-between items-center">
     <div>
-      <ul class="flex gap-9 py-9 items-center">
-        <li>
-          <a href="/" class="text-verde font-bold"> Inicio </a>
-        </li>
-        <li><a href="/florencio">Florencio</a></li>
-        <li><a href="/fundacion">A Fundación</a></li>
-        <li><a href="/premio">Premio de poesía</a></li>
-        <li><a href="#">Novidades</a></li>
+      <ul class="flex gap-9 items-center">
+        {%- for item in nav.items -%}
+        <li><a href="{{ item.url }}" class="py-6 block {% if item.url == page.url %}text-verde font-bold{% endif %}">{{ item.text }}</a></li>
+        {%- endfor -%}
       </ul>
     </div>
     <div>
       <ul>
-        <li><a class="boton bg-verde" href="#">Diccionario valdeorrés</a></li>
+        <li><a href="/diccionario" class="bg-black text-white py-6 px-9 block">Diccionario valdeorrés</a></li>
       </ul>
     </div>
   </div>
-  <hr />
 </div>

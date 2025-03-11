@@ -19,22 +19,21 @@
     <meta property="og:description" content="" />
   </head>
   <body>
-    <div class="max-w-[2400px] mx-auto"><div x-data="{menu : false}">
+    <div class="max-w-[2600px] mx-auto"><div x-data="{menu : false}">
   <!-- movil -->
-  <div class="caixa xl:hidden">
+  <div class="caixa xl:hidden bg-white">
     <div class="flex justify-between items-center py-6">
       <div>
         <a href="/">
-          <img class="w-20" src="/assets/img/logo.webp" alt="" />
+          <img class="w-14" src="/assets/img/logo.webp" alt="" />
         </a>
       </div>
       <div class="sticky top-0">
-        <button class="w-12 h-9 border-y-2 border-texto" @click="menu = true" aria-label="Abrir o menú">
-          <div class="border-t-2 border-texto"></div>
+        <button class="w-12 h-9 border-y-[3px] border-verde" @click="menu = true" aria-label="Abrir o menú">
+          <div class="border-t-[3px] border-verde"></div>
         </button>
       </div>
     </div>
-    <hr />
   </div>
   <!-- sidebar -->
   <div
@@ -57,12 +56,7 @@
     <ul class="pb-9 text-3xl block ml-12 font-serif space-y-4">
       <li>
         <a href="/" class="text-verde font-bold"> Inicio </a>
-      </li>
-      <li><a href="/florencio">Florencio</a></li>
-      <li><a href="/fundacion">A Fundación</a></li>
-      <li><a href="/premio">Premio de poesía</a></li>
-      <li><a href="/novidades">Novidades</a></li>
-      <li><a href="/diccionario">Diccionario</a></li>
+      </li><li><a href="/">Inicio</a></li><li><a href="/florencio/">Florencio</a></li><li><a href="/fundacion/">A Fundación</a></li><li><a href="/recursos/">Recursos</a></li><li><a href="/premio/">Premio de poesía</a></li><li><a href="/novidades/">Novidades</a></li><li><a href="/diccionario">Diccionario</a></li>
       <br />
       <hr class="w-12" />
       <br />
@@ -72,26 +66,17 @@
   </div>
 </div>
 <!-- grandes -->
-<div class="caixa hidden xl:block">
+<div class="caixa hidden bg-white xl:block sticky">
   <div class="flex justify-between items-center">
     <div>
-      <ul class="flex gap-9 py-9 items-center">
-        <li>
-          <a href="/" class="text-verde font-bold"> Inicio </a>
-        </li>
-        <li><a href="/florencio">Florencio</a></li>
-        <li><a href="/fundacion">A Fundación</a></li>
-        <li><a href="/premio">Premio de poesía</a></li>
-        <li><a href="#">Novidades</a></li>
-      </ul>
+      <ul class="flex gap-9 items-center"><li><a href="/" class="py-6 block ">Inicio</a></li><li><a href="/florencio/" class="py-6 block ">Florencio</a></li><li><a href="/fundacion/" class="py-6 block ">A Fundación</a></li><li><a href="/recursos/" class="py-6 block ">Recursos</a></li><li><a href="/premio/" class="py-6 block text-verde font-bold">Premio de poesía</a></li><li><a href="/novidades/" class="py-6 block ">Novidades</a></li></ul>
     </div>
     <div>
       <ul>
-        <li><a class="boton bg-verde" href="#">Diccionario valdeorrés</a></li>
+        <li><a href="/diccionario" class="bg-black text-white py-6 px-9 block">Diccionario valdeorrés</a></li>
       </ul>
     </div>
   </div>
-  <hr />
 </div>
  
 
@@ -178,8 +163,7 @@
   <!-- abro condicional --><div class="content max-w-3xl mx-auto mt-20"><p><img src="/media/xurado.webp" alt="O xurado"></p>
 <p>O xurado está integrado por escritoras, docentes, músicos, xornalistas e críticos literarios. Entre eles, a gañadora da IV edición do Premio, Beatriz Dourado. O 7 de outubro difundirase o nome dos poemas finalistas e o gañador, na gala.</p>
 </div>
-</div> <footer class="caixa mt-36">
-  <hr />
+</div> <footer class="caixa mt-36 bg-white">
   <div class="py-20 flex flex-col gap-12 xl:flex-row xl:justify-between 2xl:gap-20 max-w-sm xl:max-w-6xl mx-auto">
     <div class="pb-6 xl:pb-0"><img class="h-32" src="/assets/img/logo_completo.webp" alt="" /></div>
     <div>

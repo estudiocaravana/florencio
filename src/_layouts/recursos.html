@@ -1,0 +1,30 @@
+{% extends "./base.html" %} {% block content %}
+<!-- Header -->
+<div class="caixa max-w-screen-2xl mx-auto pt-20">
+  <h1 class="text-7xl sm:text-8xl text-center">{{ title }}</h1>
+</div>
+<!-- Content -->
+<div class="caixa max-w-screen-sm text-center mt-3 *:!indent-0">{{ content | safe }}</div>
+
+<!-- Recursos -->
+{%- for recurso in collections.recurso -%}
+<div class="caixa max-w-screen-2xl mx-auto pt-36">
+  <hr />
+  <div class="dupla gap-12 !items-start">
+    <div>
+      <span class="mb-3 block mt-12">Recurso</span>
+      <h2 class="text-4xl md:text-5xl max-w-2xl !font-sans font-semibold">{{ recurso.data.title }}</h2>
+      <div class="mt-4 flex gap-9">
+        <div>Ano: <strong>{{ recurso.data.ano }}</strong></div>
+        <div>Autor: <strong>{{ recurso.data.autor }}</strong></div>
+        {%- if recurso.data.editorial -%}
+        <div>Editorial: <strong>{{ recurso.data.editorial }}</strong></div>
+        {%- endif -%} {%- if recurso.data.producion -%}
+        <div>Producion: <strong>{{ recurso.data.producion }}</strong></div>
+        {%- endif -%}
+      </div>
+    </div>
+    <div class="content max-w-3xl mx-auto mt-12 hidden">{{ recurso.content | safe }}</div>
+  </div>
+</div>
+{%- endfor -%} {% endblock %}

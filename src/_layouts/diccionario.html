@@ -1,0 +1,15 @@
+{% extends "./base.html" %} {% block content %}
+<!-- Navegador -->
+<div class="caixa bg-black">
+  <ul class="text-white flex gap-9 py-9">
+    <li><a href="#">Diccionario</a></li>
+    <li><a href="#">Mapa</a></li>
+    <li><a href="#">Presentación</a></li>
+    <li><a href="#">Colabora</a></li>
+  </ul>
+</div>
+<!-- Header -->
+<div class="caixa max-w-screen-2xl mx-auto pt-20">
+  <h1 class="text-3xl sm:text-4xl text-center">{{ title }}</h1>
+</div>
+{% endblock %}

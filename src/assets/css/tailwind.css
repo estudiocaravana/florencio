@@ -17,7 +17,7 @@ body {
 }
 h1,
 h2 {
-  @apply font-serif block;
+  @apply font-serif block font-bold;
 }
 hr {
   @apply border-t-2;
@@ -49,14 +49,17 @@ button {
 .content ul {
   @apply list-disc list-inside mt-9 sm:ml-9;
 }
+.content blockquote {
+  @apply text-5xl font-serif italic flex gap-6 my-20 p-20 max-w-screen-2xl w-fit mx-auto;
+}
 .content img {
-  @apply block mt-12 mb-9 shadow-md shadow-texto/20 p-6 bg-verde;
+  @apply block mt-12 mb-9 shadow-md shadow-texto/20 p-6 bg-white;
 }
 .content hr {
   @apply mt-12 mb-12 block border-2;
 }
 iframe {
-  @apply shadow-md shadow-texto/20 p-6 bg-verde mt-12 mb-9 aspect-video w-full;
+  @apply shadow-md shadow-texto/20 p-6 bg-white mt-12 mb-9 aspect-video w-full;
 }
 
 @theme {
@@ -66,4 +69,5 @@ iframe {
   --color-oscuro: #ebe7e0;
   --color-texto: #1c2528;
   --color-verde: #56b093;
+  --breakpoint-3xl: 120rem;
 }

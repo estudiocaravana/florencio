@@ -19,22 +19,21 @@
     <meta property="og:description" content="Unha institución creada para poñer en valor o legado do poeta FDG e mais dinamizar a lingua e a cultura de Valdeorras." />
   </head>
   <body>
-    <div class="max-w-[2400px] mx-auto"><div x-data="{menu : false}">
+    <div class="max-w-[2600px] mx-auto"><div x-data="{menu : false}">
   <!-- movil -->
-  <div class="caixa xl:hidden">
+  <div class="caixa xl:hidden bg-white">
     <div class="flex justify-between items-center py-6">
       <div>
         <a href="/">
-          <img class="w-20" src="/assets/img/logo.webp" alt="" />
+          <img class="w-14" src="/assets/img/logo.webp" alt="" />
         </a>
       </div>
       <div class="sticky top-0">
-        <button class="w-12 h-9 border-y-2 border-texto" @click="menu = true" aria-label="Abrir o menú">
-          <div class="border-t-2 border-texto"></div>
+        <button class="w-12 h-9 border-y-[3px] border-verde" @click="menu = true" aria-label="Abrir o menú">
+          <div class="border-t-[3px] border-verde"></div>
         </button>
       </div>
     </div>
-    <hr />
   </div>
   <!-- sidebar -->
   <div
@@ -57,12 +56,7 @@
     <ul class="pb-9 text-3xl block ml-12 font-serif space-y-4">
       <li>
         <a href="/" class="text-verde font-bold"> Inicio </a>
-      </li>
-      <li><a href="/florencio">Florencio</a></li>
-      <li><a href="/fundacion">A Fundación</a></li>
-      <li><a href="/premio">Premio de poesía</a></li>
-      <li><a href="/novidades">Novidades</a></li>
-      <li><a href="/diccionario">Diccionario</a></li>
+      </li><li><a href="/">Inicio</a></li><li><a href="/florencio/">Florencio</a></li><li><a href="/fundacion/">A Fundación</a></li><li><a href="/recursos/">Recursos</a></li><li><a href="/premio/">Premio de poesía</a></li><li><a href="/novidades/">Novidades</a></li><li><a href="/diccionario">Diccionario</a></li>
       <br />
       <hr class="w-12" />
       <br />
@@ -72,66 +66,51 @@
   </div>
 </div>
 <!-- grandes -->
-<div class="caixa hidden xl:block">
+<div class="caixa hidden bg-white xl:block sticky">
   <div class="flex justify-between items-center">
     <div>
-      <ul class="flex gap-9 py-9 items-center">
-        <li>
-          <a href="/" class="text-verde font-bold"> Inicio </a>
-        </li>
-        <li><a href="/florencio">Florencio</a></li>
-        <li><a href="/fundacion">A Fundación</a></li>
-        <li><a href="/premio">Premio de poesía</a></li>
-        <li><a href="#">Novidades</a></li>
-      </ul>
+      <ul class="flex gap-9 items-center"><li><a href="/" class="py-6 block text-verde font-bold">Inicio</a></li><li><a href="/florencio/" class="py-6 block ">Florencio</a></li><li><a href="/fundacion/" class="py-6 block ">A Fundación</a></li><li><a href="/recursos/" class="py-6 block ">Recursos</a></li><li><a href="/premio/" class="py-6 block ">Premio de poesía</a></li><li><a href="/novidades/" class="py-6 block ">Novidades</a></li></ul>
     </div>
     <div>
       <ul>
-        <li><a class="boton bg-verde" href="#">Diccionario valdeorrés</a></li>
+        <li><a href="/diccionario" class="bg-black text-white py-6 px-9 block">Diccionario valdeorrés</a></li>
       </ul>
     </div>
   </div>
-  <hr />
 </div>
  
 <!-- Hero -->
 <div class="caixa">
-  <div class="dupla">
+  <div class="dupla !items-end 2xl:!items-center">
     <div>
       <div class="mx-auto w-fit py-12">
-        <span class="text-xl 2xl:text-2xl">FUNDACIÓN</span>
-        <h1 class="text-7xl 2xl:text-8xl max-w-lg mt-4 2xl:mt-6">Florencio Delgado Gurriarán</h1>
-        <div class="gap-9 mt-9 hidden 2xl:flex">
-          <div><img class="w-28" src="/assets/img/logo.webp" alt="" /></div>
-          <div class="max-w-xs">Unha institución para poñer en valor o legado do poeta FDG e dinamizar a lingua e a cultura de Valdeorras.</div>
+        <span class="text-2xl 3xl:text-3xl font-serif">FUNDACIÓN</span>
+        <h1 class="text-7xl 3xl:text-8xl max-w-lg mt-4">Florencio Delgado Gurriarán</h1>
+        <div class="2xl:hidden mt-6">
+          <div><img class="w-24 hidden xl:block" src="/assets/img/logo.webp" alt="" /></div>
+          <div class="max-w-xs mt-6">Unha institución para poñer en valor o legado do poeta FDG e dinamizar a lingua e a cultura de Valdeorras.</div>
         </div>
       </div>
     </div>
     <div>
-      <img src="/media/florencio.webp" alt="Manuscrito Florencio Delgado Gurriarán" />
+      <img src="/media/florencio_rec.webp" alt="Manuscrito Florencio Delgado Gurriarán" />
     </div>
-  </div>
-  <hr />
-</div>
-<!-- banda oculta en grandes -->
-<div class="caixa 2xl:hidden">
-  <div class="flex gap-9 my-12 w-fit mx-auto">
-    <div class="hidden md:block"><img class="w-28" src="/assets/img/logo.webp" alt="" /></div>
-    <div class="max-w-xs">Unha institución para poñer en valor o legado do poeta FDG e dinamizar a lingua e a cultura de Valdeorras.</div>
+    <div class="hidden 2xl:block">
+      <div class="w-fit mx-auto">
+        <div><img class="w-36" src="/assets/img/logo.webp" alt="" /></div>
+        <div class="max-w-xs mt-6">Unha institución para poñer en valor o legado do poeta FDG e dinamizar a lingua e a cultura de Valdeorras.</div>
+      </div>
+    </div>
   </div>
   <hr />
 </div>
 <!-- Florencio -->
 <div class="caixa max-w-screen-xl mx-auto py-12 md:py-24 w-fit xl:w-auto">
-  <div class="dupla xl:!items-end gap-12 xl:gap-0 mx-auto">
-    <div class="text-2xl sm:text-3xl font-serif flex gap-6 max-w-xl">
-      <div class="text-7xl">&ldquo;</div>
-      <div class="inline-block leading-snug">Miña noiva, miña terra:<br>Á beira do Sil deitada,<br>para ollar a túa beleza<br>do mesmo xeito que a Venus do<br>espello, nel se contempla.</div>
+  <div class="dupla xl:!items-start gap-12 xl:gap-0 mx-auto">
+    <div class="text-2xl sm:text-3xl font-serif">
+      <div class="inline-block leading-tight italic">Miña noiva, miña terra:<br>Á beira do Sil deitada,<br>para ollar a túa beleza<br>do mesmo xeito que a Venus do espello,<br> nel se contempla.</div>
     </div>
-    <div class="max-w-lg">
-      <h2 class="font-bold text-3xl mb-3 mt-2">Florencio</h2>
-      <p>Un poeta valdeorrés, republicano e galeguista. No ano 2022, a Real Academia Galega recoñéceo dedicándolle o <a href="https://academia.gal/letras-galegas/2022/florencio-delgado-gurriaran">Día das Letras Galegas</a> colocando a Florencio e Valdeorras no lugar que lle corresponde no relato cultural do País.</p>
-    </div>
+    <div class="max-w-lg"><p>Un poeta valdeorrés, republicano e galeguista. No ano 2022, a Real Academia Galega recoñéceo dedicándolle o <a href="https://academia.gal/letras-galegas/2022/florencio-delgado-gurriaran">Día das Letras Galegas</a> colocando a Florencio e Valdeorras no lugar que lle corresponde no relato cultural do País.</p></div>
   </div>
   <div class="mt-24">
     <a class="boton bg-texto inline-block w-fit mx-auto" href="/florencio">Todo sobre Florencio <span class="ml-3 inline-block">></span></a>
@@ -233,8 +212,7 @@
     
   </div>
 </div>
-  <footer class="caixa mt-36">
-  <hr />
+  <footer class="caixa mt-36 bg-white">
   <div class="py-20 flex flex-col gap-12 xl:flex-row xl:justify-between 2xl:gap-20 max-w-sm xl:max-w-6xl mx-auto">
     <div class="pb-6 xl:pb-0"><img class="h-32" src="/assets/img/logo_completo.webp" alt="" /></div>
     <div>

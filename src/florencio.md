@@ -1,6 +1,6 @@
 ---
 layout: florencio
-title: Florencio
+title: Vida
 descripcion: Un poeta valdeorrés, republicano e galeguista. Así define a Florencio Delgado Gurriarán o seu biógrafo o historiador Ricardo Gurriarán.
 comillas: "Miña noiva, miña terra:<br>Á beira do Sil deitada,<br>para ollar a túa beleza<br> do mesmo xeito que a Venus do espello,<br> nel se contempla."
 fechas:
