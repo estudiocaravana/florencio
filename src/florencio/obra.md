@@ -1,31 +1,6 @@
 ---
 layout: florencio
-title: Florencio
-descripcion: Un poeta valdeorrés, republicano e galeguista. Así define a Florencio Delgado Gurriarán o seu biógrafo o historiador Ricardo Gurriarán.
-comillas: "Miña noiva, miña terra:<br>Á beira do Sil deitada,<br>para ollar a túa beleza<br> do mesmo xeito que a Venus do espello,<br> nel se contempla."
-fechas:
-  - fecha: 1903
-    evento: Nace en Córgomo
-  - fecha: 1931
-    evento: Entra no Partido Galeguista
-  - fecha: 1934
-    evento: Publica o libro 'Bebedeira'
-  - fecha: 1939
-    evento: Trala Guerra, exíliase a México
-  - fecha: 1943
-    evento: Co-autor do 'Cancioneiro da loita galega'
-  - fecha: 1959
-    evento: Cofunda a revista 'Vieiros'
-  - fecha: 1963
-    evento: Publica o libro 'Galicia Infinda'
-  - fecha: 1968
-    evento: Primer retorno a Galicia
-  - fecha: 1981
-    evento: Novo poemario 'Cantarenas'
-  - fecha: 1986
-    evento: Publica 'O soño do guieiro'
-  - fecha: 1987
-    evento: Falece en Fair Oaks, California
+title: Obra
 ---
 
 Un poeta valdeorrés, republicano e galeguista. Así define a Florencio Delgado Gurriarán o seu biógrafo o historiador Ricardo Gurriarán, quen en 1999 publica a primeira investigación sobre o autor de Córgomo. Nesa aldea de Vilamartín de Valdeorras nacera en 1903, nunha bocarribeira co val do Sil ao fondo.
@@ -36,10 +11,26 @@ A pesares de pasar só 14 anos da súa vida na comarca, as lembranzas da infanci
 
 ## holi
 
+<div class="text-red-500">esto es un div</div>
+
 Florencio escribe dende moi novo, comezando a publicar poesías en revistas e xornais e sempre en galego. En México continúa a súa acción cultural e política, sendo un membro moi activo do exilio mexicano galego. No ano 2022, a Real Academia Galega recoñéceo dedicándolle o <a href="https://academia.gal/letras-galegas/2022/florencio-delgado-gurriaran">Día das Letras Galegas</a> colocando a Florencio e Valdeorras no lugar que lle corresponde no relato cultural do País.
 
-|          |                             |
-| -------- | --------------------------- |
-| **1903** | Nace en Córgomo             |
-| **1931** | Entra no Partido Galeguista |
-| **1934** | Publica o libro 'Bebedeira' |
+> Miña noiva, miña terra:
+> Á beira do Sil deitada,
+> para ollar a túa beleza
+> do mesmo xeito que a Venus do espello,
+> nel se contempla.
+
+|          |                                           |
+| -------- | ----------------------------------------- |
+| **1903** | Nace en Córgomo                           |
+| **1931** | Entra no Partido Galeguista               |
+| **1934** | Publica o libro 'Bebedeira'               |
+| **1939** | Trala Guerra, exíliase a México           |
+| **1943** | Co-autor do 'Cancioneiro da loita galega' |
+| **1959** | Cofunda a revista 'Vieiros'               |
+| **1963** | Publica o libro 'Galicia Infinda'         |
+| **1968** | Primer retorno a Galicia                  |
+| **1981** | Novo poemario 'Cantarenas'                |
+| **1986** | Publica 'O soño do guieiro'               |
+| **1987** | Falece en Fair Oaks, California           |

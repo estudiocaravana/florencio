@@ -1,15 +1,25 @@
 {% extends "./base.html" %} {% block content %}
 <!-- Navegador -->
-<div class="caixa bg-black">
-  <ul class="text-white flex gap-9 py-9">
-    <li><a href="#">Diccionario</a></li>
-    <li><a href="#">Mapa</a></li>
-    <li><a href="#">Presentación</a></li>
-    <li><a href="#">Colabora</a></li>
-  </ul>
+<div class="bg-black">
+  <div class="caixa max-w-screen-2xl">
+    <ul class="text-white flex gap-12 mx-auto text-2xl">
+      {%- for item in nav.diccionario -%}
+      <li><a href="{{ item.url }}" class="py-9 block {% if item.url == page.url %}text-verde font-bold{% endif %}">{{ item.text }}</a></li>
+      {%- endfor -%}
+    </ul>
+  </div>
 </div>
 <!-- Header -->
-<div class="caixa max-w-screen-2xl mx-auto pt-20">
-  <h1 class="text-3xl sm:text-4xl text-center">{{ title }}</h1>
+<div class="caixa max-w-screen-2xl pt-20">
+  <h1 class="text-5xl sm:text-7xl text-verde">{{ title }}</h1>
 </div>
-holi {{ content | safe }} {% endblock %}
+<!-- Termos -->
+<div class="caixa max-w-screen-2xl pt-20 grid grid-cols-3 gap-6">
+  {%- for item in collections.termos -%}
+  <a href="{{ item.url }}">
+    <div class="border-t-2 text-xl:2xl py-3 first-letter:uppercase">{{ item.data.termo }}</div>
+  </a>
+  {%- endfor -%}
+</div>
+
+{% endblock %}

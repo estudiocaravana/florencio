@@ -24,6 +24,11 @@ module.exports = async function (eleventyConfig) {
       return a.data.order - b.data.order;
     });
   });
+  eleventyConfig.addCollection("termos", function (collection) {
+    return collection.getFilteredByGlob("./src/diccionario/termos/*.md").sort(function (a, b) {
+      return a.data.termo - b.data.termo;
+    });
+  });
   return {
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",

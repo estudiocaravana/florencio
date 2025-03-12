@@ -1,0 +1,50 @@
+{% extends "./base.html" %} {% block content %}
+<!-- Navegador -->
+<div class="bg-black">
+  <div class="caixa max-w-screen-2xl">
+    <ul class="text-white flex gap-12 mx-auto text-2xl">
+      {%- for item in nav.diccionario -%}
+      <li><a href="{{ item.url }}" class="py-9 block {% if item.url == page.url %}text-verde font-bold{% endif %}">{{ item.text }}</a></li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+<!-- Header -->
+<div class="caixa max-w-screen-2xl pt-20 content">
+  <h1 class="text-5xl sm:text-7xl text-verde first-letter:uppercase">{{ termo }}</h1>
+  <div class="max-w-3xl pt-3">
+    <small>Definición:</small><br />
+    {{ definicion | safe }}
+  </div>
+  <div><small>Exemplo:</small><br /><em>{{ exemplo | safe }}</em></div>
+  <div class="lg:flex gap-20">
+    <div>
+      <small>Localización:</small><br />
+      <a href="#" class="underline">{{ localizacion | safe }}</a>
+    </div>
+    <div>
+      <small>Categoría:</small><br />
+      {{ categoria }}
+    </div>
+    <div>
+      <small>Campo semántico</small><br />
+      {{ campo }}
+    </div>
+  </div>
+  <div>
+    {%- if foto != '' -%}
+    <img class="max-w-xl" src="{{ foto }}" alt="{{ termo }}" />
+    {%- endif -%}
+  </div>
+  <div>
+    {% if audio != '' %}
+    <div class="max-w-xl bg-verde p-6 px-12 flex gap-6 items-center">
+      <div class="text-5xl">></div>
+      <div class="flex-1"><hr /></div>
+    </div>
+    {% endif %}
+  </div>
+  <div class="max-w-4xl"><strong>Informantes:</strong><br />{{ informantes | safe }}</div>
+  <div class="bg-white p-12 max-w-4xl mt-20"><small class="text-verde block mb-6">Comentarios</small>{{ content | safe }}</div>
+</div>
+{% endblock %}

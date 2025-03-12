@@ -6,7 +6,7 @@ module.exports = {
     },
     {
       text: "Florencio",
-      url: "/florencio/",
+      url: "/florencio/vida/",
     },
     {
       text: "A Fundación",
@@ -31,6 +31,38 @@ module.exports = {
     {
       text: "Novidades",
       url: "/novidades/",
+    },
+  ],
+  florencio: [
+    {
+      text: "Vida",
+      url: "/florencio/vida/",
+    },
+    {
+      text: "Obra",
+      url: "/florencio/obra/",
+    },
+    {
+      text: "Letras Galegas",
+      url: "/florencio/letras-galegas/",
+    },
+  ],
+  diccionario: [
+    {
+      text: "Diccionario",
+      url: "/diccionario/",
+    },
+    {
+      text: "Mapa",
+      url: "/diccionario/mapa",
+    },
+    {
+      text: "Presentación",
+      url: "/diccionario/presentacion",
+    },
+    {
+      text: "Colabora",
+      url: "/diccionario/colabora",
     },
   ],
 };
