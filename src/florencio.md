@@ -1,6 +1,6 @@
 ---
 layout: florencio
-title: Vida
+title: Florencio
 descripcion: Un poeta valdeorrés, republicano e galeguista. Así define a Florencio Delgado Gurriarán o seu biógrafo o historiador Ricardo Gurriarán.
 comillas: "Miña noiva, miña terra:<br>Á beira do Sil deitada,<br>para ollar a túa beleza<br> do mesmo xeito que a Venus do espello,<br> nel se contempla."
 fechas:
@@ -34,4 +34,12 @@ Florencio vivíu alí só ata os seis anos e non volvería a vivir en Valdeorras
 
 A pesares de pasar só 14 anos da súa vida na comarca, as lembranzas da infancia, as estancias vacacionais e o período xuvenil, deixarían nel un gran impacto, como demostrará a súa creación poética.
 
+## holi
+
 Florencio escribe dende moi novo, comezando a publicar poesías en revistas e xornais e sempre en galego. En México continúa a súa acción cultural e política, sendo un membro moi activo do exilio mexicano galego. No ano 2022, a Real Academia Galega recoñéceo dedicándolle o <a href="https://academia.gal/letras-galegas/2022/florencio-delgado-gurriaran">Día das Letras Galegas</a> colocando a Florencio e Valdeorras no lugar que lle corresponde no relato cultural do País.
+
+|          |                             |
+| -------- | --------------------------- |
+| **1903** | Nace en Córgomo             |
+| **1931** | Entra no Partido Galeguista |
+| **1934** | Publica o libro 'Bebedeira' |

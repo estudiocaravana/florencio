@@ -21,6 +21,14 @@ module.exports = {
       url: "/premio/",
     },
     {
+      text: "Actividades",
+      url: "/actividades/",
+    },
+    {
+      text: "Roteiros",
+      url: "/roteiros/",
+    },
+    {
       text: "Novidades",
       url: "/novidades/",
     },
