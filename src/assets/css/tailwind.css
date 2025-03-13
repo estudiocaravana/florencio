@@ -22,7 +22,8 @@ h2 {
 hr {
   @apply border-t-3;
 }
-a {
+a,
+button {
   @apply transition-all duration-300;
 }
 p {

@@ -82,14 +82,13 @@
 <!-- Navegador -->
 <div class="bg-black">
   <div class="caixa max-w-screen-2xl">
-    <ul class="text-white flex gap-12 mx-auto text-2xl"><li><a href="/diccionario/" class="py-9 block text-verde font-bold">Diccionario</a></li><li><a href="/diccionario/mapa" class="py-9 block ">Mapa</a></li><li><a href="/diccionario/presentacion" class="py-9 block ">Presentación</a></li><li><a href="/diccionario/colabora" class="py-9 block ">Colabora</a></li></ul>
+    <ul class="text-white flex gap-12 mx-auto text-2xl"><li><a href="/diccionario/" class="py-9 block text-verde font-bold">Diccionario</a></li><li><a href="/diccionario/mapa/" class="py-9 block ">Mapa</a></li><li><a href="/diccionario/proxecto/" class="py-9 block ">Proxecto</a></li><li><a href="/diccionario/colabora/" class="py-9 block ">Colabora</a></li></ul>
   </div>
 </div>
 <!-- Header -->
-<div class="caixa max-w-screen-2xl pt-20">
+<div class="caixa max-w-screen-xl pt-20">
   <h1 class="text-5xl sm:text-7xl text-verde">Diccionario valdeorrés</h1>
-</div>
-<!-- Termos -->
+</div><!-- Termos -->
 <div class="caixa max-w-screen-2xl pt-20 grid grid-cols-3 gap-6"><a href="/diccionario/termos/cochar/">
     <div class="border-t-2 text-xl:2xl py-3 first-letter:uppercase">cochar</div>
   </a><a href="/diccionario/termos/niallo/">
@@ -100,9 +99,19 @@
     <div class="border-t-2 text-xl:2xl py-3 first-letter:uppercase">Avisedo/avesedo</div>
   </a><a href="/diccionario/termos/choupin/">
     <div class="border-t-2 text-xl:2xl py-3 first-letter:uppercase">Choupín</div>
-  </a></div>
+  </a><a href="/diccionario/termos/gandaia/">
+    <div class="border-t-2 text-xl:2xl py-3 first-letter:uppercase">Gandaia</div>
+  </a><a href="/diccionario/termos/estordegado/">
+    <div class="border-t-2 text-xl:2xl py-3 first-letter:uppercase">Estordegado</div>
+  </a><a href="/diccionario/termos/froxar/">
+    <div class="border-t-2 text-xl:2xl py-3 first-letter:uppercase">Froxar</div>
+  </a></div> <div class="mt-36 caixa">
+  <button class="block size-24 rounded-full bg-white mx-auto pt-3 hover:pt-0" x-data="{}" @click="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Ir arriba">
+    <div class="size-6 border-l-2 border-t-2 rotate-45 mx-auto"></div>
+  </button>
+</div>
 
- <footer class="caixa mt-36 bg-white">
+<footer class="caixa mt-20 bg-white">
   <div class="py-20 flex flex-col gap-12 xl:flex-row xl:justify-between 2xl:gap-20 max-w-sm xl:max-w-6xl mx-auto">
     <div class="pb-6 xl:pb-0"><img class="h-32" src="/assets/img/logo_completo.webp" alt="" /></div>
     <div>
@@ -128,7 +137,9 @@
       <a href="/legal">Aviso Legal</a>
     </div>
     <div>
-      <button x-data="{}" @click="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Ir arriba">Ir arriba</button>
+      <button class="block pt-3 hover:pt-0" x-data="{}" @click="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Ir arriba">
+        <div class="size-6 border-l-2 border-t-2 rotate-45 mx-auto"></div>
+      </button>
     </div>
   </div>
 </footer>

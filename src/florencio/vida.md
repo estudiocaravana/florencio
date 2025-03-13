@@ -9,10 +9,6 @@ Florencio vivíu alí só ata os seis anos e non volvería a vivir en Valdeorras
 
 A pesares de pasar só 14 anos da súa vida na comarca, as lembranzas da infancia, as estancias vacacionais e o período xuvenil, deixarían nel un gran impacto, como demostrará a súa creación poética.
 
-## holi
-
-<div class="text-red-500">esto es un div</div>
-
 Florencio escribe dende moi novo, comezando a publicar poesías en revistas e xornais e sempre en galego. En México continúa a súa acción cultural e política, sendo un membro moi activo do exilio mexicano galego. No ano 2022, a Real Academia Galega recoñéceo dedicándolle o <a href="https://academia.gal/letras-galegas/2022/florencio-delgado-gurriaran">Día das Letras Galegas</a> colocando a Florencio e Valdeorras no lugar que lle corresponde no relato cultural do País.
 
 > Miña noiva, miña terra:

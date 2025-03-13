@@ -54,15 +54,15 @@ module.exports = {
     },
     {
       text: "Mapa",
-      url: "/diccionario/mapa",
+      url: "/diccionario/mapa/",
     },
     {
-      text: "Presentación",
-      url: "/diccionario/presentacion",
+      text: "Proxecto",
+      url: "/diccionario/proxecto/",
     },
     {
       text: "Colabora",
-      url: "/diccionario/colabora",
+      url: "/diccionario/colabora/",
     },
   ],
 };

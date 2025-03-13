@@ -82,7 +82,7 @@
 <!-- Navegador -->
 <div class="bg-black">
   <div class="caixa max-w-screen-2xl">
-    <ul class="text-white flex gap-12 mx-auto text-2xl"><li><a href="/diccionario/" class="py-9 block ">Diccionario</a></li><li><a href="/diccionario/mapa" class="py-9 block ">Mapa</a></li><li><a href="/diccionario/presentacion" class="py-9 block ">Presentación</a></li><li><a href="/diccionario/colabora" class="py-9 block ">Colabora</a></li></ul>
+    <ul class="text-white flex gap-12 mx-auto text-2xl"><li><a href="/diccionario/" class="py-9 block ">Diccionario</a></li><li><a href="/diccionario/mapa/" class="py-9 block ">Mapa</a></li><li><a href="/diccionario/proxecto/" class="py-9 block ">Proxecto</a></li><li><a href="/diccionario/colabora/" class="py-9 block ">Colabora</a></li></ul>
   </div>
 </div>
 <!-- Header -->
@@ -90,7 +90,7 @@
   <h1 class="text-5xl sm:text-7xl text-verde first-letter:uppercase">Amorodo, amerodo, merodo</h1>
   <div class="max-w-3xl pt-3">
     <small>Definición:</small><br />
-    Albedro, froito do arbutus unedo ou érbedo. froito de         inverno redondo de cor vermella por fóra e amarelo por dentro.
+    Albedro, froito do arbutus unedo ou érbedo. froito de inverno redondo de cor vermella por fóra e amarelo por   dentro.
   </div>
   <div><small>Exemplo:</small><br /><em>Non comades amorodos, que vos emborrachades!</em></div>
   <div class="lg:flex gap-20">
@@ -110,21 +110,22 @@
   <div><img class="max-w-xl" src="/media/arbustus.jpg" alt="Amorodo, amerodo, merodo" /></div>
   <div>
     
-    <div class="max-w-xl bg-verde p-6 px-12 flex gap-6 items-center">
-      <div class="text-5xl">></div>
-      <div class="flex-1"><hr /></div>
-    </div>
-    
   </div>
   <div class="max-w-4xl"><strong>Informantes:</strong><br />Florencio Delgado Gurriarán, Noelia Estévez Rionegro</div>
   <div class="bg-white p-12 max-w-4xl mt-20"><small class="text-verde block mb-6">Comentarios</small><p>En Francisco Porto Rey (1900c), “Amorodo”: “Bot. Árbol de corteza áspera; hojas brillantes como las del laurel, dentadas; fruta espinosa y encarnada. Madroño.”<br>
 En Juan Cuveiro Piñol (1876), “Amorodo”: (en Orense) Madroño.<br>
 Juan Cuveiro Piñol (1876)<br>
 Francisco Porto Rey (1900c)<br>
-Dicionario de dicionarios: <a href="https://ilg.usc.gal/ddd/ddd_pescuda.php?lang=gl&amp;pescuda=amorodo&amp;tipo_busca=lema">https://ilg.usc.gal/ddd/ddd_pescuda.php?lang=gl&amp;pescuda=amorodo&amp;tipo_busca=lema</a></p>
+<a href="https://ilg.usc.gal/ddd/ddd_pescuda.php?lang=gl&amp;pescuda=amorodo&amp;tipo_busca=lema">Dicionario de dicionarios</a></p>
 </div>
 </div>
- <footer class="caixa mt-36 bg-white">
+ <div class="mt-36 caixa">
+  <button class="block size-24 rounded-full bg-white mx-auto pt-3 hover:pt-0" x-data="{}" @click="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Ir arriba">
+    <div class="size-6 border-l-2 border-t-2 rotate-45 mx-auto"></div>
+  </button>
+</div>
+
+<footer class="caixa mt-20 bg-white">
   <div class="py-20 flex flex-col gap-12 xl:flex-row xl:justify-between 2xl:gap-20 max-w-sm xl:max-w-6xl mx-auto">
     <div class="pb-6 xl:pb-0"><img class="h-32" src="/assets/img/logo_completo.webp" alt="" /></div>
     <div>
@@ -150,7 +151,9 @@ Dicionario de dicionarios: <a href="https://ilg.usc.gal/ddd/ddd_pescuda.php?lang
       <a href="/legal">Aviso Legal</a>
     </div>
     <div>
-      <button x-data="{}" @click="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Ir arriba">Ir arriba</button>
+      <button class="block pt-3 hover:pt-0" x-data="{}" @click="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Ir arriba">
+        <div class="size-6 border-l-2 border-t-2 rotate-45 mx-auto"></div>
+      </button>
     </div>
   </div>
 </footer>

@@ -102,8 +102,6 @@
   <p>Un poeta valdeorrés, republicano e galeguista. Así define a Florencio Delgado Gurriarán o seu biógrafo o historiador Ricardo Gurriarán, quen en 1999 publica a primeira investigación sobre o autor de Córgomo. Nesa aldea de Vilamartín de Valdeorras nacera en 1903, nunha bocarribeira co val do Sil ao fondo.</p>
 <p>Florencio vivíu alí só ata os seis anos e non volvería a vivir en Valdeorras ata rematar os estudos universitarios, en 1928. Despois, forzado polo seu activismo político e social, viuse obrigado a fuxir ao inicio da Guerra Civil para despois exiliarse á que sería a súa segunda casa, o estado de Nova Galicia, en México. Só regresaría a Galicia de visita en tres ocasións. Tras o seu falecemento, os seus restos repousan no cemiterio de Córgomo onde quixo ser soterrado.</p>
 <p>A pesares de pasar só 14 anos da súa vida na comarca, as lembranzas da infancia, as estancias vacacionais e o período xuvenil, deixarían nel un gran impacto, como demostrará a súa creación poética.</p>
-<h2>holi</h2>
-<div class="text-red-500">esto es un div</div>
 <p>Florencio escribe dende moi novo, comezando a publicar poesías en revistas e xornais e sempre en galego. En México continúa a súa acción cultural e política, sendo un membro moi activo do exilio mexicano galego. No ano 2022, a Real Academia Galega recoñéceo dedicándolle o <a href="https://academia.gal/letras-galegas/2022/florencio-delgado-gurriaran">Día das Letras Galegas</a> colocando a Florencio e Valdeorras no lugar que lle corresponde no relato cultural do País.</p>
 <blockquote>
 <p>Miña noiva, miña terra:<br>
@@ -174,7 +172,13 @@ nel se contempla.</p>
   <hr />
 </div>
 
- <footer class="caixa mt-36 bg-white">
+ <div class="mt-36 caixa">
+  <button class="block size-24 rounded-full bg-white mx-auto pt-3 hover:pt-0" x-data="{}" @click="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Ir arriba">
+    <div class="size-6 border-l-2 border-t-2 rotate-45 mx-auto"></div>
+  </button>
+</div>
+
+<footer class="caixa mt-20 bg-white">
   <div class="py-20 flex flex-col gap-12 xl:flex-row xl:justify-between 2xl:gap-20 max-w-sm xl:max-w-6xl mx-auto">
     <div class="pb-6 xl:pb-0"><img class="h-32" src="/assets/img/logo_completo.webp" alt="" /></div>
     <div>
@@ -200,7 +204,9 @@ nel se contempla.</p>
       <a href="/legal">Aviso Legal</a>
     </div>
     <div>
-      <button x-data="{}" @click="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Ir arriba">Ir arriba</button>
+      <button class="block pt-3 hover:pt-0" x-data="{}" @click="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Ir arriba">
+        <div class="size-6 border-l-2 border-t-2 rotate-45 mx-auto"></div>
+      </button>
     </div>
   </div>
 </footer>

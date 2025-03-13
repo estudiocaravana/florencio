@@ -17,7 +17,7 @@ informantes: "Florencio Delgado Gurriarán<br>
 ---
 
 Alvarellos (1951) ( 1971): Declive de un monte hacia la parte Norte.
-DdD: https://ilg.usc.gal/ddd/ddd_pescuda.php?lang=gl&pescuda=avIsedo&tipo_busca=lema
+[ilg.usc.gal](https://ilg.usc.gal/ddd/ddd_pescuda.php?lang=gl&pescuda=avIsedo&tipo_busca=lema)
 Forma recollida pola RAG AVESEDO
 Tamén se recolle a forma “Avesedo” en Eligio Rivas Quintas (2001): “Parte de terreno sombrío. Oc. de León. En A Serra de San Mamede, Our., es aveseda.”
 DdD:https://ilg.usc.gal/ddd/ddd_pescuda.php?lang=gl&pescuda=avesedo&tipo_busca=lema

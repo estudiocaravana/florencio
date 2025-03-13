@@ -10,9 +10,10 @@
   </div>
 </div>
 <!-- Header -->
-<div class="caixa max-w-screen-2xl pt-20">
+<div class="caixa max-w-screen-xl pt-20">
   <h1 class="text-5xl sm:text-7xl text-verde">{{ title }}</h1>
 </div>
+{%- if page.url == '/diccionario/' -%}
 <!-- Termos -->
 <div class="caixa max-w-screen-2xl pt-20 grid grid-cols-3 gap-6">
   {%- for item in collections.termos -%}
@@ -21,5 +22,7 @@
   </a>
   {%- endfor -%}
 </div>
+{%- else -%}
 
-{% endblock %}
+<div class="caixa max-w-screen-xl pt-9 content">{{ content | safe }}</div>
+{%- endif -%} {% endblock %}
