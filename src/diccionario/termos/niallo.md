@@ -6,7 +6,7 @@ localizacion: Córgomo
 categoria: substantivo
 campo: fauna
 foto: /media/nido.jpg
-audio: ...
+audio:
 informantes: "Florencio Delgado Gurriarán"
 ---
 

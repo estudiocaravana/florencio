@@ -7,7 +7,7 @@ localizacion: Córgomo
 categoria: Verbo
 campo: Xogos populares
 foto:
-audio: ...
+audio:
 informantes: "Florencio Delgado Gurriarán, Leandro Carré Alvarellos (1951), X. L. Franco Grande (1972),
   Eligio Rivas Quintas (1978),
   Leandro Carré Alvarellos (1979),

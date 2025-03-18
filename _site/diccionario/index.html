@@ -53,10 +53,7 @@
         <div class="border-t-2 border-white"></div>
       </button>
     </div>
-    <ul class="pb-9 text-3xl block ml-12 font-serif space-y-4">
-      <li>
-        <a href="/" class="text-verde font-bold"> Inicio </a>
-      </li><li><a href="/">Inicio</a></li><li><a href="/florencio/vida/">Florencio</a></li><li><a href="/fundacion/">A Fundación</a></li><li><a href="/recursos/">Recursos</a></li><li><a href="/premio/">Premio de poesía</a></li><li><a href="/actividades/">Actividades</a></li><li><a href="/roteiros/">Roteiros</a></li><li><a href="/novidades/">Novidades</a></li><li><a href="/diccionario">Diccionario</a></li>
+    <ul class="pb-9 text-3xl block ml-12 font-serif space-y-4"><li><a href="/" >Inicio</a></li><li><a href="/florencio/vida/" >Florencio</a></li><li><a href="/fundacion/" >A Fundación</a></li><li><a href="/recursos/" >Recursos</a></li><li><a href="/premio/" >Premio de poesía</a></li><li><a href="/actividades/" >Actividades</a></li><li><a href="/roteiros/" >Roteiros</a></li><li><a href="/novidades/" >Novidades</a></li><li><a href="/diccionario">Diccionario</a></li>
       <br />
       <hr class="w-12" />
       <br />
@@ -66,12 +63,12 @@
   </div>
 </div>
 <!-- grandes -->
-<div class="caixa hidden bg-white xl:block sticky">
-  <div class="flex justify-between items-center">
+<div class="caixa hidden bg-white xl:block !sticky top-0 z-50 !pr-0">
+  <div class="flex justify-between items-center gap-20">
     <div>
       <ul class="flex gap-9 items-center"><li><a href="/" class="py-6 block ">Inicio</a></li><li><a href="/florencio/vida/" class="py-6 block ">Florencio</a></li><li><a href="/fundacion/" class="py-6 block ">A Fundación</a></li><li><a href="/recursos/" class="py-6 block ">Recursos</a></li><li><a href="/premio/" class="py-6 block ">Premio de poesía</a></li><li><a href="/actividades/" class="py-6 block ">Actividades</a></li><li><a href="/roteiros/" class="py-6 block ">Roteiros</a></li><li><a href="/novidades/" class="py-6 block ">Novidades</a></li></ul>
     </div>
-    <div>
+    <div class="flex-1 max-w-1/3">
       <ul>
         <li><a href="/diccionario/" class="bg-black text-white py-6 px-9 block">Diccionario valdeorrés</a></li>
       </ul>
@@ -88,7 +85,46 @@
 <!-- Header -->
 <div class="caixa max-w-screen-xl pt-20">
   <h1 class="text-5xl sm:text-7xl text-verde">Diccionario valdeorrés</h1>
-</div><!-- Termos -->
+</div><!-- Termos....................................... -->
+<div class="caixa max-w-screen-xl pt-12">
+  <div class="flex gap-6">
+    <div class="flex-1 relative" x-data="{menu : false}">
+      <button class="w-full h-16 bg-verde text-white font-bold px-6 flex gap-3 items-center" @click="menu = true">
+        <div>
+          <svg class="fill-none stroke-white stroke-2 size-6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
+          </svg>
+        </div>
+        <div>Filtrar listado</div>
+        <div class="ml-auto"><div class="rotate-90">></div></div>
+      </button>
+      <!-- panel -->
+      <div class="absolute top-20 left-0 z-20 py-12 bg-white text-texto font-normal flex w-5xl divide-x divide-neutral-200" x-show="menu" @click.outside="menu = false">
+        <div class="flex-1 px-12">
+          <strong class="block pb-6 uppercase text-verde">Categoría</strong>
+          <ul class="space-y-3"><li><a href="#" class="hover:text-verde">Substantivos</a></li><li><a href="#" class="hover:text-verde">Adxectivos</a></li><li><a href="#" class="hover:text-verde">Verbos</a></li><li><a href="#" class="hover:text-verde">Adverbios</a></li><li><a href="#" class="hover:text-verde">Determinantes e pronomes</a></li><li><a href="#" class="hover:text-verde">Preposicións e Conxuncións</a></li></ul>
+        </div>
+        <div class="flex-1 px-12">
+          <strong class="block pb-6 uppercase text-verde">Campo semántico</strong>
+          <ul class="space-y-3"><li><a href="#" class="hover:text-verde">O tempo</a></li><li><a href="#" class="hover:text-verde">A climatoloxía</a></li><li><a href="#" class="hover:text-verde">Os astros</a></li><li><a href="#" class="hover:text-verde">A fauna</a></li><li><a href="#" class="hover:text-verde">A flora</a></li><li><a href="#" class="hover:text-verde">O terreo</a></li><li><a href="#" class="hover:text-verde">A persoa</a></li><li><a href="#" class="hover:text-verde">Os cultivos e labores tradicionais</a></li><li><a href="#" class="hover:text-verde">As Festas</a></li><li><a href="#" class="hover:text-verde">Os Alcumes</a></li></ul>
+        </div>
+        <div class="flex-1 px-12">
+          <strong class="block pb-6 uppercase text-verde">Lugar</strong>
+          <ul class="space-y-3"><li><a href="#" class="hover:text-verde">A Rúa</a></li><li><a href="#" class="hover:text-verde">O Barco</a></li><li><a href="#" class="hover:text-verde">Rubiá</a></li><li><a href="#" class="hover:text-verde">Petín</a></li><li><a href="#" class="hover:text-verde">O Bolo</a></li><li><a href="#" class="hover:text-verde">Carballeda</a></li><li><a href="#" class="hover:text-verde">Larouco</a></li><li><a href="#" class="hover:text-verde">Vilamartin</a></li><li><a href="#" class="hover:text-verde">A Veiga</a></li></ul>
+        </div>
+      </div>
+    </div>
+    <div class="h-16 flex-2 bg-black text-white font-bold px-6 flex gap-3 items-center">
+      <div>
+        <svg class="fill-none stroke-white stroke-2 size-6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8" />
+          <path d="m21 21-4.3-4.3" />
+        </svg>
+      </div>
+      <div>Buscar</div>
+    </div>
+  </div>
+</div>
 <div class="caixa max-w-screen-2xl pt-20 grid grid-cols-3 gap-6"><a href="/diccionario/termos/cochar/">
     <div class="border-t-2 text-xl:2xl py-3 first-letter:uppercase">cochar</div>
   </a><a href="/diccionario/termos/niallo/">
@@ -105,7 +141,16 @@
     <div class="border-t-2 text-xl:2xl py-3 first-letter:uppercase">Estordegado</div>
   </a><a href="/diccionario/termos/froxar/">
     <div class="border-t-2 text-xl:2xl py-3 first-letter:uppercase">Froxar</div>
-  </a></div> <div class="mt-36 caixa">
+  </a><a href="/diccionario/termos/ralbar/">
+    <div class="border-t-2 text-xl:2xl py-3 first-letter:uppercase">Ralbar</div>
+  </a></div>
+<div class="caixa max-w-screen-xl mt-36">
+  <a class="underline" href="/diccionario/colabora/">Coñeces algún termo máis?<br />Colabora no proxecto ></a>
+</div><div class="caixa max-w-xl mt-36">
+  <img src="/assets/img/logos/xunta.webp" alt="Logo Xunta de Galicia" />
+  <div class="-mt-20 pl-5">Proxecto realizado co apoio da<br />Dirección Xeral de Política Linguística.<br />Xunta de Galicia.</div>
+</div>
+ <div class="mt-36 caixa">
   <button class="block size-24 rounded-full bg-white mx-auto pt-3 hover:pt-0" x-data="{}" @click="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Ir arriba">
     <div class="size-6 border-l-2 border-t-2 rotate-45 mx-auto"></div>
   </button>

@@ -3,4 +3,4 @@ layout: diccionario
 title: Colabora
 ---
 
-Un poeta valdeorrés, republicano e galeguista. Así define a Florencio Delgado Gurriarán o seu biógrafo o historiador Ricardo Gurriarán, quen en 1999 publica a primeira investigación sobre o autor de Córgomo. Nesa aldea de Vilamartín de Valdeorras nacera en 1903, nunha bocarribeira co val do Sil ao fondo.
+Ademáis da participación da veciñanza, este proxecto sosterase no traballo de expertos que levan tempo analizando a fala valdeorresa e de Viana como Concepción Álvarez Pousa, Francisco Cobo Rodríguez e o propio Florencio Delgado Gurriarán.
