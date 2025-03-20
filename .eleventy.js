@@ -1,5 +1,14 @@
 const markdownIt = require("markdown-it");
+
 module.exports = async function (eleventyConfig) {
+  const EleventyPluginVite = (await import("@11ty/eleventy-plugin-vite"))
+    .default;
+  eleventyConfig.addPlugin(EleventyPluginVite, {
+    viteOptions: {
+      assetsInclude: ["**/*.tif"],
+    },
+  });
+
   let options = {
     html: true,
     breaks: true,
@@ -8,6 +17,7 @@ module.exports = async function (eleventyConfig) {
   eleventyConfig.setLibrary("md", markdownIt(options));
   eleventyConfig.addPassthroughCopy("src/assets/fonts");
   eleventyConfig.addPassthroughCopy("src/assets/img");
+  eleventyConfig.addPassthroughCopy("src/assets/js");
   eleventyConfig.addPassthroughCopy("src/media");
   // Put robots.txt in root
   eleventyConfig.addPassthroughCopy({ "src/robots.txt": "/robots.txt" });
@@ -25,9 +35,11 @@ module.exports = async function (eleventyConfig) {
     });
   });
   eleventyConfig.addCollection("termos", function (collection) {
-    return collection.getFilteredByGlob("./src/diccionario/termos/*.md").sort(function (a, b) {
-      return a.data.termo - b.data.termo;
-    });
+    return collection
+      .getFilteredByGlob("./src/diccionario/termos/*.md")
+      .sort(function (a, b) {
+        return a.data.termo - b.data.termo;
+      });
   });
   return {
     markdownTemplateEngine: "njk",
