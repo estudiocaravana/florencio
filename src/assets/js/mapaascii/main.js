@@ -315,6 +315,13 @@ let colorDestacado = "#ffffff";
 if (urlParams.has("destacado")) {
   colorDestacado = "#" + urlParams.get("destacado");
 }
+let coloresPaleta = null;
+if (urlParams.has("paleta")) {
+  coloresPaleta = urlParams
+    .get("paleta")
+    .split(",")
+    .map((color) => "#" + color);
+}
 
 // let giroInicial = Math.random() * Math.PI * 2;
 let modeloCargado = Math.floor(Math.random() * modelos.length);
@@ -610,22 +617,31 @@ function generateTexture(data, width, height) {
       // let color = { r: r, g: g, b: b };
 
       let color;
-
-      if (colorTexto) {
-        let colorArray = hslToRgb(hue, 1, normalized);
-        color = { r: colorArray[0], g: colorArray[1], b: colorArray[2] };
+      if (coloresPaleta) {
+        let nColores = coloresPaleta.length - 1;
+        let posicionColor = Math.min(
+          nColores,
+          Math.max(0, Math.floor(nColores * normalized))
+        );
+        let colorHEX = coloresPaleta[posicionColor];
+        color = hexToRgb(colorHEX);
       } else {
-        if (CON_TAILWIND) {
-          let nColores = paleta.length - 1;
-          let posicionColor = Math.min(
-            nColores,
-            Math.max(0, Math.floor(nColores * normalized))
-          );
-          let colorHEX = paleta[posicionColor];
-          color = hexToRgb(colorHEX);
-        } else {
+        if (colorTexto) {
           let colorArray = hslToRgb(hue, 1, normalized);
           color = { r: colorArray[0], g: colorArray[1], b: colorArray[2] };
+        } else {
+          if (CON_TAILWIND) {
+            let nColores = paleta.length - 1;
+            let posicionColor = Math.min(
+              nColores,
+              Math.max(0, Math.floor(nColores * normalized))
+            );
+            let colorHEX = paleta[posicionColor];
+            color = hexToRgb(colorHEX);
+          } else {
+            let colorArray = hslToRgb(hue, 1, normalized);
+            color = { r: colorArray[0], g: colorArray[1], b: colorArray[2] };
+          }
         }
       }
 

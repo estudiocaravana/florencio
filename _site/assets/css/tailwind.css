@@ -696,17 +696,8 @@
   .inline-block {
     display: inline-block;
   }
-  .inline-flex {
-    display: inline-flex;
-  }
-  .list-item {
-    display: list-item;
-  }
   .table {
     display: table;
-  }
-  .aspect-square {
-    aspect-ratio: 1 / 1;
   }
   .size-6 {
     width: calc(var(--spacing) * 6);
@@ -719,12 +710,6 @@
   .size-24 {
     width: calc(var(--spacing) * 24);
     height: calc(var(--spacing) * 24);
-  }
-  .h-1 {
-    height: calc(var(--spacing) * 1);
-  }
-  .h-1\/2 {
-    height: calc(1/2 * 100%);
   }
   .h-8 {
     height: calc(var(--spacing) * 8);
@@ -741,23 +726,11 @@
   .h-32 {
     height: calc(var(--spacing) * 32);
   }
-  .h-96 {
-    height: calc(var(--spacing) * 96);
-  }
-  .h-100 {
-    height: calc(var(--spacing) * 100);
-  }
   .h-full {
     height: 100%;
   }
   .min-h-20 {
     min-height: calc(var(--spacing) * 20);
-  }
-  .w-3xl {
-    width: var(--container-3xl);
-  }
-  .w-3xl\! {
-    width: var(--container-3xl) !important;
   }
   .w-5xl {
     width: var(--container-5xl);
@@ -780,41 +753,11 @@
   .w-60 {
     width: calc(var(--spacing) * 60);
   }
-  .w-100 {
-    width: calc(var(--spacing) * 100);
-  }
   .w-fit {
     width: fit-content;
   }
   .w-full {
     width: 100%;
-  }
-  .w-lg {
-    width: var(--container-lg);
-  }
-  .w-lg\! {
-    width: var(--container-lg) !important;
-  }
-  .w-md {
-    width: var(--container-md);
-  }
-  .w-md\! {
-    width: var(--container-md) !important;
-  }
-  .w-sm {
-    width: var(--container-sm);
-  }
-  .w-sm\! {
-    width: var(--container-sm) !important;
-  }
-  .w-xl {
-    width: var(--container-xl);
-  }
-  .w-xl\! {
-    width: var(--container-xl) !important;
-  }
-  .max-w-1 {
-    max-width: calc(var(--spacing) * 1);
   }
   .max-w-1\/3 {
     max-width: calc(1/3 * 100%);
@@ -864,23 +807,12 @@
   .flex-2 {
     flex: 2;
   }
-  .border-collapse {
-    border-collapse: collapse;
-  }
-  .-translate-x-1 {
-    --tw-translate-x: calc(var(--spacing) * -1);
-    translate: var(--tw-translate-x) var(--tw-translate-y);
-  }
   .-translate-x-1\/2 {
     --tw-translate-x: calc(calc(1/2 * 100%) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .translate-x-0 {
     --tw-translate-x: calc(var(--spacing) * 0);
-    translate: var(--tw-translate-x) var(--tw-translate-y);
-  }
-  .translate-x-1 {
-    --tw-translate-x: calc(var(--spacing) * 1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .translate-x-1\/2 {
@@ -907,9 +839,6 @@
   }
   .flex-col {
     flex-direction: column;
-  }
-  .\!items-center {
-    align-items: center !important;
   }
   .\!items-end {
     align-items: flex-end !important;
@@ -979,10 +908,6 @@
   }
   .rounded-sm {
     border-radius: var(--radius-sm);
-  }
-  .border {
-    border-style: var(--tw-border-style);
-    border-width: 1px;
   }
   .border-1 {
     border-style: var(--tw-border-style);
@@ -1073,9 +998,6 @@
   .p-6 {
     padding: calc(var(--spacing) * 6);
   }
-  .p-9\! {
-    padding: calc(var(--spacing) * 9) !important;
-  }
   .p-12 {
     padding: calc(var(--spacing) * 12);
   }
@@ -1147,9 +1069,6 @@
   }
   .text-center {
     text-align: center;
-  }
-  .\!indent-0 {
-    text-indent: calc(var(--spacing) * 0) !important;
   }
   .\!font-sans {
     font-family: var(--font-sans) !important;
@@ -1239,10 +1158,6 @@
   .underline-offset-4 {
     text-underline-offset: 4px;
   }
-  .antialiased {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
   .opacity-0 {
     opacity: 0%;
   }
@@ -1252,24 +1167,12 @@
   .opacity-100 {
     opacity: 100%;
   }
-  .outline {
-    outline-style: var(--tw-outline-style);
-    outline-width: 1px;
-  }
-  .grayscale {
-    --tw-grayscale: grayscale(100%);
-    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
-  }
   .invert {
     --tw-invert: invert(100%);
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
   }
   .filter {
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
-  }
-  .backdrop-filter {
-    -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
-    backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
   }
   .transition {
     transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter;
@@ -1838,11 +1741,6 @@ table td {
   syntax: "*";
   inherits: false;
 }
-@property --tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
 @property --tw-blur {
   syntax: "*";
   inherits: false;
@@ -1876,42 +1774,6 @@ table td {
   inherits: false;
 }
 @property --tw-sepia {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-backdrop-blur {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-backdrop-brightness {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-backdrop-contrast {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-backdrop-grayscale {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-backdrop-hue-rotate {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-backdrop-invert {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-backdrop-opacity {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-backdrop-saturate {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-backdrop-sepia {
   syntax: "*";
   inherits: false;
 }

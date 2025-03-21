@@ -15,7 +15,15 @@
 </div>
 
 <div class="caixa">
-  <iframe src="/mapa/?fondo=f7f5f2&texto=56b093&destacado=ff0000" class="w-5xl! h-5xl!" frameborder="0"></iframe>
+  <!-- 
+  Mapa de letras. Todas las opciones que toma son colores en hexadecimal sin el #.
+
+  fondo: color de fondo del mapa
+  paleta: lista de colores separadas por comas, ordenadas de la más oscura a la más clara, usada para pintar las letras
+  texto: si no se utiliza el campo "paleta", se puede usar este campo para definir un único color del que se toma su hue para colorear las letras
+  destacado: color de las palabras destacadas del diccionario
+  -->  
+  <iframe src="/mapa/?fondo=f7f5f2&paleta=104e64,00786f,00bc7d,7bf1a8,ecfcca,ffffff&destacado=fb2c36" class="w-5xl! h-5xl!" frameborder="0"></iframe>
 </div>
 
 {%- if page.url == '/diccionario/' -%}
