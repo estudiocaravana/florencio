@@ -11,7 +11,14 @@ if (loginForm) {
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
     try {
-      await directus.login(email, password);
+      const response = await directus.login(email, password);
+      if (response.access_token) {
+        cookies.set("directus_session_token", response.access_token, {
+          sameSite: "strict",
+          path: "/",
+          secure: true,
+        });
+      }
       alert("Login successful");
     } catch (error) {
       alert("Login failed");
