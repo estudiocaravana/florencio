@@ -8,7 +8,7 @@
     "dev:11ty": "eleventy --serve",
     "dev:css": "npx @tailwindcss/cli -i src/assets/css/tailwind.css -o _site/assets/css/tailwind.css --watch",
     "build:11ty": "eleventy",
-    "build:css": "npx @tailwindcss/cli -i src/assets/css/input.css -o _site/assets/css/tailwind.css"
+    "build:css": "npx @tailwindcss/cli -i src/assets/css/tailwind.css -o _site/assets/css/tailwind.css"
   },
   "keywords": [],
   "author": "",
