@@ -1,0 +1,73 @@
+{% extends "../base.html" %} {% block content %} {% include "directus/nav.html" %}
+<div class="caixa max-w-screen-xl pt-12">
+  <div class="flex gap-6">
+    <div class="flex-1 relative" x-data="{menu : false}">
+      <button class="boton w-full bg-verde text-white" @click="menu = true">
+        <div>
+          <svg class="fill-none stroke-white stroke-2 size-6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
+          </svg>
+        </div>
+        <div>Filtrar listado</div>
+        <div class="ml-auto"><div class="rotate-90">></div></div>
+      </button>
+      <!-- panel -->
+      <div class="absolute top-20 left-0 z-20 py-12 bg-white text-texto font-normal flex w-5xl divide-x divide-neutral-200" x-show="menu" @click.outside="menu = false">
+        <div class="flex-1 px-12">
+          <strong class="block pb-6 uppercase text-verde">Categoría</strong>
+          <ul class="space-y-3">
+            {%- for item in lista.categorias -%}
+            <li><a href="#" class="hover:text-verde">{{ item.text}}</a></li>
+            {%- endfor -%}
+          </ul>
+        </div>
+        <div class="flex-1 px-12">
+          <strong class="block pb-6 uppercase text-verde">Campo semántico</strong>
+          <ul class="space-y-3">
+            {%- for item in lista.campos -%}
+            <li><a href="#" class="hover:text-verde">{{ item.text}}</a></li>
+            {%- endfor -%}
+          </ul>
+        </div>
+        <div class="flex-1 px-12">
+          <strong class="block pb-6 uppercase text-verde">Lugar</strong>
+          <ul class="space-y-3">
+            {%- for item in lista.lugares -%}
+            <li><a href="#" class="hover:text-verde">{{ item.text}}</a></li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="boton flex-2 bg-black text-white">
+      <div>
+        <svg class="fill-none stroke-white stroke-2 size-6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8" />
+          <path d="m21 21-4.3-4.3" />
+        </svg>
+      </div>
+      <div>Buscar</div>
+    </div>
+  </div>
+</div>
+<!-- Grella -->
+<div class="caixa max-w-screen-2xl pt-12">
+  <div class="text-right text-lg"><span class="text-verde">*En revisión</span></div>
+</div>
+<div class="caixa max-w-screen-2xl pt-6 grella">
+  {%- for item in termos -%}
+  <a href="/directus/termo/{{ item.termo | slug }}">
+    <div class="border-t-2 text-xl:2xl py-3 first-letter:uppercase">{{ item.termo }}</div>
+  </a>
+  {%- endfor -%}
+</div>
+<div class="caixa max-w-screen-lg mt-16 md:mt-36 flex flex-col gap-6 lg:flex-row justify-center">
+  <a class="boton bg-texto text-white items-center" href="/dicionario/colabora/">
+    <div class="size-6 *:border-2 *:border-current overflow-hidden relative">
+      <div class="rounded-full size-4 mx-auto"></div>
+      <div class="rounded-lg size-full"></div>
+    </div>
+    <div>Colabora</div>
+  </a>
+</div>
+{% include "dicionario/prefooter.html" %} {% endblock %}
