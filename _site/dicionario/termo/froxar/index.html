@@ -187,7 +187,7 @@
             <div class="text-neutral-500 block text-lg w-72">Campo semántico</div>
             <div>O terreo</div>
           </div>
-          <div class="pt-6 md:flex"md:>
+          <div class="pt-6 md:flex md:items-end">
             <div class="text-neutral-500 block text-lg w-72">Localización</div>
             <div>Córgomo</div>
           </div>
@@ -243,60 +243,6 @@
   </div>
   <div class="text-center my-12 text-xl max-w-xl mx-auto">Os comentarios pasarán un proceso de moderación <br />Grazas por colaborar!</div>
 </div>
-<div class="fixed top-0 left-0 right-0 bottom-0 bg-texto/80 overflow-y-auto">
-  <div class="bg-verde max-w-4xl px-12 pb-12 pt-6 mx-auto my-36">
-    <div class="font-bold text-3xl text-white pt-3">Rexistrarse</div>
-    <div class="max-w-lg text-white py-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut atque accusamus fugit iste provident porro officia aliquam</div>
-    <div class="bg-white">
-      <div x-data="{ activeTab:  1 }">
-        <div class="flex *:flex-1 *:bg-verde *:py-6">
-          <button @click="activeTab = 1" :class="{ 'active !bg-white': activeTab === 1 }">Individuo</button>
-          <button @click="activeTab = 2" :class="{ 'active': activeTab === 2 }">Institución ou colectivo</button>
-        </div>
-
-        <div x-show="activeTab === 1">
-          <form action="#">
-            <div class="py-12 px-16 bg-white border-b">
-              <div class="text-4xl font-bold pb-12 text-center">Os teus datos</div>
-              <label for="Nome" class="block">
-                <span>Nome completo</span>
-                <input type="text" class="h-16 border-1 border-neutral-200 rounded-sm w-full bg-fondo block mb-6 mt-2 px-6" />
-              </label>
-              <label for="Email" class="block">
-                <span>Email</span>
-                <input type="text" class="h-16 border-1 border-neutral-200 rounded-sm w-full bg-fondo block mb-6 mt-2" />
-              </label>
-            </div>
-            <div class="py-12 px-16 bg-white">
-              <div class="text-4xl font-bold pb-12 text-center">O termo</div>
-              <label for="Nome" class="block">
-                <span class="">Palabra</span>
-                <input type="text" class="h-16 border-1 border-neutral-200 rounded-sm w-full bg-fondo block mb-6 mt-2 px-6" placeholder="Exemplo: Avisedo" />
-              </label>
-              <label for="Nome" class="block">
-                <span class="">Lugar/es no que se utiliza</span>
-                <input type="text" class="h-16 border-1 border-neutral-200 rounded-sm w-full bg-fondo block mb-6 mt-2 px-6" placeholder="Exemplo: Córgomo" />
-              </label>
-              <label for="Nome" class="block">
-                <span class="">Definición</span>
-                <textarea rows="6" class="w-full border-1 border-neutral-200 rounded-sm bg-fondo mb-6 mt-2 p-6" placeholder="Exemplo: Terreo no que non acostuma dar o sol, sombrío."></textarea>
-              </label>
-              <!-- acordo -->
-              <label for="normas" class="flex gap-3 items-center mt-16">
-                <input class="size-9 border-4 border-neutral-500 bg-transparent" type="checkbox" name="normas" id="normas" required />
-                Lin e acepto a <a href="/politica-privacidade" class="underline underline-offset-4">política de privacidade</a>
-              </label>
-              <button class="block h-20 w-full bg-verde mx-auto mt-12 font-bold text-white text-2xl hover:bg-verde/80">Enviar</button>
-            </div>
-          </form>
-        </div>
-        <div x-show="activeTab === 2">hola 2</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
 <!-- Mapa de letras -->
 <!-- Todas las opciones que toma son colores en hexadecimal sin el #.
 

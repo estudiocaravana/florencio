@@ -1,5 +1,5 @@
 ---
-layout: dicionario/portada
+layout: dicionario/colabora
 title: Colabora
 ---
 
