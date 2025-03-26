@@ -148,39 +148,72 @@
   </div>
 </div>
 <!-- Header -->
-<div class="caixa max-w-screen-xl pt-20">
-  <h1 class="text-5xl sm:text-7xl text-verde">O Proxecto</h1>
+<div class="caixa max-w-screen-xl pt-12">
+  <!-- Migas -->
+  <div>
+    <a href="#">Inicio</a> / 
+    <a href="#">Termos</a> / 
+    <a href="#">O Proxecto</a>
+  </div>
+  <!-- Título -->
+  <h1 class="text-5xl sm:text-7xl text-verde pt-6 first-letter:uppercase">O Proxecto</h1>
 </div>
 
-<!-- portada --><div class="caixa max-w-screen-xl pt-9 content"><p>O galego de Valdeorras forma parte do bloque oriental da fala, conformando unha subzona lingüística xunto con Viana do Bolo. As peculiaridades léxicas da comarca teñen moito que ver coa súa identidade paisaxística e sociocultural, con formas que identifican, por exemplo, a súa peculiar flora mediterránea, oficios e tradicións. Como zona de paso de comerciantes, de tradición mineira e viticultora, en Valdeorras cultivouse un léxico moi rico (nino, pincheira, cochar…) e así o atopamos na obra de Florencio, quen empregou a lírica para poñer en valor a súa fala natal.</p>
-<p>Esta especificidade do léxico é unha das dificultades que atopan investigadores e divulgadores á hora de analizar o legado florenciano. Por iso, nas reedicións dos seus poemarios no 2022, foron múltiples os erros na adaptación do seu galego á actualidade, non por evolución normativa (que tamén) se non por descoñecer o auténtico significado das palabras. Así se destacou nunha mesa redonda celebrada no Barco de Valdeorras en novembro dese ano e ante o que a presidenta do Consello da Cultura Galega, Rosario Álvarez, respondía tallante: «É necesario un dicionario de valdeorrés».</p>
-<p>A ese interese filolóxico súmase ademais unha necesidade histórica, xa que moito dese léxico atópase en desuso polas mudanzas económicas e sociais, ademais de polo escaso uso do galego entre a mocidade. Xa non habitamos o mundo igual que antes e hai que actuar para conservar palabras (niallo, caborco, galla…) e devolverlles a significación que unha vez tiveron.</p>
-<h2>Proxecto participativo</h2>
-<p>Este dicionario aspira a ser un proxecto cultural construído dende a base, polo que os procesos participativos e de mediación cultural estarán no centro da súa acción. En todo caso, antes de chegar ao proceso participativo, construirase unha metodoloxía con base científica de recollida, validación e publicación de resultados.</p>
-<p>Unha vez establecida esa metodoloxía,combinaranse procesos socializadores de recollida de léxico (obradoiros en centros educativos, grupos de veciñanza, traballo de campo…) con outras dinámicas dixitais canalizadas a través dun apartado web creado especificamente para o dicionario e que se atopa en denvolvemento. Esta web é clave, xa que o obxectivo deste dicionario é expandir a identidade lingüística de Valdeorras e no proceso, construír unha autoestima renovada pola lingua propia activando novas relacións na comunidade e incentivando o interese dunha crecente poboación migrante.</p>
-<h3>AXENTES</h3>
-<ul>
-<li>Investigadores e institucións</li>
-<li>Comunidade educativa local</li>
-<li>Cronistas e divulgadores locais</li>
-<li>Asociacións e colectivos informais</li>
-<li>Comunicadores</li>
-<li>A comunidade extensa de valdeorreses polo mundo</li>
-</ul>
-<h3>VALORES</h3>
-<ul>
-<li>Proceso participativo, integrador e aberto</li>
-<li>Posta en valor do patrimonio lingüístico</li>
-<li>Uso e promoción da lingua galega</li>
-<li>Igualdade de xénero</li>
-<li>Diversidade social e funcional</li>
-<li>Lazos de comunidade</li>
-<li>Educativo e interxeracional</li>
-<li>Respecto medioambiental</li>
-</ul>
-<h3>Colabora</h3>
-<p><a href="/diccionario/colabora/">Comparte unha palabra en valdeorrés</a></p>
-</div><!-- Mapa de letras -->
+<!-- portada --><div class="fixed top-0 left-0 right-0 bottom-0 bg-texto/80 overflow-y-auto">
+  <div class="bg-verde max-w-4xl px-12 pb-12 pt-6 mx-auto my-36">
+    <div class="font-bold text-3xl text-white pt-3">Rexistrarse</div>
+    <div class="max-w-lg text-white py-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut atque accusamus fugit iste provident porro officia aliquam</div>
+    <div class="bg-white">
+      <div x-data="{ activeTab:  1 }">
+        <div class="flex *:flex-1 *:bg-verde *:py-6">
+          <button @click="activeTab = 1" :class="{ 'active !bg-white': activeTab === 1 }">Individuo</button>
+          <button @click="activeTab = 2" :class="{ 'active': activeTab === 2 }">Institución ou colectivo</button>
+        </div>
+
+        <div x-show="activeTab === 1">
+          <form action="#">
+            <div class="py-12 px-16 bg-white border-b">
+              <div class="text-4xl font-bold pb-12 text-center">Os teus datos</div>
+              <label for="Nome" class="block">
+                <span>Nome completo</span>
+                <input type="text" class="h-16 border-1 border-neutral-200 rounded-sm w-full bg-fondo block mb-6 mt-2 px-6" />
+              </label>
+              <label for="Email" class="block">
+                <span>Email</span>
+                <input type="text" class="h-16 border-1 border-neutral-200 rounded-sm w-full bg-fondo block mb-6 mt-2" />
+              </label>
+            </div>
+            <div class="py-12 px-16 bg-white">
+              <div class="text-4xl font-bold pb-12 text-center">O termo</div>
+              <label for="Nome" class="block">
+                <span class="">Palabra</span>
+                <input type="text" class="h-16 border-1 border-neutral-200 rounded-sm w-full bg-fondo block mb-6 mt-2 px-6" placeholder="Exemplo: Avisedo" />
+              </label>
+              <label for="Nome" class="block">
+                <span class="">Lugar/es no que se utiliza</span>
+                <input type="text" class="h-16 border-1 border-neutral-200 rounded-sm w-full bg-fondo block mb-6 mt-2 px-6" placeholder="Exemplo: Córgomo" />
+              </label>
+              <label for="Nome" class="block">
+                <span class="">Definición</span>
+                <textarea rows="6" class="w-full border-1 border-neutral-200 rounded-sm bg-fondo mb-6 mt-2 p-6" placeholder="Exemplo: Terreo no que non acostuma dar o sol, sombrío."></textarea>
+              </label>
+              <!-- acordo -->
+              <label for="normas" class="flex gap-3 items-center mt-16">
+                <input class="size-9 border-4 border-neutral-500 bg-transparent" type="checkbox" name="normas" id="normas" required />
+                Lin e acepto a <a href="/politica-privacidade" class="underline underline-offset-4">política de privacidade</a>
+              </label>
+              <button class="block h-20 w-full bg-verde mx-auto mt-12 font-bold text-white text-2xl hover:bg-verde/80">Enviar</button>
+            </div>
+          </form>
+        </div>
+        <div x-show="activeTab === 2">hola 2</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Mapa de letras -->
 <!-- Todas las opciones que toma son colores en hexadecimal sin el #.
 
   fondo: color de fondo del mapa

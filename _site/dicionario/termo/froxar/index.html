@@ -75,42 +75,141 @@
     </div>
   </div>
 </div>
- 
-<!-- Navegador -->
-<div class="bg-black">
+  <div x-data="{menu : false}">
+  <!-- movil -->
+  <div class="caixa lg:hidden bg-texto">
+    <div class="flex justify-between items-center py-6">
+      <div>
+        <a href="/dicionario/" class="text-fondo"> Dicionario </a>
+      </div>
+      <div class="sticky top-0">
+        <button class="w-12 h-9 border-y-[3px] border-fondo" @click="menu = true" aria-label="Abrir o menú">
+          <div class="border-t-[3px] border-fondo"></div>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- sidebar -->
+  <div
+    class="fixed top-0 right-0 w-full h-full sm:w-md lg:w-1/2 bg-texto text-white z-20"
+    x-cloak
+    x-show="menu"
+    @click.outside="menu = false"
+    x-transition:enter-start="translate-x-1/2 opacity-0"
+    x-transition:enter-end="translate-x-0 opacity-100"
+    x-transition:leave-start="translate-x-0 opacity-100"
+    x-transition:leave-end="translate-x-1/2 opacity-0"
+    x-transition:enter="transition ease-out duration-500"
+    x-transition:leave="transition ease-in duration-500"
+  >
+    <div>
+      <button class="w-12 h-9 mx-9 my-12 ml-auto block border-y-2 border-white" @click="menu = false" aria-label="Abrir o menú">
+        <div class="border-t-2 border-white"></div>
+      </button>
+    </div>
+    <ul class="pb-9 text-3xl block ml-12 font-serif space-y-4"><li><a href="/dicionario/" >Portada</a></li><li><a href="/dicionario/termos/" >Termos</a></li><li><a href="/dicionario/mapa-termos/" >Mapa</a></li><li><a href="/dicionario/artigos/" >Artigos</a></li><li><a href="/dicionario/proxecto/" >O Proxecto</a></li><br />
+      <hr class="w-12" />
+      <li>
+        <a href="/dicionario/colabora/" class="py-9 flex gap-3 items-center ">
+          <div class="size-6 *:border-2 *:border-current overflow-hidden relative">
+            <div class="rounded-full size-4 mx-auto"></div>
+            <div class="rounded-lg size-full"></div>
+          </div>
+          <div>Colabora</div>
+        </a>
+      </li>
+      <hr class="w-12" />
+      <br />
+      <li><a href="#">Contacto</a></li>
+      <li><a href="#">Textos legales</a></li>
+    </ul>
+  </div>
+</div>
+<!-- Grandes -->
+<div class="bg-black hidden lg:block">
   <div class="caixa max-w-screen-2xl">
-    <ul class="text-white flex gap-12 mx-auto text-2xl"></ul>
+    <div class="flex justify-between">
+      <div>
+        <ul class="text-white flex gap-12 mx-auto text-2xl"><li><a href="/dicionario/" class="py-9 block ">Portada</a></li><li><a href="/dicionario/termos/" class="py-9 block ">Termos</a></li><li><a href="/dicionario/mapa-termos/" class="py-9 block ">Mapa</a></li><li><a href="/dicionario/artigos/" class="py-9 block ">Artigos</a></li></ul>
+      </div>
+      <div>
+        <ul class="text-white flex gap-12 mx-auto text-2xl"><li><a href="/dicionario/proxecto/" class="py-9 block ">O Proxecto</a></li><li>
+            <a href="/dicionario/colabora/" class="py-9 flex gap-3 items-center ">
+              <div class="size-6 *:border-2 *:border-current overflow-hidden relative">
+                <div class="rounded-full size-4 mx-auto"></div>
+                <div class="rounded-lg size-full"></div>
+              </div>
+              <div>Colabora</div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
 <!-- Header -->
-<div class="caixa max-w-screen-2xl pt-20">
+<div class="caixa max-w-screen-xl pt-12">
+  <!-- Migas -->
+  <div>
+    <a href="#">Inicio</a> / 
+    <a href="#">Termos</a> / 
+    <a href="#">Froxar</a>
+  </div>
+  <!-- Título -->
+  <h1 class="text-5xl sm:text-7xl text-verde pt-6 first-letter:uppercase">Froxar</h1>
+</div>
+
+<!-- Header -->
+<div class="caixa max-w-screen-xl pt-6 content">
+  <div class="max-w-3xl pt-3">
+    <strong>Definición</strong>
+    <div class="mt-2">Movemento que se fai cara atrás.</div>
+  </div>
+  <div>
+    <strong>Exemplo</strong>
+    <div class="mt-2"><em>Non comades amorodos, que vos emborrachades!</em></div>
+  </div>
+</div>
+<!-- datos -->
+<div class="caixa max-w-screen-2xl pt-6">
   <div class="content">
-    <h1 class="text-5xl sm:text-7xl text-verde first-letter:uppercase">Froxar</h1>
-    <div class="max-w-3xl pt-3">
-      <strong>Definición:</strong><br />
-      Movemento que se fai cara atrás.
-    </div>
-    <div><strong>Exemplo:</strong><br /><em>Non comades amorodos, que vos emborrachades!</em></div>
     <hr />
-    <div class="lg:flex gap-20">
+    <div class="flex *:flex-1 flex-col lg:flex-row gap-20">
+      <!-- IZQ -->
       <div>
-        <small>Localización:</small><br />
-        <a href="#" class="underline">Córgomo</a>
+        <!-- ficha -->
+        <div class="divide-y">
+          <div class="pt-6 md:flex md:items-end">
+            <div class="text-neutral-500 block text-lg w-72">Categoría</div>
+            <div>Verbo</div>
+          </div>
+          <div class="pt-6 md:flex md:items-end">
+            <div class="text-neutral-500 block text-lg w-72">Campo semántico</div>
+            <div>O terreo</div>
+          </div>
+          <div class="pt-6 md:flex"md:>
+            <div class="text-neutral-500 block text-lg w-72">Localización</div>
+            <div>Córgomo</div>
+          </div>
+        </div>
+        <!-- mapa -->
+        <div class="w-full aspect-square border mt-12"></div>
       </div>
-      <div>
-        <small>Categoría:</small><br />
-        Verbo
-      </div>
-      <div>
-        <small>Campo semántico</small><br />
-        O terreo
+      <!-- DRCH -->
+      <div class="pt-1">
+        <!-- foto -->
+        <div></div>
+        <!-- audio -->
+        <div>
+          
+        </div>
+        <!-- informantes -->
+        <div class="max-w-4xl">
+          <strong>Informantes</strong>
+          <div class="mt-2"></div>
+        </div>
       </div>
     </div>
-    <div></div>
-    <div>
-      
-    </div>
-    <div class="max-w-4xl"><strong>Informantes:</strong><br /></div>
   </div>
   <!-- Comentarios -->
   <div class="flex text-lg w-full pt-20">
@@ -144,7 +243,75 @@
   </div>
   <div class="text-center my-12 text-xl max-w-xl mx-auto">Os comentarios pasarán un proceso de moderación <br />Grazas por colaborar!</div>
 </div>
- <div class="mt-36 caixa">
+<div class="fixed top-0 left-0 right-0 bottom-0 bg-texto/80 overflow-y-auto">
+  <div class="bg-verde max-w-4xl px-12 pb-12 pt-6 mx-auto my-36">
+    <div class="font-bold text-3xl text-white pt-3">Rexistrarse</div>
+    <div class="max-w-lg text-white py-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut atque accusamus fugit iste provident porro officia aliquam</div>
+    <div class="bg-white">
+      <div x-data="{ activeTab:  1 }">
+        <div class="flex *:flex-1 *:bg-verde *:py-6">
+          <button @click="activeTab = 1" :class="{ 'active !bg-white': activeTab === 1 }">Individuo</button>
+          <button @click="activeTab = 2" :class="{ 'active': activeTab === 2 }">Institución ou colectivo</button>
+        </div>
+
+        <div x-show="activeTab === 1">
+          <form action="#">
+            <div class="py-12 px-16 bg-white border-b">
+              <div class="text-4xl font-bold pb-12 text-center">Os teus datos</div>
+              <label for="Nome" class="block">
+                <span>Nome completo</span>
+                <input type="text" class="h-16 border-1 border-neutral-200 rounded-sm w-full bg-fondo block mb-6 mt-2 px-6" />
+              </label>
+              <label for="Email" class="block">
+                <span>Email</span>
+                <input type="text" class="h-16 border-1 border-neutral-200 rounded-sm w-full bg-fondo block mb-6 mt-2" />
+              </label>
+            </div>
+            <div class="py-12 px-16 bg-white">
+              <div class="text-4xl font-bold pb-12 text-center">O termo</div>
+              <label for="Nome" class="block">
+                <span class="">Palabra</span>
+                <input type="text" class="h-16 border-1 border-neutral-200 rounded-sm w-full bg-fondo block mb-6 mt-2 px-6" placeholder="Exemplo: Avisedo" />
+              </label>
+              <label for="Nome" class="block">
+                <span class="">Lugar/es no que se utiliza</span>
+                <input type="text" class="h-16 border-1 border-neutral-200 rounded-sm w-full bg-fondo block mb-6 mt-2 px-6" placeholder="Exemplo: Córgomo" />
+              </label>
+              <label for="Nome" class="block">
+                <span class="">Definición</span>
+                <textarea rows="6" class="w-full border-1 border-neutral-200 rounded-sm bg-fondo mb-6 mt-2 p-6" placeholder="Exemplo: Terreo no que non acostuma dar o sol, sombrío."></textarea>
+              </label>
+              <!-- acordo -->
+              <label for="normas" class="flex gap-3 items-center mt-16">
+                <input class="size-9 border-4 border-neutral-500 bg-transparent" type="checkbox" name="normas" id="normas" required />
+                Lin e acepto a <a href="/politica-privacidade" class="underline underline-offset-4">política de privacidade</a>
+              </label>
+              <button class="block h-20 w-full bg-verde mx-auto mt-12 font-bold text-white text-2xl hover:bg-verde/80">Enviar</button>
+            </div>
+          </form>
+        </div>
+        <div x-show="activeTab === 2">hola 2</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Mapa de letras -->
+<!-- Todas las opciones que toma son colores en hexadecimal sin el #.
+
+  fondo: color de fondo del mapa
+  paleta: lista de colores separadas por comas, ordenadas de la más oscura a la más clara, usada para pintar las letras
+  texto: si no se utiliza el campo "paleta", se puede usar este campo para definir un único color del que se toma su hue para colorear las letras
+  destacado: color de las palabras destacadas del diccionario
+  -->
+<iframe src="/mapa/?fondo=f7f5f2&paleta=104e64,00786f,00bc7d,7bf1a8,ecfcca,ffffff&destacado=fb2c36" class="!p-0 w-full! h-2xl! !shadow-none hidden" frameborder="0"></iframe>
+<!-- Logo Xunta -->
+<div class="caixa max-w-xl mt-36">
+  <img src="/assets/img/logos/xunta.webp" alt="Logo Xunta de Galicia" />
+  <div class="-mt-20 pl-5">Proxecto realizado co apoio da<br />Dirección Xeral de Política Linguística.<br />Xunta de Galicia.</div>
+</div>
+  <div class="mt-36 caixa">
   <button class="block size-24 rounded-full bg-white mx-auto pt-3 hover:pt-0" x-data="{}" @click="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Ir arriba">
     <div class="size-6 border-l-2 border-t-2 rotate-45 mx-auto"></div>
   </button>

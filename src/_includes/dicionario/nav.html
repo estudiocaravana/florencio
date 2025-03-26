@@ -86,6 +86,13 @@
   </div>
 </div>
 <!-- Header -->
-<div class="caixa max-w-screen-xl pt-20">
-  <h1 class="text-5xl sm:text-7xl text-verde">{{ title }}</h1>
+<div class="caixa max-w-screen-xl pt-12">
+  <!-- Migas -->
+  <div>
+    <a href="#">Inicio</a> / 
+    <a href="#">Termos</a> / 
+    <a href="#">{{ title or titulo or termo }}</a>
+  </div>
+  <!-- Título -->
+  <h1 class="text-5xl sm:text-7xl text-verde pt-6 first-letter:uppercase">{{ title or termo }}</h1>
 </div>
