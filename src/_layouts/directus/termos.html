@@ -54,6 +54,20 @@
 <div class="caixa max-w-screen-2xl pt-12">
   <div class="text-right text-lg"><span class="text-verde">*En revisión</span></div>
 </div>
+<form id="loginForm" class="caixa max-w-screen-2xl pt-12">
+  <div class="flex gap-6">
+    <div class="flex-1">
+      <input id="email" type="text" name="email" class="input" placeholder="Email"/>
+    </div>
+    <div class="flex-1">
+      <input id="password" type="password" name="password" class="input" placeholder="Password"/>
+    </div>
+    <input type="hidden" name="mode" value="session" />
+    <div class="flex-1">
+      <button type="submit" class="boton bg-verde text-white">Entrar</button>
+    </div>
+  </div>
+</form>
 <div class="caixa max-w-screen-2xl pt-6 grella">
   {%- for item in termos -%}
   <a href="/directus/termo/{{ item.termo | slug }}">

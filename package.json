@@ -17,6 +17,7 @@
   "dependencies": {
     "@11ty/eleventy": "^3.0.0",
     "@11ty/eleventy-plugin-vite": "^6.0.0",
+    "@directus/sdk": "^19.1.0",
     "@fontsource-variable/crimson-pro": "^5.2.5",
     "@fontsource-variable/rubik": "^5.1.1",
     "@fontsource/sorts-mill-goudy": "^5.1.1",
