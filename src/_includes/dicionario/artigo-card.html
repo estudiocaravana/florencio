@@ -1,0 +1,15 @@
+<a href="{{ item.url }}" class="hover:text-verde block py-8">
+  <div class="flex flex-col lg:flex-row gap-12 lg:items-center">
+    <div class="max-w-2xl">
+      <img src="{{ item.data.imaxe }}" alt="{{ item.data.titulo }}" />
+    </div>
+    <div class="flex-1">
+      <h2 class="text-4xl md:text-5xl max-w-2xl !font-sans font-semibold">{{ item.data.titulo }}</h2>
+      <div class="text-3xl max-w-2xl mt-4">{{ item.data.subtitulo | safe }}</div>
+      <div class="mt-4 flex gap-9">
+        <div>Autor: <strong>{{ item.data.autor }}</strong></div>
+      </div>
+    </div>
+  </div>
+</a>
+<hr />

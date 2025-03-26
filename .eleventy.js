@@ -1,8 +1,7 @@
 const markdownIt = require("markdown-it");
 
 module.exports = async function (eleventyConfig) {
-  const EleventyPluginVite = (await import("@11ty/eleventy-plugin-vite"))
-    .default;
+  const EleventyPluginVite = (await import("@11ty/eleventy-plugin-vite")).default;
   eleventyConfig.addPlugin(EleventyPluginVite, {
     viteOptions: {
       assetsInclude: ["**/*.tif"],
@@ -34,12 +33,15 @@ module.exports = async function (eleventyConfig) {
       return a.data.order - b.data.order;
     });
   });
-  eleventyConfig.addCollection("termos", function (collection) {
-    return collection
-      .getFilteredByGlob("./src/diccionario/termos/*.md")
-      .sort(function (a, b) {
-        return a.data.termo - b.data.termo;
-      });
+  eleventyConfig.addCollection("termo", function (collection) {
+    return collection.getFilteredByGlob("./src/dicionario/termo/*.md").sort(function (a, b) {
+      return a.data.termo - b.data.termo;
+    });
+  });
+  eleventyConfig.addCollection("artigo", function (collection) {
+    return collection.getFilteredByGlob("./src/dicionario/artigo/*.md").sort(function (a, b) {
+      return a.data.artigo - b.data.artigo;
+    });
   });
   return {
     markdownTemplateEngine: "njk",

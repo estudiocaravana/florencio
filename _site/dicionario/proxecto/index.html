@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="/assets/fonts/bundle.css" />
+    <link rel="stylesheet" href="/assets/css/tailwind.css" />
+    <script src="/assets/alpine.js" defer></script>
+    <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
+    <meta name="generator" content="11ty" />
+    <!-- META -->
+    <title>O Proxecto | Fundación Florencio Delgado Gurriarán</title>
+    <meta name="description" content="" />
+    <!-- Open Graph data -->
+    <meta property="og:title" content="O Proxecto" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="url" />
+    <meta property="og:image" content="/assets/img/ogg.webp" />
+    <meta property="og:description" content="" />
+  </head>
+  <body>
+    <div class="max-w-[2600px] mx-auto"><div x-data="{menu : false}">
+  <!-- movil -->
+  <div class="caixa xl:hidden bg-white">
+    <div class="flex justify-between items-center py-6">
+      <div>
+        <a href="/">
+          <img class="w-14" src="/assets/img/logo.webp" alt="" />
+        </a>
+      </div>
+      <div class="sticky top-0">
+        <button class="w-12 h-9 border-y-[3px] border-verde" @click="menu = true" aria-label="Abrir o menú">
+          <div class="border-t-[3px] border-verde"></div>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- sidebar -->
+  <div
+    class="fixed top-0 right-0 w-full h-full sm:w-md lg:w-1/2 bg-texto text-white z-20"
+    x-cloak
+    x-show="menu"
+    @click.outside="menu = false"
+    x-transition:enter-start="translate-x-1/2 opacity-0"
+    x-transition:enter-end="translate-x-0 opacity-100"
+    x-transition:leave-start="translate-x-0 opacity-100"
+    x-transition:leave-end="translate-x-1/2 opacity-0"
+    x-transition:enter="transition ease-out duration-500"
+    x-transition:leave="transition ease-in duration-500"
+  >
+    <div>
+      <button class="w-12 h-9 mx-9 my-12 ml-auto block border-y-2 border-white" @click="menu = false" aria-label="Abrir o menú">
+        <div class="border-t-2 border-white"></div>
+      </button>
+    </div>
+    <ul class="pb-9 text-3xl block ml-12 font-serif space-y-4"><li><a href="/" >Inicio</a></li><li><a href="/florencio/vida/" >Florencio</a></li><li><a href="/fundacion/" >A Fundación</a></li><li><a href="/recursos/" >Recursos</a></li><li><a href="/premio/" >Premio de poesía</a></li><li><a href="/actividades/" >Actividades</a></li><li><a href="/roteiros/" >Roteiros</a></li><li><a href="/novidades/" >Novidades</a></li><li><a href="/dicionario">Dicionario</a></li>
+      <br />
+      <hr class="w-12" />
+      <br />
+      <li><a href="#">Contacto</a></li>
+      <li><a href="#">Textos legales</a></li>
+    </ul>
+  </div>
+</div>
+<!-- grandes -->
+<div class="caixa hidden bg-white xl:block !sticky top-0 z-50 !pr-0">
+  <div class="flex justify-between items-center gap-20">
+    <div>
+      <ul class="flex gap-9 items-center"><li><a href="/" class="py-6 block ">Inicio</a></li><li><a href="/florencio/vida/" class="py-6 block ">Florencio</a></li><li><a href="/fundacion/" class="py-6 block ">A Fundación</a></li><li><a href="/recursos/" class="py-6 block ">Recursos</a></li><li><a href="/premio/" class="py-6 block ">Premio de poesía</a></li><li><a href="/actividades/" class="py-6 block ">Actividades</a></li><li><a href="/roteiros/" class="py-6 block ">Roteiros</a></li><li><a href="/novidades/" class="py-6 block ">Novidades</a></li></ul>
+    </div>
+    <div class="flex-1 max-w-1/3">
+      <ul>
+        <li><a href="/dicionario/" class="bg-black text-white py-6 px-9 block">Dicionario valdeorrés</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+  <div x-data="{menu : false}">
+  <!-- movil -->
+  <div class="caixa lg:hidden bg-texto">
+    <div class="flex justify-between items-center py-6">
+      <div>
+        <a href="/dicionario/" class="text-fondo"> Dicionario </a>
+      </div>
+      <div class="sticky top-0">
+        <button class="w-12 h-9 border-y-[3px] border-fondo" @click="menu = true" aria-label="Abrir o menú">
+          <div class="border-t-[3px] border-fondo"></div>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- sidebar -->
+  <div
+    class="fixed top-0 right-0 w-full h-full sm:w-md lg:w-1/2 bg-texto text-white z-20"
+    x-cloak
+    x-show="menu"
+    @click.outside="menu = false"
+    x-transition:enter-start="translate-x-1/2 opacity-0"
+    x-transition:enter-end="translate-x-0 opacity-100"
+    x-transition:leave-start="translate-x-0 opacity-100"
+    x-transition:leave-end="translate-x-1/2 opacity-0"
+    x-transition:enter="transition ease-out duration-500"
+    x-transition:leave="transition ease-in duration-500"
+  >
+    <div>
+      <button class="w-12 h-9 mx-9 my-12 ml-auto block border-y-2 border-white" @click="menu = false" aria-label="Abrir o menú">
+        <div class="border-t-2 border-white"></div>
+      </button>
+    </div>
+    <ul class="pb-9 text-3xl block ml-12 font-serif space-y-4"><li><a href="/dicionario/" >Portada</a></li><li><a href="/dicionario/termos/" >Termos</a></li><li><a href="/dicionario/mapa-termos/" >Mapa</a></li><li><a href="/dicionario/artigos/" >Artigos</a></li><li><a href="/dicionario/proxecto/"  class="text-verde font-bold" >O Proxecto</a></li><br />
+      <hr class="w-12" />
+      <li>
+        <a href="/dicionario/colabora/" class="py-9 flex gap-3 items-center ">
+          <div class="size-6 *:border-2 *:border-current overflow-hidden relative">
+            <div class="rounded-full size-4 mx-auto"></div>
+            <div class="rounded-lg size-full"></div>
+          </div>
+          <div>Colabora</div>
+        </a>
+      </li>
+      <hr class="w-12" />
+      <br />
+      <li><a href="#">Contacto</a></li>
+      <li><a href="#">Textos legales</a></li>
+    </ul>
+  </div>
+</div>
+<!-- Grandes -->
+<div class="bg-black hidden lg:block">
+  <div class="caixa max-w-screen-2xl">
+    <div class="flex justify-between">
+      <div>
+        <ul class="text-white flex gap-12 mx-auto text-2xl"><li><a href="/dicionario/" class="py-9 block ">Portada</a></li><li><a href="/dicionario/termos/" class="py-9 block ">Termos</a></li><li><a href="/dicionario/mapa-termos/" class="py-9 block ">Mapa</a></li><li><a href="/dicionario/artigos/" class="py-9 block ">Artigos</a></li></ul>
+      </div>
+      <div>
+        <ul class="text-white flex gap-12 mx-auto text-2xl"><li><a href="/dicionario/proxecto/" class="py-9 block text-verde">O Proxecto</a></li><li>
+            <a href="/dicionario/colabora/" class="py-9 flex gap-3 items-center ">
+              <div class="size-6 *:border-2 *:border-current overflow-hidden relative">
+                <div class="rounded-full size-4 mx-auto"></div>
+                <div class="rounded-lg size-full"></div>
+              </div>
+              <div>Colabora</div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Header -->
+<div class="caixa max-w-screen-xl pt-20">
+  <h1 class="text-5xl sm:text-7xl text-verde">O Proxecto</h1>
+</div>
+
+<!-- portada --><div class="caixa max-w-screen-xl pt-9 content"><p>O galego de Valdeorras forma parte do bloque oriental da fala, conformando unha subzona lingüística xunto con Viana do Bolo. As peculiaridades léxicas da comarca teñen moito que ver coa súa identidade paisaxística e sociocultural, con formas que identifican, por exemplo, a súa peculiar flora mediterránea, oficios e tradicións. Como zona de paso de comerciantes, de tradición mineira e viticultora, en Valdeorras cultivouse un léxico moi rico (nino, pincheira, cochar…) e así o atopamos na obra de Florencio, quen empregou a lírica para poñer en valor a súa fala natal.</p>
+<p>Esta especificidade do léxico é unha das dificultades que atopan investigadores e divulgadores á hora de analizar o legado florenciano. Por iso, nas reedicións dos seus poemarios no 2022, foron múltiples os erros na adaptación do seu galego á actualidade, non por evolución normativa (que tamén) se non por descoñecer o auténtico significado das palabras. Así se destacou nunha mesa redonda celebrada no Barco de Valdeorras en novembro dese ano e ante o que a presidenta do Consello da Cultura Galega, Rosario Álvarez, respondía tallante: «É necesario un dicionario de valdeorrés».</p>
+<p>A ese interese filolóxico súmase ademais unha necesidade histórica, xa que moito dese léxico atópase en desuso polas mudanzas económicas e sociais, ademais de polo escaso uso do galego entre a mocidade. Xa non habitamos o mundo igual que antes e hai que actuar para conservar palabras (niallo, caborco, galla…) e devolverlles a significación que unha vez tiveron.</p>
+<h2>Proxecto participativo</h2>
+<p>Este dicionario aspira a ser un proxecto cultural construído dende a base, polo que os procesos participativos e de mediación cultural estarán no centro da súa acción. En todo caso, antes de chegar ao proceso participativo, construirase unha metodoloxía con base científica de recollida, validación e publicación de resultados.</p>
+<p>Unha vez establecida esa metodoloxía,combinaranse procesos socializadores de recollida de léxico (obradoiros en centros educativos, grupos de veciñanza, traballo de campo…) con outras dinámicas dixitais canalizadas a través dun apartado web creado especificamente para o dicionario e que se atopa en denvolvemento. Esta web é clave, xa que o obxectivo deste dicionario é expandir a identidade lingüística de Valdeorras e no proceso, construír unha autoestima renovada pola lingua propia activando novas relacións na comunidade e incentivando o interese dunha crecente poboación migrante.</p>
+<h3>AXENTES</h3>
+<ul>
+<li>Investigadores e institucións</li>
+<li>Comunidade educativa local</li>
+<li>Cronistas e divulgadores locais</li>
+<li>Asociacións e colectivos informais</li>
+<li>Comunicadores</li>
+<li>A comunidade extensa de valdeorreses polo mundo</li>
+</ul>
+<h3>VALORES</h3>
+<ul>
+<li>Proceso participativo, integrador e aberto</li>
+<li>Posta en valor do patrimonio lingüístico</li>
+<li>Uso e promoción da lingua galega</li>
+<li>Igualdade de xénero</li>
+<li>Diversidade social e funcional</li>
+<li>Lazos de comunidade</li>
+<li>Educativo e interxeracional</li>
+<li>Respecto medioambiental</li>
+</ul>
+<h3>Colabora</h3>
+<p><a href="/diccionario/colabora/">Comparte unha palabra en valdeorrés</a></p>
+</div><!-- Mapa de letras -->
+<!-- Todas las opciones que toma son colores en hexadecimal sin el #.
+
+  fondo: color de fondo del mapa
+  paleta: lista de colores separadas por comas, ordenadas de la más oscura a la más clara, usada para pintar las letras
+  texto: si no se utiliza el campo "paleta", se puede usar este campo para definir un único color del que se toma su hue para colorear las letras
+  destacado: color de las palabras destacadas del diccionario
+  -->
+<iframe src="/mapa/?fondo=f7f5f2&paleta=104e64,00786f,00bc7d,7bf1a8,ecfcca,ffffff&destacado=fb2c36" class="!p-0 w-full! h-2xl! !shadow-none hidden" frameborder="0"></iframe>
+<!-- Logo Xunta -->
+<div class="caixa max-w-xl mt-36">
+  <img src="/assets/img/logos/xunta.webp" alt="Logo Xunta de Galicia" />
+  <div class="-mt-20 pl-5">Proxecto realizado co apoio da<br />Dirección Xeral de Política Linguística.<br />Xunta de Galicia.</div>
+</div>
+  <div class="mt-36 caixa">
+  <button class="block size-24 rounded-full bg-white mx-auto pt-3 hover:pt-0" x-data="{}" @click="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Ir arriba">
+    <div class="size-6 border-l-2 border-t-2 rotate-45 mx-auto"></div>
+  </button>
+</div>
+
+<footer class="caixa mt-20 bg-white">
+  <div class="py-20 flex flex-col gap-12 xl:flex-row xl:justify-between 2xl:gap-20 max-w-sm xl:max-w-6xl mx-auto">
+    <div class="pb-6 xl:pb-0"><img class="h-32" src="/assets/img/logo_completo.webp" alt="" /></div>
+    <div>
+      <span class="block text-gray-400">Dirección</span>
+      Rúa San Roque 8<br />O Barco de Valdeorras
+      <a href="https://maps.app.goo.gl/6zkQmYFnaqYMoP6R7" target="_blank">Google maps</a>
+    </div>
+    <div>
+      <span class="block text-gray-400">Redes sociais</span>
+      <a href="https://www.instagram.com/fundacionfdg/" target="_blank">instagram.com<span class="text-gray-400">/fundacionfdg</span></a>
+      <a href="https://www.facebook.com/FundacionFlorencioDG" target="_blank">facebook.com<span class="text-gray-400">/FundacionFlorencioDG</span></a>
+      <a href="https://x.com/asletrasdeFDG" target="_blank">x.com<span class="text-gray-400">/asletrasdeFDG</span></a>
+    </div>
+  </div>
+  <div class="xl:pt-6 pb-20 max-w-sm mx-auto">
+    <div class="ml-auto xl:text-center">
+      <a class="boton bg-verde inline-block w-fit mb-8 xl:mx-auto" href="/florencio">Contacta con nós <span class="ml-3 inline-block">></span></a>
+      <a href="mailto:fundación@florenciodelgadogurriaran.gal">fundación@florenciodelgadogurriaran.gal</a>
+    </div>
+  </div>
+  <div class="flex items center justify-between pb-12">
+    <div>
+      <a href="/legal">Aviso Legal</a>
+    </div>
+    <div>
+      <button class="block pt-3 hover:pt-0" x-data="{}" @click="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Ir arriba">
+        <div class="size-6 border-l-2 border-t-2 rotate-45 mx-auto"></div>
+      </button>
+    </div>
+  </div>
+</footer>
+</div>
+  </body>
+</html>

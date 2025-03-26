@@ -1,4 +1,4 @@
 ---
-layout: mapa
+layout: dicionario/mapa
 title: Mapa
 ---

@@ -47,22 +47,28 @@ module.exports = {
       url: "/florencio/letras-galegas/",
     },
   ],
-  diccionario: [
+  dici: [
     {
-      text: "Diccionario",
-      url: "/diccionario/",
+      text: "Portada",
+      url: "/dicionario/",
+    },
+    {
+      text: "Termos",
+      url: "/dicionario/termos/",
     },
     {
       text: "Mapa",
-      url: "/diccionario/mapa/",
+      url: "/dicionario/mapa-termos/",
     },
     {
-      text: "Proxecto",
-      url: "/diccionario/proxecto/",
+      text: "Artigos",
+      url: "/dicionario/artigos/",
     },
+  ],
+  onario: [
     {
-      text: "Colabora",
-      url: "/diccionario/colabora/",
+      text: "O Proxecto",
+      url: "/dicionario/proxecto/",
     },
   ],
 };

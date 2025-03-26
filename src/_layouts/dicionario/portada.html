@@ -1,0 +1,81 @@
+{% extends "../base.html" %} {% block content %} {% include "dicionario/nav.html" %}
+<!-- portada -->
+{%- if page.url == '/dicionario/' -%}
+<!-- Termos....................................... -->
+<div class="caixa max-w-screen-xl pt-24 font-bold text-3xl">&mdash; Últimos 9 termos:</div>
+<div class="caixa max-w-screen-2xl pt-20 grella">
+  {%- for item in collections.termo -%}
+  <a href="{{ item.url }}">
+    <div class="border-t-2 text-xl:2xl py-3 first-letter:uppercase">{{ item.data.termo }}</div>
+  </a>
+  {%- endfor -%}
+</div>
+<div class="caixa max-w-screen-lg mt-16 md:mt-36 flex flex-col gap-6 lg:flex-row justify-center">
+  <a class="boton bg-texto text-white items-center" href="/dicionario/colabora/">
+    <div class="size-6 *:border-2 *:border-current overflow-hidden relative">
+      <div class="rounded-full size-4 mx-auto"></div>
+      <div class="rounded-lg size-full"></div>
+    </div>
+    <div>Colabora</div>
+  </a>
+  <a class="boton bg-verde" href="/dicionario/termos/">Ver todos <span class="text-2xl">&rarr;</span></a>
+</div>
+<div class="caixa max-w-screen-xl pt-44 font-bold text-3xl">&mdash; Último artigo:</div>
+<!-- items -->
+{%- for item in collections.artigo -%}
+<div class="caixa max-w-screen-2xl mx-auto pt-24">
+  <hr />
+  {%- for item in collections.artigo -%} {% include "dicionario/artigo-card.html" %} {%- endfor -%}
+</div>
+{%- endfor -%}
+<div class="caixa max-w-xl mt-36">
+  <a class="boton bg-verde" href="/dicionario/artigos/">Todos os artigos <span class="text-2xl">&rarr;</span></a>
+</div>
+{%- elseif page.url == '/dicionario/mapa/' -%}
+<!-- Mapa........................................ -->
+<div class="caixa max-w-screen-xl pt-6"><div class="max-w-xl">{{ content | safe }}</div></div>
+<img src="/assets/img/mapa.webp" alt="" />
+{%- elseif page.url == '/dicionario/colabora/' -%}
+<!-- Colabora.................................... -->
+<div class="caixa max-w-screen-xl pt-6"><div class="max-w-xl">{{ content | safe }}</div></div>
+<div class="caixa max-w-5xl pt-9">
+  <form action="#" class="bg-verde p-12 mt-20">
+    <div class="py-12 px-16 bg-white border-b">
+      <div class="text-4xl font-bold pb-12 text-center">Os teus datos</div>
+      <label for="Nome" class="block">
+        <span>Nome completo</span>
+        <input type="text" class="h-16 border-1 border-neutral-200 rounded-sm w-full bg-fondo block mb-6 mt-2 px-6" />
+      </label>
+      <label for="Email" class="block">
+        <span>Email</span>
+        <input type="text" class="h-16 border-1 border-neutral-200 rounded-sm w-full bg-fondo block mb-6 mt-2" />
+      </label>
+    </div>
+    <div class="py-12 px-16 bg-white">
+      <div class="text-4xl font-bold pb-12 text-center">O termo</div>
+      <label for="Nome" class="block">
+        <span class="">Palabra</span>
+        <input type="text" class="h-16 border-1 border-neutral-200 rounded-sm w-full bg-fondo block mb-6 mt-2 px-6" placeholder="Exemplo: Avisedo" />
+      </label>
+      <label for="Nome" class="block">
+        <span class="">Lugar/es no que se utiliza</span>
+        <input type="text" class="h-16 border-1 border-neutral-200 rounded-sm w-full bg-fondo block mb-6 mt-2 px-6" placeholder="Exemplo: Córgomo" />
+      </label>
+      <label for="Nome" class="block">
+        <span class="">Definición</span>
+        <textarea rows="6" class="w-full border-1 border-neutral-200 rounded-sm bg-fondo mb-6 mt-2 p-6" placeholder="Exemplo: Terreo no que non acostuma dar o sol, sombrío."></textarea>
+      </label>
+      <!-- acordo -->
+      <label for="normas" class="flex gap-3 items-center mt-16">
+        <input class="size-9 border-4 border-neutral-500 bg-transparent" type="checkbox" name="normas" id="normas" required />
+        Lin e acepto a <a href="/politica-privacidade" class="underline underline-offset-4">política de privacidade</a>
+      </label>
+      <button class="block h-20 w-full bg-verde mx-auto mt-12 font-bold text-white text-2xl hover:bg-verde/80">Enviar</button>
+    </div>
+  </form>
+</div>
+{%- else -%}
+
+<div class="caixa max-w-screen-xl pt-9 content">{{ content | safe }}</div>
+
+{%- endif -%} {% include "dicionario/prefooter.html" %} {% endblock %}
