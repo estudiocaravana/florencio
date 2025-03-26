@@ -36,6 +36,8 @@
 <div class="caixa max-w-screen-xl pt-6"><div class="max-w-xl">{{ content | safe }}</div></div>
 <img src="/assets/img/mapa.webp" alt="" />
 
+{%- elseif page.url == '/dicionario/proxecto/' -%}
+
 <div class="caixa max-w-screen-xl pt-9 content">{{ content | safe }}</div>
 
 {%- endif -%} {% include "dicionario/prefooter.html" %} {% endblock %}

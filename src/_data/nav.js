@@ -64,8 +64,6 @@ module.exports = {
       text: "Artigos",
       url: "/dicionario/artigos/",
     },
-  ],
-  onario: [
     {
       text: "O Proxecto",
       url: "/dicionario/proxecto/",
