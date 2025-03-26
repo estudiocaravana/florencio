@@ -2,7 +2,7 @@ import { createDirectus, authentication } from "@directus/sdk";
 
 const directus = createDirectus(
   "https://panel.florenciodelgadogurriaran.gal"
-).with(authentication());
+).with(authentication("cookie", { credentials: "include" }));
 
 let loginForm = document.getElementById("loginForm");
 if (loginForm) {
