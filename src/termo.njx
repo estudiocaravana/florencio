@@ -1,0 +1,8 @@
+---
+pagination:
+  data: termos
+  alias: t
+  size: 1
+permalink: "/termo/{{ t.termo | slug }}/index.html"
+layout: diccionario/termo-directus
+---

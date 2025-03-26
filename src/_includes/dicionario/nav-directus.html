@@ -1,0 +1,96 @@
+<div x-data="{menu : false}">
+  <!-- movil -->
+  <div class="caixa lg:hidden bg-texto">
+    <div class="flex justify-between items-center py-6">
+      <div>
+        <a href="/dicionario/" class="text-fondo"> Dicionario </a>
+      </div>
+      <div class="sticky top-0">
+        <button class="w-12 h-9 border-y-[3px] border-fondo" @click="menu = true" aria-label="Abrir o menú">
+          <div class="border-t-[3px] border-fondo"></div>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- sidebar -->
+  <div
+    class="fixed top-0 right-0 w-full h-full sm:w-md lg:w-1/2 bg-texto text-white z-20"
+    x-cloak
+    x-show="menu"
+    @click.outside="menu = false"
+    x-transition:enter-start="translate-x-1/2 opacity-0"
+    x-transition:enter-end="translate-x-0 opacity-100"
+    x-transition:leave-start="translate-x-0 opacity-100"
+    x-transition:leave-end="translate-x-1/2 opacity-0"
+    x-transition:enter="transition ease-out duration-500"
+    x-transition:leave="transition ease-in duration-500"
+  >
+    <div>
+      <button class="w-12 h-9 mx-9 my-12 ml-auto block border-y-2 border-white" @click="menu = false" aria-label="Abrir o menú">
+        <div class="border-t-2 border-white"></div>
+      </button>
+    </div>
+    <ul class="pb-9 text-3xl block ml-12 font-serif space-y-4">
+      {%- for item in nav.dici -%}
+      <li><a href="{{ item.url }}" {% if item.url == page.url %} class="text-verde font-bold" {% endif %}>{{ item.text }}</a></li>
+      {%- endfor -%}
+      {%- for item in nav.onario -%}
+      <li><a href="{{ item.url }}" {% if item.url == page.url %} class="text-verde font-bold" {% endif %}>{{ item.text }}</a></li>
+      {%- endfor -%}
+      <br />
+      <hr class="w-12" />
+      <li>
+        <a href="/dicionario/colabora/" class="py-9 flex gap-3 items-center {% if '/dicionario/colabora/' == page.url %}text-verde{% endif %}">
+          <div class="size-6 *:border-2 *:border-current overflow-hidden relative">
+            <div class="rounded-full size-4 mx-auto"></div>
+            <div class="rounded-lg size-full"></div>
+          </div>
+          <div>Colabora</div>
+        </a>
+      </li>
+      <hr class="w-12" />
+      <br />
+      <li><a href="#">Contacto</a></li>
+      <li><a href="#">Textos legales</a></li>
+    </ul>
+  </div>
+</div>
+<!-- Grandes -->
+<div class="bg-black hidden lg:block">
+  <div class="caixa max-w-screen-2xl">
+    <div class="flex justify-between">
+      <div>
+        <ul class="text-white flex gap-12 mx-auto text-2xl">
+          {%- for item in nav.dici -%}
+          <li><a href="{{ item.url }}" class="py-9 block {% if item.url == page.url %}text-verde{% endif %}">{{ item.text }}</a></li>
+          {%- endfor -%}
+        </ul>
+      </div>
+      <div>
+        <ul class="text-white flex gap-12 mx-auto text-2xl">
+          {%- for item in nav.onario -%}
+          <li><a href="{{ item.url }}" class="py-9 block {% if item.url == page.url %}text-verde{% endif %}">{{ item.text }}</a></li>
+          {%- endfor -%}
+          <li>
+            <a href="/dicionario/colabora/" class="py-9 flex gap-3 items-center {% if '/dicionario/colabora/' == page.url %}text-verde{% endif %}">
+              <div class="size-6 *:border-2 *:border-current overflow-hidden relative">
+                <div class="rounded-full size-4 mx-auto"></div>
+                <div class="rounded-lg size-full"></div>
+              </div>
+              <div>Colabora</div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Header -->
+<div class="caixa max-w-screen-xl pt-12">
+  <!-- Migas -->
+  <div>
+    <a href="#">Inicio</a> / 
+    <a href="#">Termos</a> / 
+    <a href="#">{{ title or titulo or termo }}</a>
+  </div>  
+</div>
