@@ -3,7 +3,9 @@ import {
   authentication,
   rest,
   readMe,
+  updateMe,
   createItem,
+  registerUser,
   staticToken,
 } from "@directus/sdk";
 
@@ -14,6 +16,7 @@ let estaLogueado = false;
 if (token) {
   estaLogueado = true;
   token = JSON.parse(token);
+  // TODO Comprobar si el token sigue siendo válido
   directus = createDirectus("https://panel.florenciodelgadogurriaran.gal")
     .with(staticToken(token.access_token))
     .with(authentication())
@@ -24,11 +27,11 @@ if (token) {
     .with(rest());
 }
 
-let loginForm = document.getElementById("loginForm");
-if (loginForm) {
-  if (estaLogueado) {
-    loginForm.style.display = "none";
-  } else {
+if (!estaLogueado) {
+  let loginForm = document.getElementById("loginForm");
+  if (loginForm) {
+    loginForm.classList.remove("hidden");
+
     loginForm.addEventListener("submit", async (event) => {
       event.preventDefault();
       let email = document.getElementById("email").value;
@@ -55,16 +58,62 @@ if (loginForm) {
 
         // alert("Login successful");
       } catch (error) {
-        alert("Login failed");
-        console.log(error);
+        alert(error?.errors?.[0]?.message || "Erro na entrada do usuario");
+        // console.log(error);
       }
     });
-  }
-}
 
-let logoutForm = document.getElementById("logoutForm");
-if (logoutForm) {
-  if (estaLogueado) {
+    let registerForm = document.getElementById("registerForm");
+    if (registerForm) {
+      registerForm.classList.remove("hidden");
+
+      registerForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        let email = document.getElementById("registerEmail").value;
+        let password = document.getElementById("registerPassword").value;
+        let name = document.getElementById("registerName").value;
+        let relacion_valdeorras = document.getElementById(
+          "registerRelacionValdeorras"
+        ).value;
+        try {
+          const resultRegister = await directus.request(
+            registerUser(email, password, {
+              first_name: name,
+            })
+          );
+
+          if (!resultRegister) {
+            throw new Error("Xa existe un usuario con ese email.");
+          }
+
+          // console.log("Resultado de registro");
+          // console.log(resultRegister);
+
+          // Para que esto funcione, hay que desactivar la verificación de email en el panel de Directus
+          const response = await directus.login(email, password);
+          localStorage.setItem("directus_auth", JSON.stringify(response));
+          // console.log(response);
+
+          const resultUpdate = await directus.request(
+            updateMe({
+              relacion_valdeorras: relacion_valdeorras,
+            })
+          );
+          // console.log(resultUpdate);
+
+          location.reload();
+
+          // alert("Register successful");
+        } catch (error) {
+          alert(error?.errors?.[0]?.message || error);
+        }
+      });
+    }
+  }
+} else {
+  let logoutForm = document.getElementById("logoutForm");
+  if (logoutForm) {
+    logoutForm.classList.remove("hidden");
     logoutForm.addEventListener("submit", async (event) => {
       event.preventDefault();
       try {
@@ -76,7 +125,5 @@ if (logoutForm) {
       localStorage.removeItem("directus_auth");
       location.reload();
     });
-  } else {
-    logoutForm.style.display = "none";
   }
 }

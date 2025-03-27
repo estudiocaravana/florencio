@@ -54,7 +54,8 @@
 <div class="caixa max-w-screen-2xl pt-12">
   <div class="text-right text-lg"><span class="text-verde">*En revisión</span></div>
 </div>
-<form id="loginForm" class="caixa max-w-screen-2xl pt-12">
+<form id="loginForm" class="caixa max-w-screen-2xl pt-12 hidden">
+  Login:
   <div class="flex gap-6">
     <div class="flex-1">
       <input id="email" type="text" name="email" class="input" placeholder="Email"/>
@@ -68,10 +69,30 @@
     </div>
   </div>
 </form>
-<form id="logoutForm" class="caixa max-w-screen-2xl pt-12">
+<form id="logoutForm" class="caixa max-w-screen-2xl pt-12 hidden">
   <div class="flex gap-6">
     <div class="flex-1">
       <button type="submit" class="boton bg-verde text-white">Sair</button>
+    </div>
+  </div>
+</form>
+<form id="registerForm" class="caixa max-w-screen-2xl pt-12 hidden">
+  Rexistro:
+  <div class="flex gap-6">
+    <div class="flex-1">
+      <input id="registerEmail" type="text" name="email" class="input" placeholder="Email"/>
+    </div>
+    <div class="flex-1">
+      <input id="registerPassword" type="password" name="password" class="input" placeholder="Password"/>
+    </div>
+    <div class="flex-1">
+      <input id="registerName" type="text" name="name" class="input" placeholder="Nome"/>
+    </div>
+    <div class="flex-1">
+      <input id="registerRelacionValdeorras" type="text" name="relacionValdeorras" class="input" placeholder="Relacion"/>
+    </div>
+    <div class="flex-1">
+      <button type="submit" class="boton bg-verde text-white">Enviar</button>
     </div>
   </div>
 </form>
