@@ -68,6 +68,13 @@
     </div>
   </div>
 </form>
+<form id="logoutForm" class="caixa max-w-screen-2xl pt-12">
+  <div class="flex gap-6">
+    <div class="flex-1">
+      <button type="submit" class="boton bg-verde text-white">Sair</button>
+    </div>
+  </div>
+</form>
 <div class="caixa max-w-screen-2xl pt-6 grella">
   {%- for item in termos -%}
   <a href="/directus/termo/{{ item.termo | slug }}">
