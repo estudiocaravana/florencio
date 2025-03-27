@@ -1,8 +1,8 @@
-import { createDirectus, authentication } from "@directus/sdk";
+import { createDirectus, authentication, rest, readMe } from "@directus/sdk";
 
-const directus = createDirectus(
-  "https://panel.florenciodelgadogurriaran.gal"
-).with(authentication());
+const directus = createDirectus("https://panel.florenciodelgadogurriaran.gal")
+  .with(authentication())
+  .with(rest());
 
 let loginForm = document.getElementById("loginForm");
 if (loginForm) {
@@ -12,13 +12,14 @@ if (loginForm) {
     let password = document.getElementById("password").value;
     try {
       const response = await directus.login(email, password);
-      if (response.access_token) {
-        cookies.set("directus_session_token", response.access_token, {
-          sameSite: "strict",
-          path: "/",
-          secure: true,
-        });
-      }
+      localStorage.setItem("directus_auth", JSON.stringify(response));
+
+      const info = await directus.request(
+        readMe({
+          fields: ["*"],
+        })
+      );
+      console.log(info);
       alert("Login successful");
     } catch (error) {
       alert("Login failed");
