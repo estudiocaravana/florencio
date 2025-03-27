@@ -19,7 +19,8 @@
     <meta property="og:description" content="{{ descripcion }}" />
   </head>
   <body>
-    <div class="max-w-[2600px] mx-auto">{% include 'navbar.html' %} {% block content %}{% endblock %} {% include 'footer.html' %}</div>
+    <!-- quité por ahora  ...include 'navbar.html'... %}  -->
+    <div class="max-w-[2600px] mx-auto">{% block content %}{% endblock %} {% include 'footer.html' %}</div>
 
     <script type="module" src="{{ '/assets/js/dicionario.js' | url }}"></script>
   </body>

@@ -51,23 +51,30 @@
   </div>
 </div>
 <!-- Grella -->
-<div class="caixa max-w-screen-2xl pt-12">
-  <div class="text-right text-lg"><span class="text-verde">*En revisión</span></div>
+<div class="caixa max-w-screen-2xl pt-20">
+  <div class="text-lg"><span class="text-red-400">*En revisión</span></div>
 </div>
 <div class="caixa max-w-screen-2xl pt-6 grella">
   {%- for item in collections.termo -%}
   <a href="{{ item.url }}">
-    <div class="border-t-2 text-xl:2xl py-3 first-letter:uppercase {{ ' text-verde' if item.data.revision == 'true' }}">{{ item.data.termo }}</div>
+    <div class="border-t-2 text-xl:2xl py-3 first-letter:uppercase {{ ' text-red-400' if item.data.revision == 'true' }}">{{ item.data.termo }}</div>
   </a>
   {%- endfor -%}
 </div>
-<div class="caixa max-w-screen-lg mt-16 md:mt-36 flex flex-col gap-6 lg:flex-row justify-center">
-  <a class="boton bg-texto text-white items-center" href="/dicionario/colabora/">
-    <div class="size-6 *:border-2 *:border-current overflow-hidden relative">
-      <div class="rounded-full size-4 mx-auto"></div>
-      <div class="rounded-lg size-full"></div>
+<!--COLABORA -->
+<div class="caixa max-w-screen-2xl pt-44">
+  <!-- Comentarios -->
+  <div class="flex text-lg w-full">
+    <div class="bg-verde text-white p-12 flex-1 max-w-4xl">
+      <div class="max-w-xl p-20">
+        <h2 class="font-bold text-7xl font-sans mb-6">Novo termo</h2>
+        Este dicionario aspira a ser un proxecto cultural construído dende a base, polo que os procesos participativos e de mediación cultural estarán no centro da súa acción.
+      </div>
     </div>
-    <div>Colabora</div>
-  </a>
+    <!-- formularios -->
+    <div class="bg-texto text-white w-xl py-12">
+      <div class="flex-1 max-w-xl">{% include "dicionario/novo-termo.html" %}</div>
+    </div>
+  </div>
 </div>
 {% include "dicionario/prefooter.html" %} {% endblock %}

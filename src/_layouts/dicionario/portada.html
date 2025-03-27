@@ -1,4 +1,11 @@
 {% extends "../base.html" %} {% block content %} {% include "dicionario/nav.html" %}
+<div class="caixa max-w-screen-xl">
+  <div class="max-w-md mt-6">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure ad necessitatibus natus blanditiis delectus aut enim quidem.</div>
+</div>
+<div class="caixa max-w-screen-2xl -mt-36">
+  <img src="/assets/img/mapa-portada.webp" alt="imaxe de portada" />
+  <hr />
+</div>
 <!-- portada -->
 {%- if page.url == '/dicionario/' -%}
 <!-- Termos....................................... -->
@@ -11,34 +18,35 @@
   {%- endfor -%}
 </div>
 <div class="caixa text-center mt-9">
-  <a class="underline underline-offset-8" href="/dicionario/termos/">Ver os 20 termos <span class="text-2xl">&rarr;</span></a>
+  <a class="underline underline-offset-8" href="/dicionario/termos/">Todos os termos <span class="text-2xl">&rarr;</span></a>
 </div>
+
 <!--COLABORA -->
-<div class="caixa max-w-screen-2xl pt-20">
+<div class="caixa max-w-screen-2xl pt-36">
   <!-- Comentarios -->
-  <div class="flex text-lg w-full pt-20">
-    <div class="bg-verde text-white p-12 flex-1 max-w-4xl">
-      <div class="max-w-xl px-12">
+  <div class="flex text-lg w-full">
+    <div class="bg-verde text-white flex-1 max-w-4xl">
+      <div class="max-w-xl p-20">
         <h2 class="font-bold text-7xl font-sans mb-6">Proxecto participativo</h2>
         Este dicionario aspira a ser un proxecto cultural construído dende a base, polo que os procesos participativos e de mediación cultural estarán no centro da súa acción.
       </div>
     </div>
     <!-- formularios -->
-    <div class="bg-texto text-white w-xl">
+    <div class="bg-texto text-white w-xl py-12">
       <div class="flex-1 max-w-xl">{% include "dicionario/login.html" %}</div>
     </div>
   </div>
 </div>
 
-<div class="caixa max-w-screen-xl pt-44 font-bold text-3xl text-center">Último artigo:</div>
+<div class="caixa max-w-screen-xl pt-44 font-bold text-3xl text-center">Último artigo</div>
 <!-- items -->
 {%- for item in collections.artigo -%}
-<div class="caixa max-w-screen-2xl mx-auto pt-24">
+<div class="caixa max-w-screen-2xl mx-auto pt-16">
   <hr />
   {%- for item in collections.artigo -%} {% include "dicionario/artigo-card.html" %} {%- endfor -%}
 </div>
 {%- endfor -%}
-<div class="caixa text-center mt-12">
+<div class="caixa text-center mt-16">
   <a class="underline underline-offset-8" href="/dicionario/termos/">Ver todos os artigos <span class="text-2xl">&rarr;</span></a>
 </div>
 {%- elseif page.url == '/dicionario/mapa/' -%}
@@ -50,4 +58,4 @@
 
 <div class="caixa max-w-screen-xl pt-9 content">{{ content | safe }}</div>
 
-{%- endif -%} {% include "dicionario/prefooter.html" %} {% endblock %}
+{%- endif -%} {% endblock %}

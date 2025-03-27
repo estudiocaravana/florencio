@@ -71,7 +71,7 @@
           </div>
           <div>Colabora</div>
         </button>
-        <div class="absolute right-0 top-12 min-w-xl z-50" x-show="menu" @click.outside="menu = false">{% include "dicionario/login.html" %}</div>
+        <div class="absolute right-0 top-20 min-w-xl z-50" x-show="menu" @click.outside="menu = false">{% include "dicionario/login.html" %}</div>
       </div>
     </div>
   </div>
@@ -84,5 +84,5 @@
     <a href="#">{{ title or titulo or termo }}</a>
   </div>
   <!-- Título -->
-  <h1 class="text-5xl sm:text-7xl text-verde pt-6 first-letter:uppercase">{{ title or termo }}</h1>
+  <h1 class="text-5xl sm:text-7xl text-verde pt-6 max-w-lg first-letter:uppercase">{{ title or termo }}</h1>
 </div>

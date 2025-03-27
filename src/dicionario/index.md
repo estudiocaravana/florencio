@@ -1,4 +1,4 @@
 ---
 layout: dicionario/portada
-title: Dicionario valdeorrés
+title: Dicionario da fala valdeorresa
 ---
