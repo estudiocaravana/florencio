@@ -33,7 +33,9 @@
           </div>
         </div>
         <!-- mapa -->
-        <div class="w-full aspect-square border mt-12"></div>
+        <div class="w-full aspect-square border border-neutral-300 mt-12">
+          <img class="!p-0 !m-0 !shadow-none size-full" src="/assets/img/sopa.webp" alt="" />
+        </div>
       </div>
       <!-- DRCH -->
       <div class="pt-1">
@@ -62,31 +64,23 @@
   </div>
   <!-- Comentarios -->
   <div class="flex text-lg w-full pt-20">
-    <div class="bg-white p-12 flex-1 max-w-3xl"><span class="text-verde block mb-6">Comentarios</span>{{ content | safe }}</div>
-    <div class="flex-1 max-w-xl">
-      <form action="#">
-        <div class="py-12 px-16 bg-white">
-          <div class="text-2xl font-bold pb-12">A túa aportación no termo<br />{{ termo }}</div>
-          <label for="Nome" class="block">
-            <span>O teu nome</span>
-            <input type="text" class="h-16 border-1 border-neutral-200 rounded-sm w-full bg-fondo block mb-6 mt-2 px-6" />
-          </label>
-          <label for="Email" class="block">
-            <span>Email</span>
-            <input type="text" class="h-16 border-1 border-neutral-200 rounded-sm w-full bg-fondo block mb-6 mt-2" />
-          </label>
-          <label for="Nome" class="block">
-            <span class="">Comentario</span>
-            <textarea rows="6" class="w-full border-1 border-neutral-200 rounded-sm bg-fondo mb-6 mt-2 p-6" placeholder="Calquera aportación é benvida. Mil grazas por colaborar no proxecto!"></textarea>
-          </label>
-          <!-- acordo -->
-          <label for="normas" class="flex gap-3 items-center mt-6">
-            <input class="size-9 border-4 border-neutral-500 bg-transparent" type="checkbox" name="normas" id="normas" required />
-            Lin e acepto a <a href="/politica-privacidade" class="underline underline-offset-4">política de privacidade</a>
-          </label>
-          <button class="block h-20 w-full bg-verde mx-auto mt-12 font-bold text-white text-2xl hover:bg-verde/80">Enviar</button>
+    <div class="bg-white p-12 flex-1 max-w-4xl">
+      <span class="text-verde block mb-6 font-bold">Comentarios</span>{{ content | safe }}
+      <div class="*:mt-6">
+        <div>
+          <strong>María Vilches</strong><br />Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque magni possimus sit doloribus ut? Beatae minima adipisci atque vitae dolor modi accusamus fugiat nobis saepe nesciunt, esse quibusdam officia sequi.<br />
+          <span class="text-neutral-400">21/03/25</span>
         </div>
-      </form>
+        <div><strong>Xoan Merodo</strong><br />Cumque magni possimus sit doloribus ut? Beatae minima adipisci atque vitae dolor modi accusamus fugiat nobis saepe nesciunt.</div>
+      </div>
+    </div>
+    <!-- formularios -->
+    <div class="bg-texto text-white">
+      <div class="px-16 pt-12 max-w-xl">
+        <div class="font-bold text-2xl">Comentarios</div>
+        Para comentar tes que entrar cos teus datos ou rexistrate na plataforma. Grazas.
+      </div>
+      <div class="flex-1 max-w-xl">{% include "dicionario/login.html" %}</div>
     </div>
   </div>
   <div class="text-center my-12 text-xl max-w-xl mx-auto">Os comentarios pasarán un proceso de moderación <br />Grazas por colaborar!</div>

@@ -2,25 +2,35 @@
 <!-- portada -->
 {%- if page.url == '/dicionario/' -%}
 <!-- Termos....................................... -->
-<div class="caixa max-w-screen-xl pt-24 font-bold text-3xl">&mdash; Últimos 9 termos:</div>
-<div class="caixa max-w-screen-2xl pt-20 grella">
+<div class="caixa max-w-screen-xl pt-24 font-bold text-3xl text-center">Últimos 9 termos</div>
+<div class="caixa max-w-screen-2xl pt-16 grella">
   {%- for item in collections.termo -%}
   <a href="{{ item.url }}">
     <div class="border-t-2 text-xl:2xl py-3 first-letter:uppercase">{{ item.data.termo }}</div>
   </a>
   {%- endfor -%}
 </div>
-<div class="caixa max-w-screen-lg mt-16 md:mt-36 flex flex-col gap-6 lg:flex-row justify-center">
-  <a class="boton bg-texto text-white items-center" href="/dicionario/colabora/">
-    <div class="size-6 *:border-2 *:border-current overflow-hidden relative">
-      <div class="rounded-full size-4 mx-auto"></div>
-      <div class="rounded-lg size-full"></div>
-    </div>
-    <div>Colabora</div>
-  </a>
-  <a class="boton bg-verde" href="/dicionario/termos/">Ver todos <span class="text-2xl">&rarr;</span></a>
+<div class="caixa text-center mt-9">
+  <a class="underline underline-offset-8" href="/dicionario/termos/">Ver os 20 termos <span class="text-2xl">&rarr;</span></a>
 </div>
-<div class="caixa max-w-screen-xl pt-44 font-bold text-3xl">&mdash; Último artigo:</div>
+<!--COLABORA -->
+<div class="caixa max-w-screen-2xl pt-20">
+  <!-- Comentarios -->
+  <div class="flex text-lg w-full pt-20">
+    <div class="bg-verde text-white p-12 flex-1 max-w-4xl">
+      <div class="max-w-xl px-12">
+        <h2 class="font-bold text-7xl font-sans mb-6">Proxecto participativo</h2>
+        Este dicionario aspira a ser un proxecto cultural construído dende a base, polo que os procesos participativos e de mediación cultural estarán no centro da súa acción.
+      </div>
+    </div>
+    <!-- formularios -->
+    <div class="bg-texto text-white w-xl">
+      <div class="flex-1 max-w-xl">{% include "dicionario/login.html" %}</div>
+    </div>
+  </div>
+</div>
+
+<div class="caixa max-w-screen-xl pt-44 font-bold text-3xl text-center">Último artigo:</div>
 <!-- items -->
 {%- for item in collections.artigo -%}
 <div class="caixa max-w-screen-2xl mx-auto pt-24">
@@ -28,8 +38,8 @@
   {%- for item in collections.artigo -%} {% include "dicionario/artigo-card.html" %} {%- endfor -%}
 </div>
 {%- endfor -%}
-<div class="caixa max-w-xl mt-36">
-  <a class="boton bg-verde" href="/dicionario/artigos/">Todos os artigos <span class="text-2xl">&rarr;</span></a>
+<div class="caixa text-center mt-12">
+  <a class="underline underline-offset-8" href="/dicionario/termos/">Ver todos os artigos <span class="text-2xl">&rarr;</span></a>
 </div>
 {%- elseif page.url == '/dicionario/mapa/' -%}
 <!-- Mapa........................................ -->

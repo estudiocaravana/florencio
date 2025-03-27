@@ -1,17 +1,16 @@
-<div class="pt-6 pb-12 px-16 my-6 bg-texto text-white">
-  <div class="font-bold">Entrar</div>
+<div class="pt-6 pb-12 px-16 bg-texto text-white">
+  <div class="font-bold uppercase">Entrar</div>
   <form action="#" class="pt-6">
     <label for="Nome" class="block">
       <span class="">Correo electrónico</span>
-      <input type="text" class="text-texto h-16 border-1 border-neutral-200 rounded-sm w-full bg-fondo block mb-6 mt-2 px-6" placeholder="Exemplo: Avisedo" />
+      <input type="text" class="text-texto h-16 border-1 border-neutral-200 rounded-sm w-full bg-fondo block mb-6 mt-2 px-6" />
     </label>
     <label for="Nome" class="block">
       <span class="">Contrasinal</span>
-      <input type="text" class="text-texto h-16 border-1 border-neutral-200 rounded-sm w-full bg-fondo block mb-6 mt-2 px-6" placeholder="Exemplo: Córgomo" />
+      <input type="password" class="text-texto h-16 border-1 border-neutral-200 rounded-sm w-full bg-fondo block mb-6 mt-2 px-6" />
     </label>
-    <a href="#" class="block text-lg underline underline-offset-4">Olvidache o contrasinal?</a>
-    <button class="block h-16 w-full rounded-sm bg-verde mx-auto mt-12 font-semibold text-white text-2xl hover:bg-verde/80">Entrar</button>
+    <a href="#" @click="menu = false" class="block text-lg underline underline-offset-4">Olvidache o contrasinal?</a>
+    <button class="block h-16 w-full rounded-sm bg-verde mx-auto mt-6 font-semibold text-white text-2xl hover:bg-verde/80">Entrar</button>
   </form>
-  <hr class="mt-9 mb-6" />
-  <a href="/dicionario/rexistrarse/" class="block text-center underline underline-offset-4">Se aínda non estás rexistrado/a<br />REXÍSTRATE!</a>
+  <a href="/dicionario/rexistrarse/" @click="menu = false" class="block mt-9 text-center underline underline-offset-4">Se aínda non estás rexistrado/a<br />rexístrate aquí</a>
 </div>
