@@ -33,6 +33,7 @@
 
   <!-- Novo termo -->
   <div class="{% if page.url == '/dicionario/termos/' %} js-fakelogin-2 {% endif %} pt-6 pb-12 px-16 bg-texto text-white hidden">
+    
     <div class="font-bold uppercase">NOVO TERMO</div>
       <label for="termo" class="block pt-6">
         <span class="">Termo</span>
@@ -45,8 +46,9 @@
       <label for="definicion" class="block">
         <span class="">Definición</span>
         <textarea name="definicion" rows="6" class="text-texto w-full border-1 border-neutral-200 rounded-sm bg-fondo mb-6 mt-2 p-6" placeholder="Exemplo: Terreo no que non acostuma dar o sol, sombrío."></textarea>
-      </label>
+      </label>      
       <button type="submit" class="block h-16 w-full rounded-sm bg-verde mx-auto mt-9 font-semibold text-white text-2xl hover:bg-verde/80">Enviar</button>
+      {% include "dicionario/cambiar-datos.html" %}
   </div>
 
   <!-- Comentario -->
@@ -58,5 +60,6 @@
         <textarea name="comentario" rows="6" class="text-texto w-full border-1 border-neutral-200 rounded-sm bg-fondo mb-6 mt-2 p-6"></textarea>
       </label>
       <button type="submit" class="block h-16 w-full rounded-sm bg-verde mx-auto mt-9 font-semibold text-white text-2xl hover:bg-verde/80">Enviar</button>
+      {% include "dicionario/cambiar-datos.html" %}
   </div>
 </form>

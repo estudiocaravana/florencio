@@ -7,24 +7,39 @@ import "wave-audio-path-player";
  * FAKE LOGIN
  */
 
+let datosFakeLogin = localStorage.getItem("fake_login");
+if (datosFakeLogin) {
+  datosFakeLogin = JSON.parse(datosFakeLogin);
+}
+
+function anteriorPaginaFakeLogin(fakeLogin) {
+  fakeLogin.querySelector(".js-fakelogin-1").classList.remove("hidden");
+  fakeLogin.querySelector(".js-fakelogin-2").classList.add("hidden");
+}
+
+function siguientePaginaFakeLogin(fakeLogin) {
+  fakeLogin.querySelector(".js-fakelogin-1").classList.add("hidden");
+  fakeLogin.querySelector(".js-fakelogin-2").classList.remove("hidden");
+
+  if (datosFakeLogin) {
+    fakeLogin.querySelectorAll(".js-fakelogin-nome").forEach((element) => {
+      element.innerText = datosFakeLogin.nome;
+    });
+  }
+}
+
 let fakeLogins = document.querySelectorAll(".js-fakelogin");
 if (fakeLogins) {
-  let datos = localStorage.getItem("fake_login");
-  if (datos) {
-    datos = JSON.parse(datos);
-  }
-
   fakeLogins.forEach((fakeLogin) => {
-    if (datos) {
+    if (datosFakeLogin) {
       fakeLogin.querySelector('.js-fakelogin-1 input[name="nome"]').value =
-        datos.nome;
+        datosFakeLogin.nome;
       fakeLogin.querySelector('.js-fakelogin-1 input[name="email"]').value =
-        datos.email;
+        datosFakeLogin.email;
       fakeLogin.querySelector('.js-fakelogin-1 input[name="normas"]').checked =
-        datos.normas;
+        datosFakeLogin.normas;
 
-      fakeLogin.querySelector(".js-fakelogin-1").classList.add("hidden");
-      fakeLogin.querySelector(".js-fakelogin-2").classList.remove("hidden");
+      siguientePaginaFakeLogin(fakeLogin);
     }
 
     fakeLogin
@@ -32,23 +47,29 @@ if (fakeLogins) {
       .addEventListener("click", (event) => {
         event.preventDefault();
 
-        localStorage.setItem(
-          "fake_login",
-          JSON.stringify({
-            nome: fakeLogin.querySelector('.js-fakelogin-1 input[name="nome"]')
-              .value,
-            email: fakeLogin.querySelector(
-              '.js-fakelogin-1 input[name="email"]'
-            ).value,
-            normas: fakeLogin.querySelector(
-              '.js-fakelogin-1 input[name="normas"]'
-            ).checked,
-          })
-        );
+        let nuevosDatos = {
+          nome: fakeLogin.querySelector('.js-fakelogin-1 input[name="nome"]')
+            .value,
+          email: fakeLogin.querySelector('.js-fakelogin-1 input[name="email"]')
+            .value,
+          normas: fakeLogin.querySelector(
+            '.js-fakelogin-1 input[name="normas"]'
+          ).checked,
+        };
 
-        fakeLogin.querySelector(".js-fakelogin-1").classList.add("hidden");
-        fakeLogin.querySelector(".js-fakelogin-2").classList.remove("hidden");
+        localStorage.setItem("fake_login", JSON.stringify(nuevosDatos));
+        datosFakeLogin = nuevosDatos;
+
+        siguientePaginaFakeLogin(fakeLogin);
       });
+
+    fakeLogin.querySelectorAll(".js-fakelogin-reset").forEach((element) =>
+      element.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        anteriorPaginaFakeLogin(fakeLogin);
+      })
+    );
   });
 }
 

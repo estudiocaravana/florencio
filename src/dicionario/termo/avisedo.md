@@ -6,7 +6,7 @@ localizacion: Córgomo
 categoria: Substantivo
 campo: O terreo
 foto:
-audio: ...
+audio:
 informantes: "Florencio Delgado Gurriarán<br>
   Leandro Carré Alvarellos (1951)<br>
   X. L. Franco Grande (1972)
