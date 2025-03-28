@@ -12,7 +12,7 @@ localizacion: Córgomo, Portela de Vilamartín
 informantes: Florencio Delgado Gurriarán, Xosé Lois Franco Grande (1972), Elixio Rivas Quintas (1978), Concepción Álvarez Pousa e Francisco Cobo.
 
 audio:
-  item: /assets/audio/cochar.mp3
+  item: /audio/cochar.mp3
   lenda: Varón adulto (1960, Portela, Vilamartín) Vive no Barco de Valdeorras.
 
 ---

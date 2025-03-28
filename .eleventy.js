@@ -17,7 +17,6 @@ module.exports = async function (eleventyConfig) {
   eleventyConfig.setLibrary("md", markdownIt(options));
   eleventyConfig.addPassthroughCopy("src/assets/fonts");
   eleventyConfig.addPassthroughCopy("src/assets/img");
-  eleventyConfig.addPassthroughCopy("src/assets/audio");
   eleventyConfig.addPassthroughCopy("src/assets/js");
   eleventyConfig.addPassthroughCopy("src/media");
   // Put robots.txt in root
