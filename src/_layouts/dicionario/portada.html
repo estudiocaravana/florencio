@@ -1,6 +1,6 @@
 {% extends "../base.html" %} {% block content %} {% include "dicionario/nav.html" %}
 <div class="caixa max-w-screen-xl">
-  <div class="max-w-md mt-6">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure ad necessitatibus natus blanditiis delectus aut enim quidem.</div>
+  <div class="max-w-lg mt-6">Un proxecto colaborativo de recollida do galego de Valdeorras, un elemento clave da identidade da comarca. Coas aportacións da veciñanza e a coordinación de persoas expertas, creamos o glosario co que soñaba Florencio Delgado Gurriarán.</div>
 </div>
 <div class="caixa max-w-screen-2xl -mt-36">
   <img src="/assets/img/mapa-portada.webp" alt="imaxe de portada" />
@@ -9,7 +9,7 @@
 <!-- portada -->
 {%- if page.url == '/dicionario/' -%}
 <!-- Termos....................................... -->
-<div class="caixa max-w-screen-xl pt-24 font-bold text-3xl text-center">Últimos 9 termos</div>
+<div class="caixa max-w-screen-xl pt-16 font-bold text-3xl text-center">Últimos 9 termos</div>
 <div class="caixa max-w-screen-2xl pt-16 grella">
   {%- for item in collections.termo -%}
   <a href="{{ item.url }}">

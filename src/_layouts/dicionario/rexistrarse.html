@@ -3,10 +3,10 @@
   <div class="max-w-lg mt-3">{{ content | safe }}</div>
 </div>
 <div class="caixa max-w-4xl bg-verde p-12 mx-auto my-16">
-  <div class="bg-white mt-6">
+  <div class="bg-white my-6">
     <div x-data="{ activeTab:  1 }">
-      <div class="flex *:flex-1 *:bg-verde *:py-6">
-        <button @click="activeTab = 1" :class="{ 'active !bg-white': activeTab === 1 }">Individuo</button>
+      <div class="flex *:flex-1 *:bg-verde *:py-6 *:font-semibold">
+        <button @click="activeTab = 1" :class="{ 'active !bg-white': activeTab === 1 }">Persoa</button>
         <button @click="activeTab = 2" :class="{ 'active !bg-white': activeTab === 2 }">Institución ou colectivo</button>
       </div>
 
@@ -32,8 +32,8 @@
               </label>
             </div>
             <label for="Nome" class="block">
-              <span class="">¿Cal é a túa relación con Valdeorras?</span>
-              <textarea rows="6" class="w-full border-1 border-neutral-200 rounded-sm bg-fondo mb-6 mt-2 p-6" placeholder="Exemplo: Ningunha. Cheguei aquí por mor das malditas mareas."></textarea>
+              <span class="">Cal é a túa relación con Valdeorras?</span>
+              <textarea rows="6" class="w-full border-1 border-neutral-200 rounded-sm bg-fondo mb-6 mt-2 p-6"></textarea>
             </label>
             <!-- acordo -->
             <label for="normas" class="flex gap-3 items-center">
@@ -70,7 +70,7 @@
               </label>
             </div>
             <label for="Nome" class="block">
-              <span class="">¿En que ámbito cultural ou social se desenvolve a institución?</span>
+              <span class="">En que ámbito cultural ou social se desenvolve a institución?</span>
               <textarea rows="6" class="w-full border-1 border-neutral-200 rounded-sm bg-fondo mb-6 mt-2 p-6" placeholder=""></textarea>
             </label>
             <!-- acordo -->
@@ -85,4 +85,4 @@
     </div>
   </div>
 </div>
-{% include "dicionario/prefooter.html" %} {% endblock %}
+{% endblock %}
