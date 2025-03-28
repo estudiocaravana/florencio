@@ -4,6 +4,14 @@
 [build]
     publish = "_site"
     command = "npm run build"
+
+[[redirects]]
+    from = "/"
+    to = "/dicionario"
+    # Redirección temporal
+    status = 302
+    # Redirigimos aunque haya contenido en la carpeta
+    force = true
     
 [[redirects]]
     from = "/api/*"
