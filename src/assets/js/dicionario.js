@@ -113,6 +113,26 @@ if (!estaLogueado) {
     }
   }
 } else {
+  const tokenCaduca = new Date(token.expires_at);
+  const agora = new Date();
+
+  console.log(agora);
+  console.log(tokenCaduca);
+
+  // TODO Refrescar el token automáticamente, pero para eso tengo que enviar el refresh_token y no sé de dónde pillarlo
+  // if (tokenCaduca < agora) {
+  //   console.log("El token caducó");
+  //   try {
+  //     const response = await directus.refresh();
+  //     localStorage.setItem("directus_auth", JSON.stringify(response));
+  //     token = response;
+  //   } catch (error) {
+  //     // localStorage.removeItem("directus_auth");
+  //     // location.reload();
+  //     alert(error?.errors?.[0]?.message || error);
+  //   }
+  // }
+
   let logoutForm = document.getElementById("logoutForm");
   if (logoutForm) {
     logoutForm.classList.remove("hidden");
