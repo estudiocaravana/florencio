@@ -36,15 +36,15 @@
     <div class="font-bold uppercase">NOVO TERMO</div>
       <label for="termo" class="block pt-6">
         <span class="">Termo</span>
-        <input name="termo" type="text" class="h-16 border-1 border-neutral-200 rounded-sm w-full bg-fondo block mb-6 mt-2 px-6" placeholder="Exemplo: Avisedo" />
+        <input name="termo" type="text" class="text-texto h-16 border-1 border-neutral-200 rounded-sm w-full bg-fondo block mb-6 mt-2 px-6" placeholder="Exemplo: Avisedo" />
       </label>
       <label for="lugar" class="block">
         <span class="">Lugar/es no que se utiliza</span>
-        <input name="lugar" type="text" class="h-16 border-1 border-neutral-200 rounded-sm w-full bg-fondo block mb-6 mt-2 px-6" placeholder="Exemplo: Córgomo" />
+        <input name="lugar" type="text" class="text-texto h-16 border-1 border-neutral-200 rounded-sm w-full bg-fondo block mb-6 mt-2 px-6" placeholder="Exemplo: Córgomo" />
       </label>
       <label for="definicion" class="block">
         <span class="">Definición</span>
-        <textarea name="definicion" rows="6" class="w-full border-1 border-neutral-200 rounded-sm bg-fondo mb-6 mt-2 p-6" placeholder="Exemplo: Terreo no que non acostuma dar o sol, sombrío."></textarea>
+        <textarea name="definicion" rows="6" class="text-texto w-full border-1 border-neutral-200 rounded-sm bg-fondo mb-6 mt-2 p-6" placeholder="Exemplo: Terreo no que non acostuma dar o sol, sombrío."></textarea>
       </label>
       <button type="submit" class="block h-16 w-full rounded-sm bg-verde mx-auto mt-9 font-semibold text-white text-2xl hover:bg-verde/80">Enviar</button>
   </div>
@@ -55,7 +55,7 @@
       <input hidden="" name="termoComentado" value="{% if page.url.substring(0, 18) == '/dicionario/termo/' %}{{ page.url.split('/')[3] }}{% endif %}" />
       
       <label for="comentario" class="block pt-6">
-        <textarea name="comentario" rows="6" class="w-full border-1 border-neutral-200 rounded-sm bg-fondo mb-6 mt-2 p-6"></textarea>
+        <textarea name="comentario" rows="6" class="text-texto w-full border-1 border-neutral-200 rounded-sm bg-fondo mb-6 mt-2 p-6"></textarea>
       </label>
       <button type="submit" class="block h-16 w-full rounded-sm bg-verde mx-auto mt-9 font-semibold text-white text-2xl hover:bg-verde/80">Enviar</button>
   </div>
