@@ -150,17 +150,28 @@ function filtrar(termos) {
 
     for (let filtroAplicado in filtrosAplicados) {
       let valorFiltro = filtrosAplicados[filtroAplicado];
-      let filtroTermo = termo.dataset[filtroAplicado].trim();
-
       let estaEnFiltro = false;
-      let filtrosTermoSeparados = filtroTermo.split(", ");
 
-      filtrosTermoSeparados.forEach((filtroTermoSeparado) => {
-        if (filtroTermoSeparado == valorFiltro) {
+      if (filtroAplicado == "buscar") {
+        let termoTexto = termo.innerText.trim().toLowerCase();
+
+        if (termoTexto.indexOf(valorFiltro) == -1) {
+          estaEnFiltro = false;
+        } else {
           estaEnFiltro = true;
-          return;
         }
-      });
+      } else {
+        let filtroTermo = termo.dataset[filtroAplicado].trim();
+
+        let filtrosTermoSeparados = filtroTermo.split(", ");
+
+        filtrosTermoSeparados.forEach((filtroTermoSeparado) => {
+          if (filtroTermoSeparado == valorFiltro) {
+            estaEnFiltro = true;
+            return;
+          }
+        });
+      }
 
       if (!estaEnFiltro) {
         termo.classList.add("hidden");
@@ -202,6 +213,15 @@ if (filtro) {
   crearFiltro(termos, "categoria");
   crearFiltro(termos, "campo");
   crearFiltro(termos, "lugar");
+
+  let buscador = document.querySelector(".js-filtro-buscar");
+
+  buscador.addEventListener("keyup", function (event) {
+    let textoBuscado = buscador.value.trim().toLowerCase();
+    console.log(textoBuscado);
+    filtrosAplicados["buscar"] = textoBuscado;
+    filtrar(termos);
+  });
 }
 
 /*
