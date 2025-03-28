@@ -1,15 +1,15 @@
 ---
 termo: Froxar
+
 definicion: "Movemento que se fai cara atrás."
-exemplo:
-localizacion: "Córgomo"
+
+exemplo: "“Non sábelo que é froxar <br> nin sábelo que é rousar… <br> ¿E chámaste carreteiro? <br> ¡Sonche ganas de falar!”. <br>Florencio Delgado Gurriarán, poema <em>Córgomo de Valdeorras</em>."
+
 categoria: Verbo
-campo: O terreo, os cultivos e labores tradicionais.
-foto:
-audio:
-informantes:
+campo: Agro
+localizacion: Córgomo
+informantes: Florencio Delgado Gurriarán
 ---
 
-Na meirando parte dos dicionario aparece co significado de “afrouxar, deixar de estar apertado”, en García González aparece co signicado de “Camiñar cara atrás as vacas” o que nos encamiña cara o significado que ofrece Álvarez Pousa “xirar cara atrás co carro”. O que está claro é que refire unha acción que realiza o carro ou que se lle realiza ao carro no proceso da súa construción.
-Florencio usa o termo no poema Córgomo de Valdeorras: “Non sábelo que é froxar/
-nin sábelo que é rousar…/¿E chámaste carreteiro?/¡Sonche ganas de falar!”
+Na meirando parte dos dicionarios esta palabra aparece co significado de _afrouxar, deixar de estar apertado_. En García González aparece co signicado de _camiñar cara atrás as vacas_, o que nos conduce cara o significado que ofrece Concepción Álvarez Pousa de _xirar cara atrás co carro_.
+O que queda claro no uso por parte de Florencio é que refire unha acción que realiza o carro ou que se lle fai ao carro no proceso da súa construción.

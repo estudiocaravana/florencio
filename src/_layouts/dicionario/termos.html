@@ -12,12 +12,13 @@
         <div class="ml-auto"><div class="rotate-90">></div></div>
       </button>
       <!-- panel -->
+
       <div class="js-filtro absolute top-20 left-0 z-20 py-12 bg-white text-texto font-normal flex w-5xl divide-x divide-neutral-200" x-show="menu" @click.outside="menu = false">
         <div class="js-filtro-categoria flex-1 px-12">
           <strong class="block pb-6 uppercase text-verde">Categoría</strong>
           <ul class="space-y-3">
             <li><a href="#" class="hover:text-verde text-verde">Todas</a></li>
-            {%- for item in lista.categorias -%}
+            {%- for item in categorias -%}
             <li><a href="#" class="hover:text-verde">{{ item.text}}</a></li>
             {%- endfor -%}
           </ul>
