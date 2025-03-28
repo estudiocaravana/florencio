@@ -1,0 +1,10 @@
+<script>
+
+    let exito_redirect = localStorage.getItem("exito_redirect");
+    if (!exito_redirect) {
+        exito_redirect = "/";
+    }
+
+    window.location.href = exito_redirect;
+    
+</script>

@@ -118,6 +118,9 @@ if (fakeLogins) {
           }
         });
 
+      let action = fakeLogin.dataset.action;
+      localStorage.setItem("exito_redirect", action);
+
       if (!hayErrores) {
         // Relanzamos el formulario
         fakeLogin.submit();

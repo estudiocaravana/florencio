@@ -1,4 +1,5 @@
-<form class="js-fakelogin" name="aportacion" netlify netlify-honeypot="bot-field" method="POST" action="{{ page.url | url }}#exito">
+<form class="js-fakelogin" name="aportacion" netlify netlify-honeypot="bot-field" method="POST" action="/exito"
+data-action="{{ page.url | url }}#exito">
   <p class="hidden">
     <label> Don’t fill this out if you’re human: <input name="bot-field" /> </label>
   </p>
@@ -16,7 +17,7 @@
     </label>
     <label for="normas" class="flex gap-3 items-center">
       <input class="size-9 border-4 border-neutral-500 bg-transparent" type="checkbox" name="normas" id="normas" required />
-      Lin e acepto a <a href="/politica-privacidade" class="underline underline-offset-4">política de privacidade</a>
+      Lin e acepto a <a href="/legal" class="underline underline-offset-4">política de privacidade</a>
     </label>
     <button type="button" class="block h-16 w-full rounded-sm bg-verde mx-auto mt-6 text-white text-xl hover:bg-verde/80">Gardar</button>
   </div>
