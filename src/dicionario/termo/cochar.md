@@ -8,7 +8,10 @@ categoria: Verbo
 campo: Xogos populares
 foto:
 audio:
-informantes: "Florencio Delgado Gurriarán, Leandro Carré Alvarellos (1951), X. L. Franco Grande (1972),
+  item: /media/audio/cochar.mp3
+  lenda: Cristina de la Torre
+informantes:
+  "Florencio Delgado Gurriarán, Leandro Carré Alvarellos (1951), X. L. Franco Grande (1972),
   Eligio Rivas Quintas (1978),
   Leandro Carré Alvarellos (1979),
   Eligio Rivas Quintas (1978)"

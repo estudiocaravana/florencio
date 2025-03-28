@@ -10,6 +10,8 @@ import {
   withToken,
 } from "@directus/sdk";
 
+import "wave-audio-path-player";
+
 let directus;
 let token = localStorage.getItem("directus_auth");
 let estaLogueado = false;
