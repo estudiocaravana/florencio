@@ -1,0 +1,29 @@
+{% extends "../base.html" %} {% block content %} {% include "directus/nav.html" %}
+<div class="caixa max-w-screen-xl">
+  <div class="max-w-lg mt-3">{{ content | safe }}</div>
+</div>
+<div class="caixa max-w-4xl bg-verde p-12 mx-auto my-16">
+  <form id="novoTermoForm" action="#">
+    <div class="py-12 px-16 bg-white my-6">
+      <label for="Nome" class="block">
+        <span class="">Termo</span>
+        <input id="termo" type="text" class="h-16 border-1 border-neutral-200 rounded-sm w-full bg-fondo block mb-6 mt-2 px-6" placeholder="Exemplo: Avisedo" />
+      </label>
+      <label for="Nome" class="block">
+        <span class="">Lugar/es no que se utiliza</span>
+        <input type="text" class="h-16 border-1 border-neutral-200 rounded-sm w-full bg-fondo block mb-6 mt-2 px-6" placeholder="Exemplo: Córgomo" />
+      </label>
+      <label for="Nome" class="block">
+        <span class="">Definición</span>
+        <textarea id="definicion" rows="6" class="w-full border-1 border-neutral-200 rounded-sm bg-fondo mb-6 mt-2 p-6" placeholder="Exemplo: Terreo no que non acostuma dar o sol, sombrío."></textarea>
+      </label>
+      <!-- acordo -->
+      <label for="normas" class="flex gap-3 items-center">
+        <input class="size-9 border-4 border-neutral-500 bg-transparent" type="checkbox" name="normas" id="normas" required />
+        Lin e acepto a <a href="/politica-privacidade" class="underline underline-offset-4">política de privacidade</a>
+      </label>
+      <button class="block h-20 w-full bg-verde mx-auto mt-12 font-bold text-white text-2xl hover:bg-verde/80">Enviar</button>
+    </div>
+  </form>
+</div>
+{% include "dicionario/prefooter.html" %} {% endblock %}

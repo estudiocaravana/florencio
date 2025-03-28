@@ -7,6 +7,7 @@ import {
   createItem,
   registerUser,
   staticToken,
+  withToken,
 } from "@directus/sdk";
 
 let directus;
@@ -14,6 +15,7 @@ let token = localStorage.getItem("directus_auth");
 let estaLogueado = false;
 
 if (token) {
+  console.log("Está logueado");
   estaLogueado = true;
   token = JSON.parse(token);
   // TODO Comprobar si el token sigue siendo válido
@@ -124,6 +126,34 @@ if (!estaLogueado) {
       }
       localStorage.removeItem("directus_auth");
       location.reload();
+    });
+  }
+
+  let novoTermoForm = document.getElementById("novoTermoForm");
+  if (novoTermoForm) {
+    novoTermoForm.classList.remove("hidden");
+
+    novoTermoForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      let termo = document.getElementById("termo").value;
+      let definicion = document.getElementById("definicion").value;
+      try {
+        const result = await directus.request(
+          withToken(token.access_token, () => ({
+            path: "/flows/trigger/0525f10d-382c-4b00-9ffe-08fe5171e9fc",
+            method: "POST",
+            body: JSON.stringify({
+              termo: termo,
+              definicion: definicion,
+            }),
+          }))
+        );
+        novoTermoForm.classList.add("hidden");
+        // console.log(result);
+        // alert("Termo engadido correctamente");
+      } catch (error) {
+        alert(error?.errors?.[0]?.message || error);
+      }
     });
   }
 }
