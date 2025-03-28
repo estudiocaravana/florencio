@@ -12,6 +12,9 @@ if (datosFakeLogin) {
   datosFakeLogin = JSON.parse(datosFakeLogin);
 }
 
+// Obtenemos el hash exito
+let hayExito = window.location.hash == "#exito";
+
 function anteriorPaginaFakeLogin(fakeLogin) {
   fakeLogin.querySelector(".js-fakelogin-1").classList.remove("hidden");
   fakeLogin.querySelector(".js-fakelogin-2").classList.add("hidden");
@@ -120,6 +123,15 @@ if (fakeLogins) {
         fakeLogin.submit();
       }
     });
+
+    if (hayExito) {
+      fakeLogin.querySelector(".js-fakelogin-1").classList.add("hidden");
+      fakeLogin.querySelector(".js-fakelogin-2").classList.add("hidden");
+      fakeLogin.querySelector(".js-fakelogin-ok").classList.remove("hidden");
+
+      // Scrollamos hasta el formulario
+      fakeLogin.scrollIntoView();
+    }
   });
 }
 
