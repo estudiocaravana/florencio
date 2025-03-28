@@ -47,22 +47,22 @@
       </div>
     </div>
     <!-- Arquivos adxuntos -->
-    <div class="max-w-2xl mx-auto py-12">
+    <div class="max-w-4xl mx-auto py-12">
       <!-- foto -->
       <div>
         {%- if foto|length -%} {%- for item in foto -%}
-        <img class="max-w-xl" src="{{ item.item }}" alt="{{ termo }}" />
-        <div>{{ item.lenda | safe }}</div>
+        <img src="{{ item.item }}" alt="{{ termo }}" />
+        <div class="text-lg -mt-6">Foto: {{ item.lenda | safe }}</div>
         {%- endfor -%} {%- endif -%}
       </div>
       <!-- audio -->
       <div>
-        {% if audio|length %}
-
-        {# <div class="max-w-xl bg-verde p-6 px-12 flex gap-6 items-center my-12">
+        {% if audio|length %} {#
+        <div class="max-w-xl bg-verde p-6 px-12 flex gap-6 items-center my-12">
           <div class="text-5xl">></div>
           <div class="flex-1"><hr /></div>
-        </div> #}
+        </div>
+        #}
 
         <style>
           wave-audio-path-player::part(currenttime),
@@ -77,11 +77,11 @@
           }
         </style>
 
-        <div class="max-w-xl bg-verde p-6 px-12 flex gap-6 items-center my-12">          
+        <div class="max-w-xl bg-verde p-6 px-12 flex gap-6 items-center mb-3">
           <wave-audio-path-player src="{{ audio.item }}" wave-width="300" wave-height="40" color="#000000" wave-color="#f7f5f2" wave-slider="#000000" wave-progress-color="#000000"></wave-audio-path-player>
         </div>
 
-        <div>{{ audio.lenda | safe }}</div>
+        <div class="text-lg">Audio: {{ item.lenda | safe }}</div>
         {% endif %}
       </div>
     </div>

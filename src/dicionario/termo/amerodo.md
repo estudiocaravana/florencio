@@ -6,11 +6,11 @@ localizacion: "Córgomo"
 categoria: Substantivo
 campo: Flora
 foto:
-  - item: /media/arbustus.jpg
-    lenda: la laenda merenda
+  - item: /media/termos/amerodo-1.webp
+    lenda: Cristina de la Torre
+  - item: /media/termos/amerodo-2.webp
+    lenda: Cristina de la Torre
 audio:
-  item: loquesea
-  lenda: mimenda
 informantes: "Florencio Delgado Gurriarán, Noelia Estévez Rionegro"
 ---
 

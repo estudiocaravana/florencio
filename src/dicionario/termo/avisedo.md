@@ -1,7 +1,7 @@
 ---
-termo: Avisedo/avesedo
+termo: Avisedo
 definicion: "Terreo no que non acostuma dar o sol, sombrío."
-exemplo: Sen exemplo
+exemplo: "En Florencio Delgado Gurriarán, poema Saúdo a Otero Pedrayo: <em>No soalleiro louro de laranxas,/ roxo de balsaís e sangradeiros,/ doce de mel, cinsento de oliveiras…./e a tanger os axóuxeres dos conchos/ e broslado de felgas, no abisedo.</em>"
 localizacion: Córgomo
 categoria: Substantivo
 campo: O terreo
@@ -15,6 +15,9 @@ informantes: "Florencio Delgado Gurriarán<br>
   Eligio Rivas Quintas (1978)
   "
 ---
+
+Todo indica que a forma aceptada pola Real Academia Avesedo é a canónica, mentres que a forma avisedo é forma dialectal da comarca de Valdeorras. No dicionario de Carré Alvarellos aparece como “ declive de un monte hacia la parte norte” definición que nos daría a pista do significado deste substantivo. Cobo Rodríguez recolle “avesío e avisíu”, Álvarez Pousa catalógaa como inflencia externa ao valdeorrés.
+dentro da obra de Florencio Delgado Gurriarán atopámola no poema Saúdo a Otero Pedrayo: “No soalleiro louro de laranxas,/ roxo de balsaís e sangradeiros,/ doce de mel, cinsento de oliveiras…./e a tanger os axóuxeres dos conchos/ e broslado de felgas, no abisedo.”
 
 Alvarellos (1951) ( 1971): Declive de un monte hacia la parte Norte.
 [ilg.usc.gal](https://ilg.usc.gal/ddd/ddd_pescuda.php?lang=gl&pescuda=avIsedo&tipo_busca=lema)
