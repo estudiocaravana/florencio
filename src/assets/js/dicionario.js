@@ -136,6 +136,62 @@ if (fakeLogins) {
 }
 
 /*
+ * BÚSQUEDA
+ */
+
+let filtrosAplicados = {};
+
+function filtrar(termos) {
+  termos.forEach((termo) => {
+    termo.classList.remove("hidden");
+
+    for (let filtroAplicado in filtrosAplicados) {
+      let valorFiltro = filtrosAplicados[filtroAplicado];
+      let filtroTermo = termo.dataset[filtroAplicado].trim();
+
+      if (filtroTermo != valorFiltro) {
+        termo.classList.add("hidden");
+        break;
+      }
+    }
+  });
+}
+
+function crearFiltro(termos, nombreFiltro) {
+  let enlaces = filtro.querySelectorAll(".js-filtro-" + nombreFiltro + " a");
+
+  enlaces.forEach((enlace) => {
+    enlace.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      let filtroEnlace = enlace.innerText.trim();
+
+      enlaces.forEach((enlace) => {
+        enlace.classList.remove("text-verde");
+      });
+      enlace.classList.add("text-verde");
+
+      if (filtroEnlace != "Todos" && filtroEnlace != "Todas") {
+        filtrosAplicados[nombreFiltro] = filtroEnlace;
+      } else {
+        delete filtrosAplicados[nombreFiltro];
+      }
+
+      filtrar(termos);
+    });
+  });
+}
+
+let filtro = document.querySelector(".js-filtro");
+if (filtro) {
+  let termos = document.querySelectorAll(".js-termo");
+
+  crearFiltro(termos, "categoria");
+  crearFiltro(termos, "campo");
+  crearFiltro(termos, "lugar");
+}
+
+/*
  * CONEXIÓN CON DIRECTUS
  */
 // import {

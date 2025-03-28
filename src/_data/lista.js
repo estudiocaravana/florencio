@@ -79,5 +79,8 @@ module.exports = {
     {
       text: "A Veiga",
     },
+    {
+      text: "Córgomo",
+    },
   ],
 };
