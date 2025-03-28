@@ -31,9 +31,8 @@
       <button type="button" class="block h-16 w-full rounded-sm bg-verde mx-auto mt-6 text-white text-xl hover:bg-verde/80">Entrar</button>
   </div>
 
-  {% if page.url == '/dicionario/termos/' %}
   <!-- Novo termo -->
-  <div class="js-fakelogin-2 pt-6 pb-12 px-16 bg-texto text-white hidden">
+  <div class="{% if page.url == '/dicionario/termos/' %} js-fakelogin-2 {% endif %} pt-6 pb-12 px-16 bg-texto text-white hidden">
     <div class="font-bold uppercase">NOVO TERMO</div>
       <label for="termo" class="block pt-6">
         <span class="">Termo</span>
@@ -49,15 +48,15 @@
       </label>
       <button type="submit" class="block h-16 w-full rounded-sm bg-verde mx-auto mt-9 font-semibold text-white text-2xl hover:bg-verde/80">Enviar</button>
   </div>
-  {% endif %}
-  {% if page.url.substring(0, 18) == '/dicionario/termo/' %}
+
   <!-- Comentario -->
-  <div class="js-fakelogin-2 pt-6 pb-12 px-16 bg-texto text-white hidden">
+  <div class="{% if page.url.substring(0, 18) == '/dicionario/termo/' %} js-fakelogin-2 {% endif %} pt-6 pb-12 px-16 bg-texto text-white hidden">
     <div class="font-bold uppercase">Comentario</div>
+      <input hidden="" name="termoComentado" value="{% if page.url.substring(0, 18) == '/dicionario/termo/' %}{{ page.url.split('/')[3] }}{% endif %}" />
+      
       <label for="comentario" class="block pt-6">
         <textarea name="comentario" rows="6" class="w-full border-1 border-neutral-200 rounded-sm bg-fondo mb-6 mt-2 p-6"></textarea>
       </label>
       <button type="submit" class="block h-16 w-full rounded-sm bg-verde mx-auto mt-9 font-semibold text-white text-2xl hover:bg-verde/80">Enviar</button>
   </div>
-  {% endif %}
 </form>
