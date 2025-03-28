@@ -9,11 +9,43 @@ import "wave-audio-path-player";
 
 let fakeLogins = document.querySelectorAll(".js-fakelogin");
 if (fakeLogins) {
+  let datos = localStorage.getItem("fake_login");
+  if (datos) {
+    datos = JSON.parse(datos);
+  }
+
   fakeLogins.forEach((fakeLogin) => {
+    if (datos) {
+      fakeLogin.querySelector('.js-fakelogin-1 input[name="nome"]').value =
+        datos.nome;
+      fakeLogin.querySelector('.js-fakelogin-1 input[name="email"]').value =
+        datos.email;
+      fakeLogin.querySelector('.js-fakelogin-1 input[name="normas"]').checked =
+        datos.normas;
+
+      fakeLogin.querySelector(".js-fakelogin-1").classList.add("hidden");
+      fakeLogin.querySelector(".js-fakelogin-2").classList.remove("hidden");
+    }
+
     fakeLogin
       .querySelector(".js-fakelogin-1 button")
       .addEventListener("click", (event) => {
         event.preventDefault();
+
+        localStorage.setItem(
+          "fake_login",
+          JSON.stringify({
+            nome: fakeLogin.querySelector('.js-fakelogin-1 input[name="nome"]')
+              .value,
+            email: fakeLogin.querySelector(
+              '.js-fakelogin-1 input[name="email"]'
+            ).value,
+            normas: fakeLogin.querySelector(
+              '.js-fakelogin-1 input[name="normas"]'
+            ).checked,
+          })
+        );
+
         fakeLogin.querySelector(".js-fakelogin-1").classList.add("hidden");
         fakeLogin.querySelector(".js-fakelogin-2").classList.remove("hidden");
       });
