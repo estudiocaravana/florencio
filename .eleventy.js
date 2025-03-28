@@ -1,7 +1,8 @@
 const markdownIt = require("markdown-it");
 
 module.exports = async function (eleventyConfig) {
-  const EleventyPluginVite = (await import("@11ty/eleventy-plugin-vite")).default;
+  const EleventyPluginVite = (await import("@11ty/eleventy-plugin-vite"))
+    .default;
   eleventyConfig.addPlugin(EleventyPluginVite, {
     viteOptions: {
       assetsInclude: ["**/*.tif"],
@@ -16,6 +17,7 @@ module.exports = async function (eleventyConfig) {
   eleventyConfig.setLibrary("md", markdownIt(options));
   eleventyConfig.addPassthroughCopy("src/assets/fonts");
   eleventyConfig.addPassthroughCopy("src/assets/img");
+  eleventyConfig.addPassthroughCopy("src/assets/audio");
   eleventyConfig.addPassthroughCopy("src/assets/js");
   eleventyConfig.addPassthroughCopy("src/media");
   // Put robots.txt in root
@@ -34,14 +36,18 @@ module.exports = async function (eleventyConfig) {
     });
   });
   eleventyConfig.addCollection("termo", function (collection) {
-    return collection.getFilteredByGlob("./src/dicionario/termo/*.md").sort(function (a, b) {
-      return a.data.termo - b.data.termo;
-    });
+    return collection
+      .getFilteredByGlob("./src/dicionario/termo/*.md")
+      .sort(function (a, b) {
+        return a.data.termo - b.data.termo;
+      });
   });
   eleventyConfig.addCollection("artigo", function (collection) {
-    return collection.getFilteredByGlob("./src/dicionario/artigo/*.md").sort(function (a, b) {
-      return a.data.artigo - b.data.artigo;
-    });
+    return collection
+      .getFilteredByGlob("./src/dicionario/artigo/*.md")
+      .sort(function (a, b) {
+        return a.data.artigo - b.data.artigo;
+      });
   });
   return {
     markdownTemplateEngine: "njk",

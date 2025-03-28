@@ -11,7 +11,7 @@ localizacion: Córgomo, San Vicente
 informantes: Fundación FDG
 
 audio:
-  item: /media/audio/baxolas.mp3
+  item: /assets/audio/baxolas.mp3
   lenda: Muller (1948, San Vicente, Carballeda) Vive no Barco de Valdeorras.
 ---
 
