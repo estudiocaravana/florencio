@@ -9,7 +9,7 @@ campo: Xogos populares
 foto:
 audio:
   item: /media/audio/cochar.mp3
-  lenda: Cristina de la Torre
+  lenda: Fundación FDG
 informantes:
   "Florencio Delgado Gurriarán, Leandro Carré Alvarellos (1951), X. L. Franco Grande (1972),
   Eligio Rivas Quintas (1978),
