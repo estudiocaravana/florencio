@@ -152,7 +152,17 @@ function filtrar(termos) {
       let valorFiltro = filtrosAplicados[filtroAplicado];
       let filtroTermo = termo.dataset[filtroAplicado].trim();
 
-      if (filtroTermo != valorFiltro) {
+      let estaEnFiltro = false;
+      let filtrosTermoSeparados = filtroTermo.split(", ");
+
+      filtrosTermoSeparados.forEach((filtroTermoSeparado) => {
+        if (filtroTermoSeparado == valorFiltro) {
+          estaEnFiltro = true;
+          return;
+        }
+      });
+
+      if (!estaEnFiltro) {
         termo.classList.add("hidden");
         break;
       }
