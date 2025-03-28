@@ -1,4 +1,32 @@
 {% extends "../base.html" %} {% block content %} {% include "dicionario/nav.html" %}
+
+{% set categorias = [] %}
+{% set campos = [] %}
+{% set lugares = [] %}
+
+{% for item in collections.termo %}
+  {% set categoriasSeparadas = item.data.categoria.split(', ') %}
+  {% for categoria in categoriasSeparadas %}
+    {% if categoria not in categorias %}
+      {% set categorias = (categorias.push(categoria), categorias) %}
+    {% endif %}
+  {% endfor %}
+
+  {% set camposSeparados = item.data.campo.split(', ') %}
+  {% for campo in camposSeparados %}
+    {% if campo not in campos %}
+      {% set campos = (campos.push(campo), campos) %}
+    {% endif %}
+  {% endfor %}
+
+  {% set lugaresSeparados = item.data.localizacion.split(', ') %}
+  {% for lugar in lugaresSeparados %}
+    {% if lugar not in lugares %}
+      {% set lugares = (lugares.push(lugar), lugares) %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+
 <div class="caixa max-w-screen-xl pt-12">
   <div class="flex gap-6">
     <div class="flex-1 relative" x-data="{menu : false}">
@@ -18,8 +46,8 @@
           <strong class="block pb-6 uppercase text-verde">Categoría</strong>
           <ul class="space-y-3">
             <li><a href="#" class="hover:text-verde text-verde">Todas</a></li>
-            {%- for item in categorias -%}
-            <li><a href="#" class="hover:text-verde">{{ item.text}}</a></li>
+            {%- for item in categorias | sort -%}
+            <li><a href="#" class="hover:text-verde">{{ item }}</a></li>
             {%- endfor -%}
           </ul>
         </div>
@@ -27,8 +55,8 @@
           <strong class="block pb-6 uppercase text-verde">Campo semántico</strong>
           <ul class="space-y-3">
             <li><a href="#" class="hover:text-verde text-verde">Todos</a></li>
-            {%- for item in lista.campos -%}
-            <li><a href="#" class="hover:text-verde">{{ item.text}}</a></li>
+            {%- for item in campos | sort -%}
+            <li><a href="#" class="hover:text-verde">{{ item }}</a></li>
             {%- endfor -%}
           </ul>
         </div>
@@ -36,8 +64,8 @@
           <strong class="block pb-6 uppercase text-verde">Lugar</strong>
           <ul class="space-y-3">
             <li><a href="#" class="hover:text-verde text-verde">Todos</a></li>
-            {%- for item in lista.lugares -%}
-            <li><a href="#" class="hover:text-verde">{{ item.text}}</a></li>
+            {%- for item in lugares | sort -%}
+            <li><a href="#" class="hover:text-verde">{{ item }}</a></li>
             {%- endfor -%}
           </ul>
         </div>

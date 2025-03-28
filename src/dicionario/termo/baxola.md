@@ -6,7 +6,7 @@ definicion: "Casca ou vaíña seca de determiandas leguminosas que se usaba seca
 exemplo: "<em>Fixen un caldo de baxolas.</em>"
 
 categoria: Substantivo
-campo: Flora, agro
+campo: Flora, Agro
 localizacion: Córgomo, San Vicente
 informantes: Fundación FDG
 
