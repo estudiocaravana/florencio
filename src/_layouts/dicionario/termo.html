@@ -7,7 +7,7 @@
   </div>
   <div>
     <strong>Exemplo</strong>
-    <div class="mt-2"><em>{{ exemplo | safe }}</em></div>
+    <div class="mt-2">{{ exemplo | safe }}</div>
   </div>
 </div>
 <!-- datos -->
@@ -41,8 +41,19 @@
       <!-- DRCH -->
       <div>
         <!-- mapa -->
-        <div class="w-full aspect-square">
+        <div class="w-full aspect-square relative">
           <img class="!p-0 !m-0 !shadow-none size-full !bg-transparent" src="/assets/img/mapa-comarca.webp" alt="" />
+          <!-- córgomo -->
+          {%- if localizacion == 'Córgomo' -%}
+          <div class="absolute top-[26%] left-[34%]">
+            <div class="size-6 rounded-full bg-transparent border-4 border-red-400 shadow-lg shadow-texto/40"></div>
+          </div>
+          {%- endif -%}
+          <!-- a rúa
+          <div class="absolute top-[35%] left-[20%]">
+            <div class="size-6 rounded-full bg-transparent border-4 border-red-400 shadow-lg shadow-texto/40"></div>
+          </div>
+          -->
         </div>
       </div>
     </div>
@@ -93,11 +104,12 @@
       <strong class="text-verde">Fundación FDG</strong><br />
       <div class="*:block *:mb-2">{{ content | safe }}</div>
       <div class="*:mt-6">
+        <!-- comentario da xente
         <div>
           <strong>María Vilches</strong><br />Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque magni possimus sit doloribus ut? Beatae minima adipisci atque vitae dolor modi accusamus fugiat nobis saepe nesciunt, esse quibusdam officia sequi.<br />
           <span class="text-neutral-400">21/03/25</span>
         </div>
-        <div><strong>Xoan Merodo</strong><br />Cumque magni possimus sit doloribus ut? Beatae minima adipisci atque vitae dolor modi accusamus fugiat nobis saepe nesciunt.</div>
+        -->
       </div>
     </div>
     <!-- formularios -->

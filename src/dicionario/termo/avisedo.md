@@ -1,7 +1,7 @@
 ---
 termo: Avisedo
 definicion: "Terreo no que non acostuma dar o sol, sombrío."
-exemplo: "En Florencio Delgado Gurriarán, poema Saúdo a Otero Pedrayo: <em>No soalleiro louro de laranxas,/ roxo de balsaís e sangradeiros,/ doce de mel, cinsento de oliveiras…./e a tanger os axóuxeres dos conchos/ e broslado de felgas, no abisedo.</em>"
+exemplo: "En Florencio Delgado Gurriarán, poema Saúdo a Otero Pedrayo:<br><em>No soalleiro louro de laranxas,<br>roxo de balsaís e sangradeiros,<br>doce de mel, cinsento de oliveiras….<br>e a tanger os axóuxeres dos conchos<br>e broslado de felgas, no abisedo.</em>"
 localizacion: Córgomo
 categoria: Substantivo
 campo: O terreo

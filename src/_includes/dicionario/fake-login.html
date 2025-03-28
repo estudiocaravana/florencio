@@ -1,73 +1,61 @@
-<form
-  class="js-fakelogin"
-  name="aportacion"
-  netlify
-  netlify-honeypot="bot-field"
-  method="POST"
-  action="{{ page.url | url }}#exito"
->
-
+<form class="js-fakelogin" name="aportacion" netlify netlify-honeypot="bot-field" method="POST" action="{{ page.url | url }}#exito">
   <p class="hidden">
-    <label>
-      Don’t fill this out if you’re human: <input name="bot-field" />
-    </label>
+    <label> Don’t fill this out if you’re human: <input name="bot-field" /> </label>
   </p>
 
   <!-- Login -->
   <div class="js-fakelogin-1 pt-6 pb-12 px-16 bg-texto text-white">
     <div class="font-bold uppercase">Identifícate</div>
-      <label for="nome" class="block pt-6">
-        <span class="">Nome</span>
-        <input name="nome" type="text" class="text-texto h-16 border-1 border-neutral-200 rounded-sm w-full bg-fondo block mb-6 mt-2 px-6" />
-      </label>
-      <label for="email" class="block">
-        <span class="">Correo electrónico</span>
-        <input name="email" type="text" class="text-texto h-16 border-1 border-neutral-200 rounded-sm w-full bg-fondo block mb-6 mt-2 px-6" />
-      </label>
-      <label for="normas" class="flex gap-3 items-center">
-        <input class="size-9 border-4 border-neutral-500 bg-transparent" type="checkbox" name="normas" id="normas" required />
-        Lin e acepto a <a href="/politica-privacidade" class="underline underline-offset-4">política de privacidade</a>
-      </label>
-      <button type="button" class="block h-16 w-full rounded-sm bg-verde mx-auto mt-6 text-white text-xl hover:bg-verde/80">Gardar</button>
+    <label for="nome" class="block pt-6">
+      <span class="">Nome</span>
+      <input name="nome" type="text" class="text-texto h-16 border-1 border-neutral-200 rounded-sm w-full bg-fondo block mb-6 mt-2 px-6" />
+    </label>
+    <label for="email" class="block">
+      <span class="">Correo electrónico</span>
+      <input name="email" type="text" class="text-texto h-16 border-1 border-neutral-200 rounded-sm w-full bg-fondo block mb-6 mt-2 px-6" />
+    </label>
+    <label for="normas" class="flex gap-3 items-center">
+      <input class="size-9 border-4 border-neutral-500 bg-transparent" type="checkbox" name="normas" id="normas" required />
+      Lin e acepto a <a href="/politica-privacidade" class="underline underline-offset-4">política de privacidade</a>
+    </label>
+    <button type="button" class="block h-16 w-full rounded-sm bg-verde mx-auto mt-6 text-white text-xl hover:bg-verde/80">Gardar</button>
   </div>
 
   <!-- Novo termo -->
   <div class="{% if page.url == '/dicionario/termos/' %} js-fakelogin-2 {% endif %} pt-6 pb-12 px-16 bg-texto text-white hidden">
-    
     <div class="font-bold uppercase">NOVO TERMO</div>
-      <label for="termo" class="block pt-6">
-        <span class="">Termo</span>
-        <input name="termo" type="text" class="text-texto h-16 border-1 border-neutral-200 rounded-sm w-full bg-fondo block mb-6 mt-2 px-6" placeholder="Exemplo: Avisedo" />
-      </label>
-      <label for="lugar" class="block">
-        <span class="">Lugar/es no que se utiliza</span>
-        <input name="lugar" type="text" class="text-texto h-16 border-1 border-neutral-200 rounded-sm w-full bg-fondo block mb-6 mt-2 px-6" placeholder="Exemplo: Córgomo" />
-      </label>
-      <label for="definicion" class="block">
-        <span class="">Definición</span>
-        <textarea name="definicion" rows="6" class="text-texto w-full border-1 border-neutral-200 rounded-sm bg-fondo mb-6 mt-2 p-6" placeholder="Exemplo: Terreo no que non acostuma dar o sol, sombrío."></textarea>
-      </label>      
-      {% include "dicionario/erro-datos.html" %}
-      <button type="submit" class="block h-16 w-full rounded-sm bg-verde mx-auto mt-9 font-semibold text-white text-2xl hover:bg-verde/80">Enviar</button>
-      {% include "dicionario/cambiar-datos.html" %}
+    <label for="termo" class="block pt-6">
+      <span class="">Termo</span>
+      <input name="termo" type="text" class="text-texto h-16 border-1 border-neutral-200 rounded-sm w-full bg-fondo block mb-6 mt-2 px-6" placeholder="Exemplo: Avisedo" />
+    </label>
+    <label for="lugar" class="block">
+      <span class="">Lugar/es no que se utiliza</span>
+      <input name="lugar" type="text" class="text-texto h-16 border-1 border-neutral-200 rounded-sm w-full bg-fondo block mb-6 mt-2 px-6" placeholder="Exemplo: Córgomo" />
+    </label>
+    <label for="definicion" class="block">
+      <span class="">Definición</span>
+      <textarea name="definicion" rows="6" class="text-texto w-full border-1 border-neutral-200 rounded-sm bg-fondo mb-6 mt-2 p-6" placeholder="Exemplo: Terreo no que non acostuma dar o sol, sombrío."></textarea>
+    </label>
+    {% include "dicionario/erro-datos.html" %}
+    <button type="submit" class="block h-16 w-full rounded-sm bg-verde mx-auto mt-9 font-semibold text-white text-2xl hover:bg-verde/80">Enviar</button>
+    {% include "dicionario/cambiar-datos.html" %}
   </div>
 
   <!-- Comentario -->
   <div class="{% if page.url.substring(0, 18) == '/dicionario/termo/' %} js-fakelogin-2 {% endif %} pt-6 pb-12 px-16 bg-texto text-white hidden">
     <div class="font-bold uppercase">Comentario</div>
-      <input hidden="" name="termoComentado" value="{% if page.url.substring(0, 18) == '/dicionario/termo/' %}{{ page.url.split('/')[3] }}{% endif %}" />
-      
-      <label for="comentario" class="block pt-6">
-        <textarea name="comentario" rows="6" class="text-texto w-full border-1 border-neutral-200 rounded-sm bg-fondo mb-6 mt-2 p-6"></textarea>
-      </label>
-      {% include "dicionario/erro-datos.html" %}
-      <button type="submit" class="block h-16 w-full rounded-sm bg-verde mx-auto mt-9 font-semibold text-white text-2xl hover:bg-verde/80">Enviar</button>
-      {% include "dicionario/cambiar-datos.html" %}
+    <input hidden="" name="termoComentado" value="{% if page.url.substring(0, 18) == '/dicionario/termo/' %}{{ page.url.split('/')[3] }}{% endif %}" />
+
+    <label for="comentario" class="block pt-6">
+      <textarea name="comentario" rows="6" class="text-texto w-full border-1 border-neutral-200 rounded-sm bg-fondo mb-6 mt-2 p-6"></textarea>
+    </label>
+    {% include "dicionario/erro-datos.html" %}
+    <button type="submit" class="block h-16 w-full rounded-sm bg-verde mx-auto mt-9 font-semibold text-white text-2xl hover:bg-verde/80">Enviar</button>
+    {% include "dicionario/cambiar-datos.html" %}
   </div>
 
-  <div class="js-fakelogin-ok pt-6 pb-12 px-16 bg-texto text-verde hidden">
-    Mensaxe enviada! <br><br>
-    O noso equipo revisará a túa aportación o antes posible. <br><br>
-    Moitas grazas!
+  <div class="js-fakelogin-ok pt-6 py-12 px-16 bg-texto text-white hidden text-center">
+    <div class="text-3xl font-bold pt-24 pb-3">Mensaxe enviada!</div>
+    <div class="text-2xl">O noso equipo revisará a túa aportación o antes posible. Moitas grazas!</div>
   </div>
 </form>

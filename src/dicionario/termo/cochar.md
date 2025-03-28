@@ -9,12 +9,12 @@ campo: Xogos populares
 foto:
 audio:
   item: /media/audio/cochar.mp3
-  lenda: Cristina de la Torre
+  lenda: Fundación FDG
 informantes: "Florencio Delgado Gurriarán, Leandro Carré Alvarellos (1951), X. L. Franco Grande (1972),
   Eligio Rivas Quintas (1978),
   Leandro Carré Alvarellos (1979),
   Eligio Rivas Quintas (1978)"
-revision: "true"
+revision:
 ---
 
 Este termo aparece nalgúns dicionarios de galego antigos pero con significado distinto, “tapar, cubrir, quitar a maleza, retirar do lume, etc”. Serán dous investigadores, X.L. Franco Grande e Elixio Rivas Quintas os que recollen a palabra con este signicado e a localizan na zona oriental, o primeiro en Valdeorras e o segundo en Viana do Bolo. Xa na actualidade C.Álvarez Pousa e F. Cobo en sendo artigos sobre a lingua de Florencio acéptana como palabra propia da comarca de Valdeorras.

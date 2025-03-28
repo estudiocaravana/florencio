@@ -11,11 +11,11 @@
 <!-- Termos....................................... -->
 <div class="caixa max-w-screen-xl pt-16 font-bold text-3xl text-center">Últimos 9 termos</div>
 <div class="caixa max-w-screen-2xl pt-16 grella">
-  {%- for item in collections.termo -%}
+  {%- for item in collections.termo -%} {% if loop.index <= 9 %}
   <a href="{{ item.url }}">
     <div class="border-t-2 text-xl:2xl py-3 first-letter:uppercase">{{ item.data.termo }}</div>
   </a>
-  {%- endfor -%}
+  {% endif %} {%- endfor -%}
 </div>
 <div class="caixa text-center mt-9">
   <a class="underline underline-offset-8" href="/dicionario/termos/">Todos os termos <span class="text-2xl">&rarr;</span></a>
