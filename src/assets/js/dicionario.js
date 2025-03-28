@@ -28,6 +28,17 @@ function siguientePaginaFakeLogin(fakeLogin) {
   }
 }
 
+function errorFakeLogin(fakeLogin, mensaje) {
+  fakeLogin.querySelectorAll(".js-fakelogin-error").forEach((element) => {
+    if (mensaje) {
+      element.innerText = mensaje;
+      element.classList.remove("hidden");
+    } else {
+      element.classList.add("hidden");
+    }
+  });
+}
+
 let fakeLogins = document.querySelectorAll(".js-fakelogin");
 if (fakeLogins) {
   fakeLogins.forEach((fakeLogin) => {
@@ -48,19 +59,35 @@ if (fakeLogins) {
         event.preventDefault();
 
         let nuevosDatos = {
-          nome: fakeLogin.querySelector('.js-fakelogin-1 input[name="nome"]')
-            .value,
-          email: fakeLogin.querySelector('.js-fakelogin-1 input[name="email"]')
-            .value,
+          nome: fakeLogin
+            .querySelector('.js-fakelogin-1 input[name="nome"]')
+            .value.trim(),
+          email: fakeLogin
+            .querySelector('.js-fakelogin-1 input[name="email"]')
+            .value.trim(),
           normas: fakeLogin.querySelector(
             '.js-fakelogin-1 input[name="normas"]'
           ).checked,
         };
 
-        localStorage.setItem("fake_login", JSON.stringify(nuevosDatos));
-        datosFakeLogin = nuevosDatos;
+        let mensajeError = "";
 
-        siguientePaginaFakeLogin(fakeLogin);
+        if (!nuevosDatos.nome.length) {
+          mensajeError = "Debes introducir un nome";
+        } else if (!nuevosDatos.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+          mensajeError = "Debes introducir un email válido";
+        } else if (!nuevosDatos.normas) {
+          mensajeError = "Debes aceptar a política de privacidade";
+        }
+
+        errorFakeLogin(fakeLogin, mensajeError);
+
+        if (!mensajeError) {
+          localStorage.setItem("fake_login", JSON.stringify(nuevosDatos));
+          datosFakeLogin = nuevosDatos;
+
+          siguientePaginaFakeLogin(fakeLogin);
+        }
       });
 
     fakeLogin.querySelectorAll(".js-fakelogin-reset").forEach((element) =>
@@ -70,6 +97,29 @@ if (fakeLogins) {
         anteriorPaginaFakeLogin(fakeLogin);
       })
     );
+
+    fakeLogin.addEventListener("submit", (event) => {
+      event.preventDefault();
+      let hayErrores = false;
+
+      fakeLogin
+        .querySelectorAll(
+          ".js-fakelogin-2 input, .js-fakelogin-2 textarea, .js-fakelogin-2 select"
+        )
+        .forEach((element) => {
+          if (!element.value.trim().length) {
+            errorFakeLogin(fakeLogin, "Tes que cubrir todos os campos");
+
+            hayErrores = true;
+            return;
+          }
+        });
+
+      if (!hayErrores) {
+        // Relanzamos el formulario
+        fakeLogin.submit();
+      }
+    });
   });
 }
 

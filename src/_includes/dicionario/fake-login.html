@@ -28,7 +28,7 @@
         <input class="size-9 border-4 border-neutral-500 bg-transparent" type="checkbox" name="normas" id="normas" required />
         Lin e acepto a <a href="/politica-privacidade" class="underline underline-offset-4">política de privacidade</a>
       </label>
-      <button type="button" class="block h-16 w-full rounded-sm bg-verde mx-auto mt-6 text-white text-xl hover:bg-verde/80">Entrar</button>
+      <button type="button" class="block h-16 w-full rounded-sm bg-verde mx-auto mt-6 text-white text-xl hover:bg-verde/80">Gardar</button>
   </div>
 
   <!-- Novo termo -->
@@ -47,6 +47,7 @@
         <span class="">Definición</span>
         <textarea name="definicion" rows="6" class="text-texto w-full border-1 border-neutral-200 rounded-sm bg-fondo mb-6 mt-2 p-6" placeholder="Exemplo: Terreo no que non acostuma dar o sol, sombrío."></textarea>
       </label>      
+      {% include "dicionario/erro-datos.html" %}
       <button type="submit" class="block h-16 w-full rounded-sm bg-verde mx-auto mt-9 font-semibold text-white text-2xl hover:bg-verde/80">Enviar</button>
       {% include "dicionario/cambiar-datos.html" %}
   </div>
@@ -59,6 +60,7 @@
       <label for="comentario" class="block pt-6">
         <textarea name="comentario" rows="6" class="text-texto w-full border-1 border-neutral-200 rounded-sm bg-fondo mb-6 mt-2 p-6"></textarea>
       </label>
+      {% include "dicionario/erro-datos.html" %}
       <button type="submit" class="block h-16 w-full rounded-sm bg-verde mx-auto mt-9 font-semibold text-white text-2xl hover:bg-verde/80">Enviar</button>
       {% include "dicionario/cambiar-datos.html" %}
   </div>
