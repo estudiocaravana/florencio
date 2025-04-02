@@ -1,7 +1,8 @@
 ---
-layout: legal
+layout: base
 title: Aviso Legal
 descripcion: Aviso Legal
+lay: columna
 ---
 
 ## 1. Obxecto e introdución
@@ -62,4 +63,4 @@ A FUNDACIÓN non será responsable de ningún dano ou perda resultante dun ataqu
 ## 8. Enlaces da nosa páxina web
 
 No caso de que o noso sitio web conteña ligazóns a outras páxinas web e materiais de terceiros, estas ligazóns só se proporcionan con fins informativos, sen ter ningún control sobre o contido destas páxinas web ou dos seus materiais. Polo tanto, non nos responsabilizamos por ningún dano ou perda derivada do seu uso.
-A FUNDACIÓN resérvase o dereito de eliminar calquera ligazón en calquera momento.
+A FUNDACIÓN resérvase o dereito de eliminar calquera ligazón en calquera momento.'

@@ -1,8 +1,7 @@
 const markdownIt = require("markdown-it");
 
 module.exports = async function (eleventyConfig) {
-  const EleventyPluginVite = (await import("@11ty/eleventy-plugin-vite"))
-    .default;
+  const EleventyPluginVite = (await import("@11ty/eleventy-plugin-vite")).default;
   eleventyConfig.addPlugin(EleventyPluginVite, {
     viteOptions: {
       assetsInclude: ["**/*.tif"],
@@ -19,6 +18,9 @@ module.exports = async function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets/img");
   eleventyConfig.addPassthroughCopy("src/assets/js");
   eleventyConfig.addPassthroughCopy("src/media");
+  // renderizar md en front
+  const md = require("markdown-it")({ html: true });
+  eleventyConfig.addFilter("markdownify", (markdownString) => md.render(markdownString));
   // Put robots.txt in root
   eleventyConfig.addPassthroughCopy({ "src/robots.txt": "/robots.txt" });
   eleventyConfig.addPassthroughCopy({
@@ -29,24 +31,15 @@ module.exports = async function (eleventyConfig) {
       return a.data.order - b.data.order;
     });
   });
-  eleventyConfig.addCollection("premio", function (collections) {
-    return collections.getFilteredByTag("premio").sort(function (a, b) {
-      return a.data.order - b.data.order;
+  eleventyConfig.addCollection("termo", function (collection) {
+    return collection.getFilteredByGlob("./src/dicionario/termo/*.md").sort(function (a, b) {
+      return a.data.termo - b.data.termo;
     });
   });
-  eleventyConfig.addCollection("termo", function (collection) {
-    return collection
-      .getFilteredByGlob("./src/dicionario/termo/*.md")
-      .sort(function (a, b) {
-        return a.data.termo - b.data.termo;
-      });
-  });
   eleventyConfig.addCollection("artigo", function (collection) {
-    return collection
-      .getFilteredByGlob("./src/dicionario/artigo/*.md")
-      .sort(function (a, b) {
-        return a.data.artigo - b.data.artigo;
-      });
+    return collection.getFilteredByGlob("./src/dicionario/artigo/*.md").sort(function (a, b) {
+      return a.data.artigo - b.data.artigo;
+    });
   });
   return {
     markdownTemplateEngine: "njk",

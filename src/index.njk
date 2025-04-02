@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: base
 title: Portada
 descripcion: Unha institución creada para poñer en valor o legado do poeta FDG e mais dinamizar a lingua e a cultura de Valdeorras.
 pretitular: FUNDACIÓN
@@ -46,3 +46,41 @@ logos:
   - tit: obarco
     alt: O Barco de Valdeorras
 ---
+<!-- Hero -->
+<div class="caixa">
+  <div class="dupla !items-end 2xl:!items-center">
+    <div>
+      <div class="mx-auto w-fit py-12">
+        <span class="text-2xl 3xl:text-3xl font-serif">{{ pretitular }}</span>
+        <h1 class="text-7xl 3xl:text-8xl max-w-lg mt-4">{{ titular }}</h1>
+        <div class="2xl:hidden mt-6">
+          <div><img class="w-24 hidden xl:block" src="/assets/img/logo.webp" alt="" /></div>
+          <div class="max-w-xs mt-6">{{ destacado }}</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <img src="/media/florencio_rec.webp" alt="{{ titular }}" />
+    </div>
+    <div class="hidden 2xl:block">
+      <div class="w-fit mx-auto">
+        <div><img class="w-36" src="/assets/img/logo.webp" alt="" /></div>
+        <div class="max-w-xs mt-6">{{ destacado }}</div>
+      </div>
+    </div>
+  </div>
+  <hr />
+</div>
+<!-- Florencio -->
+<div class="caixa max-w-screen-xl mx-auto py-12 md:py-24 w-fit xl:w-auto">
+  <div class="dupla xl:!items-start gap-12 xl:gap-0 mx-auto">
+    <div class="text-2xl sm:text-3xl font-serif">
+      <div class="inline-block leading-tight italic">{{ comillas | safe }}</div>
+    </div>
+    <div class="max-w-lg">{{ florencio | safe }}</div>
+  </div>
+  <div class="mt-24">
+    <a class="boton bg-texto inline-block w-fit mx-auto" href="/florencio/vida/">Todo sobre Florencio <span class="ml-3 inline-block">></span></a>
+  </div>
+</div>
+{% include "home/fundacion.html" %} {% include "home/logos.html" %}

@@ -1,9 +1,12 @@
-{% extends "./base.html" %} {% block content %}
-
+---
+layout: base
+title: Premio de poesía
+corpo: A Fundación Florencio Delgado Gurriarán, co apoio e patrocinio da Deputación de Ourense, convoca o V Premio de Poesía Florencio Delgado Gurriarán. Esta iniciativa, que se insire dentro dos actos de homenaxe ao autor e de difusión de súa figura e obra, ten por finalidade fomentar a escrita de textos poéticos en lingua galega así como a difusión dos seus autores e autoras. Os poemas finalistas deste 2024 poden coñecerse AQUÍ. O gañador foi ‘Meditación sobre Patinir’ de Aleixandre Lago.
+---
 <!-- Header -->
 <div class="caixa max-w-screen-xl mx-auto pt-20">
   <h1 class="text-7xl sm:text-8xl">{{ title }}</h1>
-  <div class="content max-w-4xl mt-12">{{ content | safe }}</div>
+  <div class="content max-w-4xl mt-12">{{ corpo | safe }}</div>
 </div>
 <div class="caixa max-w-screen-xl mx-auto pt-20">
   <ul class="flex gap-12 font-bold mb-9">
@@ -41,4 +44,4 @@
   </div>
   <div class="content max-w-3xl mx-auto mt-20">{{ item.content | safe }}</div>
 </div>
-{%- endfor -%} {% endblock %}
+{%- endfor -%}

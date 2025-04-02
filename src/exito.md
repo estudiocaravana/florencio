@@ -1,4 +1,0 @@
----
-layout: exito
-title: Éxito
----

@@ -1,10 +1,14 @@
-{% extends "./base.html" %} {% block content %}
+---
+layout: base
+title: Recursos
+corpo: Un poeta valdeorrés, republicano e galeguista. Así define a Florencio Delgado Gurriarán o seu biógrafo o historiador Ricardo Gurriarán.
+---
 <!-- Header -->
 <div class="caixa max-w-screen-2xl mx-auto pt-20">
   <h1 class="text-7xl sm:text-8xl text-center">{{ title }}</h1>
 </div>
 <!-- Content -->
-<div class="caixa max-w-screen-sm text-center mt-3 *:!indent-0">{{ content | safe }}</div>
+<div class="caixa max-w-screen-sm text-center mt-3 *:!indent-0">{{ corpo | safe }}</div>
 
 <!-- Recursos -->
 {%- for recurso in collections.recurso -%}
@@ -27,4 +31,4 @@
     <div class="content max-w-3xl mx-auto mt-12 hidden">{{ recurso.content | safe }}</div>
   </div>
 </div>
-{%- endfor -%} {% endblock %}
+{%- endfor -%}
