@@ -1,5 +1,4 @@
 ---
-layout: florencio
 title: Obra
 ---
 

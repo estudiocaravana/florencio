@@ -18,11 +18,15 @@ module.exports = async function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets/img");
   eleventyConfig.addPassthroughCopy("src/assets/js");
   eleventyConfig.addPassthroughCopy("src/media");
-  // renderizar md en front
-  const md = require("markdown-it")({ html: true });
-  eleventyConfig.addFilter("markdownify", (markdownString) => md.render(markdownString));
   // Put robots.txt in root
   eleventyConfig.addPassthroughCopy({ "src/robots.txt": "/robots.txt" });
+  // sortByOrder - filtro para ordenar colecciones
+  function sortByOrder(values) {
+    let vals = [...values]; // this *seems* to prevent collection mutation...
+    return vals.sort((a, b) => Math.sign(a.data.order - b.data.order));
+  }
+
+  eleventyConfig.addFilter("sortByOrder", sortByOrder);
   eleventyConfig.addPassthroughCopy({
     "node_modules/alpinejs/dist/cdn.min.js": "/assets/alpine.js",
   });

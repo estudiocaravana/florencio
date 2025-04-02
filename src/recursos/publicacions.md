@@ -1,12 +1,17 @@
 ---
-order: 1
-title: Florencio Delgado Gurriarán. Vida e obra dun poeta valdeorrés, republicano e galeguista
-ano: 2022
-autor: Ricardo Gurriarán
-editorial: Editorial Galaxia
+order: 4
+title: Publicacións
 ---
 
 ![Portada](/media/libro.jpg)
+
+## Florencio Delgado Gurriarán. Vida e obra dun poeta valdeorrés, republicano e galeguista
+
+|               |                   |
+| ------------- | ----------------- |
+| **Ano**       | 022               |
+| **Autor**     | Ricardo Gurriarán |
+| **Editorial** | Editorial Galaxia |
 
 ## Presentación
 
