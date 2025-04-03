@@ -1,0 +1,17 @@
+---
+pagination:
+  data: collections.etiquetas
+  size: 1
+  alias: etiqueta
+permalink: '/actividades/etiqueta/{{ etiqueta | slugify }}/index.html'
+---
+
+{% include "nav_etiquetas.html" %}
+
+<div class="caixa max-w-screen-2xl">
+    {% for item in collections[etiqueta] %}
+        {% include "actividade-card.html" %}
+    {% endfor %}
+</div>
+
+{% include "paginacion.html" %}

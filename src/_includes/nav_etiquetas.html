@@ -1,0 +1,9 @@
+<div class="caixa max-w-screen-2xl">
+  <h1 class="py-12 text-5xl font-bold text-verde">{{ title }}</h1>
+  <hr />
+  <ul class="flex gap-6 *:first-letter:uppercase">
+    {%- for item in collections.etiquetas -%}
+    <li><a href="/actividades/etiqueta/{{ item }}/" class="{{ 'text-verde' if item == etiqueta }}">{{ item }}</a></li>
+    {%- endfor -%}
+  </ul>
+</div>

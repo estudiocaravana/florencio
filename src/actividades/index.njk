@@ -1,0 +1,16 @@
+---
+pagination:
+  data: collections.actividad
+  size: 2
+  alias: actividad
+---
+
+{% include "nav_etiquetas.html" %}
+
+<div class="caixa max-w-screen-2xl py-36">
+    {%- for item in actividad | sortByOrder | reverse -%}
+    {% include "actividade-card.html" %}
+    {%- endfor -%}
+</div>
+
+{% include "paginacion.html" %}
