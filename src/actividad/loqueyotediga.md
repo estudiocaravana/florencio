@@ -3,8 +3,7 @@ order: 2
 title: A fala de Valdeorras e do Bierzo protagonizan unha xornada sobre a lingua na Rúa
 descripcion: A primeira actividade da Fundación Florencio Delgado Gurriarán neste 2025 será o sábado 29 de marzo cunha xornada cultural dedicada á fala valdeorresa.
 thumb: /media/actividades/2/thumb.jpg
-tags:
-  - xornadas
+tags: ["xornadas", "residencias"]
 ---
 
 ![imaxe do evento](/media/actividades/2/A-Rua_Aula-Avenida_03.jpg)

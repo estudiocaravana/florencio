@@ -2,7 +2,7 @@
 order: 1
 title: A Fundación anuncia eventos sobre lingua, poesía, Castelao e unha nova Florenciada
 descripcion: Unha acción cultural diversa e itinerante por diferentes espazos de Valdeorras. Ese é o plan para o 2025 presentado pola Fundación Florencio Delgado Gurriarán.
-thumb: /media/actividades/1/thumb.jpg
+thumb: /media/actividades/1/thumb.webp
 tags:
   - xornadas
 ---

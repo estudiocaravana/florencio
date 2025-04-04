@@ -1,9 +1,21 @@
-<div class="caixa max-w-xl">
-    <ol>
-<li>{% if pagination.href.previous %}<a href="{{ pagination.href.previous }}">Previous</a>{% else %}Previous{% endif %}</li>
-{%- for pageEntry in pagination.pages %}
-<li><a href="{{ pagination.hrefs[ loop.index0 ] }}"{% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page"{% endif %}>Page {{ loop.index }}</a></li>
-{%- endfor %}
-<li>{% if pagination.href.next %}<a href="{{ pagination.href.next }}">Next</a>{% else %}Next{% endif %}</li>
-</ol>
+<div class="caixa w-fit pt-36">
+    <ol class="flex gap-6 items-center">
+        <li>{% if pagination.href.previous %}
+            <a href="{{ pagination.href.previous }}">
+                <div class="border-l-2 border-b-2 border-texto rotate-45 size-6"></div>
+            </a>
+            {% else %}<div class="border-l-2 border-b-2 border-neutral-200 rotate-45 size-6"></div>{% endif %}
+        </li>
+        {%- for pageEntry in pagination.pages %}
+        <li class="*:size-12 *:rounded-full *:border-2 *:border-texto *:flex *:items-center *:justify-center">
+            <a href="{{ pagination.hrefs[ loop.index0 ] }}"{% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page" class="!bg-texto text-white"{% endif %}>{{ loop.index }}</a>
+        </li>
+        {%- endfor %}
+        <li>{% if pagination.href.next %}
+            <a href="{{ pagination.href.next }}">
+                <div class="border-t-2 border-r-2 border-texto rotate-45 size-6"></div>
+            </a>
+            {% else %}<div class="border-t-2 border-r-2 border-neutral-200 rotate-45 size-6"></div>{% endif %}
+        </li>
+    </ol>
 </div>

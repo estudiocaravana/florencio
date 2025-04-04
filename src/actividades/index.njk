@@ -7,7 +7,7 @@ pagination:
 
 {% include "nav_etiquetas.html" %}
 
-<div class="caixa max-w-screen-2xl py-36">
+<div class="caixa max-w-screen-2xl">
     {%- for item in actividad | sortByOrder | reverse -%}
     {% include "actividade-card.html" %}
     {%- endfor -%}
