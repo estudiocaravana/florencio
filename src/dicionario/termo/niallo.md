@@ -1,5 +1,5 @@
 ---
-termo: niallo
+termo: Niallo
 
 definicion: "Niño, construción que fan as aves para poñer os ovos e criar"
 

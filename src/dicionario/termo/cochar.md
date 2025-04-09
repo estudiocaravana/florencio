@@ -1,5 +1,5 @@
 ---
-termo: cochar
+termo: Cochar
 
 definicion: "1: No xogo dos birlos, non chegar a bóla ata a liña de sinal. <br>2: No xogos das bólas facer un mal lanzamento."
 

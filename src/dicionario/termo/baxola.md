@@ -1,5 +1,5 @@
 ---
-termo: baxola
+termo: Baxola
 
 definicion: "Casca ou vaíña seca de determiandas leguminosas."
 

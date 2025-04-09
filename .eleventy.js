@@ -38,7 +38,9 @@ module.exports = async function (eleventyConfig) {
     return collection
       .getFilteredByGlob("./src/dicionario/termo/*.md")
       .sort(function (a, b) {
-        return a.data.termo - b.data.termo;
+        if (a.data.termo < b.data.termo) return -1;
+        if (a.data.termo > b.data.termo) return 1;
+        return 0;
       });
   });
   eleventyConfig.addCollection("artigo", function (collection) {
