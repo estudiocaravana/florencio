@@ -369,9 +369,10 @@ if (!estaLogueado) {
     logoutForm.addEventListener("submit", async (event) => {
       event.preventDefault();
       try {
+        console.log("Intentando logout");
         const result = await directus.logout();
+        console.log("Logout hecho");
       } catch (error) {
-        // TODO Por alguna razón no se puede hacer logout
         console.log(error);
       }
       localStorage.removeItem("directus_auth");
