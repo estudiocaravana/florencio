@@ -41,7 +41,3 @@ Esta web será clave para elo, xa que o obxectivo deste dicionario é expandir a
 - Lazos de comunidade
 - Educativo e interxeracional
 - Respecto medioambiental
-
-### Colabora
-
-[Comparte unha palabra en valdeorrés](/dicionario/termos/)

@@ -1,9 +1,9 @@
 const markdownIt = require("markdown-it");
+const dynamicCategories = require("eleventy-plugin-dynamic-categories");
 
 module.exports = async function (eleventyConfig) {
   // Vite
-  const EleventyPluginVite = (await import("@11ty/eleventy-plugin-vite"))
-    .default;
+  const EleventyPluginVite = (await import("@11ty/eleventy-plugin-vite")).default;
   eleventyConfig.addPlugin(EleventyPluginVite, {
     viteOptions: {
       assetsInclude: ["**/*.tif"],
@@ -33,50 +33,13 @@ module.exports = async function (eleventyConfig) {
     return vals.sort((a, b) => Math.sign(a.data.order - b.data.order));
   }
   eleventyConfig.addFilter("sortByOrder", sortByOrder);
-  // Colecciones. Sólo '...ByGlob' las mayoría directamente por tags
-  eleventyConfig.addCollection("recurso", function (collections) {
-    return collections.getFilteredByTag("recurso").sort(function (a, b) {
-      return a.data.order - b.data.order;
-    });
+  // categorias de cada colección
+  eleventyConfig.addFilter("categoryFilter", function (collection, category) {
+    if (!category) return collection;
+    const filtered = collection.filter((item) => item.data.category == category);
+    return filtered;
   });
-  eleventyConfig.addCollection("actividad", function (collection) {
-    return collection
-      .getFilteredByGlob("./src/actividad/*.md")
-      .sort(function (a, b) {
-        return a.data.order - b.data.order;
-      });
-  });
-  eleventyConfig.addCollection("termo", function (collection) {
-    return collection
-      .getFilteredByGlob("./src/dicionario/termo/*.md")
-      .sort(function (a, b) {
-        if (a.data.termo < b.data.termo) return -1;
-        if (a.data.termo > b.data.termo) return 1;
-        return 0;
-      });
-  });
-  // Returns an array of tag names (https://piccalil.li/blog/low-tech-eleventy-categories/)
-  eleventyConfig.addCollection("etiquetas", (collection) => {
-    const gatheredTags = [];
-    // Go through every piece of content and grab the tags
-    collection.getFilteredByGlob("./src/actividad/*.md").forEach((item) => {
-      if (item.data.tags) {
-        if (typeof item.data.tags === "string") {
-          gatheredTags.push(item.data.tags);
-        } else {
-          item.data.tags.forEach((tag) => gatheredTags.push(tag));
-        }
-      }
-    });
-    return [...new Set(gatheredTags)];
-  });
-  eleventyConfig.addCollection("artigo", function (collection) {
-    return collection
-      .getFilteredByGlob("./src/dicionario/artigo/*.md")
-      .sort(function (a, b) {
-        return a.data.artigo - b.data.artigo;
-      });
-  });
+  // directorios y njk
   return {
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",

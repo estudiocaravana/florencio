@@ -3,7 +3,7 @@ order: 3
 title: Cálida acollida do dicionario de valdeorrés presentado nunha xornada na Rúa
 descripcion: A Fundación Florencio Delgado Gurriarán presentou o sábado 29 de marzo na Rúa unha plataforma colaborativa para recoller o léxico propio de Valdeorras.
 thumb: /media/actividades/3/thumb.jpg
-tags:
+category:
   - residencias
 ---
 
