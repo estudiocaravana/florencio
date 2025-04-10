@@ -3,7 +3,7 @@ termo: Gandaia
 
 definicion: "Reunión social na que hai música e baile, festa, foliada."
 
-exemplo: "«[...] ao chega-la noite <br> de tornar se lembra <br> porque ten gandaia <br> e non quer perdela.».<br>
+exemplo: "- <em>A noite de San Xoán sempre vai de gandaia a Baxeles, haiche moita festa alí.</em><br><br>- <em>«(...) ao chega-la noite <br> de tornar se lembra <br> porque ten gandaia <br> e non quer perdela.(...)»</em>.<br>
 Florencio Delgado Gurriarán, poema <em>Muiñada</em>."
 
 categoria: Substantivo
@@ -17,6 +17,5 @@ foto:
     lenda: Cristina de la Torre
 ---
 
-Termo recollido pola RAG como _gandaina_ co significado de _diversión buliciosa_. En Valdeorras recollémola co significado de a*lgarabía, festa* nunha forma na que o \-n- intervocálico desaparece.
-Só Constantino García González (1985) recolle _gandaina_ co significado de _gandallada_, _diversión_ en Valdeburón (León) e A Capela (Coruña). Xosé Filgueira Valverde e outros (1926) recollen o verbo _gandaiar_ como _holgazanear, vagabundear, andar de gandaya_.
-En castelán, no Diccionario de la Lengua Española recóllese _gandaya_ como unha forma en desuso co significado de _tuna_ e _vida libre e vagabunda_. O termo _gandaia_ sería unha galeguización da palabra castelá.
+Termo recollido pola RAG como _gandaina_ co significado de _diversión buliciosa_. A palabra presente na nosa fala perdeu ese -n- intervocálico na derradeira sílaba.
+Na maioría dos dicionarios consultados atopamos _gandaia_ ou _gandaya_ co significado de _tuna_. Constantino García González recolle _gandaina_ co significado de _diversión_ en Valdeburón (León) e A Capela (A Coruña). Xosé Filgueira Valverde recolle o verbo _gandaiar_ como _vagabundear ou folgar_.

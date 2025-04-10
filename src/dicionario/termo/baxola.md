@@ -1,7 +1,7 @@
 ---
-termo: baxola
+termo: Baxola
 
-definicion: "Casca ou vaíña seca de determiandas leguminosas que se usaba seca para cociñar."
+definicion: "Casca ou vaíña seca de determiandas leguminosas."
 
 exemplo: "<em>Fixen un caldo de baxolas.</em>"
 
@@ -12,9 +12,11 @@ informantes: Fundación FDG
 
 audio:
   item: /audio/baxolas.mp3
-  lenda: Muller (1948, San Vicente, Carballeda) Vive no Barco de Valdeorras.
+  lenda: Ana (1948, San Vicente, Vilamartín)
 ---
 
-Esta palabra aparece nos dicionarios de Rodríguez González, Franco Grande e García González coa variante de _baxa_ e co mesmo significado. Eles localízana tamén en Montederramos, Castro Caldelas e Quiroga.
-No dicionario da Real Academia Galega atopamos a entrada _vaxa_ co significado de _vaíña dos legumes._ No audio que a acompaña, nótase unha especialización ao indicar unha variedade determinada e nun estado determinado: _seca_.
+Esta palabra aparece recollida co significado de papo por Eligio Rivas Quintas. Noutros autores, Eladio Rodríguez González, Xosé Luís Franco Grande ou Constantino García González, aparece como variante de _baxa_. Eles si que a definen como _casca, vaíña tenra das legumes_ igual que recolle o dicionario da Real Academia.
+
+Na escoita, atopamos tres cuestións importantes: refírese a unha tipoloxía de feixón concreta, a un estado determinado: _seca_ e a un uso concreto: _caldo de baxolas_
+
 En Valdeorras tamén atopamos o termo _baxola_ empregado como alcume.

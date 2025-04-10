@@ -5,26 +5,32 @@
 {% set lugares = [] %}
 
 {% for item in collections.termo %}
-  {% set categoriasSeparadas = item.data.categoria.split(', ') %}
-  {% for categoria in categoriasSeparadas %}
-    {% if categoria not in categorias %}
-      {% set categorias = (categorias.push(categoria), categorias) %}
-    {% endif %}
-  {% endfor %}
+  {% if item.data.categoria %}
+    {% set categoriasSeparadas = item.data.categoria.split(', ') %}
+    {% for categoria in categoriasSeparadas %}
+      {% if categoria not in categorias %}
+        {% set categorias = (categorias.push(categoria), categorias) %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
 
-  {% set camposSeparados = item.data.campo.split(', ') %}
-  {% for campo in camposSeparados %}
-    {% if campo not in campos %}
-      {% set campos = (campos.push(campo), campos) %}
-    {% endif %}
-  {% endfor %}
+  {% if item.data.campo %}
+    {% set camposSeparados = item.data.campo.split(', ') %}
+    {% for campo in camposSeparados %}
+      {% if campo not in campos %}
+        {% set campos = (campos.push(campo), campos) %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
 
-  {% set lugaresSeparados = item.data.localizacion.split(', ') %}
-  {% for lugar in lugaresSeparados %}
-    {% if lugar not in lugares %}
-      {% set lugares = (lugares.push(lugar), lugares) %}
-    {% endif %}
-  {% endfor %}
+  {% if item.data.localizacion %}
+    {% set lugaresSeparados = item.data.localizacion.split(', ') %}
+    {% for lugar in lugaresSeparados %}
+      {% if lugar not in lugares %}
+        {% set lugares = (lugares.push(lugar), lugares) %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
 {% endfor %}
 
 <div class="caixa max-w-screen-xl pt-12">
@@ -92,7 +98,7 @@
     data-lugar="{{ item.data.localizacion }}" 
     data-campo="{{ item.data.campo }}"  
     data-categoria="{{ item.data.categoria }}">
-    <div class="border-t-2 text-xl:2xl py-3 first-letter:uppercase {{ ' text-red-400' if item.data.revision == 'true' }}">{{ item.data.termo }}</div>
+    <div class="border-t-2 text-xl:2xl py-3 first-letter:uppercase {{ ' text-red-400' if item.data.revision }}">{{ item.data.termo }}</div>
   </a>
   {%- endfor -%}
 </div>

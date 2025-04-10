@@ -42,16 +42,16 @@ module.exports = {
       text: "Termos",
       url: "/dicionario/termos/",
     },
-    {
-      text: "Mapa",
-      url: "/dicionario/mapa-termos/",
-    },
+    // {
+    //   text: "Mapa",
+    //   url: "/dicionario/mapa-termos/",
+    // },
     {
       text: "Artigos",
       url: "/dicionario/artigos/",
     },
     {
-      text: "O Proxecto",
+      text: "Proxecto",
       url: "/dicionario/proxecto/",
     },
   ],
