@@ -3,17 +3,24 @@ layout: dicionario/portada
 title: O Proxecto
 ---
 
-O galego de Valdeorras forma parte do bloque oriental da fala, conformando unha subzona lingüística xunto con Viana do Bolo. As peculiaridades léxicas da comarca teñen moito que ver coa súa identidade paisaxística e sociocultural, con formas que identifican, por exemplo, a súa peculiar flora mediterránea, oficios e tradicións. Como zona de paso de comerciantes, de tradición mineira e viticultora, en Valdeorras cultivouse un léxico moi rico (nino, pincheira, cochar…) e así o atopamos na obra de Florencio, quen empregou a lírica para poñer en valor a súa fala natal.
+## A Fala de Valdeorras
 
-Esta especificidade do léxico é unha das dificultades que atopan investigadores e divulgadores á hora de analizar o legado florenciano. Por iso, nas reedicións dos seus poemarios no 2022, foron múltiples os erros na adaptación do seu galego á actualidade, non por evolución normativa (que tamén) se non por descoñecer o auténtico significado das palabras. Así se destacou nunha mesa redonda celebrada no Barco de Valdeorras en novembro dese ano e ante o que a presidenta do Consello da Cultura Galega, Rosario Álvarez, respondía tallante: «É necesario un dicionario de valdeorrés».
+Todas as linguas forman parte dun continuum. O do galego une a nosa fala coa portuguesa, coa asturiana, a llionesa e a castelá. Non son entes lingüísticos alleos ao tempo, aos movementos sociais e políticos ou aos condicionamentos do medio físico. Aínda así cada un entendemos a nosa fala como a canónica, a que nos deixan en herdanza como propia e única. Por iso a través da convivencia lingüística se identifican as nosas peculiaridades. Deste noso ser nace este proxecto, que nos quere falar do galego da nosa comunidade.
 
-A ese interese filolóxico súmase ademais unha necesidade histórica, xa que moito dese léxico atópase en desuso polas mudanzas económicas e sociais, ademais de polo escaso uso do galego entre a mocidade. Xa non habitamos o mundo igual que antes e hai que actuar para conservar palabras (niallo, caborco, galla…) e devolverlles a significación que unha vez tiveron.
+O galego de Valdeorras forma parte do bloque oriental da fala, conformando unha subzona lingüística xunto con Viana do Bolo. As peculiaridades léxicas da comarca teñen moito que ver coa súa identidade paisaxística e sociocultural con formas que identifican, por exemplo, a súa peculiar flora mediterránea, os seus oficios e as súas tradicións. Como zona de paso de comerciantes, de tradición mineira e viticultora, en Valdeorras cultivouse un léxico moi rico (louxeiro, vindimarego, relú…) e así o atopamos na obra de Florencio, quen empregou a lírica para poñer en valor a súa fala natal.
 
-## Proxecto participativo
+## A intención
 
-Este dicionario aspira a ser un proxecto cultural construído dende a base, polo que os procesos participativos e de mediación cultural estarán no centro da súa acción. En todo caso, antes de chegar ao proceso participativo, construirase unha metodoloxía con base científica de recollida, validación e publicación de resultados.
+O Obxectivo principal deste proxecto é a recuperación, conservación e estudo do léxico propio da comarca. Proxectos coma este son a base de futuros estudos e investigacións cunha perspectiva fiel e eficaz da realidade lingüística local.
 
-Unha vez establecida esa metodoloxía,combinaranse procesos socializadores de recollida de léxico (obradoiros en centros educativos, grupos de veciñanza, traballo de campo…) con outras dinámicas dixitais canalizadas a través dun apartado web creado especificamente para o dicionario e que se atopa en denvolvemento. Esta web é clave, xa que o obxectivo deste dicionario é expandir a identidade lingüística de Valdeorras e no proceso, construír unha autoestima renovada pola lingua propia activando novas relacións na comunidade e incentivando o interese dunha crecente poboación migrante.
+A ese interese filolóxico súmase ademais unha necesidade histórica, xa que moito dese léxico se atopa en desuso polas mudanzas no xeito de vida, pola castelanización da sociedade o que leva a un escaso uso do galego entre a mocidade. Xa non habitamos o mesmo mundo que antes e hai que actuar para conservar palabras e incorporalas novamente ao noso acervo lingúístico.
+
+## A metodoloxía e socialización.
+
+Este dicionario aspira a ser un proxecto construído desde a base, no que os procesos particiapativos e de mediación cultural estean no centro da acción.
+Partindo dunha metodoloxía con base científica de recollida, validación e publicación de resultados deseñamos a segunda fase cuns procesos participativos e de mediación cultural (obradoiros en centros educativos, grupos de veciñanza, traballo de campo…), que introducen como ferramenta dinámicas dixitais.
+
+Esta web será clave para elo, xa que o obxectivo deste dicionario é expandir a identidade lingüística de Valdeorras e no proceso, construír unha autoestima renovada pola lingua propia. Así activaranse novas relacións na comunidade e incentivarase o interese dunha crecente poboación migrante.
 
 ### AXENTES
 
@@ -22,7 +29,7 @@ Unha vez establecida esa metodoloxía,combinaranse procesos socializadores de re
 - Cronistas e divulgadores locais
 - Asociacións e colectivos informais
 - Comunicadores
-- A comunidade extensa de valdeorreses polo mundo
+- A extensa comunidade de valdeorreses polo mundo
 
 ### VALORES
 
@@ -37,4 +44,4 @@ Unha vez establecida esa metodoloxía,combinaranse procesos socializadores de re
 
 ### Colabora
 
-[Comparte unha palabra en valdeorrés](/diccionario/colabora/)
+[Comparte unha palabra en valdeorrés](/dicionario/termos/)
