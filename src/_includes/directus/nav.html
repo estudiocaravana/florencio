@@ -31,12 +31,6 @@
       </button>
     </div>
     <ul class="pb-9 text-3xl block ml-12 font-serif space-y-4">
-      {%- for item in nav.dici -%}
-      <li><a href="{{ item.url }}" {% if item.url == page.url %} class="text-verde font-bold" {% endif %}>{{ item.text }}</a></li>
-      {%- endfor -%}
-      {%- for item in nav.onario -%}
-      <li><a href="{{ item.url }}" {% if item.url == page.url %} class="text-verde font-bold" {% endif %}>{{ item.text }}</a></li>
-      {%- endfor -%}
       <br />
       <hr class="w-12" />
       <li>

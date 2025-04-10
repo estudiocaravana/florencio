@@ -227,182 +227,181 @@ if (filtro) {
 /*
  * CONEXIÓN CON DIRECTUS
  */
-// import {
-//   createDirectus,
-//   authentication,
-//   rest,
-//   readMe,
-//   updateMe,
-//   createItem,
-//   registerUser,
-//   staticToken,
-//   withToken,
-// } from "@directus/sdk";
+import {
+  createDirectus,
+  authentication,
+  rest,
+  readMe,
+  updateMe,
+  createItem,
+  registerUser,
+  staticToken,
+  withToken,
+} from "@directus/sdk";
 
-// let directus;
-// let token = localStorage.getItem("directus_auth");
-// let estaLogueado = false;
+let directus;
 
-// if (token) {
-//   console.log("Está logueado");
-//   estaLogueado = true;
-//   token = JSON.parse(token);
-//   // TODO Comprobar si el token sigue siendo válido
-//   directus = createDirectus("https://panel.florenciodelgadogurriaran.gal")
-//     .with(staticToken(token.access_token))
-//     .with(authentication())
-//     .with(rest());
-// } else {
-//   directus = createDirectus("https://panel.florenciodelgadogurriaran.gal")
-//     .with(authentication())
-//     .with(rest());
-// }
+let token = localStorage.getItem("directus_auth");
+let estaLogueado = false;
 
-// if (!estaLogueado) {
-//   let loginForm = document.getElementById("loginForm");
-//   if (loginForm) {
-//     loginForm.classList.remove("hidden");
+if (token) {
+  console.log("Está logueado");
+  estaLogueado = true;
+  token = JSON.parse(token);
+  // TODO Comprobar si el token sigue siendo válido
+  directus = createDirectus("https://panel.florenciodelgadogurriaran.gal")
+    .with(staticToken(token.access_token))
+    .with(authentication("cookie", { credentials: "include" }))
+    .with(rest({ credentials: "include" }));
+} else {
+  directus = createDirectus("https://panel.florenciodelgadogurriaran.gal")
+    .with(authentication("cookie", { credentials: "include" }))
+    .with(rest({ credentials: "include" }));
+}
 
-//     loginForm.addEventListener("submit", async (event) => {
-//       event.preventDefault();
-//       let email = document.getElementById("email").value;
-//       let password = document.getElementById("password").value;
-//       try {
-//         const response = await directus.login(email, password);
-//         localStorage.setItem("directus_auth", JSON.stringify(response));
-//         location.reload();
+if (!estaLogueado) {
+  let loginForm = document.getElementById("loginForm");
+  if (loginForm) {
+    loginForm.classList.remove("hidden");
 
-//         // const info = await directus.request(
-//         //   readMe({
-//         //     fields: ["*"],
-//         //   })
-//         // );
-//         // console.log(info);
+    loginForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      let email = document.getElementById("email").value;
+      let password = document.getElementById("password").value;
+      try {
+        const response = await directus.login(email, password);
+        localStorage.setItem("directus_auth", JSON.stringify(response));
+        location.reload();
 
-//         // const result = await directus.request(
-//         //   createItem("aportacion", {
-//         //     termo: 1,
-//         //     definicion: "prueba",
-//         //   })
-//         // );
-//         // console.log(result);
+        // const info = await directus.request(
+        //   readMe({
+        //     fields: ["*"],
+        //   })
+        // );
+        // console.log(info);
 
-//         // alert("Login successful");
-//       } catch (error) {
-//         alert(error?.errors?.[0]?.message || "Erro na entrada do usuario");
-//         // console.log(error);
-//       }
-//     });
+        // const result = await directus.request(
+        //   createItem("aportacion", {
+        //     termo: 1,
+        //     definicion: "prueba",
+        //   })
+        // );
+        // console.log(result);
 
-//     let registerForm = document.getElementById("registerForm");
-//     if (registerForm) {
-//       registerForm.classList.remove("hidden");
+        // alert("Login successful");
+      } catch (error) {
+        alert(error?.errors?.[0]?.message || "Erro na entrada do usuario");
+        // console.log(error);
+      }
+    });
 
-//       registerForm.addEventListener("submit", async (event) => {
-//         event.preventDefault();
-//         let email = document.getElementById("registerEmail").value;
-//         let password = document.getElementById("registerPassword").value;
-//         let name = document.getElementById("registerName").value;
-//         let relacion_valdeorras = document.getElementById(
-//           "registerRelacionValdeorras"
-//         ).value;
-//         try {
-//           const resultRegister = await directus.request(
-//             registerUser(email, password, {
-//               first_name: name,
-//             })
-//           );
+    let registerForm = document.getElementById("registerForm");
+    if (registerForm) {
+      registerForm.classList.remove("hidden");
 
-//           if (!resultRegister) {
-//             throw new Error("Xa existe un usuario con ese email.");
-//           }
+      registerForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        let email = document.getElementById("registerEmail").value;
+        let password = document.getElementById("registerPassword").value;
+        let name = document.getElementById("registerName").value;
+        let relacion_valdeorras = document.getElementById(
+          "registerRelacionValdeorras"
+        ).value;
+        try {
+          const resultRegister = await directus.request(
+            registerUser(email, password, {
+              first_name: name,
+            })
+          );
 
-//           // console.log("Resultado de registro");
-//           // console.log(resultRegister);
+          if (!resultRegister) {
+            throw new Error("Xa existe un usuario con ese email.");
+          }
 
-//           // Para que esto funcione, hay que desactivar la verificación de email en el panel de Directus
-//           const response = await directus.login(email, password);
-//           localStorage.setItem("directus_auth", JSON.stringify(response));
-//           // console.log(response);
+          // console.log("Resultado de registro");
+          // console.log(resultRegister);
 
-//           const resultUpdate = await directus.request(
-//             updateMe({
-//               relacion_valdeorras: relacion_valdeorras,
-//             })
-//           );
-//           // console.log(resultUpdate);
+          // Para que esto funcione, hay que desactivar la verificación de email en el panel de Directus
+          const response = await directus.login(email, password);
+          localStorage.setItem("directus_auth", JSON.stringify(response));
+          // console.log(response);
 
-//           location.reload();
+          const resultUpdate = await directus.request(
+            updateMe({
+              relacion_valdeorras: relacion_valdeorras,
+            })
+          );
+          // console.log(resultUpdate);
 
-//           // alert("Register successful");
-//         } catch (error) {
-//           alert(error?.errors?.[0]?.message || error);
-//         }
-//       });
-//     }
-//   }
-// } else {
-//   const tokenCaduca = new Date(token.expires_at);
-//   const agora = new Date();
+          location.reload();
 
-//   console.log(agora);
-//   console.log(tokenCaduca);
+          // alert("Register successful");
+        } catch (error) {
+          alert(error?.errors?.[0]?.message || error);
+        }
+      });
+    }
+  }
+} else {
+  const tokenCaduca = new Date(token.expires_at);
+  const agora = new Date();
 
-//   // TODO Refrescar el token automáticamente, pero para eso tengo que enviar el refresh_token y no sé de dónde pillarlo
-//   // if (tokenCaduca < agora) {
-//   //   console.log("El token caducó");
-//   //   try {
-//   //     const response = await directus.refresh();
-//   //     localStorage.setItem("directus_auth", JSON.stringify(response));
-//   //     token = response;
-//   //   } catch (error) {
-//   //     // localStorage.removeItem("directus_auth");
-//   //     // location.reload();
-//   //     alert(error?.errors?.[0]?.message || error);
-//   //   }
-//   // }
+  console.log(agora);
+  console.log(tokenCaduca);
 
-//   let logoutForm = document.getElementById("logoutForm");
-//   if (logoutForm) {
-//     logoutForm.classList.remove("hidden");
-//     logoutForm.addEventListener("submit", async (event) => {
-//       event.preventDefault();
-//       try {
-//         const result = await directus.logout();
-//       } catch (error) {
-//         // TODO Por alguna razón no se puede hacer logout
-//         console.log(error);
-//       }
-//       localStorage.removeItem("directus_auth");
-//       location.reload();
-//     });
-//   }
+  if (tokenCaduca < agora) {
+    console.log("El token caducó");
+    try {
+      const response = await directus.refresh();
+      localStorage.setItem("directus_auth", JSON.stringify(response));
+      token = response;
+      console.log("Token renovado");
+    } catch (error) {
+      // localStorage.removeItem("directus_auth");
+      // location.reload();
+      alert(error?.errors?.[0]?.message || error);
+    }
+  }
 
-//   let novoTermoForm = document.getElementById("novoTermoForm");
-//   if (novoTermoForm) {
-//     novoTermoForm.classList.remove("hidden");
+  let logoutForm = document.getElementById("logoutForm");
+  if (logoutForm) {
+    logoutForm.classList.remove("hidden");
+    logoutForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      try {
+        const result = await directus.logout();
+      } catch (error) {
+        // TODO Por alguna razón no se puede hacer logout
+        console.log(error);
+      }
+      localStorage.removeItem("directus_auth");
+      location.reload();
+    });
+  }
 
-//     novoTermoForm.addEventListener("submit", async (event) => {
-//       event.preventDefault();
-//       let termo = document.getElementById("termo").value;
-//       let definicion = document.getElementById("definicion").value;
-//       try {
-//         const result = await directus.request(
-//           withToken(token.access_token, () => ({
-//             path: "/flows/trigger/0525f10d-382c-4b00-9ffe-08fe5171e9fc",
-//             method: "POST",
-//             body: JSON.stringify({
-//               termo: termo,
-//               definicion: definicion,
-//             }),
-//           }))
-//         );
-//         novoTermoForm.classList.add("hidden");
-//         // console.log(result);
-//         // alert("Termo engadido correctamente");
-//       } catch (error) {
-//         alert(error?.errors?.[0]?.message || error);
-//       }
-//     });
-//   }
-// }
+  let novoTermoForm = document.getElementById("novoTermoForm");
+  if (novoTermoForm) {
+    novoTermoForm.classList.remove("hidden");
+
+    novoTermoForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      let termo = document.getElementById("termo").value;
+      let definicion = document.getElementById("definicion").value;
+      try {
+        const result = await directus.request(() => ({
+          path: "/flows/trigger/0525f10d-382c-4b00-9ffe-08fe5171e9fc",
+          method: "POST",
+          body: JSON.stringify({
+            termo: termo,
+            definicion: definicion,
+          }),
+        }));
+        novoTermoForm.classList.add("hidden");
+        // console.log(result);
+        // alert("Termo engadido correctamente");
+      } catch (error) {
+        alert(error?.errors?.[0]?.message || error);
+      }
+    });
+  }
+}

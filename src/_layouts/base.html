@@ -30,7 +30,9 @@
       </div>
       {%- else -%}
       <!-- si no pues el layout custom -->
-      {{ content | safe }} {%- endif -%}
+       {{ content | safe }}
+      {# {% block content %}{% endblock %} #}
+      {%- endif -%}
       <!-- Footer -->
       {% include 'footer.html' %}
     </div>

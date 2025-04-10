@@ -1,5 +1,9 @@
 [dev]
     command = "npm run start"
+    [dev.https]
+        certFile = ".certificados/cert.crt"
+        keyFile = ".certificados/cert.key"
+
     
 [build]
     publish = "_site"

@@ -1,13 +1,29 @@
+const fs = require("fs");
 const markdownIt = require("markdown-it");
 const dynamicCategories = require("eleventy-plugin-dynamic-categories");
 
 module.exports = async function (eleventyConfig) {
   // Vite
-  const EleventyPluginVite = (await import("@11ty/eleventy-plugin-vite")).default;
+  const EleventyPluginVite = (await import("@11ty/eleventy-plugin-vite"))
+    .default;
+
+  let viteOptions = {
+    assetsInclude: ["**/*.tif"],
+  };
+
+  // Cargamos los certificados para el servidor https si estamos ejecutando netlify dev
+
+  if (process.env.NETLIFY_DEV) {
+    viteOptions.server = {
+      https: {
+        key: fs.readFileSync(`.certificados/cert.key`),
+        cert: fs.readFileSync(`.certificados/cert.crt`),
+      },
+    };
+  }
+
   eleventyConfig.addPlugin(EleventyPluginVite, {
-    viteOptions: {
-      assetsInclude: ["**/*.tif"],
-    },
+    viteOptions: viteOptions,
   });
   // Opciones básicas
   let options = {
@@ -36,7 +52,9 @@ module.exports = async function (eleventyConfig) {
   // categorias de cada colección
   eleventyConfig.addFilter("categoryFilter", function (collection, category) {
     if (!category) return collection;
-    const filtered = collection.filter((item) => item.data.category == category);
+    const filtered = collection.filter(
+      (item) => item.data.category == category
+    );
     return filtered;
   });
   // directorios y njk
