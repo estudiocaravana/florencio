@@ -5,8 +5,8 @@
   <hr />
   <ul class="flex gap-6 *:first-letter:uppercase py-6">
     <li><a href="/actividades/" class="{{ 'text-verde' if page.url == '/actividades/' }}">Todas</a></li>
-    {%- for item in collections.etiquetas -%}
-    <li><a href="/actividades/etiqueta/{{ item }}/" class="{{ 'text-verde' if item == etiqueta }}">{{ item }}</a></li>
+    {%- for item in collections.etiqueta | sortByOrder -%}
+    <li><a href="/actividades/etiqueta/{{ item.data.title }}/" class="{{ 'text-verde' if item == etiqueta }}">{{ item.data.title }}</a></li>
     {%- endfor -%}
   </ul>
 </div>
