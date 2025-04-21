@@ -1,8 +1,8 @@
 [dev]
     command = "npm run start"
     [dev.https]
-        certFile = ".certificados/cert.crt"
-        keyFile = ".certificados/cert.key"
+        keyFile = ".certificados/local.florenciodelgadogurriaran.gal-key.pem"
+        certFile = ".certificados/local.florenciodelgadogurriaran.gal.pem"
 
     
 [build]

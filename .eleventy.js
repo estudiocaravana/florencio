@@ -1,6 +1,7 @@
 const fs = require("fs");
 const markdownIt = require("markdown-it");
 const dynamicCategories = require("eleventy-plugin-dynamic-categories");
+const { overlay } = require("three/tsl");
 
 module.exports = async function (eleventyConfig) {
   // Vite
@@ -15,9 +16,20 @@ module.exports = async function (eleventyConfig) {
 
   if (process.env.NETLIFY_DEV) {
     viteOptions.server = {
+      // Definimos el servidor del HMR (Hot Module Replacement) para evitar errores de consola
+      // al estar trabajando con el servidor local local.florenciodelgadogurriaran.gal
+      hmr: {
+        protocol: "wss",
+        host: "local.florenciodelgadogurriaran.gal",
+        port: 24678,
+      },
       https: {
-        key: fs.readFileSync(`.certificados/cert.key`),
-        cert: fs.readFileSync(`.certificados/cert.crt`),
+        key: fs.readFileSync(
+          `.certificados/local.florenciodelgadogurriaran.gal-key.pem`
+        ),
+        cert: fs.readFileSync(
+          `.certificados/local.florenciodelgadogurriaran.gal.pem`
+        ),
       },
     };
   }

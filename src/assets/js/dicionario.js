@@ -248,7 +248,6 @@ if (token) {
   console.log("Está logueado");
   estaLogueado = true;
   token = JSON.parse(token);
-  // TODO Comprobar si el token sigue siendo válido
   directus = createDirectus("https://panel.florenciodelgadogurriaran.gal")
     .with(staticToken(token.access_token))
     .with(authentication("cookie", { credentials: "include" }))
@@ -357,9 +356,9 @@ if (!estaLogueado) {
       token = response;
       console.log("Token renovado");
     } catch (error) {
-      // localStorage.removeItem("directus_auth");
-      // location.reload();
-      alert(error?.errors?.[0]?.message || error);
+      localStorage.removeItem("directus_auth");
+      location.reload();
+      // alert(error?.errors?.[0]?.message || error);
     }
   }
 

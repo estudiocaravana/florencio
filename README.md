@@ -23,20 +23,31 @@ mkdir .certificados
 cd .certificados
 ```
 
+Para el siguiente paso, tenemos que tener instalado mkcert en nuestro ordenador.
+https://github.com/FiloSottile/mkcert#installation
+
 Luego, generamos el certificado con el siguiente comando:
 
 ```bash
-mkcert create-ca
-mkcert create-cert --domains localhost
+mkcert -install
+mkcert local.florenciodelgadogurriaran.gal
 ```
 
-Esto generará 4 archivos dentro de .certificados: ca.crt, ca.key, cert.crt y cert.key.
+Esto generará 2 archivos dentro de .certificados: local.florenciodelgadogurriaran.gal.pem y local.florenciodelgadogurriaran.gal-key.pem
+
+Tendremos que añadir el dominio `local.florenciodelgadogurriaran.gal` a nuestro archivo `/etc/hosts` para que funcione el certificado. Para ello, añadiremos la siguiente línea a ese archivo:
+
+```
+127.0.0.1   local.florenciodelgadogurriaran.gal
+```
 
 Por último, ejecutamos
 
 ```bash
 netlify dev
 ```
+
+Tendremos que acceder a la web a través de `https://local.florenciodelgadogurriaran.gal:8888` para que funcione el certificado.
 
 # Hacer deploy si hay cambios en las functions
 
