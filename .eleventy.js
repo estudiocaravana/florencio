@@ -1,7 +1,6 @@
 const fs = require("fs");
 const markdownIt = require("markdown-it");
 const dynamicCategories = require("eleventy-plugin-dynamic-categories");
-const { overlay } = require("three/tsl");
 
 module.exports = async function (eleventyConfig) {
   // Vite
