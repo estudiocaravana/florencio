@@ -236,7 +236,7 @@ import {
   createItem,
   registerUser,
   staticToken,
-  withToken,
+  isDirectusError,
 } from "@directus/sdk";
 
 let directus;
@@ -307,15 +307,23 @@ if (!estaLogueado) {
           "registerRelacionValdeorras"
         ).value;
         try {
+          // Comprobamos si el email ya existe
+          const resultCheck = await directus.request(() => ({
+            path:
+              "/flows/trigger/c84488dd-46a4-4b7b-b7b9-1eb001c9edb1?email=" +
+              email,
+            method: "GET",
+          }));
+
+          if (resultCheck.resultado !== false) {
+            throw new Error("Xa existe un usuario con ese email.");
+          }
+
           const resultRegister = await directus.request(
             registerUser(email, password, {
               first_name: name,
             })
           );
-
-          if (!resultRegister) {
-            throw new Error("Xa existe un usuario con ese email.");
-          }
 
           // console.log("Resultado de registro");
           // console.log(resultRegister);
