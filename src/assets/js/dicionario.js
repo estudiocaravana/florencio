@@ -404,14 +404,16 @@ if (!estaLogueado) {
       let termo = document.getElementById("termo").value;
       let definicion = document.getElementById("definicion").value;
       try {
-        const result = await directus.request(() => ({
-          path: "/flows/trigger/0525f10d-382c-4b00-9ffe-08fe5171e9fc",
-          method: "POST",
-          body: JSON.stringify({
-            termo: termo,
-            definicion: definicion,
-          }),
-        }));
+        const result = await directus.request(
+          withToken(token.access_token, () => ({
+            path: "/flows/trigger/0525f10d-382c-4b00-9ffe-08fe5171e9fc",
+            method: "POST",
+            body: JSON.stringify({
+              termo: termo,
+              definicion: definicion,
+            }),
+          }))
+        );
         novoTermoForm.classList.add("hidden");
         console.log(result);
         // alert("Termo engadido correctamente");
