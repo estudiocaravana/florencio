@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="{{ '/assets/fonts/bundle.css' | url }}" />
     <link rel="stylesheet" href="{{ '/assets/css/tailwind.css' | url }}" />
+    <link rel="stylesheet" href="{{ '/assets/tom-select.css' | url }}" />
     <script type="module" src="{{ '/assets/alpine.js' | url }}" defer></script>
     <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
     <meta name="generator" content="11ty" />
@@ -30,7 +31,7 @@
       </div>
       {%- else -%}
       <!-- si no pues el layout custom -->
-       {{ content | safe }}
+      {{ content | safe }}
       {# {% block content %}{% endblock %} #}
       {%- endif -%}
       <!-- Footer -->

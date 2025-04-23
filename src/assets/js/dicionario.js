@@ -4,6 +4,22 @@
 import "wave-audio-path-player";
 
 /*
+ * SELECTOR AVANZADO
+ */
+
+import "tom-select";
+
+let selectLocalizacion = document.querySelector("#selectLocalizacion");
+if (selectLocalizacion) {
+  new TomSelect("#selectLocalizacion", {
+    sortField: {
+      field: "text",
+      direction: "asc",
+    },
+  });
+}
+
+/*
  * FAKE LOGIN
  */
 
@@ -238,6 +254,7 @@ import {
   staticToken,
   withToken,
 } from "@directus/sdk";
+import TomSelect from "tom-select";
 
 let directus;
 
