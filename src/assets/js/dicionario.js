@@ -236,12 +236,13 @@ import {
   createItem,
   registerUser,
   staticToken,
-  isDirectusError,
+  withToken,
 } from "@directus/sdk";
 
 let directus;
 
 let token = localStorage.getItem("directus_auth");
+let userInfo;
 let estaLogueado = false;
 
 if (token) {
@@ -252,6 +253,8 @@ if (token) {
     .with(staticToken(token.access_token))
     .with(authentication("cookie", { credentials: "include" }))
     .with(rest({ credentials: "include" }));
+  // .with(authentication())
+  // .with(rest());
 } else {
   directus = createDirectus("https://panel.florenciodelgadogurriaran.gal")
     .with(authentication("cookie", { credentials: "include" }))
@@ -271,13 +274,6 @@ if (!estaLogueado) {
         const response = await directus.login(email, password);
         localStorage.setItem("directus_auth", JSON.stringify(response));
         location.reload();
-
-        // const info = await directus.request(
-        //   readMe({
-        //     fields: ["*"],
-        //   })
-        // );
-        // console.log(info);
 
         // const result = await directus.request(
         //   createItem("aportacion", {
@@ -370,6 +366,18 @@ if (!estaLogueado) {
     }
   }
 
+  // TODO Por alguna razón, tengo que forzar a que incluya el token
+  // a pesar de que ya lo haya incluido al crear el cliente
+  userInfo = await directus.request(
+    withToken(
+      token.access_token,
+      readMe({
+        fields: ["*"],
+      })
+    )
+  );
+  console.log(userInfo);
+
   let logoutForm = document.getElementById("logoutForm");
   if (logoutForm) {
     logoutForm.classList.remove("hidden");
@@ -405,7 +413,7 @@ if (!estaLogueado) {
           }),
         }));
         novoTermoForm.classList.add("hidden");
-        // console.log(result);
+        console.log(result);
         // alert("Termo engadido correctamente");
       } catch (error) {
         alert(error?.errors?.[0]?.message || error);
