@@ -254,6 +254,7 @@ import {
   registerUser,
   staticToken,
   withToken,
+  uploadFiles,
 } from "@directus/sdk";
 import TomSelect from "tom-select";
 
@@ -419,6 +420,27 @@ if (!estaLogueado) {
 
     novoTermoForm.addEventListener("submit", async (event) => {
       event.preventDefault();
+      let foto = document.getElementById("foto").files[0];
+      let foto_id = null;
+
+      if (foto) {
+        // Primeiro subimos la foto al servidor
+        try {
+          const formData = new FormData();
+          formData.append("file", foto);
+
+          const result = await directus.request(
+            withToken(token.access_token, uploadFiles(formData))
+          );
+
+          console.log(result);
+
+          foto_id = result.id;
+        } catch (error) {
+          alert(error?.errors?.[0]?.message || error);
+        }
+      }
+
       let termo = document.getElementById("termo").value;
       let definicion = document.getElementById("definicion").value;
       let ubicacion =
@@ -428,15 +450,18 @@ if (!estaLogueado) {
         ubicaciones.push(ubicacion[i].value);
       }
       try {
+        let datos = {
+          termo: termo,
+          definicion: definicion,
+          ubicacion: ubicaciones,
+          foto: foto_id,
+        };
+
         const result = await directus.request(
           withToken(token.access_token, () => ({
             path: "/flows/trigger/0525f10d-382c-4b00-9ffe-08fe5171e9fc",
             method: "POST",
-            body: JSON.stringify({
-              termo: termo,
-              definicion: definicion,
-              ubicacion: ubicaciones,
-            }),
+            body: JSON.stringify(datos),
           }))
         );
         novoTermoForm.classList.add("hidden");

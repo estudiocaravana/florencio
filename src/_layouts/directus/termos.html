@@ -100,7 +100,7 @@
 <div class="caixa max-w-screen-2xl pt-6 grella">
   {%- for item in termos -%}
   <a href="/directus/termo/{{ item.termo | slug }}">
-    <div class="border-t-2 text-xl:2xl py-3 first-letter:uppercase">{{ item.termo }}</div>
+    <div class="border-t-2 text-xl:2xl py-3 first-letter:uppercase {{ ' text-red-400' if item.status == "revision" }}">{{ item.termo }}</div>
   </a>
   {%- endfor -%}
 </div>
