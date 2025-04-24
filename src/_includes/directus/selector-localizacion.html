@@ -6,71 +6,7 @@
 
 <select id="selectLocalizacion" name="localizacion[]" multiple placeholder="Seleccione unha ou varias localizacións..." autocomplete="off">
 	<option value="">Seleccione unha ou varias localizacións...</option>
-	<optgroup label="O Bolo">
-		<option value="Aceveda">Aceveda</option>
-		<option value="As Ermitas">As Ermitas</option>
-		<option value="Barxa">Barxa</option>
-		<option value="Bolo, O">Bolo, O</option>
-		<option value="Buxán">Buxán</option>
-		<option value="Cambela">Cambela</option>
-		<option value="Celavente">Celavente</option>
-		<option value="Celeiros">Celeiros</option>
-		<option value="Chandoiro">Chandoiro</option>
-		<option value="Chao das Donas">Chao das Donas</option>
-		<option value="Chao de Castro">Chao de Castro</option>
-		<option value="Fornelos">Fornelos</option>
-		<option value="Lentellais">Lentellais</option>
-		<option value="O Seixo">O Seixo</option>
-		<option value="Os Orxais">Os Orxais</option>
-		<option value="Outardepregos">Outardepregos</option>
-		<option value="Paradela">Paradela</option>
-		<option value="Rigueira, A">Rigueira, A</option>
-		<option value="San Martiño">San Martiño</option>
-		<option value="San Pedro dos Nabos">San Pedro dos Nabos</option>
-		<option value="Santa Cruz">Santa Cruz</option>
-		<option value="Teixido">Teixido</option>
-		<option value="Tuxe">Tuxe</option>
-		<option value="Valbuxán">Valbuxán</option>
-		<option value="Valdanta">Valdanta</option>
-		<option value="Vao, O">Vao, O</option>
-		<option value="Vilaseco">Vilaseco</option>
-		<option value="Xava">Xava</option>
-	</optgroup>
-	<optgroup label="O Barco">
-		<option value="A Barxa">A Barxa</option>
-		<option value="A Proba">A Proba</option>
-		<option value="Alixo">Alixo</option>
-		<option value="As Carreiras">As Carreiras</option>
-		<option value="Candías">Candías</option>
-		<option value="Cesures">Cesures</option>
-		<option value="Coedo">Coedo</option>
-		<option value="Éntoma">Éntoma</option>
-		<option value="Fervenza">Fervenza</option>
-		<option value="Forcadela e Nogaledo">Forcadela e Nogaledo</option>
-		<option value="Millarouso e Santurxo">Millarouso e Santurxo</option>
-		<option value="Nogaledo">Nogaledo</option>
-		<option value="O Barco">O Barco</option>
-		<option value="O Castro">O Castro</option>
-		<option value="O Córrego">O Córrego</option>
-		<option value="O Meiral">O Meiral</option>
-		<option value="Os Casares">Os Casares</option>
-		<option value="Outarelo">Outarelo</option>
-		<option value="Raxoá">Raxoá</option>
-		<option value="Reporicelo">Reporicelo</option>
-		<option value="San Martiño">San Martiño</option>
-		<option value="Santa Mariña do Monte">Santa Mariña do Monte</option>
-		<option value="Santigoso">Santigoso</option>
-		<option value="Santurxo">Santurxo</option>
-		<option value="Soulecín">Soulecín</option>
-		<option value="Tremiñá">Tremiñá</option>
-		<option value="Vales">Vales</option>
-		<option value="Veigadecabo">Veigadecabo</option>
-		<option value="Veigamuíños">Veigamuíños</option>
-		<option value="Vilanova">Vilanova</option>
-		<option value="Vilarica">Vilarica</option>
-		<option value="Vilariño">Vilariño</option>
-		<option value="Viloira">Viloira</option>
-		<option value="Viloval">Viloval</option>
-		<option value="Xagoaza">Xagoaza</option>
-	</optgroup>
+	{%- for item in lugares -%}
+		<option value="{{ item.id }}">{{ item.nome }} ({{ item.concello }})</option>
+  	{%- endfor -%}
 </select>
