@@ -1,6 +1,6 @@
 const fetch = require("node-fetch");
 
-exports.getTermos = async () => {
+exports.getLugares = async () => {
   try {
     const result = await fetch(
       "https://panel.florenciodelgadogurriaran.gal/items/lugar?fields=*.*",
