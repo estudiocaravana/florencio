@@ -3,7 +3,7 @@ const fetch = require("node-fetch");
 exports.getLugares = async () => {
   try {
     const result = await fetch(
-      "https://panel.florenciodelgadogurriaran.gal/items/lugar?fields=*.*",
+      "https://panel.florenciodelgadogurriaran.gal/items/lugar?fields=*.*&limit=-1",
       {
         method: "GET",
         headers: {
