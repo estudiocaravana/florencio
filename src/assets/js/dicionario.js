@@ -12,6 +12,7 @@ import "tom-select";
 let selectLocalizacion = document.querySelector("#selectLocalizacion");
 if (selectLocalizacion) {
   new TomSelect("#selectLocalizacion", {
+    maxOptions: null,
     sortField: {
       field: "text",
       direction: "asc",
@@ -420,6 +421,12 @@ if (!estaLogueado) {
       event.preventDefault();
       let termo = document.getElementById("termo").value;
       let definicion = document.getElementById("definicion").value;
+      let ubicacion =
+        document.getElementById("selectLocalizacion").selectedOptions;
+      let ubicaciones = [];
+      for (let i = 0; i < ubicacion.length; i++) {
+        ubicaciones.push(ubicacion[i].value);
+      }
       try {
         const result = await directus.request(
           withToken(token.access_token, () => ({
@@ -428,6 +435,7 @@ if (!estaLogueado) {
             body: JSON.stringify({
               termo: termo,
               definicion: definicion,
+              ubicacion: ubicaciones,
             }),
           }))
         );
