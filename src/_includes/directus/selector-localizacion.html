@@ -4,7 +4,7 @@
 	}
 </style>
 
-<select id="selectLocalizacion" name="ubicacion[]" multiple placeholder="Seleccione unha ou varias localizacións..." autocomplete="off">
+<select id="selectLocalizacion" class="tomselect" name="ubicacion[]" multiple placeholder="Seleccione unha ou varias localizacións..." autocomplete="off">
 	<option value="">Seleccione unha ou varias localizacións...</option>
 	{%- for item in lugares -%}
 		<option value="{{ item.id }}">{{ item.nome }} ({{ item.concello }})</option>

@@ -7,18 +7,17 @@ import "wave-audio-path-player";
  * SELECTOR AVANZADO
  */
 
-import "tom-select";
+import TomSelect from "tom-select";
 
-let selectLocalizacion = document.querySelector("#selectLocalizacion");
-if (selectLocalizacion) {
-  new TomSelect("#selectLocalizacion", {
+document.querySelectorAll(".tomselect").forEach((el) => {
+  new TomSelect(el, {
     maxOptions: null,
     sortField: {
       field: "text",
       direction: "asc",
     },
   });
-}
+});
 
 /*
  * FAKE LOGIN
@@ -256,7 +255,15 @@ import {
   withToken,
   uploadFiles,
 } from "@directus/sdk";
-import TomSelect from "tom-select";
+
+function obtenValoresSelect(id) {
+  let options = document.getElementById(id).selectedOptions;
+  let valores = [];
+  for (let i = 0; i < options.length; i++) {
+    valores.push(options[i].value);
+  }
+  return valores;
+}
 
 let directus;
 
@@ -443,17 +450,16 @@ if (!estaLogueado) {
 
       let termo = document.getElementById("termo").value;
       let definicion = document.getElementById("definicion").value;
-      let ubicacion =
-        document.getElementById("selectLocalizacion").selectedOptions;
-      let ubicaciones = [];
-      for (let i = 0; i < ubicacion.length; i++) {
-        ubicaciones.push(ubicacion[i].value);
-      }
+
+      let ubicaciones = obtenValoresSelect("selectLocalizacion");
+      let campos = obtenValoresSelect("selectCampo");
+
       try {
         let datos = {
           termo: termo,
           definicion: definicion,
           ubicacion: ubicaciones,
+          campos_semanticos: campos,
           foto: foto_id,
         };
 
