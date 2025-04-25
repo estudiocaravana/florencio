@@ -12,6 +12,7 @@ import {
 } from "@directus/sdk";
 
 let TOKEN_NOMBRE = "directus_auth";
+let CARPETA_PUBLICA = "5e2c48e8-0a84-414e-baaa-f5e622d22355";
 
 const muestraError = (mensaje) => {
   alert(mensaje);
@@ -192,6 +193,8 @@ export function Backend() {
       // Primero subimos la foto al servidor
       try {
         const formData = new FormData();
+        // Carpeta pública
+        formData.append("folder", CARPETA_PUBLICA);
         formData.append("file", datos.foto);
 
         const resultadoFoto = await this.hazPeticion(
