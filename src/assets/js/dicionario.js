@@ -268,7 +268,7 @@ if (!backend.estaLogueado) {
       let email = document.getElementById("email").value;
       let password = document.getElementById("password").value;
 
-      await backend.login(email, password);
+      await backend.login(email, password, true);
     });
   }
 

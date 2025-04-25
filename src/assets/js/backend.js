@@ -22,15 +22,21 @@ const muestraExito = (mensaje) => {
 };
 
 export function Backend() {
-  this.token = null;
-  this.estaLogueado = false;
+  this.actualizaDatosLogin = () => {
+    let localStorageToken = localStorage.getItem(TOKEN_NOMBRE);
+    if (localStorageToken) {
+      this.token = JSON.parse(localStorageToken);
+      this.estaLogueado = true;
+    } else {
+      this.token = null;
+      this.estaLogueado = false;
+    }
+  };
 
-  let localStorageToken = localStorage.getItem(TOKEN_NOMBRE);
+  this.actualizaDatosLogin();
 
-  if (localStorageToken) {
+  if (this.estaLogueado) {
     console.log("Está logueado");
-    this.estaLogueado = true;
-    this.token = JSON.parse(localStorageToken);
     this.directus = createDirectus(
       "https://panel.florenciodelgadogurriaran.gal"
     )
@@ -44,6 +50,22 @@ export function Backend() {
       .with(authentication("cookie", { credentials: "include" }))
       .with(rest({ credentials: "include" }));
   }
+
+  this.hazPeticion = async (funcionDatos, esPublica) => {
+    if (esPublica) {
+      return await this.directus.request(funcionDatos);
+    } else {
+      if (!this.estaLogueado) {
+        throw new Error("Non estás logueado");
+      }
+
+      // TODO Por alguna razón, tengo que forzar a que incluya el token
+      // a pesar de que ya lo haya incluido al crear el cliente
+      return await this.directus.request(
+        withToken(this.token.access_token, funcionDatos)
+      );
+    }
+  };
 
   this.init = async () => {
     if (this.estaLogueado) {
@@ -64,25 +86,20 @@ export function Backend() {
           localStorage.removeItem(TOKEN_NOMBRE);
           //location.reload();
           muestraError("O token caducou. Por favor, volve iniciar sesión.");
-          // alert(error?.errors?.[0]?.message || error);
         }
       }
 
-      // TODO Por alguna razón, tengo que forzar a que incluya el token
-      // a pesar de que ya lo haya incluido al crear el cliente
-      let userInfo = await this.directus.request(
-        withToken(
-          this.token.access_token,
-          readMe({
-            fields: ["*"],
-          })
-        )
+      let userInfo = await this.hazPeticion(
+        readMe({
+          fields: ["*"],
+        }),
+        false
       );
       console.log(userInfo);
     }
   };
 
-  this.login = async (email, password) => {
+  this.login = async (email, password, hayReload) => {
     if (this.estaLogueado) {
       muestraError("Xa estás logueado");
       return;
@@ -96,7 +113,11 @@ export function Backend() {
     try {
       const response = await this.directus.login(email, password);
       localStorage.setItem(TOKEN_NOMBRE, JSON.stringify(response));
-      location.reload();
+      this.actualizaDatosLogin();
+
+      if (hayReload) {
+        location.reload();
+      }
     } catch (error) {
       muestraError(error?.errors?.[0]?.message || "Erro na entrada do usuario");
     }
@@ -106,40 +127,43 @@ export function Backend() {
     // TODO Validar los datos
     try {
       // Comprobamos si el email ya existe
-      const resultCheck = await this.directus.request(() => ({
-        path:
-          "/flows/trigger/c84488dd-46a4-4b7b-b7b9-1eb001c9edb1?email=" +
-          datos.email,
-        method: "GET",
-      }));
+      const resultCheck = await this.hazPeticion(
+        () => ({
+          path:
+            "/flows/trigger/c84488dd-46a4-4b7b-b7b9-1eb001c9edb1?email=" +
+            datos.email,
+          method: "GET",
+        }),
+        true
+      );
 
       if (resultCheck.resultado !== false) {
         throw new Error("Xa existe un usuario con ese email.");
       }
 
-      const resultRegister = await this.directus.request(
+      const resultRegister = await this.hazPeticion(
         registerUser(datos.email, datos.password, {
           first_name: datos.nombre,
-        })
+        }),
+        true
       );
 
       // console.log("Resultado de registro");
       // console.log(resultRegister);
 
       // Para que esto funcione, hay que desactivar la verificación de email en el panel de Directus
-      const response = await this.directus.login(datos.email, datos.password);
-      localStorage.setItem(TOKEN_NOMBRE, JSON.stringify(response));
-      // console.log(response);
+      await this.login(datos.email, datos.password, false);
 
-      const resultUpdate = await this.directus.request(
-        updateMe({
-          relacion_valdeorras: datos.relacion_valdeorras,
-        })
+      await this.hazPeticion(
+        updateMe(
+          {
+            relacion_valdeorras: datos.relacion_valdeorras,
+          },
+          false
+        )
       );
-      // console.log(resultUpdate);
 
       location.reload();
-      // alert("Register successful");
     } catch (error) {
       muestraError(error?.errors?.[0]?.message || error);
     }
@@ -151,7 +175,9 @@ export function Backend() {
       const result = await this.directus.logout();
       console.log("Logout hecho");
     } catch (error) {
-      muestraError(error?.errors?.[0]?.message || "Non puidemos pechar sesión");
+      muestraError(
+        error?.errors?.[0]?.message || "Non puidemos pechar a sesión"
+      );
     }
     localStorage.removeItem(TOKEN_NOMBRE);
     location.reload();
@@ -168,13 +194,14 @@ export function Backend() {
         const formData = new FormData();
         formData.append("file", datos.foto);
 
-        const result = await this.directus.request(
-          withToken(this.token.access_token, uploadFiles(formData))
+        const resultadoFoto = await this.hazPeticion(
+          uploadFiles(formData),
+          false
         );
 
-        console.log(result);
+        console.log(resultadoFoto);
 
-        foto_id = result.id;
+        foto_id = resultadoFoto.id;
       } catch (error) {
         muestraError(error?.errors?.[0]?.message || error);
       }
@@ -183,15 +210,16 @@ export function Backend() {
     datos.foto = foto_id;
 
     try {
-      const result = await this.directus.request(
-        withToken(this.token.access_token, () => ({
+      const resultadoNuevoTermino = await this.hazPeticion(
+        () => ({
           path: "/flows/trigger/0525f10d-382c-4b00-9ffe-08fe5171e9fc",
           method: "POST",
           body: JSON.stringify(datos),
-        }))
+        }),
+        false
       );
       novoTermoForm.classList.add("hidden");
-      console.log(result);
+      console.log(resultadoNuevoTermino);
 
       muestraExito("Termo engadido correctamente");
     } catch (error) {
