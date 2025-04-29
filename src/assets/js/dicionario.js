@@ -284,12 +284,14 @@ if (!backend.estaLogueado) {
       let relacion_valdeorras = document.getElementById(
         "registerRelacionValdeorras"
       ).value;
+      let institucion = document.getElementById("registerInstitucion").value;
 
       await backend.registrarUsuario({
         email: email,
         password: password,
         nombre: name,
         relacion_valdeorras: relacion_valdeorras,
+        institucion: institucion,
       });
     });
   }

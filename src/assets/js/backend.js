@@ -86,7 +86,7 @@ export function Backend() {
         } catch (error) {
           localStorage.removeItem(TOKEN_NOMBRE);
           //location.reload();
-          muestraError("O token caducou. Por favor, volve iniciar sesión.");
+          // muestraError("O token caducou. Por favor, volve iniciar sesión.");
         }
       }
 
@@ -159,6 +159,7 @@ export function Backend() {
         updateMe(
           {
             relacion_valdeorras: datos.relacion_valdeorras,
+            institucion: datos.institucion,
           },
           false
         )
