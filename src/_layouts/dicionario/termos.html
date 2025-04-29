@@ -1,37 +1,11 @@
-{% extends "../base.html" %} {% block content %} {% include "dicionario/nav.html" %}
+---
+layout: base
+---
 
-{% set categorias = [] %}
-{% set campos = [] %}
-{% set lugares = [] %}
-
-{% for item in collections.termo %}
-  {% if item.data.categoria %}
-    {% set categoriasSeparadas = item.data.categoria.split(', ') %}
-    {% for categoria in categoriasSeparadas %}
-      {% if categoria not in categorias %}
-        {% set categorias = (categorias.push(categoria), categorias) %}
-      {% endif %}
-    {% endfor %}
-  {% endif %}
-
-  {% if item.data.campo %}
-    {% set camposSeparados = item.data.campo.split(', ') %}
-    {% for campo in camposSeparados %}
-      {% if campo not in campos %}
-        {% set campos = (campos.push(campo), campos) %}
-      {% endif %}
-    {% endfor %}
-  {% endif %}
-
-  {% if item.data.localizacion %}
-    {% set lugaresSeparados = item.data.localizacion.split(', ') %}
-    {% for lugar in lugaresSeparados %}
-      {% if lugar not in lugares %}
-        {% set lugares = (lugares.push(lugar), lugares) %}
-      {% endif %}
-    {% endfor %}
-  {% endif %}
-{% endfor %}
+{% include "dicionario/nav.html" %} {% set categorias = [] %} {% set campos = [] %} {% set lugares = [] %} {% for item in collections.termo %} {% if item.data.categoria %} {% set categoriasSeparadas = item.data.categoria.split(', ') %} {% for categoria in categoriasSeparadas %} {% if categoria not
+in categorias %} {% set categorias = (categorias.push(categoria), categorias) %} {% endif %} {% endfor %} {% endif %} {% if item.data.campo %} {% set camposSeparados = item.data.campo.split(', ') %} {% for campo in camposSeparados %} {% if campo not in campos %} {% set campos = (campos.push(campo),
+campos) %} {% endif %} {% endfor %} {% endif %} {% if item.data.localizacion %} {% set lugaresSeparados = item.data.localizacion.split(', ') %} {% for lugar in lugaresSeparados %} {% if lugar not in lugares %} {% set lugares = (lugares.push(lugar), lugares) %} {% endif %} {% endfor %} {% endif %} {%
+endfor %}
 
 <div class="caixa max-w-screen-xl pt-12">
   <div class="flex gap-6">
@@ -84,7 +58,7 @@
           <path d="m21 21-4.3-4.3" />
         </svg>
       </div>
-      <input class="js-filtro-buscar w-full" name="buscar" type="text" placeholder="Buscar">
+      <input class="js-filtro-buscar w-full" name="buscar" type="text" placeholder="Buscar" />
     </div>
   </div>
 </div>
@@ -94,10 +68,7 @@
 </div>
 <div class="caixa max-w-screen-2xl pt-6 grella">
   {%- for item in collections.termo -%}
-  <a class="js-termo" href="{{ item.url }}"
-    data-lugar="{{ item.data.localizacion }}" 
-    data-campo="{{ item.data.campo }}"  
-    data-categoria="{{ item.data.categoria }}">
+  <a class="js-termo" href="{{ item.url }}" data-lugar="{{ item.data.localizacion }}" data-campo="{{ item.data.campo }}" data-categoria="{{ item.data.categoria }}">
     <div class="border-t-2 text-xl:2xl py-3 first-letter:uppercase {{ ' text-red-400' if item.data.revision }}">{{ item.data.termo }}</div>
   </a>
   {%- endfor -%}
@@ -118,4 +89,3 @@
     </div>
   </div>
 </div>
-{% endblock %}

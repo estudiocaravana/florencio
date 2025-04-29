@@ -1,4 +1,8 @@
-{% extends "../base.html" %} {% block content %} {% include "dicionario/nav.html" %}
+---
+layout: base
+---
+
+{% include "dicionario/nav.html" %}
 <div class="caixa max-w-screen-xl">
   <div class="max-w-lg mt-6">Un proxecto colaborativo de recollida do galego de Valdeorras, unha das claves da identidade da comarca. Coas aportacións da veciñanza pomos en valor a nosa fala e creamos o glosario co que soñaba Florencio Delgado Gurriarán.</div>
 </div>
@@ -58,4 +62,4 @@
 
 <div class="caixa max-w-screen-xl pt-9 content">{{ content | safe }}</div>
 
-{%- endif -%} {% endblock %}
+{%- endif -%}

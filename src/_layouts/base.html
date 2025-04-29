@@ -15,8 +15,8 @@
     <!-- Open Graph data -->
     <meta property="og:title" content="{{ title }}" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="url" />
-    <meta property="og:image" content="/assets/img/ogg.webp" />
+    <meta property="og:url" content="{{ page.url | url }}" />
+    <meta property="og:image" content="{{ ogImage | default('/assets/img/ogg.webp') | url }}" />
     <meta property="og:description" content="{{ descripcion }}" />
   </head>
   <body>
@@ -31,9 +31,7 @@
       </div>
       {%- else -%}
       <!-- si no pues el layout custom -->
-      {{ content | safe }}
-      {# {% block content %}{% endblock %} #}
-      {%- endif -%}
+      {{ content | safe }} {# {% block content %}{% endblock %} #} {%- endif -%}
       <!-- Footer -->
       {% include 'footer.html' %}
     </div>

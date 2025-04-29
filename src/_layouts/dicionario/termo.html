@@ -1,4 +1,8 @@
-{% extends "../base.html" %} {% block content %} {% include "dicionario/nav.html" %}
+---
+layout: base
+---
+
+{% include "dicionario/nav.html" %}
 <!-- Header -->
 <div class="caixa max-w-screen-xl pt-6 content">
   <div class="max-w-3xl pt-3">
@@ -6,10 +10,10 @@
     <div class="mt-2">{{ definicion | safe }}</div>
   </div>
   {% if exemplo %}
-    <div>
-      <strong>Exemplo</strong>
-      <div class="mt-2">{{ exemplo | safe }}</div>
-    </div>
+  <div>
+    <strong>Exemplo</strong>
+    <div class="mt-2">{{ exemplo | safe }}</div>
+  </div>
   {% endif %}
 </div>
 <!-- datos -->
@@ -26,14 +30,12 @@
             <div class="text-neutral-500 block text-lg w-72">Categoría</div>
             <div>{{ categoria }}</div>
           </div>
-          {% endif %}
-          {% if campo %}
+          {% endif %} {% if campo %}
           <div class="pt-6 md:flex md:items-end">
             <div class="text-neutral-500 block text-lg w-72">Campo semántico</div>
             <div>{{ campo }}</div>
           </div>
-          {% endif %}
-          {% if localizacion %}
+          {% endif %} {% if localizacion %}
           <div class="pt-6 md:flex md:items-end">
             <div class="text-neutral-500 block text-lg w-72">Localización</div>
             <div>{{ localizacion | safe }}</div>
@@ -41,18 +43,17 @@
           {% endif %}
         </div>
         {% if informantes %}
-          <!-- info rmantes -->
-          <div class="max-w-4xl pt-24">
-            <strong>Informantes</strong>
-            <div class="mt-2">{{ informantes | safe }}</div>
-          </div>
-        {% endif %}
-        {% if usuario %}
-          <!-- info rmantes -->
-          <div class="max-w-4xl pt-24">
-            <strong>Usuario</strong>
-            <div class="mt-2">{{ usuario | safe }}</div>
-          </div>
+        <!-- info rmantes -->
+        <div class="max-w-4xl pt-24">
+          <strong>Informantes</strong>
+          <div class="mt-2">{{ informantes | safe }}</div>
+        </div>
+        {% endif %} {% if usuario %}
+        <!-- info rmantes -->
+        <div class="max-w-4xl pt-24">
+          <strong>Usuario</strong>
+          <div class="mt-2">{{ usuario | safe }}</div>
+        </div>
         {% endif %}
       </div>
       <!-- DRCH -->
@@ -61,10 +62,10 @@
         <div class="w-full aspect-square relative">
           <img class="!p-0 !m-0 !shadow-none size-full !bg-transparent" src="/assets/img/mapa-comarca.webp" alt="" />
           {% if localizacion and not revision %}
-            <!-- córgomo -->
-            <div class="absolute top-[26%] left-[34%]">
-              <div class="size-6 rounded-full bg-transparent border-4 border-red-400 shadow-lg shadow-texto/40"></div>
-            </div>
+          <!-- córgomo -->
+          <div class="absolute top-[26%] left-[34%]">
+            <div class="size-6 rounded-full bg-transparent border-4 border-red-400 shadow-lg shadow-texto/40"></div>
+          </div>
           {% endif %}
           <!-- a rúa
           <div class="absolute top-[35%] left-[20%]">
@@ -119,8 +120,8 @@
     <div class="bg-white p-12 flex-1 max-w-4xl">
       <span class="block mb-6 font-bold uppercase">Comentarios</span>
       {% if content %}
-        <strong class="text-verde">Fundación FDG</strong><br />
-        <div class="*:block *:mb-2">{{ content | safe }}</div>
+      <strong class="text-verde">Fundación FDG</strong><br />
+      <div class="*:block *:mb-2">{{ content | safe }}</div>
       {% endif %}
       <div class="*:mt-6">
         <!-- comentario da xente
@@ -139,4 +140,3 @@
   </div>
   <div class="text-center my-12 text-xl max-w-xl mx-auto">Os comentarios pasarán un proceso de moderación <br />Grazas por colaborar!</div>
 </div>
-{% endblock %}

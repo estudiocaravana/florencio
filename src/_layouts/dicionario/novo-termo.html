@@ -1,4 +1,8 @@
-{% extends "../base.html" %} {% block content %} {% include "dicionario/nav.html" %}
+---
+layout: base
+---
+
+{% include "dicionario/nav.html" %}
 <div class="caixa max-w-screen-xl">
   <div class="max-w-lg mt-3">{{ content | safe }}</div>
 </div>
@@ -32,4 +36,3 @@
     </div>
   </form>
 </div>
-{% endblock %}
