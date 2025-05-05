@@ -318,6 +318,7 @@ if (!backend.estaLogueado) {
 
         ubicacion: obtenValoresSelect("selectLocalizacion"),
         campos_semanticos: obtenValoresSelect("selectCampo"),
+        categorias: obtenValoresSelect("selectCategoria"),
 
         foto: document.getElementById("foto").files[0],
       };

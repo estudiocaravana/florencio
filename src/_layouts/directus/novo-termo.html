@@ -25,11 +25,19 @@
         <span class="">Campo semántico</span>
         <select id="selectCampo"  multiple class="tomselect">
           <option value="">Seleccione un campo semántico</option>
-          <option value="o-tempo">O tempo</option>
-          <option value="a-climatoloxia">A climatoloxía</option>
-          <option value="os-astros">Os astros</option>
-        </select>
-        
+          {%- for item in campos_semanticos -%}
+		        <option value="{{ item.id }}">{{ item.nome }}</option>
+  	      {%- endfor -%}
+        </select>        
+      </label>
+      <label class="block">
+        <span class="">Categoría gramatical</span>
+        <select id="selectCategoria"  multiple class="tomselect">
+          <option value="">Seleccione unha categoría gramatical</option>
+          {%- for item in categorias -%}
+		        <option value="{{ item.id }}">{{ item.nome }}</option>
+  	      {%- endfor -%}
+        </select>        
       </label>
       <!-- acordo -->
       <label for="normas" class="flex gap-3 items-center">
