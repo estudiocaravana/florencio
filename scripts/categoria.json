@@ -1,0 +1,26 @@
+[
+  {
+    "nome": "Substantivo",
+    "id": 1
+  },
+  {
+    "nome": "Adxectivo",
+    "id": 2
+  },
+  {
+    "nome": "Verbo",
+    "id": 3
+  },
+  {
+    "nome": "Adverbio",
+    "id": 4
+  },
+  {
+    "nome": "Determinantes e pronomes",
+    "id": 5
+  },
+  {
+    "nome": "Preposicións e Conxuncións",
+    "id": 6
+  }
+]

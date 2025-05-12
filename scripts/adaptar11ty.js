@@ -5,7 +5,7 @@ const globby = require("fast-glob");
 (async () => {
   // Borramos el contenido de la carpeta src/_layouts
   // para que no haya conflictos con los archivos que ya existen
-  const layoutsDir = "src/_layouts";
+  const layoutsDir = "src/_layouts/dicionario";
   fs.rmSync(layoutsDir, { recursive: true, force: true });
   fs.mkdirSync(layoutsDir, { recursive: true });
 
