@@ -11,7 +11,7 @@
 
 [[redirects]]
     from = "/"
-    to = "/dicionario"
+    to = "/termos"
     # Redirección temporal
     status = 302
     # Redirigimos aunque haya contenido en la carpeta

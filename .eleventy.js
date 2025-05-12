@@ -45,9 +45,8 @@ module.exports = async function (eleventyConfig) {
   // Markdown
   eleventyConfig.setLibrary("md", markdownIt(options));
   // Pasasamos los assets necesarios
-  eleventyConfig.addPassthroughCopy("src/assets/fonts");
-  eleventyConfig.addPassthroughCopy("src/assets/img");
-  eleventyConfig.addPassthroughCopy("src/assets/js");
+  eleventyConfig.addPassthroughCopy("src/_assets");
+  eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/media");
   eleventyConfig.addPassthroughCopy({
     "node_modules/alpinejs/dist/cdn.min.js": "/assets/alpine.js",
