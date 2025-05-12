@@ -25,7 +25,7 @@ const globby = require("fast-glob");
 
     $("#termos-lista").each((_, el) => {
       let modelo = $(el).children().first();
-      modelo.attr("href", "/termos/{{ item.termo | slug }}");
+      modelo.attr("href", "/dicionario/termos/{{ item.termo | slug }}");
       modelo.find("div").first().html("{{ item.termo }}");
       modelo.find("div").first().next().html("{{ item.definicion }}");
 
@@ -34,6 +34,11 @@ const globby = require("fast-glob");
         modelo.prop("outerHTML") +
         "      {%- endfor -%}";
       $(el).html(bucle);
+    });
+
+    $("#termo-nome").each((_, el) => {
+      const nome = "{{ termo.termo }}";
+      $(el).html(nome);
     });
 
     // // Borramos todos los elementos script y link que llamen a las carpetas /assets/entries y /assets/chunks
