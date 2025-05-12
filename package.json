@@ -8,7 +8,8 @@
     "dev:11ty": "eleventy --serve",
     "build:11ty": "eleventy",
     "adaptar11ty": "node scripts/adaptar11ty.js",
-    "adaptarContenidos": "node scripts/adaptarContenidos.js"
+    "adaptarContenidos": "node scripts/adaptarContenidos.js",
+    "obtenerCoordenadas": "node scripts/obtenerCoordenadas.js"
   },
   "keywords": [],
   "author": "",
@@ -25,8 +26,10 @@
     "@tailwindcss/cli": "^4.0.0",
     "@tailwindcss/postcss": "^4.0.0",
     "alpinejs": "^3.14.8",
+    "axios": "^1.9.0",
     "cheerio": "^1.0.0",
     "dat.gui": "^0.7.9",
+    "dotenv": "^16.5.0",
     "eleventy-plugin-dynamic-categories": "^0.1.5",
     "fast-glob": "^3.3.3",
     "georaster": "^1.6.0",
