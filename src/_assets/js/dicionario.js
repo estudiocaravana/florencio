@@ -339,3 +339,55 @@ document.querySelectorAll(".dropdown").forEach((dropdown) => {
     });
   });
 });
+
+// TODO Eliminar esto
+// Añadimos la clase "oculto" a un style en el head
+let style = document.createElement("style");
+style.innerHTML = `
+.oculto {
+  display: none !important;
+}
+`;
+document.head.appendChild(style);
+
+document.querySelectorAll("#termos-lista").forEach((lista) => {
+  let elementos = lista.children;
+  let elementosPorPagina = 9;
+
+  let totalPaginas = Math.ceil(elementos.length / elementosPorPagina);
+
+  // let pagina = 1;
+  // let paginacion = lista.querySelector(".paginacion");
+  // let paginacionHTML = "";
+  // for (let i = 1; i <= totalPaginas; i++) {
+  //   paginacionHTML += `<button class="pagina" data-pagina="${i}">${i}</button>`;
+  // }
+  // paginacion.innerHTML = paginacionHTML;
+
+  // paginacion.querySelectorAll(".pagina").forEach((paginaBtn) => {
+  //   paginaBtn.addEventListener("click", (event) => {
+  //     event.preventDefault();
+  //     let paginaSeleccionada = parseInt(paginaBtn.dataset.pagina);
+  //     if (paginaSeleccionada != pagina) {
+  //       pagina = paginaSeleccionada;
+  //       elementos.forEach((elemento, index) => {
+  //         elemento.classList.add("oculto");
+  //         if (
+  //           index >= (pagina - 1) * elementosPorPagina &&
+  //           index < pagina * elementosPorPagina
+  //         ) {
+  //           elemento.classList.remove("oculto");
+  //         }
+  //       });
+  //     }
+  //   });
+  // });
+
+  let index = 0;
+  for (const elemento of elementos) {
+    if (index >= elementosPorPagina) {
+      elemento.classList.add("oculto");
+    }
+    index++;
+  }
+});
