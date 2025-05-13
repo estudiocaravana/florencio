@@ -15,7 +15,10 @@ let TOKEN_NOMBRE = "directus_auth";
 let CARPETA_PUBLICA = "5e2c48e8-0a84-414e-baaa-f5e622d22355";
 
 const muestraError = (mensaje) => {
-  alert(mensaje);
+  document.querySelectorAll("#aviso-mensaje").forEach((aviso) => {
+    aviso.innerHTML = mensaje;
+  });
+  document.querySelector("#aviso").classList.remove("oculto");
 };
 
 const muestraExito = (mensaje) => {

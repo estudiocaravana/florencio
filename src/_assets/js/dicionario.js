@@ -258,27 +258,26 @@ function obtenValoresSelect(id) {
 let backend = new Backend();
 await backend.init();
 
-let loginForm = document.getElementById("login-form");
-let logoutForm = document.getElementById("logout-form");
-
 if (!backend.estaLogueado) {
-  if (loginForm) {
-    loginForm.classList.remove("oculto");
-  }
-  if (logoutForm) {
-    logoutForm.classList.add("oculto");
-  }
+  document.querySelectorAll("#login-form").forEach((elemento) => {
+    elemento.classList.remove("oculto");
+  });
+  document.querySelectorAll("#logout-form").forEach((elemento) => {
+    elemento.classList.add("oculto");
+  });
 
-  let loginEnviar = document.getElementById("login-enviar");
-  if (loginEnviar) {
-    loginEnviar.addEventListener("click", async (event) => {
+  document.querySelectorAll("#login-enviar").forEach((trigger) => {
+    trigger.addEventListener("click", async (event) => {
       event.preventDefault();
-      let email = document.getElementById("login-email").value;
-      let password = document.getElementById("login-password").value;
+
+      const padre = trigger.closest("#login-form");
+
+      const email = padre.querySelector("#login-email").value;
+      const password = padre.querySelector("#login-password").value;
 
       await backend.login(email, password, true);
     });
-  }
+  });
 
   let registerForm = document.getElementById("registerForm");
   if (registerForm) {
@@ -304,12 +303,12 @@ if (!backend.estaLogueado) {
     });
   }
 } else {
-  if (loginForm) {
-    loginForm.classList.add("oculto");
-  }
-  if (logoutForm) {
-    logoutForm.classList.remove("oculto");
-  }
+  document.querySelectorAll("#login-form").forEach((elemento) => {
+    elemento.classList.add("oculto");
+  });
+  document.querySelectorAll("#logout-form").forEach((elemento) => {
+    elemento.classList.remove("oculto");
+  });
 
   const perfil = await backend.perfil();
 
@@ -317,13 +316,12 @@ if (!backend.estaLogueado) {
     element.innerText = perfil.first_name;
   });
 
-  let logoutEnviar = document.getElementById("logout-enviar");
-  if (logoutEnviar) {
-    logoutEnviar.addEventListener("click", async (event) => {
+  document.querySelectorAll("#logout-enviar").forEach((trigger) => {
+    trigger.addEventListener("click", async (event) => {
       event.preventDefault();
       await backend.logout();
     });
-  }
+  });
 
   let novoTermoForm = document.getElementById("novoTermoForm");
   if (novoTermoForm) {
@@ -363,7 +361,17 @@ document.querySelectorAll("#login-trigger").forEach((trigger) => {
   trigger.addEventListener("click", (event) => {
     event.preventDefault();
 
-    document.querySelector("#login-contenido").classList.toggle("oculto");
+    const padre = trigger.closest("#login-popover");
+
+    padre.querySelector("#login-contenido").classList.toggle("oculto");
+  });
+});
+
+document.querySelectorAll("#aviso-cerrar").forEach((trigger) => {
+  trigger.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    document.querySelector("#aviso").classList.add("oculto");
   });
 });
 
