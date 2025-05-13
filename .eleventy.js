@@ -66,6 +66,16 @@ module.exports = async function (eleventyConfig) {
   eleventyConfig.addFilter("stringify", (data) => {
     return JSON.stringify(data, null, "\t");
   });
+  // Filtro para convertir un array de ubicaciones en una lista
+  eleventyConfig.addFilter("listaUbicacion", (data) => {
+    if (!data) return "";
+
+    return data
+      .map((item) => {
+        return item.lugar_id.nome;
+      })
+      .join(", ");
+  });
 
   // sortByOrder - filtro para ordenar colecciones
   function sortByOrder(values) {

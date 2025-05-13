@@ -50,9 +50,103 @@ const globby = require("fast-glob");
 
       $el.find("#termo-nome").first().html("{{ termo.termo }}");
       $el
+        .find("#termo-definicion")
+        .first()
+        .html("{{ termo.definicion | safe }}");
+
+      // Ejemplos
+      let bloqueExemplos = $el.find("#termo-bloque-exemplos").first();
+      let exemplos = bloqueExemplos.find("#termo-exemplos").first();
+      exemplos.html("{{ termo.exemplos | safe }}");
+      bloqueExemplos.replaceWith(
+        "{% if termo.exemplos %}" +
+          bloqueExemplos.prop("outerHTML") +
+          "{% endif %}"
+      );
+
+      // Foto
+      let bloqueFoto = $el.find("#termo-bloque-foto").first();
+      let foto = bloqueFoto.find("#termo-foto").first();
+
+      let nuevaFoto = $("<img>");
+      nuevaFoto.attr(
+        "src",
+        "https://panel.florenciodelgadogurriaran.gal/assets/{{ termo.galeria[0].foto }}"
+      );
+      nuevaFoto.attr("class", foto.attr("class"));
+      foto.replaceWith(nuevaFoto);
+
+      let bloqueFotoFonte = bloqueFoto.find("#termo-bloque-foto-fonte").first();
+      bloqueFotoFonte.replaceWith(
+        "{% if termo.galeria[0].foto_fonte %}" +
+          bloqueFotoFonte.prop("outerHTML") +
+          "{% endif %}"
+      );
+      bloqueFoto
+        .find("#termo-foto-fonte")
+        .first()
+        .html("{{ termo.galeria[0].foto_fonte }}");
+
+      let bloqueFotoOnde = bloqueFoto.find("#termo-bloque-foto-onde").first();
+      bloqueFotoOnde.replaceWith(
+        "{% if termo.galeria[0].foto_onde %}" +
+          bloqueFotoOnde.prop("outerHTML") +
+          "{% endif %}"
+      );
+      bloqueFoto
+        .find("#termo-foto-onde")
+        .first()
+        .html("{{ termo.galeria[0].foto_onde }}");
+
+      let bloqueFotoQue = bloqueFoto.find("#termo-bloque-foto-que").first();
+      bloqueFotoQue.replaceWith(
+        "{% if termo.galeria[0].foto_que %}" +
+          bloqueFotoQue.prop("outerHTML") +
+          "{% endif %}"
+      );
+      bloqueFoto
+        .find("#termo-foto-que")
+        .first()
+        .html("{{ termo.galeria[0].foto_que }}");
+
+      let bloqueFotoAutoria = bloqueFoto
+        .find("#termo-bloque-foto-autoria")
+        .first();
+      bloqueFotoAutoria.replaceWith(
+        "{% if termo.galeria[0].foto_autoria %}" +
+          bloqueFotoAutoria.prop("outerHTML") +
+          "{% endif %}"
+      );
+      bloqueFoto
+        .find("#termo-foto-autoria")
+        .first()
+        .html("{{ termo.galeria[0].foto_autoria }}");
+
+      bloqueFoto.replaceWith(
+        "{% if termo.galeria | length %}" +
+          bloqueFoto.prop("outerHTML") +
+          "{% endif %}"
+      );
+
+      // Mapa
+      let bloqueUbicacion = $el.find("#termo-bloque-localizacion").first();
+      bloqueUbicacion.replaceWith(
+        "{% if termo.ubicacion | length %}" +
+          bloqueUbicacion.prop("outerHTML") +
+          "{% endif %}"
+      );
+      $el
+        .find("#termo-localizacion")
+        .first()
+        .html("{{ termo.ubicacion | listaUbicacion }}");
+      $el
         .find("#termo-mapa")
         .first()
-        .html('<div id="termo-mapa-iframe"></div>');
+        .html(
+          "{% if termo.ubicacion | length %}" +
+            '<div id="termo-mapa-iframe"></div>' +
+            "{% endif %}"
+        );
 
       $("head").append(
         "<script>\n" +
