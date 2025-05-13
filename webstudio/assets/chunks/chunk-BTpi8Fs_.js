@@ -1,1 +1,0 @@
-import{r,j as t}from"./chunk-CIJBLCoO.js";const o=r.forwardRef((a,e)=>t.jsx("label",{...a,ref:e}));o.displayName="Label";const x=r.forwardRef(({children:a,value:e,defaultValue:l,...s},f)=>t.jsx("textarea",{...s,defaultValue:e??l,ref:f}));x.displayName="Textarea";export{x as f,o as l};
