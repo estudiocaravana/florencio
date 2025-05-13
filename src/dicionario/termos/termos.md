@@ -1,3 +1,0 @@
----
-layout: dicionario/termos/index
----
