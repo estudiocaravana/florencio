@@ -1,1 +1,0 @@
-import{u as s,j as f}from"./chunk-Dm8R4_y9.js";const l=s.forwardRef(({children:o,value:e,defaultValue:a,...r},t)=>f.jsx("textarea",{...r,defaultValue:e??a,ref:t}));l.displayName="Textarea";export{l as f};

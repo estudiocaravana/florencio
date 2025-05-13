@@ -1,0 +1,1 @@
+import{r as s,j as u}from"./chunk-CIJBLCoO.js";const l=s.forwardRef(({children:o,type:e="text",value:t,defaultValue:a,...r},p)=>u.jsx("input",{...r,defaultValue:t??a,type:e,ref:p}));l.displayName="Input";export{l as a};

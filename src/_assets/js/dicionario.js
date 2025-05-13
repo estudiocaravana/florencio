@@ -340,15 +340,15 @@ document.querySelectorAll(".dropdown").forEach((dropdown) => {
   });
 });
 
-// TODO Eliminar esto
-// Añadimos la clase "oculto" a un style en el head
-let style = document.createElement("style");
-style.innerHTML = `
-.oculto {
-  display: none !important;
-}
-`;
-document.head.appendChild(style);
+document.querySelectorAll("#termos-filtro-trigger").forEach((trigger) => {
+  trigger.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    document
+      .querySelector("#termos-filtro-contenido")
+      .classList.toggle("oculto");
+  });
+});
 
 document.querySelectorAll("#termos-lista").forEach((lista) => {
   let elementos = lista.children;
