@@ -279,39 +279,6 @@ if (!backend.estaLogueado) {
     });
   });
 
-  document
-    .querySelectorAll("#rexistro-tipo button")
-    .forEach((trigger, iTipo) => {
-      if (iTipo == 0) {
-        trigger.classList.add("activo");
-      }
-
-      trigger.addEventListener("click", (event) => {
-        event.preventDefault();
-
-        document
-          .querySelectorAll("#rexistro-tipo button")
-          .forEach((boton, iBoton) => {
-            if (iBoton == iTipo) {
-              boton.classList.add("activo");
-            } else {
-              boton.classList.remove("activo");
-            }
-          });
-
-        const forms = document.querySelector("#rexistro-forms").children;
-        let iForm = 0;
-        for (const form of forms) {
-          if (iForm == iTipo) {
-            form.classList.remove("oculto");
-          } else {
-            form.classList.add("oculto");
-          }
-          iForm++;
-        }
-      });
-    });
-
   let registerForm = document.getElementById("registerForm");
   if (registerForm) {
     registerForm.classList.remove("hidden");
@@ -376,6 +343,85 @@ if (!backend.estaLogueado) {
       await backend.nuevaAportacion(datos);
     });
   }
+}
+
+// TODO No debería poder acceder a esta página si ya está logueado
+
+document.querySelectorAll("#rexistro-tipo button").forEach((trigger, iTipo) => {
+  if (iTipo == 0) {
+    trigger.classList.add("activo");
+  }
+
+  trigger.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    document
+      .querySelectorAll("#rexistro-tipo button")
+      .forEach((boton, iBoton) => {
+        if (iBoton == iTipo) {
+          boton.classList.add("activo");
+        } else {
+          boton.classList.remove("activo");
+        }
+      });
+
+    const forms = document.querySelector("#rexistro-forms").children;
+    let iForm = 0;
+    for (const form of forms) {
+      if (iForm == iTipo) {
+        form.classList.remove("oculto");
+      } else {
+        form.classList.add("oculto");
+      }
+      iForm++;
+    }
+  });
+});
+
+let botonRexistroPersoa = document.getElementById("rexistro-persoa-enviar");
+if (botonRexistroPersoa) {
+  botonRexistroPersoa.addEventListener("click", async (event) => {
+    event.preventDefault();
+
+    let nome = document.getElementById("rexistro-persoa-nome").value;
+    let email = document.getElementById("rexistro-persoa-email").value;
+    let password = document.getElementById("rexistro-persoa-password").value;
+    let relacion_valdeorras = document.getElementById(
+      "rexistro-persoa-relacion"
+    ).value;
+
+    await backend.registrarUsuario({
+      email: email,
+      password: password,
+      nombre: nome,
+      relacion_valdeorras: relacion_valdeorras,
+      institucion: 0,
+    });
+  });
+}
+
+let botonRexistroColectivo = document.getElementById(
+  "rexistro-colectivo-enviar"
+);
+if (botonRexistroColectivo) {
+  botonRexistroColectivo.addEventListener("click", async (event) => {
+    event.preventDefault();
+
+    let nome = document.getElementById("rexistro-colectivo-nome").value;
+    let email = document.getElementById("rexistro-colectivo-email").value;
+    let password = document.getElementById("rexistro-colectivo-password").value;
+    let relacion_valdeorras = document.getElementById(
+      "rexistro-colectivo-relacion"
+    ).value;
+
+    await backend.registrarUsuario({
+      email: email,
+      password: password,
+      nombre: nome,
+      relacion_valdeorras: relacion_valdeorras,
+      institucion: 1,
+    });
+  });
 }
 
 document.querySelectorAll(".dropdown").forEach((dropdown) => {
