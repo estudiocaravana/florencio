@@ -1,3 +1,7 @@
 #termo-mapa-iframe {
     height: 730px;
 }
+.activo {
+    background-color: var(--negro);
+    color: #fff;
+}

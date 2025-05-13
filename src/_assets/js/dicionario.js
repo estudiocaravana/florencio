@@ -279,6 +279,39 @@ if (!backend.estaLogueado) {
     });
   });
 
+  document
+    .querySelectorAll("#rexistro-tipo button")
+    .forEach((trigger, iTipo) => {
+      if (iTipo == 0) {
+        trigger.classList.add("activo");
+      }
+
+      trigger.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        document
+          .querySelectorAll("#rexistro-tipo button")
+          .forEach((boton, iBoton) => {
+            if (iBoton == iTipo) {
+              boton.classList.add("activo");
+            } else {
+              boton.classList.remove("activo");
+            }
+          });
+
+        const forms = document.querySelector("#rexistro-forms").children;
+        let iForm = 0;
+        for (const form of forms) {
+          if (iForm == iTipo) {
+            form.classList.remove("oculto");
+          } else {
+            form.classList.add("oculto");
+          }
+          iForm++;
+        }
+      });
+    });
+
   let registerForm = document.getElementById("registerForm");
   if (registerForm) {
     registerForm.classList.remove("hidden");
