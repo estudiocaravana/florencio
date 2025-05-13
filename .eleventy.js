@@ -61,6 +61,12 @@ module.exports = async function (eleventyConfig) {
   });
   // Put robots.txt in root
   eleventyConfig.addPassthroughCopy({ "src/robots.txt": "/robots.txt" });
+
+  // Filtro para convertir json a string
+  eleventyConfig.addFilter("stringify", (data) => {
+    return JSON.stringify(data, null, "\t");
+  });
+
   // sortByOrder - filtro para ordenar colecciones
   function sortByOrder(values) {
     let vals = [...values]; // this *seems* to prevent collection mutation...
