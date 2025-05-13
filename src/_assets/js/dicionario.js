@@ -386,16 +386,24 @@ if (botonRexistroPersoa) {
     let nome = document.getElementById("rexistro-persoa-nome").value;
     let email = document.getElementById("rexistro-persoa-email").value;
     let password = document.getElementById("rexistro-persoa-password").value;
+    let repassword = document.getElementById(
+      "rexistro-persoa-repassword"
+    ).value;
     let relacion_valdeorras = document.getElementById(
       "rexistro-persoa-relacion"
     ).value;
+    let privacidade = document.getElementById(
+      "rexistro-persoa-privacidade"
+    ).checked;
 
     await backend.registrarUsuario({
       email: email,
       password: password,
+      repassword: repassword,
       nombre: nome,
       relacion_valdeorras: relacion_valdeorras,
       institucion: 0,
+      privacidade: privacidade,
     });
   });
 }
@@ -410,16 +418,28 @@ if (botonRexistroColectivo) {
     let nome = document.getElementById("rexistro-colectivo-nome").value;
     let email = document.getElementById("rexistro-colectivo-email").value;
     let password = document.getElementById("rexistro-colectivo-password").value;
+    let repassword = document.getElementById(
+      "rexistro-colectivo-repassword"
+    ).value;
     let relacion_valdeorras = document.getElementById(
       "rexistro-colectivo-relacion"
     ).value;
+    let persoa_contacto = document.getElementById(
+      "rexistro-colectivo-contacto"
+    ).value;
+    let privacidade = document.getElementById(
+      "rexistro-colectivo-privacidade"
+    ).checked;
 
     await backend.registrarUsuario({
       email: email,
       password: password,
+      repassword: repassword,
       nombre: nome,
       relacion_valdeorras: relacion_valdeorras,
+      persoa_contacto: persoa_contacto,
       institucion: 1,
+      privacidade: privacidade,
     });
   });
 }

@@ -96,17 +96,15 @@ export function Backend() {
   };
 
   this.login = async (email, password, hayReload) => {
-    if (this.estaLogueado) {
-      muestraError("Xa estás logueado");
-      return;
-    }
-
-    if (!email || !password) {
-      muestraError("Por favor, introduce o teu email e contrasinal");
-      return;
-    }
-
     try {
+      if (this.estaLogueado) {
+        throw new Error("Xa estás logueado");
+      }
+
+      if (!email || !password) {
+        throw new Error("Por favor, introduce o teu email e contrasinal");
+      }
+
       const response = await this.directus.login(email, password);
       localStorage.setItem(TOKEN_NOMBRE, JSON.stringify(response));
       this.actualizaDatosLogin();
@@ -115,13 +113,31 @@ export function Backend() {
         location.reload();
       }
     } catch (error) {
-      muestraError(error?.errors?.[0]?.message || "Erro na entrada do usuario");
+      muestraError(error?.errors?.[0]?.message || error);
     }
   };
 
   this.registrarUsuario = async (datos) => {
-    // TODO Validar los datos
     try {
+      if (!datos.email) {
+        throw new Error("Por favor, introduce o teu email");
+      }
+      if (!datos.password) {
+        throw new Error("Por favor, introduce un contrasinal");
+      }
+      if (datos.password.length < 8) {
+        throw new Error("O contrasinal ten que ter polo menos 8 caracteres");
+      }
+      if (datos.password !== datos.repassword) {
+        throw new Error("Os contrasinais non coinciden");
+      }
+      if (!datos.nombre) {
+        throw new Error("Por favor, introduce o teu nome");
+      }
+      if (!datos.privacidade) {
+        throw new Error("Por favor, acepta a política de privacidade");
+      }
+
       // Comprobamos si el email ya existe
       const resultCheck = await this.hazPeticion(
         () => ({
@@ -150,17 +166,21 @@ export function Backend() {
       // Para que esto funcione, hay que desactivar la verificación de email en el panel de Directus
       await this.login(datos.email, datos.password, false);
 
-      await this.hazPeticion(
-        updateMe(
-          {
-            relacion_valdeorras: datos.relacion_valdeorras,
-            institucion: datos.institucion,
-          },
-          false
-        )
-      );
+      let datosPerfil = {
+        institucion: datos.institucion,
+      };
 
-      location.reload();
+      if (datos.relacion_valdeorras) {
+        datosPerfil.relacion_valdeorras = datos.relacion_valdeorras;
+      }
+      if (datos.persoa_contacto) {
+        datosPerfil.persoa_contacto = datos.persoa_contacto;
+      }
+
+      await this.hazPeticion(updateMe(datosPerfil, false));
+
+      // Redirigimos a la home
+      location.href = "/?registro=ok";
     } catch (error) {
       muestraError(error?.errors?.[0]?.message || error);
     }
