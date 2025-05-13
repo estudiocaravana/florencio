@@ -89,14 +89,6 @@ export function Backend() {
           // muestraError("O token caducou. Por favor, volve iniciar sesión.");
         }
       }
-
-      let userInfo = await this.hazPeticion(
-        readMe({
-          fields: ["*"],
-        }),
-        false
-      );
-      console.log(userInfo);
     }
   };
 
@@ -183,6 +175,17 @@ export function Backend() {
     }
     localStorage.removeItem(TOKEN_NOMBRE);
     location.reload();
+  };
+
+  this.perfil = async () => {
+    let userInfo = await this.hazPeticion(
+      readMe({
+        fields: ["*"],
+      }),
+      false
+    );
+
+    return userInfo;
   };
 
   this.nuevaAportacion = async (datos) => {

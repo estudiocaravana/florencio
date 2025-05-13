@@ -258,15 +258,23 @@ function obtenValoresSelect(id) {
 let backend = new Backend();
 await backend.init();
 
-if (!backend.estaLogueado) {
-  let loginForm = document.getElementById("loginForm");
-  if (loginForm) {
-    loginForm.classList.remove("hidden");
+let loginForm = document.getElementById("login-form");
+let logoutForm = document.getElementById("logout-form");
 
-    loginForm.addEventListener("submit", async (event) => {
+if (!backend.estaLogueado) {
+  if (loginForm) {
+    loginForm.classList.remove("oculto");
+  }
+  if (logoutForm) {
+    logoutForm.classList.add("oculto");
+  }
+
+  let loginEnviar = document.getElementById("login-enviar");
+  if (loginEnviar) {
+    loginEnviar.addEventListener("click", async (event) => {
       event.preventDefault();
-      let email = document.getElementById("email").value;
-      let password = document.getElementById("password").value;
+      let email = document.getElementById("login-email").value;
+      let password = document.getElementById("login-password").value;
 
       await backend.login(email, password, true);
     });
@@ -296,12 +304,23 @@ if (!backend.estaLogueado) {
     });
   }
 } else {
-  let logoutForm = document.getElementById("logoutForm");
+  if (loginForm) {
+    loginForm.classList.add("oculto");
+  }
   if (logoutForm) {
-    logoutForm.classList.remove("hidden");
-    logoutForm.addEventListener("submit", async (event) => {
-      event.preventDefault();
+    logoutForm.classList.remove("oculto");
+  }
 
+  const perfil = await backend.perfil();
+
+  document.querySelectorAll("#usuario-nome").forEach((element) => {
+    element.innerText = perfil.first_name;
+  });
+
+  let logoutEnviar = document.getElementById("logout-enviar");
+  if (logoutEnviar) {
+    logoutEnviar.addEventListener("click", async (event) => {
+      event.preventDefault();
       await backend.logout();
     });
   }
@@ -337,6 +356,14 @@ document.querySelectorAll(".dropdown").forEach((dropdown) => {
         content.classList.toggle("hidden");
       });
     });
+  });
+});
+
+document.querySelectorAll("#login-trigger").forEach((trigger) => {
+  trigger.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    document.querySelector("#login-contenido").classList.toggle("oculto");
   });
 });
 

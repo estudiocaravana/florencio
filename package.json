@@ -10,8 +10,9 @@
     "adaptar11ty": "node scripts/adaptar11ty.js",
     "adaptarContenidos": "node scripts/adaptarContenidos.js",
     "obtenerCoordenadas": "node scripts/obtenerCoordenadas.js",
-    "ws": "cd webstudio && webstudio sync && webstudio build --template ssg && rm renderer/+onRenderClient.tsx && npm run build && cd .. && npm run adaptar11ty",
-    "r": "npm run adaptar11ty && netlify dev"
+    "ws": "cd webstudio && webstudio sync && webstudio build --template ssg && rm renderer/+onRenderClient.tsx && npm run build",
+    "r": "npm run adaptar11ty && netlify dev",
+    "wr": "npm run ws && npm run r"
   },
   "keywords": [],
   "author": "",
