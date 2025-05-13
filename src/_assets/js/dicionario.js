@@ -391,3 +391,39 @@ document.querySelectorAll("#termos-lista").forEach((lista) => {
     index++;
   }
 });
+
+document.querySelectorAll("#termo-mapa-iframe").forEach((elementoMapa) => {
+  let map;
+
+  async function initMap() {
+    const centro = { lat: 42.3498369, lng: -6.9703849 };
+    const { Map } = await google.maps.importLibrary("maps");
+    const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+    map = new Map(elementoMapa, {
+      zoom: 10,
+      center: centro,
+      mapId: "ubicaciones",
+    });
+    for (const u of ubicacion) {
+      const coordenadas = u.lugar_id.coordenadas.split(",");
+      const posicion = {
+        lat: parseFloat(coordenadas[0]),
+        lng: parseFloat(coordenadas[1]),
+      };
+      const marker = new AdvancedMarkerElement({
+        map: map,
+        position: posicion,
+        title: "Valdeorras",
+      });
+      const infoWindow = new google.maps.InfoWindow({
+        content: `<div class='info-window'>
+            <h2>${u.lugar_id.nome}</h2>
+          </div>`,
+      });
+      marker.addListener("click", () => {
+        infoWindow.open(map, marker);
+      });
+    }
+  }
+  initMap();
+});
