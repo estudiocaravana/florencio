@@ -9,16 +9,6 @@ import "wave-audio-path-player";
 
 import TomSelect from "tom-select";
 
-document.querySelectorAll(".tomselect").forEach((el) => {
-  new TomSelect(el, {
-    maxOptions: null,
-    sortField: {
-      field: "text",
-      direction: "asc",
-    },
-  });
-});
-
 /*
  * FAKE LOGIN
  */
@@ -305,7 +295,7 @@ document.querySelectorAll("#termos-lista").forEach((lista) => {
 
   buscador.addEventListener("keyup", function (event) {
     let textoBuscado = buscador.value.trim().toLowerCase();
-    console.log(textoBuscado);
+    // console.log(textoBuscado);
     filtrosAplicados["buscar"] = textoBuscado;
     paginaActual = 0;
     filtrar(termos);
@@ -464,6 +454,25 @@ if (!backend.estaLogueado) {
   });
 }
 
+document
+  .querySelectorAll(
+    "#novo-termo-ubicacion," +
+      "#novo-termo-categoria," +
+      "#novo-termo-campo," +
+      "#novo-termo-foto-autoria," +
+      "#novo-termo-informante-sexo," +
+      "#novo-termo-audio-sexo"
+  )
+  .forEach((el) => {
+    new TomSelect(el, {
+      maxOptions: null,
+      sortField: {
+        field: "text",
+        direction: "asc",
+      },
+    });
+  });
+
 document.querySelectorAll("#novo-termo-enviar").forEach((elemento) => {
   elemento.addEventListener("click", async (event) => {
     event.preventDefault();
@@ -472,11 +481,40 @@ document.querySelectorAll("#novo-termo-enviar").forEach((elemento) => {
       termo: document.getElementById("novo-termo-termo").value,
       definicion: document.getElementById("novo-termo-definicion").value,
 
-      // ubicacion: obtenValoresSelect("selectLocalizacion"),
-      // campos_semanticos: obtenValoresSelect("selectCampo"),
-      // categorias: obtenValoresSelect("selectCategoria"),
+      ubicacion: obtenValoresSelect("novo-termo-ubicacion"),
+      campos_semanticos: obtenValoresSelect("novo-termo-campo"),
+      categorias: obtenValoresSelect("novo-termo-categoria"),
 
       foto: document.getElementById("novo-termo-foto").files[0],
+      foto_autoria: document.getElementById("novo-termo-foto-autoria").value,
+      foto_fonte: document.getElementById("novo-termo-foto-fonte").value,
+
+      informante_nome: document.getElementById("novo-termo-informante-nome")
+        .value,
+      informante_sexo: document.getElementById("novo-termo-informante-sexo")
+        .value,
+      informante_data_nacemento: document.getElementById(
+        "novo-termo-informante-data_nacemento"
+      ).value,
+      informante_nacemento: document.getElementById(
+        "novo-termo-informante-nacemento"
+      ).value,
+      informante_residencia: document.getElementById(
+        "novo-termo-informante-residencia"
+      ).value,
+
+      audio: document.getElementById("novo-termo-audio").files[0],
+      audio_nome: document.getElementById("novo-termo-audio-nome").value,
+      audio_sexo: document.getElementById("novo-termo-audio-sexo").value,
+      audio_data_nacemento: document.getElementById(
+        "novo-termo-audio-data_nacemento"
+      ).value,
+      audio_nacemento: document.getElementById("novo-termo-audio-nacemento")
+        .value,
+      audio_residencia: document.getElementById("novo-termo-audio-residencia")
+        .value,
+      audio_onde: document.getElementById("novo-termo-audio-onde").value,
+      audio_termos: document.getElementById("novo-termo-audio-termos").value,
     };
 
     await backend.nuevaAportacion(datos);

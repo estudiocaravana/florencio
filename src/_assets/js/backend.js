@@ -76,8 +76,8 @@ export function Backend() {
       const tokenCaduca = new Date(this.token.expires_at);
       const agora = new Date();
 
-      console.log(agora);
-      console.log(tokenCaduca);
+      // console.log(agora);
+      // console.log(tokenCaduca);
 
       if (tokenCaduca < agora) {
         console.log("El token caducó");
@@ -215,7 +215,6 @@ export function Backend() {
     // TODO Validar los datos
 
     let foto_id = null;
-
     if (datos.foto) {
       // Primero subimos la foto al servidor
       try {
@@ -236,8 +235,30 @@ export function Backend() {
         muestraError(error?.errors?.[0]?.message || error);
       }
     }
-
     datos.foto = foto_id;
+
+    let audio_id = null;
+    if (datos.audio) {
+      // Primero subimos la audio al servidor
+      try {
+        const formData = new FormData();
+        // Carpeta pública
+        formData.append("folder", CARPETA_PUBLICA);
+        formData.append("file", datos.audio);
+
+        const resultadoAudio = await this.hazPeticion(
+          uploadFiles(formData),
+          false
+        );
+
+        console.log(resultadoAudio);
+
+        audio_id = resultadoAudio.id;
+      } catch (error) {
+        muestraError(error?.errors?.[0]?.message || error);
+      }
+    }
+    datos.audio = audio_id;
 
     try {
       const resultadoNuevoTermino = await this.hazPeticion(

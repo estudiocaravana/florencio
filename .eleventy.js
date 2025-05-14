@@ -49,15 +49,12 @@ module.exports = async function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/media");
   eleventyConfig.addPassthroughCopy({
-    "node_modules/alpinejs/dist/cdn.min.js": "/assets/alpine.js",
-  });
-  eleventyConfig.addPassthroughCopy({
     "node_modules/tom-select/dist/css/tom-select.min.css":
-      "/assets/tom-select.css",
+      "/_assets/tom-select.css",
   });
   eleventyConfig.addPassthroughCopy({
     "node_modules/tom-select/dist/css/tom-select.min.css.map":
-      "/assets/tom-select.min.css.map",
+      "/_assets/tom-select.min.css.map",
   });
   // Put robots.txt in root
   eleventyConfig.addPassthroughCopy({ "src/robots.txt": "/robots.txt" });
