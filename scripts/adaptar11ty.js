@@ -156,6 +156,39 @@ const globby = require("fast-glob");
           "{% endif %}"
       );
 
+      // Ficha
+      let bloqueFicha = $el.find("#termo-bloque-ficha").first();
+
+      let bloqueCategorias = bloqueFicha
+        .find("#termo-bloque-categoria")
+        .first();
+      bloqueCategorias
+        .find("#termo-categoria")
+        .first()
+        .html("{{ termo.categorias | listaCategoria }}");
+      bloqueCategorias.replaceWith(
+        "{% if termo.categorias | length %}" +
+          bloqueCategorias.prop("outerHTML") +
+          "{% endif %}"
+      );
+
+      let bloqueCampos = bloqueFicha.find("#termo-bloque-campo").first();
+      bloqueCampos
+        .find("#termo-campo")
+        .first()
+        .html("{{ termo.campo_semantico | listaCampo }}");
+      bloqueCampos.replaceWith(
+        "{% if termo.campo_semantico | length %}" +
+          bloqueCampos.prop("outerHTML") +
+          "{% endif %}"
+      );
+
+      bloqueFicha.replaceWith(
+        "{% if termo.categorias | length or termo.campo_semantico | length %}" +
+          bloqueFicha.prop("outerHTML") +
+          "{% endif %}"
+      );
+
       // Mapa
       let bloqueUbicacion = $el.find("#termo-bloque-localizacion").first();
       bloqueUbicacion.replaceWith(

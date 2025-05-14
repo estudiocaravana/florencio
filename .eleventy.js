@@ -66,16 +66,36 @@ module.exports = async function (eleventyConfig) {
   eleventyConfig.addFilter("stringify", (data) => {
     return JSON.stringify(data, null, "\t");
   });
-  // Filtro para convertir un array de ubicaciones en una lista
-  eleventyConfig.addFilter("listaUbicacion", (data) => {
-    if (!data) return "";
 
-    return data
-      .map((item) => {
-        return item.lugar_id.nome;
-      })
-      .join(", ");
-  });
+  // Creamos un filtro para convertir un array de objetos
+  // relacionados de muchos a muchos (M2M) en una lista separada por comas
+  function creaListaDeM2M(campo, nombre) {
+    return (data) => {
+      if (!data) return "";
+
+      return data
+        .map((item) => {
+          return item[campo][nombre];
+        })
+        .join(", ");
+    };
+  }
+
+  // Filtro para convertir un array de ubicaciones en una lista
+  eleventyConfig.addFilter(
+    "listaUbicacion",
+    creaListaDeM2M("lugar_id", "nome")
+  );
+  // Filtro para convertir un array de categorias en una lista
+  eleventyConfig.addFilter(
+    "listaCategoria",
+    creaListaDeM2M("categoria_id", "nome")
+  );
+  // Filtro para convertir un array de campos semanticos en una lista
+  eleventyConfig.addFilter(
+    "listaCampo",
+    creaListaDeM2M("campo_semantico_id", "nome")
+  );
 
   // sortByOrder - filtro para ordenar colecciones
   function sortByOrder(values) {
