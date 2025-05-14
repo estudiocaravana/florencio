@@ -142,11 +142,7 @@ const globby = require("fast-glob");
       bloqueAudio
         .find("#termo-audio-lenda")
         .first()
-        .html(
-          "{{ audio.audio_quen}}" +
-            "{% if audio.audio_data_nacemento or audio.audio_nacemento %} ({{ audio.audio_data_nacemento }}{% if audio.audio_data_nacemento and audio.audio_nacemento %}, {% endif %}{{ audio.audio_nacemento }}){% endif %}" +
-            "{% if audio.audio_residencia %}. Actualmente vive en {{ audio.audio_residencia}}{% endif %}"
-        );
+        .html("{{ audio | informanteAudio }}");
 
       bloqueAudio.replaceWith(
         "{% if termo.audios | length %}" +
@@ -186,6 +182,22 @@ const globby = require("fast-glob");
       bloqueFicha.replaceWith(
         "{% if termo.categorias | length or termo.campo_semantico | length %}" +
           bloqueFicha.prop("outerHTML") +
+          "{% endif %}"
+      );
+
+      // Informantes
+      let bloqueInformantes = $el.find("#termo-bloque-informantes").first();
+      bloqueInformantes
+        .find("#termo-informantes")
+        .first()
+        .html(
+          "{%- for informante in termo.informantes -%}" +
+            "{{ informante | informante }}<br>" +
+            "{%- endfor -%}"
+        );
+      bloqueInformantes.replaceWith(
+        "{% if termo.informantes | length %}" +
+          bloqueInformantes.prop("outerHTML") +
           "{% endif %}"
       );
 

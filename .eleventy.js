@@ -97,6 +97,59 @@ module.exports = async function (eleventyConfig) {
     creaListaDeM2M("campo_semantico_id", "nome")
   );
 
+  // Creamos un filtro para extraer el informante de un objeto
+  function creaInformante(quen, data_nacemento, nacemento, residencia) {
+    return (data) => {
+      if (!data) return "";
+
+      let texto = "";
+
+      if (data[quen]) {
+        texto += data[quen];
+      }
+      if (data[data_nacemento] || data[nacemento]) {
+        texto += " (";
+
+        if (data[data_nacemento]) {
+          texto += data[data_nacemento];
+        }
+        if (data[data_nacemento] && data[nacemento]) {
+          texto += ", ";
+        }
+        if (data[nacemento]) {
+          texto += data[nacemento];
+        }
+
+        texto += ")";
+      }
+      if (data[residencia]) {
+        texto += ". Actualmente vive en " + data[residencia];
+      }
+      return texto;
+    };
+  }
+
+  // Filtro para mostrar el informante de un audio
+  eleventyConfig.addFilter(
+    "informanteAudio",
+    creaInformante(
+      "audio_quen",
+      "audio_data_nacemento",
+      "audio_nacemento",
+      "audio_residencia"
+    )
+  );
+  // Filtro para mostrar el informante de un termo
+  eleventyConfig.addFilter(
+    "informante",
+    creaInformante(
+      "nome",
+      "ano_de_nacemento",
+      "lugar_de_nacemento",
+      "ultimo_lugar_de_residencia"
+    )
+  );
+
   // sortByOrder - filtro para ordenar colecciones
   function sortByOrder(values) {
     let vals = [...values]; // this *seems* to prevent collection mutation...
