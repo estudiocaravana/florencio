@@ -27,6 +27,23 @@ const globby = require("fast-glob");
     const html = fs.readFileSync(file, "utf-8");
     const $ = cheerio.load(html);
 
+    // HOME
+    $("#home-termos-lista").each((_, el) => {
+      let modelo = $(el).children().first();
+      modelo.attr("href", "/termos/termo/{{ item.termo | slug }}");
+      modelo.find("#termo-nome").first().html("{{ item.termo }}");
+      modelo
+        .find("#termo-extracto")
+        .first()
+        .html("{{ item.definicion | safe }}");
+
+      const bucle =
+        "{%- for item in home -%}\n" +
+        modelo.prop("outerHTML") +
+        "{%- endfor -%}";
+      $(el).html(bucle);
+    });
+
     // LISTA DE TERMOS
     $("#termos-lista").each((_, el) => {
       let modelo = $(el).children().first();
