@@ -1,7 +1,16 @@
-#termo-mapa-iframe {
-    height: 730px;
-}
 .activo {
     background-color: var(--negro);
     color: #fff;
+}
+
+#termo-mapa-iframe {
+    height: 730px;
+}
+
+wave-audio-path-player::part(currenttime),
+wave-audio-path-player::part(duration) {
+    font-family: "Rubik Variable", sans-serif;
+}
+wave-audio-path-player::part(play) {
+    padding: 0;
 }

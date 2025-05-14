@@ -3,6 +3,8 @@ const cheerio = require("cheerio");
 const globby = require("fast-glob");
 
 (async () => {
+  const assetsUrl = "https://panel.florenciodelgadogurriaran.gal/assets";
+
   // Borramos el contenido de la carpeta src/_layouts
   // para que no haya conflictos con los archivos que ya existen
   const webstudioDir = "webstudio/dist/client";
@@ -69,10 +71,7 @@ const globby = require("fast-glob");
       let foto = bloqueFoto.find("#termo-foto").first();
 
       let nuevaFoto = $("<img>");
-      nuevaFoto.attr(
-        "src",
-        "https://panel.florenciodelgadogurriaran.gal/assets/{{ termo.galeria[0].foto }}"
-      );
+      nuevaFoto.attr("src", assetsUrl + "/{{ termo.galeria[0].foto }}");
       nuevaFoto.attr("class", foto.attr("class"));
       foto.replaceWith(nuevaFoto);
 
@@ -125,6 +124,35 @@ const globby = require("fast-glob");
       bloqueFoto.replaceWith(
         "{% if termo.galeria | length %}" +
           bloqueFoto.prop("outerHTML") +
+          "{% endif %}"
+      );
+
+      // Audio
+      let bloqueAudio = $el.find("#termo-bloque-audio").first();
+      bloqueAudio
+        .find("#termo-audio-reproductor")
+        .first()
+        .html(
+          '<div class="">' +
+            '<wave-audio-path-player src="' +
+            assetsUrl +
+            '/{{ audio.audio }}" wave-width="300" wave-height="40" color="#000000" wave-color="#f7f5f2" wave-slider="#000000" wave-progress-color="#000000"></wave-audio-path-player>' +
+            "</div>"
+        );
+      bloqueAudio
+        .find("#termo-audio-lenda")
+        .first()
+        .html(
+          "{{ audio.audio_quen}}" +
+            "{% if audio.audio_data_nacemento or audio.audio_nacemento %} ({{ audio.audio_data_nacemento }}{% if audio.audio_data_nacemento and audio.audio_nacemento %}, {% endif %}{{ audio.audio_nacemento }}){% endif %}" +
+            "{% if audio.audio_residencia %}. Actualmente vive en {{ audio.audio_residencia}}{% endif %}"
+        );
+
+      bloqueAudio.replaceWith(
+        "{% if termo.audios | length %}" +
+          "{%- for audio in termo.audios -%}\n" +
+          bloqueAudio.prop("outerHTML") +
+          "{%- endfor -%}" +
           "{% endif %}"
       );
 
