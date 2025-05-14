@@ -91,10 +91,25 @@ module.exports = async function (eleventyConfig) {
     "listaCategoria",
     creaListaDeM2M("categoria_id", "nome")
   );
+  // Filtro para convertir un array de categorias en una lista de ids
+  eleventyConfig.addFilter(
+    "listaIdsCategoria",
+    creaListaDeM2M("categoria_id", "id")
+  );
   // Filtro para convertir un array de campos semanticos en una lista
   eleventyConfig.addFilter(
     "listaCampo",
     creaListaDeM2M("campo_semantico_id", "nome")
+  );
+  // Filtro para convertir un array de campos semanticos en una lista de ids
+  eleventyConfig.addFilter(
+    "listaIdsCampo",
+    creaListaDeM2M("campo_semantico_id", "id")
+  );
+  // Filtro para convertir un array de ubicaciones en una lista de concellos
+  eleventyConfig.addFilter(
+    "listaConcellos",
+    creaListaDeM2M("lugar_id", "concello")
   );
 
   // Creamos un filtro para extraer el informante de un objeto

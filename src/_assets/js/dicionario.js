@@ -159,17 +159,27 @@ if (fakeLogins) {
  */
 
 let filtrosAplicados = {};
+let paginaActual = 0;
+let totalPaginas = 1;
 
 function filtrar(termos) {
-  termos.forEach((termo) => {
-    termo.classList.remove("hidden");
+  let elementosPorPagina = 9;
+
+  let termosFiltrados = [];
+
+  for (const termo of termos) {
+    termo.classList.remove("oculto");
+    let estaEnTodosFiltros = true;
 
     for (let filtroAplicado in filtrosAplicados) {
       let valorFiltro = filtrosAplicados[filtroAplicado];
       let estaEnFiltro = false;
 
       if (filtroAplicado == "buscar") {
-        let termoTexto = termo.innerText.trim().toLowerCase();
+        let termoTexto = termo
+          .querySelector("#termo-nome")
+          .innerText.trim()
+          .toLowerCase();
 
         if (termoTexto.indexOf(valorFiltro) == -1) {
           estaEnFiltro = false;
@@ -190,55 +200,139 @@ function filtrar(termos) {
       }
 
       if (!estaEnFiltro) {
-        termo.classList.add("hidden");
+        termo.classList.add("oculto");
+        estaEnTodosFiltros = false;
         break;
       }
     }
-  });
+
+    if (estaEnTodosFiltros) {
+      termosFiltrados.push(termo);
+    }
+  }
+
+  totalPaginas = Math.ceil(termosFiltrados.length / elementosPorPagina);
+  const minPagina = paginaActual * elementosPorPagina;
+  const maxPagina = (paginaActual + 1) * elementosPorPagina;
+  let index = 0;
+  for (const elemento of termosFiltrados) {
+    if (index < minPagina || index >= maxPagina) {
+      elemento.classList.add("oculto");
+    }
+    index++;
+  }
+
+  const paginador = document.querySelector("#filtro-paginador");
+  if (totalPaginas > 1) {
+    paginador.querySelector("#filtro-paginador-pagina").innerHTML =
+      paginaActual + 1 + "/" + totalPaginas;
+    paginador.classList.remove("oculto");
+  } else {
+    paginador.classList.add("oculto");
+  }
+
+  const resumen = document.querySelector("#filtro-resumen");
+  let textosResumen = [];
+  if (filtrosAplicados["categorias"]) {
+    const categoria = document.querySelector(
+      "#filtro-categorias a[data-id='" + filtrosAplicados["categorias"] + "']"
+    );
+    if (categoria) {
+      textosResumen.push(categoria.innerText);
+    }
+  }
+  if (filtrosAplicados["buscar"]) {
+    textosResumen.push('que conteñen "' + filtrosAplicados["buscar"] + '"');
+  }
+  if (filtrosAplicados["campos"]) {
+    const campo = document.querySelector(
+      "#filtro-campos a[data-id='" + filtrosAplicados["campos"] + "']"
+    );
+    if (campo) {
+      textosResumen.push('no campo de "' + campo.innerText + '"');
+    }
+  }
+  if (filtrosAplicados["concellos"]) {
+    textosResumen.push("en " + filtrosAplicados["concellos"]);
+  }
+
+  let textoResumen = "";
+  if (textosResumen.length > 0) {
+    if (!filtrosAplicados["categorias"]) {
+      textoResumen += "Termos ";
+    }
+    textoResumen += textosResumen.join(", ");
+  } else {
+    textoResumen = "Todos";
+  }
+  resumen.innerHTML = textoResumen;
 }
 
 function crearFiltro(termos, nombreFiltro) {
-  let enlaces = filtro.querySelectorAll(".js-filtro-" + nombreFiltro + " a");
+  let enlaces = document.querySelectorAll("#filtro-" + nombreFiltro + " a");
 
   enlaces.forEach((enlace) => {
     enlace.addEventListener("click", (event) => {
       event.preventDefault();
 
-      let filtroEnlace = enlace.innerText.trim();
+      let filtroEnlace = enlace.dataset.id;
 
       enlaces.forEach((enlace) => {
-        enlace.classList.remove("text-verde");
+        enlace.classList.remove("link-activo");
       });
-      enlace.classList.add("text-verde");
+      enlace.classList.add("link-activo");
 
-      if (filtroEnlace != "Todos" && filtroEnlace != "Todas") {
+      if (filtroEnlace != "0") {
         filtrosAplicados[nombreFiltro] = filtroEnlace;
       } else {
         delete filtrosAplicados[nombreFiltro];
       }
 
+      paginaActual = 0;
       filtrar(termos);
     });
   });
 }
 
-let filtro = document.querySelector(".js-filtro");
-if (filtro) {
-  let termos = document.querySelectorAll(".js-termo");
+document.querySelectorAll("#termos-lista").forEach((lista) => {
+  let termos = lista.children;
 
-  crearFiltro(termos, "categoria");
-  crearFiltro(termos, "campo");
-  crearFiltro(termos, "lugar");
+  crearFiltro(termos, "categorias");
+  crearFiltro(termos, "campos");
+  crearFiltro(termos, "concellos");
 
-  let buscador = document.querySelector(".js-filtro-buscar");
+  let buscador = document.querySelector("#fitro-buscador");
 
   buscador.addEventListener("keyup", function (event) {
     let textoBuscado = buscador.value.trim().toLowerCase();
     console.log(textoBuscado);
     filtrosAplicados["buscar"] = textoBuscado;
+    paginaActual = 0;
     filtrar(termos);
   });
-}
+
+  const paginador = document.querySelector("#filtro-paginador");
+  paginador
+    .querySelector("#filtro-paginador-anterior")
+    .addEventListener("click", (event) => {
+      event.preventDefault();
+      if (paginaActual > 0) {
+        paginaActual--;
+        filtrar(termos);
+      }
+    });
+  paginador
+    .querySelector("#filtro-paginador-siguiente")
+    .addEventListener("click", (event) => {
+      event.preventDefault();
+      if (paginaActual < totalPaginas - 1) {
+        paginaActual++;
+        filtrar(termos);
+      }
+    });
+
+  filtrar(termos);
+});
 
 /*
  * CONEXIÓN CON BACKEND
@@ -482,48 +576,6 @@ document.querySelectorAll("#termos-filtro-trigger").forEach((trigger) => {
       .querySelector("#termos-filtro-contenido")
       .classList.toggle("oculto");
   });
-});
-
-document.querySelectorAll("#termos-lista").forEach((lista) => {
-  let elementos = lista.children;
-  let elementosPorPagina = 9;
-
-  let totalPaginas = Math.ceil(elementos.length / elementosPorPagina);
-
-  // let pagina = 1;
-  // let paginacion = lista.querySelector(".paginacion");
-  // let paginacionHTML = "";
-  // for (let i = 1; i <= totalPaginas; i++) {
-  //   paginacionHTML += `<button class="pagina" data-pagina="${i}">${i}</button>`;
-  // }
-  // paginacion.innerHTML = paginacionHTML;
-
-  // paginacion.querySelectorAll(".pagina").forEach((paginaBtn) => {
-  //   paginaBtn.addEventListener("click", (event) => {
-  //     event.preventDefault();
-  //     let paginaSeleccionada = parseInt(paginaBtn.dataset.pagina);
-  //     if (paginaSeleccionada != pagina) {
-  //       pagina = paginaSeleccionada;
-  //       elementos.forEach((elemento, index) => {
-  //         elemento.classList.add("oculto");
-  //         if (
-  //           index >= (pagina - 1) * elementosPorPagina &&
-  //           index < pagina * elementosPorPagina
-  //         ) {
-  //           elemento.classList.remove("oculto");
-  //         }
-  //       });
-  //     }
-  //   });
-  // });
-
-  let index = 0;
-  for (const elemento of elementos) {
-    if (index >= elementosPorPagina) {
-      elemento.classList.add("oculto");
-    }
-    index++;
-  }
 });
 
 document.querySelectorAll("#termo-mapa-iframe").forEach((elementoMapa) => {

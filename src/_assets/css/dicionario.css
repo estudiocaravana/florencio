@@ -3,6 +3,10 @@
     color: #fff;
 }
 
+.link-activo {
+    color: var(--verde)
+}
+
 #termo-mapa-iframe {
     height: 730px;
 }
