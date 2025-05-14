@@ -56,6 +56,14 @@ const globby = require("fast-glob");
         .first()
         .html("{{ termo.definicion | safe }}");
 
+      // Marca "En revisión"
+      let revision = $el.find("#termo-revision").first();
+      revision.replaceWith(
+        "{% if termo.status == 'revision' %}" +
+          revision.prop("outerHTML") +
+          "{% endif %}"
+      );
+
       // Ejemplos
       let bloqueExemplos = $el.find("#termo-bloque-exemplos").first();
       let exemplos = bloqueExemplos.find("#termo-exemplos").first();
