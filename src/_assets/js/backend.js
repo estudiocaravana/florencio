@@ -14,15 +14,27 @@ import {
 let TOKEN_NOMBRE = "directus_auth";
 let CARPETA_PUBLICA = "5e2c48e8-0a84-414e-baaa-f5e622d22355";
 
+const muestraAviso = (mensaje, tipo) => {
+  let aviso = document.querySelector("#aviso");
+
+  if (tipo === "ok") {
+    aviso.querySelector("#aviso-tipo-ok").classList.remove("oculto");
+    aviso.querySelector("#aviso-tipo-ko").classList.add("oculto");
+  } else {
+    aviso.querySelector("#aviso-tipo-ok").classList.add("oculto");
+    aviso.querySelector("#aviso-tipo-ko").classList.remove("oculto");
+  }
+  aviso.querySelector("#aviso-mensaje").innerHTML = mensaje;
+
+  aviso.classList.remove("oculto");
+};
+
 const muestraError = (mensaje) => {
-  document.querySelectorAll("#aviso-mensaje").forEach((aviso) => {
-    aviso.innerHTML = mensaje;
-  });
-  document.querySelector("#aviso").classList.remove("oculto");
+  muestraAviso(mensaje, "ko");
 };
 
 const muestraExito = (mensaje) => {
-  console.log(mensaje);
+  muestraAviso(mensaje, "ok");
 };
 
 export function Backend() {
