@@ -211,56 +211,38 @@ export function Backend() {
     return userInfo;
   };
 
+  this.subirArchivo = async (archivo) => {
+    let archivo_id = null;
+
+    if (archivo) {
+      // Subimos el archivo al servidor
+      const formData = new FormData();
+      // Carpeta pública
+      formData.append("folder", CARPETA_PUBLICA);
+      formData.append("file", archivo);
+
+      const resultadoFoto = await this.hazPeticion(
+        uploadFiles(formData),
+        false
+      );
+
+      console.log(resultadoFoto);
+
+      archivo_id = resultadoFoto.id;
+    }
+
+    return archivo_id;
+  };
+
   this.nuevaAportacion = async (datos) => {
-    // TODO Validar los datos
-
-    let foto_id = null;
-    if (datos.foto) {
-      // Primero subimos la foto al servidor
-      try {
-        const formData = new FormData();
-        // Carpeta pública
-        formData.append("folder", CARPETA_PUBLICA);
-        formData.append("file", datos.foto);
-
-        const resultadoFoto = await this.hazPeticion(
-          uploadFiles(formData),
-          false
-        );
-
-        console.log(resultadoFoto);
-
-        foto_id = resultadoFoto.id;
-      } catch (error) {
-        muestraError(error?.errors?.[0]?.message || error);
-      }
-    }
-    datos.foto = foto_id;
-
-    let audio_id = null;
-    if (datos.audio) {
-      // Primero subimos la audio al servidor
-      try {
-        const formData = new FormData();
-        // Carpeta pública
-        formData.append("folder", CARPETA_PUBLICA);
-        formData.append("file", datos.audio);
-
-        const resultadoAudio = await this.hazPeticion(
-          uploadFiles(formData),
-          false
-        );
-
-        console.log(resultadoAudio);
-
-        audio_id = resultadoAudio.id;
-      } catch (error) {
-        muestraError(error?.errors?.[0]?.message || error);
-      }
-    }
-    datos.audio = audio_id;
-
     try {
+      if (!datos.termo) {
+        throw new Error("Por favor, introduce o termo");
+      }
+
+      datos.foto = await this.subirArchivo(datos.foto);
+      datos.audio = await this.subirArchivo(datos.audio);
+
       const resultadoNuevoTermino = await this.hazPeticion(
         () => ({
           path: "/flows/trigger/0525f10d-382c-4b00-9ffe-08fe5171e9fc",
