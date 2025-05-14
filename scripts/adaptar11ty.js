@@ -226,6 +226,16 @@ const globby = require("fast-glob");
           "  const ubicacion = {{ termo.ubicacion | stringify | safe }};\n" +
           "</script>"
       );
+
+      // Argumentario
+      let bloqueArgumentario = $el.find("#termo-bloque-argumentario").first();
+      let argumentario = bloqueArgumentario.find("#termo-argumentario").first();
+      argumentario.html("{{ termo.argumentario | safe }}");
+      bloqueArgumentario.replaceWith(
+        "{% if termo.argumentario %}" +
+          bloqueArgumentario.prop("outerHTML") +
+          "{% endif %}"
+      );
     });
 
     // Añadimos el css y el js del diccionario donde corresponda
