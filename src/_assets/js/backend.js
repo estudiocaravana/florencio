@@ -248,7 +248,6 @@ export function Backend() {
         }),
         false
       );
-      novoTermoForm.classList.add("hidden");
       console.log(resultadoNuevoTermino);
 
       muestraExito("Termo engadido correctamente");

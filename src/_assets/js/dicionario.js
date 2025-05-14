@@ -349,6 +349,37 @@ document.querySelectorAll("#bloque-desplegable").forEach((bloque) => {
   });
 });
 
+function crearFileInput(bloque, id) {
+  const fileInput = document.createElement("input");
+  fileInput.type = "file";
+  fileInput.id = id;
+  fileInput.classList.add("oculto");
+  bloque.parentNode.insertBefore(fileInput, bloque.nextSibling);
+
+  bloque.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    fileInput.click();
+  });
+
+  fileInput.addEventListener("change", (event) => {
+    let file = event.target.files[0];
+    if (file) {
+      const nombreRecortado =
+        file.name.length > 20 ? file.name.slice(0, 20) + "..." : file.name;
+      bloque.innerText = nombreRecortado;
+    }
+  });
+}
+
+document.querySelectorAll("#novo-termo-foto-subir").forEach((bloque) => {
+  crearFileInput(bloque, "novo-termo-foto");
+});
+
+document.querySelectorAll("#novo-termo-audio-subir").forEach((bloque) => {
+  crearFileInput(bloque, "novo-termo-audio");
+});
+
 /*
  * CONEXIÓN CON BACKEND
  */
@@ -431,28 +462,26 @@ if (!backend.estaLogueado) {
       await backend.logout();
     });
   });
-
-  let novoTermoForm = document.getElementById("novoTermoForm");
-  if (novoTermoForm) {
-    novoTermoForm.classList.remove("hidden");
-
-    novoTermoForm.addEventListener("submit", async (event) => {
-      event.preventDefault();
-      let datos = {
-        termo: document.getElementById("termo").value,
-        definicion: document.getElementById("definicion").value,
-
-        ubicacion: obtenValoresSelect("selectLocalizacion"),
-        campos_semanticos: obtenValoresSelect("selectCampo"),
-        categorias: obtenValoresSelect("selectCategoria"),
-
-        foto: document.getElementById("foto").files[0],
-      };
-
-      await backend.nuevaAportacion(datos);
-    });
-  }
 }
+
+document.querySelectorAll("#novo-termo-enviar").forEach((elemento) => {
+  elemento.addEventListener("click", async (event) => {
+    event.preventDefault();
+
+    let datos = {
+      termo: document.getElementById("novo-termo-termo").value,
+      definicion: document.getElementById("novo-termo-definicion").value,
+
+      // ubicacion: obtenValoresSelect("selectLocalizacion"),
+      // campos_semanticos: obtenValoresSelect("selectCampo"),
+      // categorias: obtenValoresSelect("selectCategoria"),
+
+      foto: document.getElementById("novo-termo-foto").files[0],
+    };
+
+    await backend.nuevaAportacion(datos);
+  });
+});
 
 // TODO No debería poder acceder a esta página si ya está logueado
 
