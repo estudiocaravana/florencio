@@ -324,6 +324,13 @@ const globby = require("fast-glob");
           bloqueArgumentario.prop("outerHTML") +
           "{% endif %}"
       );
+
+      // Enlace para completar el termo
+      let enlaceCompletar = $el.find("#termo-completar").first();
+      enlaceCompletar.attr(
+        "href",
+        enlaceCompletar.attr("href") + "?termo={{ termo.termo }}"
+      );
     });
 
     // Añadimos el css y el js del diccionario donde corresponda

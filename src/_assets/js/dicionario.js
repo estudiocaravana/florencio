@@ -335,6 +335,21 @@ document.querySelectorAll("#termos-lista").forEach((lista) => {
 });
 
 /*
+ * NOVO TERMO
+ */
+document.querySelectorAll("#bloque-desplegable").forEach((bloque) => {
+  bloque.querySelectorAll("#desplegable-trigger").forEach((trigger) => {
+    trigger.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      bloque.querySelectorAll("#desplegable-contenido").forEach((contenido) => {
+        contenido.classList.toggle("oculto");
+      });
+    });
+  });
+});
+
+/*
  * CONEXIÓN CON BACKEND
  */
 
