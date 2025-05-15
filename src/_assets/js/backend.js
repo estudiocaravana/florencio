@@ -105,6 +105,16 @@ export function Backend() {
         }
       }
     }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const termoParam = urlParams.get("ok");
+    if (termoParam) {
+      if (termoParam === "rexistro") {
+        muestraExito(
+          "Usuario rexistrado correctamente!<br><br>Xa podes comezar a enviarnos as túas achegas e os teus comentarios."
+        );
+      }
+    }
   };
 
   this.login = async (email, password, hayReload) => {
@@ -192,7 +202,7 @@ export function Backend() {
       await this.hazPeticion(updateMe(datosPerfil, false));
 
       // Redirigimos a la home
-      location.href = "/?registro=ok";
+      location.href = "/?ok=rexistro";
     } catch (error) {
       muestraError(error?.errors?.[0]?.message || error);
     }

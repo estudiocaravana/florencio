@@ -192,6 +192,16 @@ document.querySelectorAll("#termos-lista").forEach((lista) => {
 /*
  * NOVO TERMO
  */
+
+document.querySelectorAll("#novo-termo-termo").forEach((termo) => {
+  // Obtenemos el parámetro "termo" de la URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const termoParam = urlParams.get("termo");
+  if (termoParam) {
+    termo.value = termoParam;
+  }
+});
+
 document.querySelectorAll("#bloque-desplegable").forEach((bloque) => {
   bloque.querySelectorAll("#desplegable-trigger").forEach((trigger) => {
     trigger.addEventListener("click", (event) => {
@@ -532,11 +542,19 @@ document.querySelectorAll("#login-trigger").forEach((trigger) => {
   });
 });
 
-document.querySelectorAll("#aviso-cerrar").forEach((trigger) => {
+// Cerramos los avisos tanto al hacer click en el fondo como en el botón de cerrar,
+// pero no en el aviso en sí
+document.querySelectorAll("#aviso, #aviso-cerrar").forEach((trigger) => {
   trigger.addEventListener("click", (event) => {
     event.preventDefault();
 
     document.querySelector("#aviso").classList.add("oculto");
+  });
+});
+document.querySelectorAll("#aviso-card").forEach((trigger) => {
+  trigger.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
   });
 });
 
