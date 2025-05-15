@@ -10,141 +10,6 @@ import "wave-audio-path-player";
 import TomSelect from "tom-select";
 
 /*
- * FAKE LOGIN
- */
-
-let datosFakeLogin = localStorage.getItem("fake_login");
-if (datosFakeLogin) {
-  datosFakeLogin = JSON.parse(datosFakeLogin);
-}
-
-// Obtenemos el hash exito
-let hayExito = window.location.hash == "#exito";
-
-function anteriorPaginaFakeLogin(fakeLogin) {
-  fakeLogin.querySelector(".js-fakelogin-1").classList.remove("hidden");
-  fakeLogin.querySelector(".js-fakelogin-2").classList.add("hidden");
-}
-
-function siguientePaginaFakeLogin(fakeLogin) {
-  fakeLogin.querySelector(".js-fakelogin-1").classList.add("hidden");
-  fakeLogin.querySelector(".js-fakelogin-2").classList.remove("hidden");
-
-  if (datosFakeLogin) {
-    fakeLogin.querySelectorAll(".js-fakelogin-nome").forEach((element) => {
-      element.innerText = datosFakeLogin.nome;
-    });
-  }
-}
-
-function errorFakeLogin(fakeLogin, mensaje) {
-  fakeLogin.querySelectorAll(".js-fakelogin-error").forEach((element) => {
-    if (mensaje) {
-      element.innerText = mensaje;
-      element.classList.remove("hidden");
-    } else {
-      element.classList.add("hidden");
-    }
-  });
-}
-
-let fakeLogins = document.querySelectorAll(".js-fakelogin");
-if (fakeLogins) {
-  fakeLogins.forEach((fakeLogin) => {
-    if (datosFakeLogin) {
-      fakeLogin.querySelector('.js-fakelogin-1 input[name="nome"]').value =
-        datosFakeLogin.nome;
-      fakeLogin.querySelector('.js-fakelogin-1 input[name="email"]').value =
-        datosFakeLogin.email;
-      fakeLogin.querySelector('.js-fakelogin-1 input[name="normas"]').checked =
-        datosFakeLogin.normas;
-
-      siguientePaginaFakeLogin(fakeLogin);
-    }
-
-    fakeLogin
-      .querySelector(".js-fakelogin-1 button")
-      .addEventListener("click", (event) => {
-        event.preventDefault();
-
-        let nuevosDatos = {
-          nome: fakeLogin
-            .querySelector('.js-fakelogin-1 input[name="nome"]')
-            .value.trim(),
-          email: fakeLogin
-            .querySelector('.js-fakelogin-1 input[name="email"]')
-            .value.trim(),
-          normas: fakeLogin.querySelector(
-            '.js-fakelogin-1 input[name="normas"]'
-          ).checked,
-        };
-
-        let mensajeError = "";
-
-        if (!nuevosDatos.nome.length) {
-          mensajeError = "Debes introducir un nome";
-        } else if (!nuevosDatos.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
-          mensajeError = "Debes introducir un email válido";
-        } else if (!nuevosDatos.normas) {
-          mensajeError = "Debes aceptar a política de privacidade";
-        }
-
-        errorFakeLogin(fakeLogin, mensajeError);
-
-        if (!mensajeError) {
-          localStorage.setItem("fake_login", JSON.stringify(nuevosDatos));
-          datosFakeLogin = nuevosDatos;
-
-          siguientePaginaFakeLogin(fakeLogin);
-        }
-      });
-
-    fakeLogin.querySelectorAll(".js-fakelogin-reset").forEach((element) =>
-      element.addEventListener("click", (event) => {
-        event.preventDefault();
-
-        anteriorPaginaFakeLogin(fakeLogin);
-      })
-    );
-
-    fakeLogin.addEventListener("submit", (event) => {
-      event.preventDefault();
-      let hayErrores = false;
-
-      fakeLogin
-        .querySelectorAll(
-          ".js-fakelogin-2 input, .js-fakelogin-2 textarea, .js-fakelogin-2 select"
-        )
-        .forEach((element) => {
-          if (!element.value.trim().length) {
-            errorFakeLogin(fakeLogin, "Tes que cubrir todos os campos");
-
-            hayErrores = true;
-            return;
-          }
-        });
-
-      let action = fakeLogin.dataset.action;
-      localStorage.setItem("exito_redirect", action);
-
-      if (!hayErrores) {
-        // Relanzamos el formulario
-        fakeLogin.submit();
-      }
-    });
-
-    if (hayExito) {
-      fakeLogin.querySelector(".js-fakelogin-1").classList.add("hidden");
-      fakeLogin.querySelector(".js-fakelogin-2").classList.add("hidden");
-      fakeLogin.querySelector(".js-fakelogin-ok").classList.remove("hidden");
-
-      // Scrollamos hasta el formulario
-      fakeLogin.scrollIntoView();
-    }
-  });
-}
-
-/*
  * BÚSQUEDA
  */
 
@@ -452,6 +317,13 @@ if (!backend.estaLogueado) {
       await backend.logout();
     });
   });
+
+  document.querySelectorAll("#termo-comentario-form").forEach((elemento) => {
+    elemento.classList.remove("oculto");
+  });
+  document.querySelectorAll("#termo-comentario-entrar").forEach((elemento) => {
+    elemento.classList.add("oculto");
+  });
 }
 
 document
@@ -518,6 +390,24 @@ document.querySelectorAll("#novo-termo-enviar").forEach((elemento) => {
     };
 
     await backend.nuevaAportacion(datos);
+  });
+});
+
+document.querySelectorAll("#termo-comentario-enviar").forEach((elemento) => {
+  elemento.addEventListener("click", async (event) => {
+    event.preventDefault();
+
+    const comentario = document.getElementById("termo-comentario-comentario");
+
+    const termo = comentario.dataset.termo;
+    const comentarioTexto = comentario.value;
+
+    let datos = {
+      termo: termo,
+      comentario: comentarioTexto,
+    };
+
+    await backend.nuevoComentario(datos);
   });
 });
 

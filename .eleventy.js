@@ -161,6 +161,12 @@ module.exports = async function (eleventyConfig) {
       "ultimo_lugar_de_residencia"
     )
   );
+  // Filtro para mostrar fechas en formato dd/mm/yyyy
+  eleventyConfig.addFilter("fecha", (data) => {
+    if (!data) return "";
+    let fecha = new Date(data);
+    return fecha.toLocaleDateString("es-ES");
+  });
 
   // sortByOrder - filtro para ordenar colecciones
   function sortByOrder(values) {

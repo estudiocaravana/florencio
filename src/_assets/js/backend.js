@@ -270,4 +270,22 @@ export function Backend() {
       muestraError(error?.errors?.[0]?.message || error);
     }
   };
+
+  this.nuevoComentario = async (datos) => {
+    try {
+      if (!datos.comentario) {
+        throw new Error("Por favor, escribe o teu comentario");
+      }
+
+      const resultadoNuevoComentario = await this.hazPeticion(
+        createItem("comentario", datos),
+        false
+      );
+      // console.log(resultadoNuevoComentario);
+
+      muestraExito("Comentario enviado correctamente");
+    } catch (error) {
+      muestraError(error?.errors?.[0]?.message || error);
+    }
+  };
 }

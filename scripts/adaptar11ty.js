@@ -331,6 +331,49 @@ const globby = require("fast-glob");
         "href",
         enlaceCompletar.attr("href") + "?termo={{ termo.termo }}"
       );
+
+      // Comentarios
+      $el
+        .find("#termo-comentario-comentario")
+        .first()
+        .attr("data-termo", "{{ termo.id }}");
+
+      const bloqueComentarios = $el.find("#termo-bloque-comentarios").first();
+
+      const comentarios = bloqueComentarios
+        .find("#termo-comentarios-lista")
+        .first();
+      const modelo = comentarios.children().first();
+      modelo
+        .find("#termo-comentarios-usuario")
+        .first()
+        .html("{{ comentario.user_created.first_name }}");
+      modelo
+        .find("#termo-comentarios-fecha")
+        .first()
+        .html("{{ comentario.date_created | fecha }}");
+      modelo
+        .find("#termo-comentarios-comentario")
+        .first()
+        .html("{{ comentario.comentario }}");
+
+      const bucleComentarios =
+        "{%- for comentario in termo.comentarios -%}\n" +
+        modelo.prop("outerHTML") +
+        "{%- endfor -%}";
+      comentarios.html(bucleComentarios);
+
+      const noComentarios = bloqueComentarios.find("#termo-comentarios-no");
+      noComentarios.removeClass("oculto");
+
+      const logicaComentarios =
+        "{% if termo.comentarios | length %}" +
+        comentarios.prop("outerHTML") +
+        "{% else %}" +
+        noComentarios.prop("outerHTML") +
+        "{% endif %}";
+
+      bloqueComentarios.replaceWith(logicaComentarios);
     });
 
     // NOVO TERMO
