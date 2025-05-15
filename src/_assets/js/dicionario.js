@@ -542,6 +542,10 @@ document.querySelectorAll("#login-trigger").forEach((trigger) => {
   });
 });
 
+/*
+ * AVISOS
+ */
+
 // Cerramos los avisos tanto al hacer click en el fondo como en el botón de cerrar,
 // pero no en el aviso en sí
 document.querySelectorAll("#aviso, #aviso-cerrar").forEach((trigger) => {
@@ -567,6 +571,19 @@ document.querySelectorAll("#termos-filtro-trigger").forEach((trigger) => {
       .classList.toggle("oculto");
   });
 });
+
+/*
+ * SIDEBAR
+ */
+document
+  .querySelectorAll("#sidebar-abrir, #sidebar-cerrar")
+  .forEach((trigger) => {
+    trigger.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      document.querySelector("#sidebar").classList.toggle("oculto");
+    });
+  });
 
 document.querySelectorAll("#termo-mapa-iframe").forEach((elementoMapa) => {
   let map;
