@@ -168,6 +168,20 @@ module.exports = async function (eleventyConfig) {
     return fecha.toLocaleDateString("es-ES");
   });
 
+  // Funciones para encontrar el termo siguiente y anterior
+  eleventyConfig.addFilter("siguiente", (collection, id) => {
+    if (!collection || !id) return null;
+    const index = collection.findIndex((item) => item.id == id);
+    if (index === -1 || index === collection.length - 1) return null;
+    return collection[index + 1];
+  });
+  eleventyConfig.addFilter("anterior", (collection, id) => {
+    if (!collection || !id) return null;
+    const index = collection.findIndex((item) => item.id == id);
+    if (index === -1 || index === 0) return null;
+    return collection[index - 1];
+  });
+
   // sortByOrder - filtro para ordenar colecciones
   function sortByOrder(values) {
     let vals = [...values]; // this *seems* to prevent collection mutation...

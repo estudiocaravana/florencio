@@ -30,7 +30,7 @@ const globby = require("fast-glob");
     // HOME
     $("#home-termos-lista").each((_, el) => {
       let modelo = $(el).children().first();
-      modelo.attr("href", "/termos/termo/{{ item.termo | slug }}");
+      modelo.attr("href", "/termos/termo/{{ item.termo | slugify }}");
       modelo.find("#termo-nome").first().html("{{ item.termo }}");
       modelo
         .find("#termo-extracto")
@@ -47,7 +47,7 @@ const globby = require("fast-glob");
     // LISTA DE TERMOS
     $("#termos-lista").each((_, el) => {
       let modelo = $(el).children().first();
-      modelo.attr("href", "/termos/termo/{{ item.termo | slug }}");
+      modelo.attr("href", "/termos/termo/{{ item.termo | slugify }}");
       modelo.attr(
         "data-categorias",
         "{{ item.categorias | listaIdsCategoria }}"
@@ -374,6 +374,37 @@ const globby = require("fast-glob");
         "{% endif %}";
 
       bloqueComentarios.replaceWith(logicaComentarios);
+
+      // Navegación
+      const bloqueNavegacion = $el.find("#termo-bloque-navegacion").first();
+      const termoAnterior = bloqueNavegacion.find("#termo-anterior");
+      const termoSeguinte = bloqueNavegacion.find("#termo-siguiente");
+
+      termoAnterior
+        .find("a")
+        .first()
+        .attr("href", "/termos/termo/{{ termoAnterior.termo | slugify }}");
+      termoAnterior.replaceWith(
+        "{% if termoAnterior %}" +
+          termoAnterior.prop("outerHTML") +
+          "{% endif %}"
+      );
+
+      termoSeguinte
+        .find("a")
+        .first()
+        .attr("href", "/termos/termo/{{ termoSeguinte.termo | slugify }}");
+      termoSeguinte.replaceWith(
+        "{% if termoSeguinte %}" +
+          termoSeguinte.prop("outerHTML") +
+          "{% endif %}"
+      );
+
+      bloqueNavegacion.replaceWith(
+        "{% set termoAnterior = termos | anterior(termo.id) %}" +
+          "{% set termoSeguinte = termos | siguiente(termo.id) %}" +
+          bloqueNavegacion.prop("outerHTML")
+      );
     });
 
     // NOVO TERMO
