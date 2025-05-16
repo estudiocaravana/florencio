@@ -1,0 +1,702 @@
+[
+	{
+		"concello": "O Bolo",
+		"nome": "Bolo, O"
+	},
+	{
+		"concello": "O Bolo",
+		"nome": "Buxán"
+	},
+	{
+		"concello": "O Bolo",
+		"nome": "Cambela"
+	},
+	{
+		"concello": "O Bolo",
+		"nome": "Celeiros"
+	},
+	{
+		"concello": "O Bolo",
+		"nome": "Celavente"
+	},
+	{
+		"concello": "O Bolo",
+		"nome": "Chandoiro"
+	},
+	{
+		"concello": "O Bolo",
+		"nome": "Chao de Castro"
+	},
+	{
+		"concello": "O Bolo",
+		"nome": "As Ermitas"
+	},
+	{
+		"concello": "O Bolo",
+		"nome": "Fornelos"
+	},
+	{
+		"concello": "O Bolo",
+		"nome": "Lentellais"
+	},
+	{
+		"concello": "O Bolo",
+		"nome": "Outardepregos"
+	},
+	{
+		"concello": "O Bolo",
+		"nome": "Paradela"
+	},
+	{
+		"concello": "O Bolo",
+		"nome": "San Martiño"
+	},
+	{
+		"concello": "O Bolo",
+		"nome": "Aceveda"
+	},
+	{
+		"concello": "O Bolo",
+		"nome": "Barxa"
+	},
+	{
+		"concello": "O Bolo",
+		"nome": "Santa Cruz"
+	},
+	{
+		"concello": "O Bolo",
+		"nome": "O Seixo"
+	},
+	{
+		"concello": "O Bolo",
+		"nome": "Teixido"
+	},
+	{
+		"concello": "O Bolo",
+		"nome": "San Pedro dos Nabos"
+	},
+	{
+		"concello": "O Bolo",
+		"nome": "Tuxe"
+	},
+	{
+		"concello": "O Bolo",
+		"nome": "Rigueira, A"
+	},
+	{
+		"concello": "O Bolo",
+		"nome": "Vao, O"
+	},
+	{
+		"concello": "O Bolo",
+		"nome": "Valdanta"
+	},
+	{
+		"concello": "O Bolo",
+		"nome": "Vilaseco"
+	},
+	{
+		"concello": "O Bolo",
+		"nome": "Valbuxán"
+	},
+	{
+		"concello": "O Bolo",
+		"nome": "Xava"
+	},
+	{
+		"concello": "O Bolo",
+		"nome": "Os Orxais"
+	},
+	{
+		"concello": "O Bolo",
+		"nome": "Chao das Donas"
+	},
+	{
+		"concello": "O Barco",
+		"nome": "Alixo"
+	},
+	{
+		"concello": "O Barco",
+		"nome": "San Martiño"
+	},
+	{
+		"concello": "O Barco",
+		"nome": "Raxoá"
+	},
+	{
+		"concello": "O Barco",
+		"nome": "O Barco"
+	},
+	{
+		"concello": "O Barco",
+		"nome": "A Barxa"
+	},
+	{
+		"concello": "O Barco",
+		"nome": "Veigadecabo"
+	},
+	{
+		"concello": "O Barco",
+		"nome": "O Castro"
+	},
+	{
+		"concello": "O Barco",
+		"nome": "O Córrego"
+	},
+	{
+		"concello": "O Barco",
+		"nome": "Outarelo"
+	},
+	{
+		"concello": "O Barco",
+		"nome": "Cesures"
+	},
+	{
+		"concello": "O Barco",
+		"nome": "Vales"
+	},
+	{
+		"concello": "O Barco",
+		"nome": "Coedo"
+	},
+	{
+		"concello": "O Barco",
+		"nome": "Éntoma"
+	},
+	{
+		"concello": "O Barco",
+		"nome": "Forcadela e Nogaledo"
+	},
+	{
+		"concello": "O Barco",
+		"nome": "Nogaledo"
+	},
+	{
+		"concello": "O Barco",
+		"nome": "Reporicelo"
+	},
+	{
+		"concello": "O Barco",
+		"nome": "Millarouso e Santurxo"
+	},
+	{
+		"concello": "O Barco",
+		"nome": "Santurxo"
+	},
+	{
+		"concello": "O Barco",
+		"nome": "Candías"
+	},
+	{
+		"concello": "O Barco",
+		"nome": "As Carreiras"
+	},
+	{
+		"concello": "O Barco",
+		"nome": "A Proba"
+	},
+	{
+		"concello": "O Barco",
+		"nome": "Tremiñá"
+	},
+	{
+		"concello": "O Barco",
+		"nome": "Veigamuíños"
+	},
+	{
+		"concello": "O Barco",
+		"nome": "Santa Mariña do Monte"
+	},
+	{
+		"concello": "O Barco",
+		"nome": "Fervenza"
+	},
+	{
+		"concello": "O Barco",
+		"nome": "O Meiral"
+	},
+	{
+		"concello": "O Barco",
+		"nome": "Santigoso"
+	},
+	{
+		"concello": "O Barco",
+		"nome": "Vilariño"
+	},
+	{
+		"concello": "O Barco",
+		"nome": "Soulecín"
+	},
+	{
+		"concello": "O Barco",
+		"nome": "Vilanova"
+	},
+	{
+		"concello": "O Barco",
+		"nome": "Viloval"
+	},
+	{
+		"concello": "O Barco",
+		"nome": "Viloira"
+	},
+	{
+		"concello": "O Barco",
+		"nome": "Xagoaza"
+	},
+	{
+		"concello": "O Barco",
+		"nome": "Vilarica"
+	},
+	{
+		"concello": "O Barco",
+		"nome": "Os Casares"
+	},
+	{
+		"concello": "A Rúa",
+		"nome": "A Rúa"
+	},
+	{
+		"concello": "A Rúa",
+		"nome": "Somoza"
+	},
+	{
+		"concello": "A Rúa",
+		"nome": "Vilela"
+	},
+	{
+		"concello": "A Rúa",
+		"nome": "Fontei"
+	},
+	{
+		"concello": "A Rúa",
+		"nome": "A Rúa Vella"
+	},
+	{
+		"concello": "A Rúa",
+		"nome": "San Xulián"
+	},
+	{
+		"concello": "A Rúa",
+		"nome": "Roblido"
+	},
+	{
+		"concello": "Petín",
+		"nome": "Petín"
+	},
+	{
+		"concello": "Petín",
+		"nome": "Castrofolla"
+	},
+	{
+		"concello": "Petín",
+		"nome": "Freixido"
+	},
+	{
+		"concello": "Petín",
+		"nome": "Casasola"
+	},
+	{
+		"concello": "Petín",
+		"nome": "Mones"
+	},
+	{
+		"concello": "Petín",
+		"nome": "San Paio"
+	},
+	{
+		"concello": "Petín",
+		"nome": "Santa María de Mones"
+	},
+	{
+		"concello": "Petín",
+		"nome": "Outeiro"
+	},
+	{
+		"concello": "Petín",
+		"nome": "Carballal"
+	},
+	{
+		"concello": "Petín",
+		"nome": "Barxela"
+	},
+	{
+		"concello": "Petín",
+		"nome": "As Fontelas"
+	},
+	{
+		"concello": "Petín",
+		"nome": "O Porto"
+	},
+	{
+		"concello": "Petín",
+		"nome": "Portomourisco"
+	},
+	{
+		"concello": "Petín",
+		"nome": "A Portela de Portomourisco"
+	},
+	{
+		"concello": "Petín",
+		"nome": "Santoalla do Monte"
+	},
+	{
+		"concello": "A Veiga",
+		"nome": "Baños"
+	},
+	{
+		"concello": "A Veiga",
+		"nome": "Candeda"
+	},
+	{
+		"concello": "A Veiga",
+		"nome": "Carracedo"
+	},
+	{
+		"concello": "A Veiga",
+		"nome": "Casdenodres"
+	},
+	{
+		"concello": "A Veiga",
+		"nome": "Castromao"
+	},
+	{
+		"concello": "A Veiga",
+		"nome": "Castromarigo"
+	},
+	{
+		"concello": "A Veiga",
+		"nome": "Corexido"
+	},
+	{
+		"concello": "A Veiga",
+		"nome": "Corzos"
+	},
+	{
+		"concello": "A Veiga",
+		"nome": "Curra"
+	},
+	{
+		"concello": "A Veiga",
+		"nome": "Espiño"
+	},
+	{
+		"concello": "A Veiga",
+		"nome": "Hedreira"
+	},
+	{
+		"concello": "A Veiga",
+		"nome": "Lamalonga"
+	},
+	{
+		"concello": "A Veiga",
+		"nome": "Meda"
+	},
+	{
+		"concello": "A Veiga",
+		"nome": "Meixide"
+	},
+	{
+		"concello": "A Veiga",
+		"nome": "A Ponte"
+	},
+	{
+		"concello": "A Veiga",
+		"nome": "Prada"
+	},
+	{
+		"concello": "A Veiga",
+		"nome": "Poblado de Prada"
+	},
+	{
+		"concello": "A Veiga",
+		"nome": "Prado"
+	},
+	{
+		"concello": "A Veiga",
+		"nome": "Pradolongo"
+	},
+	{
+		"concello": "A Veiga",
+		"nome": "Requeixo"
+	},
+	{
+		"concello": "A Veiga",
+		"nome": "Riomao"
+	},
+	{
+		"concello": "A Veiga",
+		"nome": "San Fiz"
+	},
+	{
+		"concello": "A Veiga",
+		"nome": "San Lourenzo"
+	},
+	{
+		"concello": "A Veiga",
+		"nome": "Santa Cristina"
+	},
+	{
+		"concello": "A Veiga",
+		"nome": "Seoane"
+	},
+	{
+		"concello": "A Veiga",
+		"nome": "Valdín"
+	},
+	{
+		"concello": "A Veiga",
+		"nome": "A Veiga"
+	},
+	{
+		"concello": "A Veiga",
+		"nome": "Vilaboa"
+	},
+	{
+		"concello": "A Veiga",
+		"nome": "Vilanova"
+	},
+	{
+		"concello": "A Veiga",
+		"nome": "Xares"
+	},
+	{
+		"concello": "Larouco",
+		"nome": "Freixido"
+	},
+	{
+		"concello": "Larouco",
+		"nome": "A Caseta"
+	},
+	{
+		"concello": "Larouco",
+		"nome": "Larouco"
+	},
+	{
+		"concello": "Larouco",
+		"nome": "Portela"
+	},
+	{
+		"concello": "Larouco",
+		"nome": "Seadur"
+	},
+	{
+		"concello": "Rubiá",
+		"nome": "O Barrió de Cascallá"
+	},
+	{
+		"concello": "Rubiá",
+		"nome": "Castelo"
+	},
+	{
+		"concello": "Rubiá",
+		"nome": "Biobra"
+	},
+	{
+		"concello": "Rubiá",
+		"nome": "Covas"
+	},
+	{
+		"concello": "Rubiá",
+		"nome": "Oulego"
+	},
+	{
+		"concello": "Rubiá",
+		"nome": "Pardollán"
+	},
+	{
+		"concello": "Rubiá",
+		"nome": "Vilar de Silva"
+	},
+	{
+		"concello": "Rubiá",
+		"nome": "O Porto"
+	},
+	{
+		"concello": "Rubiá",
+		"nome": "Real"
+	},
+	{
+		"concello": "Rubiá",
+		"nome": "Quereño"
+	},
+	{
+		"concello": "Rubiá",
+		"nome": "Vilar de Xeos"
+	},
+	{
+		"concello": "Rubiá",
+		"nome": "Sobredo"
+	},
+	{
+		"concello": "Rubiá",
+		"nome": "O Robledo da Lastra"
+	},
+	{
+		"concello": "Rubiá",
+		"nome": "Rubiá"
+	},
+	{
+		"concello": "Rubiá",
+		"nome": "Trambasaugas"
+	},
+	{
+		"concello": "Rubiá",
+		"nome": "O Val"
+	},
+	{
+		"concello": "Rubiá",
+		"nome": "A Tapada"
+	},
+	{
+		"concello": "Rubiá",
+		"nome": "A Veiga de Cascallá"
+	},
+	{
+		"concello": "Vilamartín",
+		"nome": "Arcos"
+	},
+	{
+		"concello": "Vilamartín",
+		"nome": "Arnado"
+	},
+	{
+		"concello": "Vilamartín",
+		"nome": "Cernego"
+	},
+	{
+		"concello": "Vilamartín",
+		"nome": "O Robledo"
+	},
+	{
+		"concello": "Vilamartín",
+		"nome": "Córgomo"
+	},
+	{
+		"concello": "Vilamartín",
+		"nome": "As Gralleiras"
+	},
+	{
+		"concello": "Vilamartín",
+		"nome": "Correxais"
+	},
+	{
+		"concello": "Vilamartín",
+		"nome": "Penouta"
+	},
+	{
+		"concello": "Vilamartín",
+		"nome": "O Mazo"
+	},
+	{
+		"concello": "Vilamartín",
+		"nome": "A Portela"
+	},
+	{
+		"concello": "Vilamartín",
+		"nome": "Baxeles"
+	},
+	{
+		"concello": "Vilamartín",
+		"nome": "San Miguel de Outeiro"
+	},
+	{
+		"concello": "Vilamartín",
+		"nome": "San Vicente de Leira"
+	},
+	{
+		"concello": "Vilamartín",
+		"nome": "Valencia do Sil"
+	},
+	{
+		"concello": "Vilamartín",
+		"nome": "Vilamartín de Valdeorras"
+	},
+	{
+		"concello": "Vilamartín",
+		"nome": "Valdegodos"
+	},
+	{
+		"concello": "Carballeda",
+		"nome": "Candeda"
+	},
+	{
+		"concello": "Carballeda",
+		"nome": "Carballeda"
+	},
+	{
+		"concello": "Carballeda",
+		"nome": "Bascois"
+	},
+	{
+		"concello": "Carballeda",
+		"nome": "Casaio"
+	},
+	{
+		"concello": "Carballeda",
+		"nome": "Casoio"
+	},
+	{
+		"concello": "Carballeda",
+		"nome": "Domiz"
+	},
+	{
+		"concello": "Carballeda",
+		"nome": "Lardeira"
+	},
+	{
+		"concello": "Carballeda",
+		"nome": "A Portela do Trigal"
+	},
+	{
+		"concello": "Carballeda",
+		"nome": "O Trigal"
+	},
+	{
+		"concello": "Carballeda",
+		"nome": "Pumares"
+	},
+	{
+		"concello": "Carballeda",
+		"nome": "Pusmazán"
+	},
+	{
+		"concello": "Carballeda",
+		"nome": "Riodolas"
+	},
+	{
+		"concello": "Carballeda",
+		"nome": "Robledo"
+	},
+	{
+		"concello": "Carballeda",
+		"nome": "San Xusto"
+	},
+	{
+		"concello": "Carballeda",
+		"nome": "A Medua"
+	},
+	{
+		"concello": "Carballeda",
+		"nome": "Santa Cruz"
+	},
+	{
+		"concello": "Carballeda",
+		"nome": "Sobradelo"
+	},
+	{
+		"concello": "Carballeda",
+		"nome": "Soutadoiro"
+	},
+	{
+		"concello": "Carballeda",
+		"nome": "Ricosende"
+	},
+	{
+		"concello": "Carballeda",
+		"nome": "Vila"
+	},
+	{
+		"concello": "Carballeda",
+		"nome": "Viladequinta"
+	}
+]

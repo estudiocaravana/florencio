@@ -1,0 +1,3 @@
+---
+layout: aviso-legal/index
+---

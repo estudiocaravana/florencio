@@ -1,0 +1,32 @@
+.activo {
+    background-color: var(--negro);
+    color: #fff;
+}
+
+.link-activo {
+    color: var(--verde)
+}
+
+
+#termo-mapa-iframe {
+    height: 500px;
+}
+
+@media screen and (min-width: 600px) {
+ 
+    #termo-mapa-iframe {
+        height: 730px;
+    }
+
+}
+
+wave-audio-path-player {
+    white-space: wrap;
+}
+wave-audio-path-player::part(currenttime),
+wave-audio-path-player::part(duration) {
+    font-family: "Rubik Variable", sans-serif;
+}
+wave-audio-path-player::part(play) {
+    padding: 0;
+}

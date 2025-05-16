@@ -14,11 +14,11 @@ module.exports = {
     },
     {
       text: "Recursos",
-      url: "/recursos/",
+      url: "/recursos/publicacions/",
     },
     {
       text: "Premio de poesía",
-      url: "/premio/",
+      url: "/premio/2024/",
     },
     {
       text: "Actividades",
@@ -31,20 +31,6 @@ module.exports = {
     {
       text: "Novidades",
       url: "/novidades/",
-    },
-  ],
-  florencio: [
-    {
-      text: "Vida",
-      url: "/florencio/vida/",
-    },
-    {
-      text: "Obra",
-      url: "/florencio/obra/",
-    },
-    {
-      text: "Letras Galegas",
-      url: "/florencio/letras-galegas/",
     },
   ],
   dici: [

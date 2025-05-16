@@ -1,0 +1,3 @@
+---
+layout: artigos/index
+---

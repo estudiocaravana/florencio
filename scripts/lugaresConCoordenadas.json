@@ -1,0 +1,877 @@
+[
+  {
+    "nome": "Bolo, O",
+    "concello": "O Bolo",
+    "coordenadas": "42.3016896,-7.103639599999999"
+  },
+  {
+    "nome": "Buxán",
+    "concello": "O Bolo",
+    "coordenadas": "42.2390258,-7.135264599999999"
+  },
+  {
+    "nome": "Cambela",
+    "concello": "O Bolo",
+    "coordenadas": "42.2693014,-7.1218053"
+  },
+  {
+    "nome": "Celeiros",
+    "concello": "O Bolo",
+    "coordenadas": "42.2572537,-7.113394700000001"
+  },
+  {
+    "nome": "Celavente",
+    "concello": "O Bolo",
+    "coordenadas": "42.3318561,-7.090290899999999"
+  },
+  {
+    "nome": "Chandoiro",
+    "concello": "O Bolo",
+    "coordenadas": "42.3221868,-7.158151699999999"
+  },
+  {
+    "nome": "Chao de Castro",
+    "concello": "O Bolo",
+    "coordenadas": "42.2764925,-7.1071408"
+  },
+  {
+    "nome": "As Ermitas",
+    "concello": "O Bolo",
+    "coordenadas": "42.2928148,-7.1379568"
+  },
+  {
+    "nome": "Fornelos",
+    "concello": "O Bolo",
+    "coordenadas": "42.3088283,-7.0774089"
+  },
+  {
+    "nome": "Lentellais",
+    "concello": "O Bolo",
+    "coordenadas": "42.3229012,-7.1221418"
+  },
+  {
+    "nome": "Outardepregos",
+    "concello": "O Bolo",
+    "coordenadas": "42.3075795,-7.0975854"
+  },
+  {
+    "nome": "Paradela",
+    "concello": "O Bolo",
+    "coordenadas": "42.2700994,-7.06934"
+  },
+  {
+    "nome": "San Martiño",
+    "concello": "O Bolo",
+    "coordenadas": "42.3380991,-7.08447"
+  },
+  {
+    "nome": "Aceveda",
+    "concello": "O Bolo",
+    "coordenadas": "42.331412,-7.056398199999999"
+  },
+  {
+    "nome": "Barxa",
+    "concello": "O Bolo",
+    "coordenadas": "42.3448762,-7.083797499999999"
+  },
+  {
+    "nome": "Santa Cruz",
+    "concello": "O Bolo",
+    "coordenadas": "42.3043478,-7.1298806"
+  },
+  {
+    "nome": "O Seixo",
+    "concello": "O Bolo",
+    "coordenadas": "42.3766495,-7.261661399999999"
+  },
+  {
+    "nome": "Teixido",
+    "concello": "O Bolo",
+    "coordenadas": "42.3075795,-7.0975854"
+  },
+  {
+    "nome": "San Pedro dos Nabos",
+    "concello": "O Bolo",
+    "coordenadas": "42.2953067,-7.081097799999999"
+  },
+  {
+    "nome": "Tuxe",
+    "concello": "O Bolo",
+    "coordenadas": "42.2490079,-7.1325726"
+  },
+  {
+    "nome": "Rigueira, A",
+    "concello": "O Bolo",
+    "coordenadas": "42.2461999,-7.1234876"
+  },
+  {
+    "nome": "Vao, O",
+    "concello": "O Bolo",
+    "coordenadas": "42.33578929999999,-7.863880999999998"
+  },
+  {
+    "nome": "Valdanta",
+    "concello": "O Bolo",
+    "coordenadas": "42.2758823,-7.0898504"
+  },
+  {
+    "nome": "Vilaseco",
+    "concello": "O Bolo",
+    "coordenadas": "42.2831229,-7.1164224"
+  },
+  {
+    "nome": "Valbuxán",
+    "concello": "O Bolo",
+    "coordenadas": "42.2886114,-7.107003199999999"
+  },
+  {
+    "nome": "Xava",
+    "concello": "O Bolo",
+    "coordenadas": "42.28408109999999,-7.088143899999999"
+  },
+  {
+    "nome": "Os Orxais",
+    "concello": "O Bolo",
+    "coordenadas": "42.2797795,-7.0764003"
+  },
+  {
+    "nome": "Chao das Donas",
+    "concello": "O Bolo",
+    "coordenadas": "42.2905107,-7.0911956"
+  },
+  {
+    "nome": "Alixo",
+    "concello": "O Barco",
+    "coordenadas": "42.4023967,-6.954129300000001"
+  },
+  {
+    "nome": "San Martiño",
+    "concello": "O Barco",
+    "coordenadas": "42.4063318,-6.9522835"
+  },
+  {
+    "nome": "Raxoá",
+    "concello": "O Barco",
+    "coordenadas": "42.4101442,-6.9474177"
+  },
+  {
+    "nome": "O Barco",
+    "concello": "O Barco",
+    "coordenadas": "42.4163609,-6.9855306"
+  },
+  {
+    "nome": "A Barxa",
+    "concello": "O Barco",
+    "coordenadas": "42.4163609,-6.9855306"
+  },
+  {
+    "nome": "Veigadecabo",
+    "concello": "O Barco",
+    "coordenadas": "42.4218485,-6.9894919"
+  },
+  {
+    "nome": "O Castro",
+    "concello": "O Barco",
+    "coordenadas": "42.3923616,-6.9782968"
+  },
+  {
+    "nome": "O Córrego",
+    "concello": "O Barco",
+    "coordenadas": "42.4163609,-6.9855306"
+  },
+  {
+    "nome": "Outarelo",
+    "concello": "O Barco",
+    "coordenadas": "42.4329275,-6.9850116"
+  },
+  {
+    "nome": "Cesures",
+    "concello": "O Barco",
+    "coordenadas": "42.4022566,-7.0165802"
+  },
+  {
+    "nome": "Vales",
+    "concello": "O Barco",
+    "coordenadas": "42.4061323,-7.0132211"
+  },
+  {
+    "nome": "Coedo",
+    "concello": "O Barco",
+    "coordenadas": "42.4109187,-6.964869299999999"
+  },
+  {
+    "nome": "Éntoma",
+    "concello": "O Barco",
+    "coordenadas": "42.4221242,-6.939352599999999"
+  },
+  {
+    "nome": "Forcadela e Nogaledo",
+    "concello": "O Barco",
+    "coordenadas": "42.44232179999999,-6.9827379"
+  },
+  {
+    "nome": "Nogaledo",
+    "concello": "O Barco",
+    "coordenadas": "42.4163609,-6.9855306"
+  },
+  {
+    "nome": "Reporicelo",
+    "concello": "O Barco",
+    "coordenadas": "42.4519617,-6.9660441"
+  },
+  {
+    "nome": "Millarouso e Santurxo",
+    "concello": "O Barco",
+    "coordenadas": "42.4130845,-6.9606002"
+  },
+  {
+    "nome": "Santurxo",
+    "concello": "O Barco",
+    "coordenadas": "42.4130845,-6.9606002"
+  },
+  {
+    "nome": "Candías",
+    "concello": "O Barco",
+    "coordenadas": "42.4163609,-6.9855306"
+  },
+  {
+    "nome": "As Carreiras",
+    "concello": "O Barco",
+    "coordenadas": "42.4114085,-6.9542971"
+  },
+  {
+    "nome": "A Proba",
+    "concello": "O Barco",
+    "coordenadas": "42.4199568,-7.0101266"
+  },
+  {
+    "nome": "Tremiñá",
+    "concello": "O Barco",
+    "coordenadas": "42.4258693,-7.0008485"
+  },
+  {
+    "nome": "Veigamuíños",
+    "concello": "O Barco",
+    "coordenadas": "42.421674,-6.9992741"
+  },
+  {
+    "nome": "Santa Mariña do Monte",
+    "concello": "O Barco",
+    "coordenadas": "42.3897799,-7.0129784"
+  },
+  {
+    "nome": "Fervenza",
+    "concello": "O Barco",
+    "coordenadas": "42.3948273,-7.0280023"
+  },
+  {
+    "nome": "O Meiral",
+    "concello": "O Barco",
+    "coordenadas": "42.3932394,-7.0239708"
+  },
+  {
+    "nome": "Santigoso",
+    "concello": "O Barco",
+    "coordenadas": "42.3777953,-6.9913913"
+  },
+  {
+    "nome": "Vilariño",
+    "concello": "O Barco",
+    "coordenadas": "42.3958287,-6.9766182"
+  },
+  {
+    "nome": "Soulecín",
+    "concello": "O Barco",
+    "coordenadas": "42.3879957,-6.9846758"
+  },
+  {
+    "nome": "Vilanova",
+    "concello": "O Barco",
+    "coordenadas": "42.4335912,-6.9777211"
+  },
+  {
+    "nome": "Viloval",
+    "concello": "O Barco",
+    "coordenadas": "42.4303503,-6.9656153"
+  },
+  {
+    "nome": "Viloira",
+    "concello": "O Barco",
+    "coordenadas": "42.4109981,-6.9786326"
+  },
+  {
+    "nome": "Xagoaza",
+    "concello": "O Barco",
+    "coordenadas": "42.4356921,-7.005094"
+  },
+  {
+    "nome": "Vilarica",
+    "concello": "O Barco",
+    "coordenadas": "42.4163609,-6.9855306"
+  },
+  {
+    "nome": "Os Casares",
+    "concello": "O Barco",
+    "coordenadas": "42.4163609,-6.9855306"
+  },
+  {
+    "nome": "A Rúa",
+    "concello": "A Rúa",
+    "coordenadas": "42.39638410000001,-7.1151921"
+  },
+  {
+    "nome": "Somoza",
+    "concello": "A Rúa",
+    "coordenadas": "42.4058534,-7.0922044"
+  },
+  {
+    "nome": "Vilela",
+    "concello": "A Rúa",
+    "coordenadas": "42.40001609999999,-7.103630400000001"
+  },
+  {
+    "nome": "Fontei",
+    "concello": "A Rúa",
+    "coordenadas": "42.4000725,-7.1230467"
+  },
+  {
+    "nome": "A Rúa Vella",
+    "concello": "A Rúa",
+    "coordenadas": "42.39638410000001,-7.1151921"
+  },
+  {
+    "nome": "San Xulián",
+    "concello": "A Rúa",
+    "coordenadas": "42.4254299,-7.0994353"
+  },
+  {
+    "nome": "Roblido",
+    "concello": "A Rúa",
+    "coordenadas": "42.4043951,-7.1598348"
+  },
+  {
+    "nome": "Petín",
+    "concello": "Petín",
+    "coordenadas": "42.3829698,-7.1261798"
+  },
+  {
+    "nome": "Castrofolla",
+    "concello": "Petín",
+    "coordenadas": "42.3798627,-7.1203924"
+  },
+  {
+    "nome": "Freixido",
+    "concello": "Petín",
+    "coordenadas": "42.35724020000001,-7.1409857"
+  },
+  {
+    "nome": "Casasola",
+    "concello": "Petín",
+    "coordenadas": "42.35944980000001,-7.137452"
+  },
+  {
+    "nome": "Mones",
+    "concello": "Petín",
+    "coordenadas": "42.3691821,-7.096576499999999"
+  },
+  {
+    "nome": "San Paio",
+    "concello": "Petín",
+    "coordenadas": "42.3793896,-7.0898504"
+  },
+  {
+    "nome": "Santa María de Mones",
+    "concello": "Petín",
+    "coordenadas": "42.3789559,-7.1107144"
+  },
+  {
+    "nome": "Outeiro",
+    "concello": "Petín",
+    "coordenadas": "42.3794179,-7.0992671"
+  },
+  {
+    "nome": "Carballal",
+    "concello": "Petín",
+    "coordenadas": "42.3695978,-7.119450199999999"
+  },
+  {
+    "nome": "Barxela",
+    "concello": "Petín",
+    "coordenadas": "42.383357,-7.0966877"
+  },
+  {
+    "nome": "As Fontelas",
+    "concello": "Petín",
+    "coordenadas": "42.3829698,-7.1261798"
+  },
+  {
+    "nome": "O Porto",
+    "concello": "Petín",
+    "coordenadas": "42.3752285,-7.105153199999999"
+  },
+  {
+    "nome": "Portomourisco",
+    "concello": "Petín",
+    "coordenadas": "42.3386482,-7.1298806"
+  },
+  {
+    "nome": "A Portela de Portomourisco",
+    "concello": "Petín",
+    "coordenadas": "42.3445194,-7.133918599999999"
+  },
+  {
+    "nome": "Santoalla do Monte",
+    "concello": "Petín",
+    "coordenadas": "42.3647041,-7.0501803"
+  },
+  {
+    "nome": "Baños",
+    "concello": "A Veiga",
+    "coordenadas": "42.2330875,-7.0078469"
+  },
+  {
+    "nome": "Candeda",
+    "concello": "A Veiga",
+    "coordenadas": "42.2499498,-7.025722"
+  },
+  {
+    "nome": "Carracedo",
+    "concello": "A Veiga",
+    "coordenadas": "42.2521164,-7.0626167"
+  },
+  {
+    "nome": "Casdenodres",
+    "concello": "A Veiga",
+    "coordenadas": "42.2499498,-7.025722"
+  },
+  {
+    "nome": "Castromao",
+    "concello": "A Veiga",
+    "coordenadas": "42.2377288,-7.052196899999999"
+  },
+  {
+    "nome": "Castromarigo",
+    "concello": "A Veiga",
+    "coordenadas": "42.2499498,-7.025722"
+  },
+  {
+    "nome": "Corexido",
+    "concello": "A Veiga",
+    "coordenadas": "42.28973,-7.054213499999999"
+  },
+  {
+    "nome": "Corzos",
+    "concello": "A Veiga",
+    "coordenadas": "42.222079,-7.017252"
+  },
+  {
+    "nome": "Curra",
+    "concello": "A Veiga",
+    "coordenadas": "42.2853076,-6.986354599999999"
+  },
+  {
+    "nome": "Espiño",
+    "concello": "A Veiga",
+    "coordenadas": "42.2640919,-6.9873619"
+  },
+  {
+    "nome": "Hedreira",
+    "concello": "A Veiga",
+    "coordenadas": "42.2640785,-6.9219197"
+  },
+  {
+    "nome": "Lamalonga",
+    "concello": "A Veiga",
+    "coordenadas": "42.2499498,-7.025722"
+  },
+  {
+    "nome": "Meda",
+    "concello": "A Veiga",
+    "coordenadas": "42.2989915,-7.008182799999999"
+  },
+  {
+    "nome": "Meixide",
+    "concello": "A Veiga",
+    "coordenadas": "42.2730088,-6.931586299999999"
+  },
+  {
+    "nome": "A Ponte",
+    "concello": "A Veiga",
+    "coordenadas": "42.2501535,-6.892791799999999"
+  },
+  {
+    "nome": "Prada",
+    "concello": "A Veiga",
+    "coordenadas": "42.3167931,-7.027666399999999"
+  },
+  {
+    "nome": "Poblado de Prada",
+    "concello": "A Veiga",
+    "coordenadas": "42.3115997,-7.037410299999999"
+  },
+  {
+    "nome": "Prado",
+    "concello": "A Veiga",
+    "coordenadas": "42.2585692,-7.0024732"
+  },
+  {
+    "nome": "Pradolongo",
+    "concello": "A Veiga",
+    "coordenadas": "42.2484172,-7.0827887"
+  },
+  {
+    "nome": "Requeixo",
+    "concello": "A Veiga",
+    "coordenadas": "42.2516578,-6.9497667"
+  },
+  {
+    "nome": "Riomao",
+    "concello": "A Veiga",
+    "coordenadas": "42.3408126,-7.010534"
+  },
+  {
+    "nome": "San Fiz",
+    "concello": "A Veiga",
+    "coordenadas": "42.3492345,-7.0528691"
+  },
+  {
+    "nome": "San Lourenzo",
+    "concello": "A Veiga",
+    "coordenadas": "42.2517427,-6.988705"
+  },
+  {
+    "nome": "Santa Cristina",
+    "concello": "A Veiga",
+    "coordenadas": "42.265376,-7.0464835"
+  },
+  {
+    "nome": "Seoane",
+    "concello": "A Veiga",
+    "coordenadas": "42.2272147,-6.9487133"
+  },
+  {
+    "nome": "Valdín",
+    "concello": "A Veiga",
+    "coordenadas": "42.2226046,-6.970917300000001"
+  },
+  {
+    "nome": "A Veiga",
+    "concello": "A Veiga",
+    "coordenadas": "42.2499498,-7.025722"
+  },
+  {
+    "nome": "Vilaboa",
+    "concello": "A Veiga",
+    "coordenadas": "42.2829535,-7.0448032"
+  },
+  {
+    "nome": "Vilanova",
+    "concello": "A Veiga",
+    "coordenadas": "42.2672893,-6.8958267"
+  },
+  {
+    "nome": "Xares",
+    "concello": "A Veiga",
+    "coordenadas": "42.2444934,-6.9313126"
+  },
+  {
+    "nome": "Freixido",
+    "concello": "Larouco",
+    "coordenadas": "42.35724020000001,-7.1409857"
+  },
+  {
+    "nome": "A Caseta",
+    "concello": "Larouco",
+    "coordenadas": "42.3611556,-7.1419953"
+  },
+  {
+    "nome": "Larouco",
+    "concello": "Larouco",
+    "coordenadas": "42.3465117,-7.1608448"
+  },
+  {
+    "nome": "Portela",
+    "concello": "Larouco",
+    "coordenadas": "42.3448493,-7.1615518"
+  },
+  {
+    "nome": "Seadur",
+    "concello": "Larouco",
+    "coordenadas": "42.3758886,-7.1608448"
+  },
+  {
+    "nome": "O Barrió de Cascallá",
+    "concello": "Rubiá",
+    "coordenadas": "42.4481901,-6.883703199999999"
+  },
+  {
+    "nome": "Castelo",
+    "concello": "Rubiá",
+    "coordenadas": "42.4714585,-6.8887202"
+  },
+  {
+    "nome": "Biobra",
+    "concello": "Rubiá",
+    "coordenadas": "42.4814142,-6.861771"
+  },
+  {
+    "nome": "Covas",
+    "concello": "Rubiá",
+    "coordenadas": "42.4807429,-6.8356987"
+  },
+  {
+    "nome": "Oulego",
+    "concello": "Rubiá",
+    "coordenadas": "42.5033142,-6.9326545"
+  },
+  {
+    "nome": "Pardollán",
+    "concello": "Rubiá",
+    "coordenadas": "42.4541909,-6.8322661"
+  },
+  {
+    "nome": "Vilar de Silva",
+    "concello": "Rubiá",
+    "coordenadas": "42.4612235,-6.8300753"
+  },
+  {
+    "nome": "O Porto",
+    "concello": "Rubiá",
+    "coordenadas": "42.4822643,-6.8979636"
+  },
+  {
+    "nome": "Real",
+    "concello": "Rubiá",
+    "coordenadas": "42.4714585,-6.8887202"
+  },
+  {
+    "nome": "Quereño",
+    "concello": "Rubiá",
+    "coordenadas": "42.4210492,-6.8293804"
+  },
+  {
+    "nome": "Vilar de Xeos",
+    "concello": "Rubiá",
+    "coordenadas": "42.4407557,-6.8580507"
+  },
+  {
+    "nome": "Sobredo",
+    "concello": "Rubiá",
+    "coordenadas": "42.4322804,-6.8233764"
+  },
+  {
+    "nome": "O Robledo da Lastra",
+    "concello": "Rubiá",
+    "coordenadas": "42.4852096,-6.904472699999999"
+  },
+  {
+    "nome": "Rubiá",
+    "concello": "Rubiá",
+    "coordenadas": "42.4486515,-6.9469907"
+  },
+  {
+    "nome": "Trambasaugas",
+    "concello": "Rubiá",
+    "coordenadas": "42.4253768,-6.9722549"
+  },
+  {
+    "nome": "O Val",
+    "concello": "Rubiá",
+    "coordenadas": "42.4455928,-6.960466599999999"
+  },
+  {
+    "nome": "A Tapada",
+    "concello": "Rubiá",
+    "coordenadas": "42.4545063,-6.9241001"
+  },
+  {
+    "nome": "A Veiga de Cascallá",
+    "concello": "Rubiá",
+    "coordenadas": "42.4528784,-6.8998319"
+  },
+  {
+    "nome": "Arcos",
+    "concello": "Vilamartín",
+    "coordenadas": "42.4144782,-7.0316981"
+  },
+  {
+    "nome": "Arnado",
+    "concello": "Vilamartín",
+    "coordenadas": "42.407796,-7.025986499999999"
+  },
+  {
+    "nome": "Cernego",
+    "concello": "Vilamartín",
+    "coordenadas": "42.4409284,-7.0737106"
+  },
+  {
+    "nome": "O Robledo",
+    "concello": "Vilamartín",
+    "coordenadas": "42.4584282,-7.087160099999999"
+  },
+  {
+    "nome": "Córgomo",
+    "concello": "Vilamartín",
+    "coordenadas": "42.4268268,-7.0347221"
+  },
+  {
+    "nome": "As Gralleiras",
+    "concello": "Vilamartín",
+    "coordenadas": "42.4167874,-7.057515599999999"
+  },
+  {
+    "nome": "Correxais",
+    "concello": "Vilamartín",
+    "coordenadas": "42.3983477,-7.060263699999999"
+  },
+  {
+    "nome": "Penouta",
+    "concello": "Vilamartín",
+    "coordenadas": "42.4078949,-7.054213499999999"
+  },
+  {
+    "nome": "O Mazo",
+    "concello": "Vilamartín",
+    "coordenadas": "42.4252462,-7.0479958"
+  },
+  {
+    "nome": "A Portela",
+    "concello": "Vilamartín",
+    "coordenadas": "42.4303788,-7.0266584"
+  },
+  {
+    "nome": "Baxeles",
+    "concello": "Vilamartín",
+    "coordenadas": "42.4334688,-7.0360662"
+  },
+  {
+    "nome": "San Miguel de Outeiro",
+    "concello": "Vilamartín",
+    "coordenadas": "42.4066859,-7.078753799999999"
+  },
+  {
+    "nome": "San Vicente de Leira",
+    "concello": "Vilamartín",
+    "coordenadas": "42.4515242,-7.0687554"
+  },
+  {
+    "nome": "Valencia do Sil",
+    "concello": "Vilamartín",
+    "coordenadas": "42.4012137,-7.0777069"
+  },
+  {
+    "nome": "Vilamartín de Valdeorras",
+    "concello": "Vilamartín",
+    "coordenadas": "42.4167874,-7.057515599999999"
+  },
+  {
+    "nome": "Valdegodos",
+    "concello": "Vilamartín",
+    "coordenadas": "42.412346,-7.0464835"
+  },
+  {
+    "nome": "Candeda",
+    "concello": "Carballeda",
+    "coordenadas": "42.3686383,-6.9432233"
+  },
+  {
+    "nome": "Carballeda",
+    "concello": "Carballeda",
+    "coordenadas": "42.3769628,-6.8782728"
+  },
+  {
+    "nome": "Bascois",
+    "concello": "Carballeda",
+    "coordenadas": "42.3735289,-6.885032400000001"
+  },
+  {
+    "nome": "Casaio",
+    "concello": "Carballeda",
+    "coordenadas": "42.3411096,-6.807636599999999"
+  },
+  {
+    "nome": "Casoio",
+    "concello": "Carballeda",
+    "coordenadas": "42.3769628,-6.8782728"
+  },
+  {
+    "nome": "Domiz",
+    "concello": "Carballeda",
+    "coordenadas": "42.3915412,-6.921248899999999"
+  },
+  {
+    "nome": "Lardeira",
+    "concello": "Carballeda",
+    "coordenadas": "42.3715612,-6.8052927"
+  },
+  {
+    "nome": "A Portela do Trigal",
+    "concello": "Carballeda",
+    "coordenadas": "42.38805929999999,-6.843842299999999"
+  },
+  {
+    "nome": "O Trigal",
+    "concello": "Carballeda",
+    "coordenadas": "42.3769628,-6.8782728"
+  },
+  {
+    "nome": "Pumares",
+    "concello": "Carballeda",
+    "coordenadas": "42.4050423,-6.8595587"
+  },
+  {
+    "nome": "Pusmazán",
+    "concello": "Carballeda",
+    "coordenadas": "42.3672721,-6.8694453"
+  },
+  {
+    "nome": "Riodolas",
+    "concello": "Carballeda",
+    "coordenadas": "42.34918649999999,-6.853561099999999"
+  },
+  {
+    "nome": "Robledo",
+    "concello": "Carballeda",
+    "coordenadas": "42.3769628,-6.8782728"
+  },
+  {
+    "nome": "San Xusto",
+    "concello": "Carballeda",
+    "coordenadas": "42.3769628,-6.8782728"
+  },
+  {
+    "nome": "A Medua",
+    "concello": "Carballeda",
+    "coordenadas": "42.39881279999999,-6.871623899999999"
+  },
+  {
+    "nome": "Santa Cruz",
+    "concello": "Carballeda",
+    "coordenadas": "42.371443,-6.8789982"
+  },
+  {
+    "nome": "Sobradelo",
+    "concello": "Carballeda",
+    "coordenadas": "42.3769628,-6.8782728"
+  },
+  {
+    "nome": "Soutadoiro",
+    "concello": "Carballeda",
+    "coordenadas": "42.3189541,-6.8555375"
+  },
+  {
+    "nome": "Ricosende",
+    "concello": "Carballeda",
+    "coordenadas": "42.3003377,-6.8696129"
+  },
+  {
+    "nome": "Vila",
+    "concello": "Carballeda",
+    "coordenadas": "42.42897019999999,-6.8735716"
+  },
+  {
+    "nome": "Viladequinta",
+    "concello": "Carballeda",
+    "coordenadas": "42.3769628,-6.8782728"
+  }
+]

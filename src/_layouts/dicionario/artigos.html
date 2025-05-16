@@ -1,9 +1,0 @@
-{% extends "../base.html" %} {% block content %}{% include "dicionario/nav.html" %}
-<!-- Content -->
-<div class="caixa max-w-screen-sm text-center mt-3 *:!indent-0">{{ content | safe }}</div>
-<div class="caixa max-w-screen-2xl mx-auto pt-24">
-  <hr />
-  <!-- items -->
-  {%- for item in collections.artigo -%} {% include "dicionario/artigo-card.html" %} {%- endfor -%}
-</div>
-{% endblock %}
