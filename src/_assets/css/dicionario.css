@@ -7,6 +7,12 @@
     color: var(--verde)
 }
 
+.boton-cerrar {
+    display: inline;
+    width: 25px;
+    margin-bottom: -7px;
+}
+
 
 #termo-mapa-iframe {
     height: 500px;

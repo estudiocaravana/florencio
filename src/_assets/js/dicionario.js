@@ -221,18 +221,33 @@ function crearFileInput(bloque, id) {
   fileInput.classList.add("oculto");
   bloque.parentNode.insertBefore(fileInput, bloque.nextSibling);
 
+  const textoInicial = bloque.innerText;
+
+  let tieneFichero = false;
+
   bloque.addEventListener("click", (event) => {
     event.preventDefault();
 
-    fileInput.click();
+    if (!tieneFichero) {
+      fileInput.click();
+    } else {
+      fileInput.value = "";
+      fileInput.dispatchEvent(new Event("change"));
+      tieneFichero = false;
+    }
   });
 
   fileInput.addEventListener("change", (event) => {
     let file = event.target.files[0];
     if (file) {
-      const nombreRecortado =
+      let nombreRecortado =
         file.name.length > 20 ? file.name.slice(0, 20) + "..." : file.name;
-      bloque.innerText = nombreRecortado;
+      nombreRecortado +=
+        ' <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="boton-cerrar"><path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>';
+      bloque.innerHTML = nombreRecortado;
+      tieneFichero = true;
+    } else {
+      bloque.innerHTML = textoInicial;
     }
   });
 }
