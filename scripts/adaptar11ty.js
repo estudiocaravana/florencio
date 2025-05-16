@@ -134,7 +134,15 @@ const globby = require("fast-glob");
     });
 
     // TERMO SINGLE
+
     $("#termo-single").each((_, el) => {
+      // Sustituimos el token [TERMO] del title de la página por el nombre del termo
+      $("title").html(
+        $("title")
+          .html()
+          .replace(/\[TERMO\]/g, "{{ termo.termo }}")
+      );
+
       const $el = $(el);
 
       $el.find("#termo-nome").first().html("{{ termo.termo }}");
