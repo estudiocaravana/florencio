@@ -38,7 +38,7 @@ const globby = require("fast-glob");
 
     $("meta[property='og:image']").attr(
       "content",
-      "https://dicionario.florenciodelgadogurriaran.gal/_assets/img/rrss.png"
+      "{{ '/_assets/img/rrss.png' | url }}"
     );
 
     // HOME
