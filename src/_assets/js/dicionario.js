@@ -621,6 +621,12 @@ document
     });
   });
 
+document.getElementById("ir-arriba").addEventListener("click", (event) => {
+  event.preventDefault();
+
+  window.scrollTo(0, 0);
+});
+
 document.querySelectorAll("#termo-mapa-iframe").forEach((elementoMapa) => {
   let map;
 

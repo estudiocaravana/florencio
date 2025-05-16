@@ -289,6 +289,18 @@ const globby = require("fast-glob");
           "{% endif %}"
       );
 
+      // Usuarios
+      let bloqueUsuarios = $el.find("#termo-bloque-usuarios").first();
+      bloqueUsuarios
+        .find("#termo-usuarios")
+        .first()
+        .html("{{ termo.usuarios }}");
+      bloqueUsuarios.replaceWith(
+        "{% if termo.usuarios %}" +
+          bloqueUsuarios.prop("outerHTML") +
+          "{% endif %}"
+      );
+
       // Mapa
       let bloqueUbicacion = $el.find("#termo-bloque-localizacion").first();
       bloqueUbicacion.replaceWith(
