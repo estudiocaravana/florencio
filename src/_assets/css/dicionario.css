@@ -20,6 +20,10 @@
 
 }
 
+.info-window {
+    white-space: wrap;
+}
+
 wave-audio-path-player {
     white-space: wrap;
 }
