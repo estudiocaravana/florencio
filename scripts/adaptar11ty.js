@@ -34,6 +34,13 @@ const globby = require("fast-glob");
     const html = fs.readFileSync(file, "utf-8");
     const $ = cheerio.load(html);
 
+    // Sustituimos la etiqueta meta og:image con el logo de la web
+
+    $("meta[property='og:image']").attr(
+      "content",
+      "https://dicionario.florenciodelgadogurriaran.gal/_assets/img/rrss.png"
+    );
+
     // HOME
     $("#home-termos-lista").each((_, el) => {
       let modelo = $(el).children().first();
