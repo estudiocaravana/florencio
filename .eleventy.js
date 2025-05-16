@@ -9,6 +9,9 @@ module.exports = async function (eleventyConfig) {
 
   let viteOptions = {
     assetsInclude: ["**/*.tif"],
+    build: {
+      target: "esnext",
+    },
   };
 
   // Cargamos los certificados para el servidor https si estamos ejecutando netlify dev
