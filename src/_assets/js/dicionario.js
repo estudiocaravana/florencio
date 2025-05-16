@@ -581,12 +581,30 @@ document.querySelectorAll("#aviso-card").forEach((trigger) => {
 });
 
 document.querySelectorAll("#termos-filtro-trigger").forEach((trigger) => {
+  const contenido = document.querySelector("#termos-filtro-contenido");
+  let contenidoVisible = false;
+
+  document.addEventListener("click", (event) => {
+    if (contenidoVisible) {
+      const target = event.target;
+
+      // Comprobamos si el click fue fuera del contenido
+      // y, si es así, lo ocultamos
+      if (
+        !target.closest("#termos-filtro-contenido") &&
+        !target.closest("#termos-filtro-trigger")
+      ) {
+        contenidoVisible = false;
+        contenido.classList.add("oculto");
+      }
+    }
+  });
+
   trigger.addEventListener("click", (event) => {
     event.preventDefault();
 
-    document
-      .querySelector("#termos-filtro-contenido")
-      .classList.toggle("oculto");
+    contenidoVisible = !contenidoVisible;
+    contenido.classList.toggle("oculto");
   });
 });
 
