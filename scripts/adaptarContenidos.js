@@ -41,6 +41,7 @@ const matter = require("gray-matter"); // You'll need to install this package
         exemplos: metadata.exemplo ? metadata.exemplo.trim() : "",
         argumentario: converter.makeHtml(content.trim()),
         status: metadata.revision ? "revision" : "published",
+        usuarios: metadata.usuario ? metadata.usuario.trim() : "",
         // categorias: metadata.categoria
         //   ? metadata.categoria
         //       .split(",")
@@ -58,7 +59,7 @@ const matter = require("gray-matter"); // You'll need to install this package
 
     // Write the result to a JSON file
     fs.writeFileSync(
-      "contenidos.json",
+      "scripts/contenidos.json",
       JSON.stringify(contents, null, 2),
       "utf-8"
     );
