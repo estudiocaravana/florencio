@@ -18,7 +18,7 @@ let paginaActual = 0;
 let totalPaginas = 1;
 
 function filtrar(termos) {
-  let elementosPorPagina = 9;
+  let elementosPorPagina = 36;
 
   let termosFiltrados = [];
 
@@ -312,6 +312,13 @@ if (!backend.estaLogueado) {
     elemento.classList.add("oculto");
   });
   document.querySelectorAll("#logout-form").forEach((elemento) => {
+    elemento.classList.remove("oculto");
+  });
+
+  document.querySelectorAll("#colabora-rexistro").forEach((elemento) => {
+    elemento.classList.add("oculto");
+  });
+  document.querySelectorAll("#colabora-novo-termo").forEach((elemento) => {
     elemento.classList.remove("oculto");
   });
 

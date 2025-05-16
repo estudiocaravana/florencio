@@ -7,8 +7,17 @@
     color: var(--verde)
 }
 
+
 #termo-mapa-iframe {
-    height: 730px;
+    height: 500px;
+}
+
+@media screen and (min-width: 600px) {
+ 
+    #termo-mapa-iframe {
+        height: 730px;
+    }
+
 }
 
 wave-audio-path-player::part(currenttime),
