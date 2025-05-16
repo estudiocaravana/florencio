@@ -1,7 +1,7 @@
 /*
  * REPRODUCTOR DE AUDIO
  */
-import "wave-audio-path-player";
+//import "wave-audio-path-player";
 
 /*
  * SELECTOR AVANZADO
