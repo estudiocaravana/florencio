@@ -172,6 +172,17 @@ module.exports = async function (eleventyConfig) {
     let fecha = new Date(data);
     return fecha.toLocaleDateString("es-ES");
   });
+  // Filtro para mostrar la autoría de una foto
+  eleventyConfig.addFilter("autoria", (data) => {
+    if (!data) return "";
+    switch (data) {
+      case "cc":
+        return "Creative Commons";
+    }
+
+    // Devolvemos la autoría con la primera letra en mayúscula
+    return data.charAt(0).toUpperCase() + data.slice(1);
+  });
 
   // Funciones para encontrar el termo siguiente y anterior
   eleventyConfig.addFilter("siguiente", (collection, id) => {

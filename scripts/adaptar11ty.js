@@ -222,7 +222,7 @@ const globby = require("fast-glob");
       bloqueFoto
         .find("#termo-foto-autoria")
         .first()
-        .html("{{ termo.galeria[0].foto_autoria }}");
+        .html("{{ termo.galeria[0].foto_autoria | autoria }}");
 
       bloqueFoto.replaceWith(
         "{% if termo.galeria | length %}" +
