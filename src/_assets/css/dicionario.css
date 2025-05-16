@@ -20,6 +20,9 @@
 
 }
 
+wave-audio-path-player {
+    white-space: wrap;
+}
 wave-audio-path-player::part(currenttime),
 wave-audio-path-player::part(duration) {
     font-family: "Rubik Variable", sans-serif;

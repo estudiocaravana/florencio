@@ -362,8 +362,17 @@ document
     });
   });
 
-document.querySelectorAll("#novo-termo-enviar").forEach((elemento) => {
-  elemento.addEventListener("click", async (event) => {
+function alternaCargando(boton) {
+  const spinners = document.querySelectorAll("#cargando");
+
+  boton.classList.toggle("oculto");
+  spinners.forEach((spinner) => {
+    spinner.classList.toggle("oculto");
+  });
+}
+
+document.querySelectorAll("#novo-termo-enviar").forEach((boton) => {
+  boton.addEventListener("click", async (event) => {
     event.preventDefault();
 
     let datos = {
@@ -406,7 +415,9 @@ document.querySelectorAll("#novo-termo-enviar").forEach((elemento) => {
       audio_termos: document.getElementById("novo-termo-audio-termos").value,
     };
 
+    alternaCargando(boton);
     await backend.nuevaAportacion(datos);
+    alternaCargando(boton);
   });
 });
 

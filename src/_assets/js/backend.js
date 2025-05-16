@@ -83,7 +83,7 @@ export function Backend() {
     }
   };
 
-  this.init = async () => {
+  this.compruebaToken = async () => {
     if (this.estaLogueado) {
       const tokenCaduca = new Date(this.token.expires_at);
       const agora = new Date();
@@ -96,15 +96,27 @@ export function Backend() {
         try {
           const response = await this.directus.refresh();
           localStorage.setItem(TOKEN_NOMBRE, JSON.stringify(response));
-          this.token = response;
+          this.actualizaDatosLogin();
           console.log("Token renovado");
         } catch (error) {
           localStorage.removeItem(TOKEN_NOMBRE);
+          console.log("Error al renovar el token");
+          console.log(error);
           //location.reload();
-          // muestraError("O token caducou. Por favor, volve iniciar sesión.");
+          muestraError(
+            "A túa sesión caducou. Por favor, volve entrar cos teus datos de acceso."
+          );
         }
       }
+
+      setTimeout(async () => {
+        await this.compruebaToken();
+      }, 1000 * 10); // Cada 10 segundos para que el usuario no se quede colgado
     }
+  };
+
+  this.init = async () => {
+    await this.compruebaToken();
 
     const urlParams = new URLSearchParams(window.location.search);
     const termoParam = urlParams.get("ok");
