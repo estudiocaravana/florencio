@@ -1,3 +1,7 @@
+/**
+ * Adapta los contenidos iniciales de 11ty que estaban en formato .md a json para ser subidos a Directus.
+ */
+
 const fs = require("fs");
 const showdown = require("showdown");
 const globby = require("fast-glob");

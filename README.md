@@ -1,8 +1,10 @@
 # Cómo funciona
 
-Este proyecto está hecho con Eleventy (11ty), Netlify y Directus.
+Este proyecto está hecho con Webstudio, Eleventy (11ty), Netlify y Directus.
 
-Con **11ty** maquetamos la web.
+Con **Webstudio** maquetamos la web.
+
+Con **11ty** hacemos que la maquetación sea dinámica.
 
 **Directus** sirve como CMS para el contenido. Nos gusta mucho cómo está diseñado su panel y es muy configurable. Está instalado dentro de un contenedor Docker en un servidor de Raiola Networks.
 
@@ -48,6 +50,39 @@ netlify dev
 ```
 
 Tendremos que acceder a la web a través de `https://local.florenciodelgadogurriaran.gal:8888` para que funcione el certificado.
+
+# Recompilar el código si hay cambios en el diseño de Webstudio
+
+Lo primero que tendremos que hacer es conectar el proyecto a Webstudio. Antes, tendremos que tener instalado el [CLI de Webstudio](https://docs.webstudio.is/university/self-hosting/cli).
+
+Y después:
+
+1 - Creamos la carpeta `webstudio` dentro de la raíz del proyecto.
+
+2 - Ejecutamos los siguientes comandos en terminal:
+
+```bash
+cd webstudio
+webstudio
+```
+
+3 - Seguimos las instrucciones pegando en enlace de "share" del proyecto Webstudio y eligiendo la opción de plantilla estática (SSG).
+
+A partir de ahora, cada vez que hagamos cambios en Webstudio, tendremos que ejecutar el siguiente comando en la **raíz del proyecto** para recompilar el código:
+
+```bash
+npm run wr
+```
+
+Esto descargará el código de Webstudio, generará los layouts de 11ty en src/\_layouts, copiará los assets en la carpeta src/assets y lanzará la web con Netlify Dev.
+
+Si solo queremos recompilar los layouts de 11ty, podemos ejecutar el siguiente comando:
+
+```bash
+npm run r
+```
+
+El código que genera los layouts de 11ty se encuentra en la carpeta scripts/adaptar11ty.js.
 
 # Hacer deploy si hay cambios en las functions
 

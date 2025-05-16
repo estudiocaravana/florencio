@@ -1,3 +1,10 @@
+/**
+ * Adapta los archivos HTML generados por Webstudio a los layouts de 11ty.
+ *
+ * Para ello, busca identificadores definidos en los componentes de Webstudio y los reemplaza por
+ * los plantillas de 11ty.
+ */
+
 const fs = require("fs");
 const cheerio = require("cheerio");
 const globby = require("fast-glob");

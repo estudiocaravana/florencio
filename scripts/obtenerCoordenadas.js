@@ -1,3 +1,7 @@
+/**
+ * Obtiene coordenadas de direcciones de lugares de Valdeorras usando la API de Google Maps.
+ */
+
 require("dotenv").config(); // Carga variables del .env
 const axios = require("axios");
 const fs = require("fs");

@@ -9,6 +9,8 @@ module.exports = async function (eleventyConfig) {
 
   let viteOptions = {
     assetsInclude: ["**/*.tif"],
+    // Para evitar el error de Vite "Top-level await is not available in the configured target environment"
+    // https://stackoverflow.com/questions/72618944/get-error-to-build-my-project-in-vite-top-level-await-is-not-available-in-the
     build: {
       target: "esnext",
     },
