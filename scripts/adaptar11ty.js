@@ -46,6 +46,10 @@ const globby = require("fast-glob");
       "{{ '/_assets/img/rrss.png' | url }}"
     );
 
+    $("head").append(
+      '<meta name="google-site-verification" content="MSsooqjcEmXehcdemvSle1r2DVUvba6vPtzGWx0vsi0" />'
+    );
+
     // Adaptamos los distintos tipos de contenidos de la web
 
     // HOME
