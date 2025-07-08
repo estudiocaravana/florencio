@@ -427,6 +427,34 @@ document
     });
   });
 
+function adaptaFormularioATipo(nombreTipo, tipo) {
+  if (tipo == "refran") {
+    document
+      .querySelectorAll("#novo-termo-categoria-bloque")
+      .forEach((categoria) => {
+        categoria.classList.add("oculto");
+      });
+  } else {
+    document
+      .querySelectorAll("#novo-termo-categoria-bloque")
+      .forEach((categoria) => {
+        categoria.classList.remove("oculto");
+      });
+  }
+
+  document.querySelectorAll("#novo-termo-termo-label").forEach((label) => {
+    label.innerText = nombreTipo;
+  });
+}
+
+document.querySelectorAll("#novo-termo-tipo").forEach((el) => {
+  el.addEventListener("change", (event) => {
+    adaptaFormularioATipo(el.options[el.selectedIndex].text, el.value);
+  });
+
+  adaptaFormularioATipo(el.options[el.selectedIndex].text, el.value);
+});
+
 function alternaCargando(boton) {
   const spinners = document.querySelectorAll("#cargando");
 
