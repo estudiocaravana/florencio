@@ -36,6 +36,11 @@ const globby = require("fast-glob");
 
     // Sustituimos la etiqueta meta og:image con el logo de la web
 
+    $("meta[property='og:url']").attr(
+      "content",
+      "https://dicionario.florenciodelgadogurriaran.gal{{ page.url }}"
+    );
+
     $("meta[property='og:image']").attr(
       "content",
       "{{ '/_assets/img/rrss.png' | url }}"
