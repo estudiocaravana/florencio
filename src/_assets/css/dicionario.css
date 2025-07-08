@@ -30,6 +30,8 @@
     white-space: wrap;
 }
 
+/* Reproductor de audio */
+
 wave-audio-path-player {
     white-space: wrap;
 }
@@ -39,4 +41,17 @@ wave-audio-path-player::part(duration) {
 }
 wave-audio-path-player::part(play) {
     padding: 0;
+}
+
+/* Selector Tom Select */
+.ts-control {
+    padding: 20px 10px 20px 15px;
+    font-size: 100%;
+    color: #708090;
+    border-radius: 5px;
+    border: 1px solid var(--negro)
+}
+
+.ts-wrapper.multi .ts-control .item {
+    padding: 15px 15px !important;
 }
