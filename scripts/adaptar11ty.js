@@ -55,6 +55,14 @@ const globby = require("fast-glob");
     const adaptarTermo = require("./adaptadores/termo.js");
     adaptarTermo($, assetsUrl);
 
+    // LISTA DE REFRÁNS
+    const adaptarRefrans = require("./adaptadores/refrans.js");
+    adaptarRefrans($, assetsUrl);
+
+    // REFRÁN SINGLE
+    const adaptarRefran = require("./adaptadores/refran.js");
+    adaptarRefran($, assetsUrl);
+
     // NOVO TERMO
     const adaptarNovoTermo = require("./adaptadores/novo-termo.js");
     adaptarNovoTermo($, assetsUrl);

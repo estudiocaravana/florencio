@@ -212,7 +212,7 @@ function adaptar($, assetsUrl) {
     let enlaceCompletar = $el.find("#termo-completar").first();
     enlaceCompletar.attr(
       "href",
-      enlaceCompletar.attr("href") + "?termo={{ termo.termo }}"
+      enlaceCompletar.attr("href") + "?termo={{ termo.termo }}&tipo=termo"
     );
 
     // Comentarios

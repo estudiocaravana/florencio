@@ -17,7 +17,7 @@ let filtrosAplicados = {};
 let paginaActual = 0;
 let totalPaginas = 1;
 
-function filtrar(termos) {
+function filtrar(termos, nombreElementos = "Termos") {
   let elementosPorPagina = 36;
 
   let termosFiltrados = [];
@@ -114,7 +114,7 @@ function filtrar(termos) {
   let textoResumen = "";
   if (textosResumen.length > 0) {
     if (!filtrosAplicados["categorias"]) {
-      textoResumen += "Termos ";
+      textoResumen += nombreElementos + " ";
     }
     textoResumen += textosResumen.join(", ");
   } else {
@@ -123,7 +123,7 @@ function filtrar(termos) {
   resumen.innerHTML = textoResumen;
 }
 
-function crearFiltro(termos, nombreFiltro) {
+function crearFiltro(termos, nombreFiltro, nombreElementos = "Termos") {
   let enlaces = document.querySelectorAll("#filtro-" + nombreFiltro + " a");
 
   enlaces.forEach((enlace) => {
@@ -144,7 +144,7 @@ function crearFiltro(termos, nombreFiltro) {
       }
 
       paginaActual = 0;
-      filtrar(termos);
+      filtrar(termos, nombreElementos);
     });
   });
 }
@@ -189,6 +189,46 @@ document.querySelectorAll("#termos-lista").forEach((lista) => {
   filtrar(termos);
 });
 
+document.querySelectorAll("#refrans-lista").forEach((lista) => {
+  let refrans = lista.children;
+  let nombreElementos = "Refráns";
+
+  crearFiltro(refrans, "campos", nombreElementos);
+  crearFiltro(refrans, "concellos", nombreElementos);
+
+  let buscador = document.querySelector("#fitro-buscador");
+
+  buscador.addEventListener("keyup", function (event) {
+    let textoBuscado = buscador.value.trim().toLowerCase();
+    // console.log(textoBuscado);
+    filtrosAplicados["buscar"] = textoBuscado;
+    paginaActual = 0;
+    filtrar(refrans, nombreElementos);
+  });
+
+  const paginador = document.querySelector("#filtro-paginador");
+  paginador
+    .querySelector("#filtro-paginador-anterior")
+    .addEventListener("click", (event) => {
+      event.preventDefault();
+      if (paginaActual > 0) {
+        paginaActual--;
+        filtrar(refrans, nombreElementos);
+      }
+    });
+  paginador
+    .querySelector("#filtro-paginador-siguiente")
+    .addEventListener("click", (event) => {
+      event.preventDefault();
+      if (paginaActual < totalPaginas - 1) {
+        paginaActual++;
+        filtrar(refrans, nombreElementos);
+      }
+    });
+
+  filtrar(refrans, nombreElementos);
+});
+
 /*
  * NOVO TERMO
  */
@@ -199,6 +239,15 @@ document.querySelectorAll("#novo-termo-termo").forEach((termo) => {
   const termoParam = urlParams.get("termo");
   if (termoParam) {
     termo.value = termoParam;
+  }
+});
+
+document.querySelectorAll("#novo-termo-tipo").forEach((tipo) => {
+  // Obtenemos el parámetro "tipo" de la URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const tipoParam = urlParams.get("tipo");
+  if (tipoParam) {
+    tipo.value = tipoParam;
   }
 });
 
@@ -360,7 +409,8 @@ if (!backend.estaLogueado) {
 
 document
   .querySelectorAll(
-    "#novo-termo-ubicacion," +
+    "#novo-termo-tipo," +
+      "#novo-termo-ubicacion," +
       "#novo-termo-categoria," +
       "#novo-termo-campo," +
       "#novo-termo-foto-autoria," +
@@ -392,6 +442,7 @@ document.querySelectorAll("#novo-termo-enviar").forEach((boton) => {
 
     let datos = {
       termo: document.getElementById("novo-termo-termo").value,
+      tipo: document.getElementById("novo-termo-tipo").value,
       definicion: document.getElementById("novo-termo-definicion").value,
 
       ubicacion: obtenValoresSelect("novo-termo-ubicacion"),
