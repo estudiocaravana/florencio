@@ -331,7 +331,7 @@ if (!backend.estaLogueado) {
   document.querySelectorAll("#login-form").forEach((elemento) => {
     elemento.classList.remove("oculto");
   });
-  document.querySelectorAll("#logout-form").forEach((elemento) => {
+  document.querySelectorAll("#usuario-accions").forEach((elemento) => {
     elemento.classList.add("oculto");
   });
 
@@ -375,7 +375,7 @@ if (!backend.estaLogueado) {
   document.querySelectorAll("#login-form").forEach((elemento) => {
     elemento.classList.add("oculto");
   });
-  document.querySelectorAll("#logout-form").forEach((elemento) => {
+  document.querySelectorAll("#usuario-accions").forEach((elemento) => {
     elemento.classList.remove("oculto");
   });
 
