@@ -62,7 +62,7 @@ module.exports = async function (eleventyConfig) {
       "/_assets/tom-select.min.css.map",
   });
   // Put robots.txt in root
-  eleventyConfig.addPassthroughCopy({ "src/robots.txt": "/robots.txt" });
+  eleventyConfig.addPassthroughCopy({ "src/robots.txt": "/public/robots.txt" });
 
   // Filtro para convertir json a string
   eleventyConfig.addFilter("stringify", (data) => {
