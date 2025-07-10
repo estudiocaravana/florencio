@@ -1,5 +1,8 @@
 function adaptar($, assetsUrl, artigo) {
-  artigo.find("a").first().attr("href", "/artigos/{{ item.titulo | slugify }}");
+  artigo
+    .find("a")
+    .first()
+    .attr("href", "/artigos/artigo/{{ item.titulo | slugify }}");
   artigo.find("#artigo-titulo").first().html("{{ item.titulo }}");
   artigo.find("#artigo-extracto").first().html("{{ item.extracto | safe }}");
   artigo.find("#artigo-autora").first().html("{{ item.autora }}");
