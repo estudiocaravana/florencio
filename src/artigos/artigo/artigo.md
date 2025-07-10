@@ -4,5 +4,5 @@ pagination:
   data: artigos
   size: 1
   alias: artigo
-permalink: "artigos/{{ artigo.titulo | slugify }}/"
+permalink: "artigos/artigo/{{ artigo.titulo | slugify }}/"
 ---

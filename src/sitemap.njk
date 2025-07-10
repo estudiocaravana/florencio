@@ -1,0 +1,34 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    {% for page in collections.all %}
+        {% if not page.url.startsWith('/termos/termo/') and not page.url.startsWith('/refrans/refran/') and not page.url.startsWith('/artigos/artigo/') %}
+            <url>
+                <loc>https://dicionario.florenciodelgadogurriaran.gal{{ page.url | url }}</loc>
+                <lastmod>{{ page.date.toISOString() }}</lastmod>
+            </url>
+        {% endif %}
+    {% endfor %}
+    {# Incluímos explicitamente os termos, refráns e artigos para que recorra todos os elementos, porque con collections.all non o facía #}
+    {% for termo in termos %}
+        <url>
+            <loc>https://dicionario.florenciodelgadogurriaran.gal/termos/termo/{{ termo.termo | slugify }}</loc>
+            <lastmod>{{ termo.date_created }}</lastmod>
+        </url>
+    {% endfor %}
+    {% for refran in refrans %}
+        <url>
+            <loc>https://dicionario.florenciodelgadogurriaran.gal/refrans/refran/{{ refran.termo | slugify }}</loc>
+            <lastmod>{{ refran.date_created }}</lastmod>
+        </url>
+    {% endfor %}
+    {% for artigo in artigos %}
+        <url>
+            <loc>https://dicionario.florenciodelgadogurriaran.gal/artigos/artigo/{{ artigo.titulo | slugify }}</loc>
+            <lastmod>{{ artigo.date_updated }}</lastmod>
+        </url>
+    {% endfor %}
+</urlset>

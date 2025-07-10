@@ -1,2 +1,4 @@
+Sitemap: https://dicionario.florenciodelgadogurriaran.gal/sitemap.xml
+
 User-agent: *
-Disallow: /legal/
+Disallow: /aviso-legal/
