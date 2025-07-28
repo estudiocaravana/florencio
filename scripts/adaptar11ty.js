@@ -50,6 +50,12 @@ const globby = require("fast-glob");
       '<meta name="google-site-verification" content="MSsooqjcEmXehcdemvSle1r2DVUvba6vPtzGWx0vsi0" />'
     );
 
+    $("head").append('<meta name="robots" content="index, follow">');
+
+    $("head").append(
+      '<link rel="canonical" href="https://dicionario.florenciodelgadogurriaran.gal{{ page.url }}">'
+    );
+
     // Adaptamos los distintos tipos de contenidos de la web
 
     // HOME
