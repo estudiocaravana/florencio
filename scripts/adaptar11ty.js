@@ -56,6 +56,9 @@ const globby = require("fast-glob");
       '<link rel="canonical" href="https://dicionario.florenciodelgadogurriaran.gal{{ page.url }}">'
     );
 
+    // Borramos el "script type="application/ld+json" que está dando problemas
+    $("script[type='application/ld+json']").remove();
+
     // Adaptamos los distintos tipos de contenidos de la web
 
     // HOME
