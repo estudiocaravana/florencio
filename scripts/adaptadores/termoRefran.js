@@ -294,7 +294,8 @@ function adaptarTermoRefran(
     enlaceCompletar.attr("href") +
       "?termo={{ " +
       dataName +
-      ".termo }}&tipo=termo"
+      ".termo }}&tipo=" +
+      dataName
   );
 
   // Comentarios
