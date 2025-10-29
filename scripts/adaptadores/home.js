@@ -12,6 +12,19 @@ function adaptar($, assetsUrl) {
     $(el).html(bucle);
   });
 
+  $("#home-refrans-lista").each((_, el) => {
+    let modelo = $(el).children().first();
+    modelo.attr("href", "/refrans/refran/{{ item.termo | slugify }}");
+    modelo.find("#termo-nome").first().html("{{ item.termo }}");
+    modelo.find("#termo-extracto").first().html("{{ item.definicion | safe }}");
+
+    const bucle =
+      "{%- for item in homeRefrans -%}\n" +
+      modelo.prop("outerHTML") +
+      "{%- endfor -%}";
+    $(el).html(bucle);
+  });
+
   const adaptarArtigoEnLista = require("./artigo-en-lista");
   $("#home-artigo").each((_, el) => {
     const $el = $(el);

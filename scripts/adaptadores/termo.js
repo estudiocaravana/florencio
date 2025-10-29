@@ -20,6 +20,24 @@ function adaptar($, assetsUrl) {
         "{% endif %}"
     );
 
+    // Marca "Descartado"
+    let descartado = $el.find("#termo-descartado").first();
+    descartado.replaceWith(
+      "{% if termo.status == 'archived' %}" +
+        descartado.prop("outerHTML") +
+        "{% endif %}"
+    );
+
+    // Variantes
+    let bloqueVariantes = $el.find("#termo-bloque-variantes").first();
+    let variantes = bloqueVariantes.find("#termo-variantes").first();
+    variantes.html("{{ termo.variantes | safe }}");
+    bloqueVariantes.replaceWith(
+      "{% if termo.variantes %}" +
+        bloqueVariantes.prop("outerHTML") +
+        "{% endif %}"
+    );
+
     // Ejemplos
     let bloqueExemplos = $el.find("#termo-bloque-exemplos").first();
     let exemplos = bloqueExemplos.find("#termo-exemplos").first();
@@ -259,30 +277,70 @@ function adaptar($, assetsUrl) {
     bloqueComentarios.replaceWith(logicaComentarios);
 
     // Navegación
-    const bloqueNavegacion = $el.find("#termo-bloque-navegacion").first();
-    const termoAnterior = bloqueNavegacion.find("#termo-anterior");
-    const termoSeguinte = bloqueNavegacion.find("#termo-siguiente");
+    const bloquesNavegacion = $el.find("#termo-bloque-navegacion");
 
-    termoAnterior
-      .find("a")
-      .first()
-      .attr("href", "/termos/termo/{{ termoAnterior.termo | slugify }}");
-    termoAnterior.replaceWith(
-      "{% if termoAnterior %}" + termoAnterior.prop("outerHTML") + "{% endif %}"
+    bloquesNavegacion.each((_, el) => {
+      const bloqueNavegacion = $(el);
+      const termoAnterior = bloqueNavegacion.find("#termo-anterior");
+      const termoSeguinte = bloqueNavegacion.find("#termo-siguiente");
+
+      termoAnterior
+        .find("a")
+        .first()
+        .attr("href", "/termos/termo/{{ termoAnterior.termo | slugify }}");
+      termoAnterior.replaceWith(
+        "{% if termoAnterior %}" +
+          termoAnterior.prop("outerHTML") +
+          "{% endif %}"
+      );
+
+      termoSeguinte
+        .find("a")
+        .first()
+        .attr("href", "/termos/termo/{{ termoSeguinte.termo | slugify }}");
+      termoSeguinte.replaceWith(
+        "{% if termoSeguinte %}" +
+          termoSeguinte.prop("outerHTML") +
+          "{% endif %}"
+      );
+
+      bloqueNavegacion.replaceWith(
+        "{% set termoAnterior = termos | anterior(termo.id) %}" +
+          "{% set termoSeguinte = termos | siguiente(termo.id) %}" +
+          bloqueNavegacion.prop("outerHTML")
+      );
+    });
+
+    const bloqueMiniNavegacion = $el
+      .find("#termo-bloque-mininavegacion")
+      .first();
+    const miniTermoAnterior = bloqueMiniNavegacion.find("#termo-anterior");
+    const miniTermoSeguinte = bloqueMiniNavegacion.find("#termo-siguiente");
+
+    miniTermoAnterior.attr(
+      "href",
+      "/termos/termo/{{ miniTermoAnterior.termo | slugify }}"
+    );
+    miniTermoAnterior.replaceWith(
+      "{% if miniTermoAnterior %}" +
+        miniTermoAnterior.prop("outerHTML") +
+        "{% endif %}"
     );
 
-    termoSeguinte
-      .find("a")
-      .first()
-      .attr("href", "/termos/termo/{{ termoSeguinte.termo | slugify }}");
-    termoSeguinte.replaceWith(
-      "{% if termoSeguinte %}" + termoSeguinte.prop("outerHTML") + "{% endif %}"
+    miniTermoSeguinte.attr(
+      "href",
+      "/termos/termo/{{ miniTermoSeguinte.termo | slugify }}"
+    );
+    miniTermoSeguinte.replaceWith(
+      "{% if miniTermoSeguinte %}" +
+        miniTermoSeguinte.prop("outerHTML") +
+        "{% endif %}"
     );
 
-    bloqueNavegacion.replaceWith(
-      "{% set termoAnterior = termos | anterior(termo.id) %}" +
-        "{% set termoSeguinte = termos | siguiente(termo.id) %}" +
-        bloqueNavegacion.prop("outerHTML")
+    bloqueMiniNavegacion.replaceWith(
+      "{% set miniTermoAnterior = termos | anterior(termo.id) %}" +
+        "{% set miniTermoSeguinte = termos | siguiente(termo.id) %}" +
+        bloqueMiniNavegacion.prop("outerHTML")
     );
   });
 }

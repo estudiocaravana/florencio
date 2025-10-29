@@ -96,6 +96,14 @@ function filtrar(termos, nombreElementos = "Termos") {
       textosResumen.push(categoria.innerText);
     }
   }
+  if (filtrosAplicados["estados"]) {
+    const estado = document.querySelector(
+      "#filtro-estados a[data-id='" + filtrosAplicados["estados"] + "']"
+    );
+    if (estado) {
+      textosResumen.push(estado.innerText);
+    }
+  }
   if (filtrosAplicados["buscar"]) {
     textosResumen.push('que conteñen "' + filtrosAplicados["buscar"] + '"');
   }
@@ -155,6 +163,7 @@ document.querySelectorAll("#termos-lista").forEach((lista) => {
   crearFiltro(termos, "categorias");
   crearFiltro(termos, "campos");
   crearFiltro(termos, "concellos");
+  crearFiltro(termos, "estados");
 
   let buscador = document.querySelector("#fitro-buscador");
 
@@ -195,6 +204,7 @@ document.querySelectorAll("#refrans-lista").forEach((lista) => {
 
   crearFiltro(refrans, "campos", nombreElementos);
   crearFiltro(refrans, "concellos", nombreElementos);
+  crearFiltro(refrans, "estados", nombreElementos);
 
   let buscador = document.querySelector("#fitro-buscador");
 
@@ -510,7 +520,24 @@ document.querySelectorAll("#novo-termo-enviar").forEach((boton) => {
     };
 
     alternaCargando(boton);
-    await backend.nuevaAportacion(datos);
+    let ok = await backend.nuevaAportacion(datos);
+    console.log("Resultado novo termo:", ok);
+    if (ok) {
+      // Reseteamos el formulario
+      document.querySelectorAll("input, textarea").forEach((input) => {
+        input.value = "";
+        input.dispatchEvent(new Event("change"));
+      });
+      document.querySelectorAll("select").forEach((select) => {
+        if (select.id == "novo-termo-tipo") {
+          return;
+        }
+        select.selectedIndex = 0;
+        if (select.tomselect) {
+          select.tomselect.clear();
+        }
+      });
+    }
     alternaCargando(boton);
   });
 });
@@ -654,6 +681,20 @@ document.querySelectorAll("#login-trigger").forEach((trigger) => {
   });
 });
 
+document.querySelectorAll("#ir-login").forEach((trigger) => {
+  trigger.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    // Llevamos al usuario arriba de la página
+    window.scrollTo(0, 0);
+
+    // Hacemos click en el trigger del login para abrir el popover
+    document.querySelectorAll("#login-trigger").forEach((loginTrigger) => {
+      loginTrigger.click();
+    });
+  });
+});
+
 /*
  * AVISOS
  */
@@ -732,6 +773,7 @@ document.querySelectorAll("#termo-mapa-iframe").forEach((elementoMapa) => {
       zoom: 10,
       center: centro,
       mapId: "ubicaciones",
+      mapTypeId: google.maps.MapTypeId.HYBRID,
     });
     for (const u of ubicacion) {
       const coordenadas = u.lugar_id.coordenadas.split(",");

@@ -288,8 +288,10 @@ export function Backend() {
       console.log(resultadoNuevoTermino);
 
       muestraExito("Termo engadido correctamente");
+      return true;
     } catch (error) {
       muestraError(error?.errors?.[0]?.message || error);
+      return false;
     }
   };
 
