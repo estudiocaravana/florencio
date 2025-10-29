@@ -65,17 +65,19 @@ const globby = require("fast-glob");
     const adaptarHome = require("./adaptadores/home.js");
     adaptarHome($, assetsUrl);
 
-    // LISTA DE TERMOS
-    const adaptarTermos = require("./adaptadores/termos.js");
-    adaptarTermos($, assetsUrl);
+    // LISTA DE TERMOS E REFRÁNS
+    // Reutilizamos los adaptadores de termos e refráns
+    if (file.endsWith("/termos/index.html")) {
+      const adaptarTermos = require("./adaptadores/termos.js");
+      adaptarTermos($, assetsUrl);
+    } else if (file.endsWith("/refrans/index.html")) {
+      const adaptarRefrans = require("./adaptadores/refrans.js");
+      adaptarRefrans($, assetsUrl);
+    }
 
     // TERMO SINGLE
     const adaptarTermo = require("./adaptadores/termo.js");
     adaptarTermo($, assetsUrl);
-
-    // LISTA DE REFRÁNS
-    const adaptarRefrans = require("./adaptadores/refrans.js");
-    adaptarRefrans($, assetsUrl);
 
     // REFRÁN SINGLE
     const adaptarRefran = require("./adaptadores/refran.js");
