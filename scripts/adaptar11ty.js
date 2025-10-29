@@ -75,9 +75,15 @@ const globby = require("fast-glob");
       adaptarRefrans($, assetsUrl);
     }
 
-    // TERMO SINGLE
-    const adaptarTermo = require("./adaptadores/termo.js");
-    adaptarTermo($, assetsUrl);
+    // TERMO E REFRAN SINGLE
+    // Reutilizamos los adaptadores de termo e refrán
+    if (file.endsWith("/termos/termo/index.html")) {
+      const adaptarTermos = require("./adaptadores/termo.js");
+      adaptarTermos($, assetsUrl);
+    } else if (file.endsWith("/refrans/refran/index.html")) {
+      const adaptarRefrans = require("./adaptadores/refran.js");
+      adaptarRefrans($, assetsUrl);
+    }
 
     // REFRÁN SINGLE
     const adaptarRefran = require("./adaptadores/refran.js");
