@@ -1,6 +1,7 @@
 const fs = require("fs");
 const markdownIt = require("markdown-it");
 const dynamicCategories = require("eleventy-plugin-dynamic-categories");
+const { htmlToText } = require("html-to-text");
 
 module.exports = async function (eleventyConfig) {
   // Vite
@@ -67,6 +68,23 @@ module.exports = async function (eleventyConfig) {
   // Filtro para convertir json a string
   eleventyConfig.addFilter("stringify", (data) => {
     return JSON.stringify(data, null, "\t");
+  });
+
+  // Filtro para convertir HTML y los caracteres &; en texto plano
+  eleventyConfig.addFilter("stripHtml", (data) => {
+    return htmlToText(data, {
+      wordwrap: null,
+    });
+  });
+
+  // Filtro para limitar el número de palabras
+  eleventyConfig.addFilter("truncatewords", (data, numWords) => {
+    if (!data) return "";
+    let words = data.split(" ");
+    if (words.length <= numWords) {
+      return data;
+    }
+    return words.slice(0, numWords).join(" ") + "...";
   });
 
   // Creamos un filtro para convertir un array de objetos

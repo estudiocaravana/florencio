@@ -6,7 +6,10 @@ function adaptar($, assetsUrl) {
     modelo.attr("data-campos", "{{ item.campo_semantico | listaIdsCampo }}");
     modelo.attr("data-concellos", "{{ item.ubicacion | listaConcellos }}");
     modelo.find("#termo-nome").first().html("{{ item.termo }}");
-    modelo.find("#termo-extracto").first().html("{{ item.definicion | safe }}");
+    modelo
+      .find("#termo-extracto")
+      .first()
+      .html("{{ item.definicion | safe | stripHtml | truncatewords(20) }}");
 
     let revision = modelo.find("#termo-revision").first();
     revision.removeClass("oculto");
