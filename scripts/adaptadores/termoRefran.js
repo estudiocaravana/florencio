@@ -78,6 +78,7 @@ function adaptarTermoRefran(
 
   let nuevaFoto = $("<img>");
   nuevaFoto.attr("src", assetsUrl + "/{{ " + dataName + ".galeria[0].foto }}");
+  nuevaFoto.attr("loading", "lazy");
   nuevaFoto.attr("class", foto.attr("class"));
   foto.replaceWith(nuevaFoto);
 

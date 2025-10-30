@@ -10,6 +10,7 @@ function adaptar($, assetsUrl, artigo) {
   const img = artigo.find("#artigo-imaxe").first();
   const nuevaImg = $("<img>");
   nuevaImg.attr("src", assetsUrl + "/{{ item.imaxe }}");
+  nuevaImg.attr("loading", "lazy");
   nuevaImg.attr("class", img.attr("class"));
   nuevaImg.attr("width", img.attr("width"));
   img.replaceWith(
