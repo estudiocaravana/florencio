@@ -556,7 +556,9 @@ document.querySelectorAll("#termo-comentario-enviar").forEach((elemento) => {
       comentario: comentarioTexto,
     };
 
+    alternaCargando(elemento);
     await backend.nuevoComentario(datos);
+    alternaCargando(elemento);
   });
 });
 
@@ -611,6 +613,7 @@ if (botonRexistroPersoa) {
       "rexistro-persoa-privacidade"
     ).checked;
 
+    alternaCargando(botonRexistroPersoa);
     await backend.registrarUsuario({
       email: email,
       password: password,
@@ -620,6 +623,7 @@ if (botonRexistroPersoa) {
       institucion: 0,
       privacidade: privacidade,
     });
+    alternaCargando(botonRexistroPersoa);
   });
 }
 
@@ -646,6 +650,7 @@ if (botonRexistroColectivo) {
       "rexistro-colectivo-privacidade"
     ).checked;
 
+    alternaCargando(botonRexistroColectivo);
     await backend.registrarUsuario({
       email: email,
       password: password,
@@ -656,6 +661,7 @@ if (botonRexistroColectivo) {
       institucion: 1,
       privacidade: privacidade,
     });
+    alternaCargando(botonRexistroColectivo);
   });
 }
 
