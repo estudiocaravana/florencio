@@ -65,6 +65,11 @@ module.exports = async function (eleventyConfig) {
   // Put robots.txt in root
   eleventyConfig.addPassthroughCopy({ "src/robots.txt": "/public/robots.txt" });
 
+  // Put google verification file in root
+  eleventyConfig.addPassthroughCopy({
+    "src/google4930be4105f28dfd.html": "/public/google4930be4105f28dfd.html",
+  });
+
   // Filtro para convertir json a string
   eleventyConfig.addFilter("stringify", (data) => {
     return JSON.stringify(data, null, "\t");
