@@ -557,7 +557,11 @@ document.querySelectorAll("#termo-comentario-enviar").forEach((elemento) => {
     };
 
     alternaCargando(elemento);
-    await backend.nuevoComentario(datos);
+    let ok = await backend.nuevoComentario(datos);
+    if (ok) {
+      // Reseteamos el input
+      comentario.value = "";
+    }
     alternaCargando(elemento);
   });
 });

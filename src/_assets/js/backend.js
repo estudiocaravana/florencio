@@ -308,8 +308,10 @@ export function Backend() {
       // console.log(resultadoNuevoComentario);
 
       muestraExito("Comentario enviado correctamente");
+      return true;
     } catch (error) {
       muestraError(error?.errors?.[0]?.message || error);
+      return false;
     }
   };
 }
