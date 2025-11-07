@@ -322,7 +322,7 @@ function adaptarTermoRefran(
   modelo
     .find("#termo-comentarios-comentario")
     .first()
-    .html("{{ comentario.comentario }}");
+    .html("{{ comentario.comentario | safe }}");
 
   const bucleComentarios =
     "{%- for comentario in " +
