@@ -97,10 +97,10 @@ function adaptarElementoTermosRefrans($, el, assetsUrl, dataName, urlBase) {
     modelo.html("Todos");
     contenido += modelo.prop("outerHTML");
 
-    // Opción "Incorporado"
+    // Opción "Validados"
     modelo.attr("data-id", "published");
     modelo.attr("class", clases);
-    modelo.html("Incorporados");
+    modelo.html("Validados");
     contenido += modelo.prop("outerHTML");
 
     // Opción "En revisión"
