@@ -17,32 +17,48 @@ let filtrosAplicados = {};
 let paginaActual = 0;
 let totalPaginas = 1;
 
-function filtrar(termos, nombreElementos = "Termos") {
+function quitarTildes(texto) {
+  // Hacemos la sustitución manual para mantener la ñ
+  return texto
+    .replace(/á/g, "a")
+    .replace(/é/g, "e")
+    .replace(/í/g, "i")
+    .replace(/ó/g, "o")
+    .replace(/ú/g, "u");
+}
+
+function filtrar(lista, termos, nombreElementos = "Termos") {
   let elementosPorPagina = 36;
 
-  let termosFiltrados = [];
+  let pesosTermos = [];
 
-  for (const termo of termos) {
-    termo.classList.remove("oculto");
-    let estaEnTodosFiltros = true;
+  // Primero, aplicamos los filtros a los termos
+  for (let i = 0; i < termos.length; i++) {
+    const termo = termos[i];
+
+    pesosTermos[i] = 1;
 
     for (let filtroAplicado in filtrosAplicados) {
       let valorFiltro = filtrosAplicados[filtroAplicado];
-      let estaEnFiltro = false;
+      valorFiltro = quitarTildes(valorFiltro.toLowerCase());
 
       if (filtroAplicado == "buscar") {
-        let termoTexto = termo
-          .querySelector("#termo-nome")
-          .innerText.trim()
-          .toLowerCase();
+        let termoTexto = quitarTildes(
+          termo.querySelector("#termo-nome").innerText.trim().toLowerCase()
+        );
 
-        if (termoTexto.indexOf(valorFiltro) == -1) {
-          estaEnFiltro = false;
+        // Colocamos antes los termos que empiecen por el texto buscado
+        if (termoTexto.indexOf(valorFiltro) == 0) {
+          pesosTermos[i] = 2;
+          // Luego los que lo contengan en cualquier parte
+        } else if (termoTexto.indexOf(valorFiltro) > 0) {
+          pesosTermos[i] = 1;
         } else {
-          estaEnFiltro = true;
+          pesosTermos[i] = 0;
         }
       } else {
         let filtroTermo = termo.dataset[filtroAplicado].trim();
+        let estaEnFiltro = false;
 
         let filtrosTermoSeparados = filtroTermo.split(", ");
 
@@ -52,30 +68,42 @@ function filtrar(termos, nombreElementos = "Termos") {
             return;
           }
         });
+
+        if (!estaEnFiltro) {
+          pesosTermos[i] = 0;
+        }
       }
 
-      if (!estaEnFiltro) {
-        termo.classList.add("oculto");
-        estaEnTodosFiltros = false;
+      if (pesosTermos[i] == 0) {
         break;
       }
     }
-
-    if (estaEnTodosFiltros) {
-      termosFiltrados.push(termo);
-    }
   }
 
+  // Después, ordenamos los termos por peso y alfabéticamente
+  let termosFiltrados = termos
+    .map((termo, i) => ({
+      termo,
+      peso: pesosTermos[i],
+    }))
+    // Eliminamos los que tengan peso 0
+    .filter(({ peso }) => peso > 0)
+    .sort(
+      (a, b) =>
+        b.peso - a.peso || a.termo.innerText.localeCompare(b.termo.innerText)
+    )
+    .map(({ termo }) => termo);
+
+  // Por último, aplicamos la paginación a los termos filtrados
   totalPaginas = Math.ceil(termosFiltrados.length / elementosPorPagina);
   const minPagina = paginaActual * elementosPorPagina;
   const maxPagina = (paginaActual + 1) * elementosPorPagina;
-  let index = 0;
-  for (const elemento of termosFiltrados) {
-    if (index < minPagina || index >= maxPagina) {
-      elemento.classList.add("oculto");
-    }
-    index++;
-  }
+  const termosPaginados = termosFiltrados.slice(minPagina, maxPagina);
+
+  lista.innerHTML = "";
+  termosPaginados.forEach((termo) => {
+    lista.appendChild(termo);
+  });
 
   const paginador = document.querySelector("#filtro-paginador");
   if (totalPaginas > 1) {
@@ -131,7 +159,7 @@ function filtrar(termos, nombreElementos = "Termos") {
   resumen.innerHTML = textoResumen;
 }
 
-function crearFiltro(termos, nombreFiltro, nombreElementos = "Termos") {
+function crearFiltro(lista, termos, nombreFiltro, nombreElementos = "Termos") {
   let enlaces = document.querySelectorAll("#filtro-" + nombreFiltro + " a");
 
   enlaces.forEach((enlace) => {
@@ -152,27 +180,30 @@ function crearFiltro(termos, nombreFiltro, nombreElementos = "Termos") {
       }
 
       paginaActual = 0;
-      filtrar(termos, nombreElementos);
+      filtrar(lista, termos, nombreElementos);
     });
   });
 }
 
 document.querySelectorAll("#termos-lista").forEach((lista) => {
-  let termos = lista.children;
+  // Clonamos los termos para tener una copia que no se altere
+  const termos = Array.from(lista.children).map((termo) =>
+    termo.cloneNode(true)
+  );
 
-  crearFiltro(termos, "categorias");
-  crearFiltro(termos, "campos");
-  crearFiltro(termos, "concellos");
-  crearFiltro(termos, "estados");
+  crearFiltro(lista, termos, "categorias");
+  crearFiltro(lista, termos, "campos");
+  crearFiltro(lista, termos, "concellos");
+  crearFiltro(lista, termos, "estados");
 
   let buscador = document.querySelector("#fitro-buscador");
 
   buscador.addEventListener("keyup", function (event) {
-    let textoBuscado = buscador.value.trim().toLowerCase();
+    let textoBuscado = buscador.value.trim();
     // console.log(textoBuscado);
     filtrosAplicados["buscar"] = textoBuscado;
     paginaActual = 0;
-    filtrar(termos);
+    filtrar(lista, termos);
   });
 
   const paginador = document.querySelector("#filtro-paginador");
@@ -182,7 +213,7 @@ document.querySelectorAll("#termos-lista").forEach((lista) => {
       event.preventDefault();
       if (paginaActual > 0) {
         paginaActual--;
-        filtrar(termos);
+        filtrar(lista, termos);
       }
     });
   paginador
@@ -191,29 +222,32 @@ document.querySelectorAll("#termos-lista").forEach((lista) => {
       event.preventDefault();
       if (paginaActual < totalPaginas - 1) {
         paginaActual++;
-        filtrar(termos);
+        filtrar(lista, termos);
       }
     });
 
-  filtrar(termos);
+  filtrar(lista, termos);
 });
 
 document.querySelectorAll("#refrans-lista").forEach((lista) => {
-  let refrans = lista.children;
+  // Clonamos los refrans para tener una copia que no se altere
+  const refrans = Array.from(lista.children).map((termo) =>
+    termo.cloneNode(true)
+  );
   let nombreElementos = "Refráns";
 
-  crearFiltro(refrans, "campos", nombreElementos);
-  crearFiltro(refrans, "concellos", nombreElementos);
-  crearFiltro(refrans, "estados", nombreElementos);
+  crearFiltro(lista, refrans, "campos", nombreElementos);
+  crearFiltro(lista, refrans, "concellos", nombreElementos);
+  crearFiltro(lista, refrans, "estados", nombreElementos);
 
   let buscador = document.querySelector("#fitro-buscador");
 
   buscador.addEventListener("keyup", function (event) {
-    let textoBuscado = buscador.value.trim().toLowerCase();
+    let textoBuscado = buscador.value.trim();
     // console.log(textoBuscado);
     filtrosAplicados["buscar"] = textoBuscado;
     paginaActual = 0;
-    filtrar(refrans, nombreElementos);
+    filtrar(lista, refrans, nombreElementos);
   });
 
   const paginador = document.querySelector("#filtro-paginador");
@@ -223,7 +257,7 @@ document.querySelectorAll("#refrans-lista").forEach((lista) => {
       event.preventDefault();
       if (paginaActual > 0) {
         paginaActual--;
-        filtrar(refrans, nombreElementos);
+        filtrar(lista, refrans, nombreElementos);
       }
     });
   paginador
@@ -232,11 +266,11 @@ document.querySelectorAll("#refrans-lista").forEach((lista) => {
       event.preventDefault();
       if (paginaActual < totalPaginas - 1) {
         paginaActual++;
-        filtrar(refrans, nombreElementos);
+        filtrar(lista, refrans, nombreElementos);
       }
     });
 
-  filtrar(refrans, nombreElementos);
+  filtrar(lista, refrans, nombreElementos);
 });
 
 /*
