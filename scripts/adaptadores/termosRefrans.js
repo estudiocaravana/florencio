@@ -9,7 +9,9 @@ function adaptarElementoTermosRefrans($, el, assetsUrl, dataName, urlBase) {
   modelo
     .find("#termo-extracto")
     .first()
-    .html("{{ item.definicion | safe | stripHtml | truncatewords(20) }}");
+    .html(
+      "{{ item.definicion | stripHtml | removeBrackets | truncatewords(20) }}"
+    );
 
   let revision = modelo.find("#termo-revision").first();
   revision.removeClass("oculto");

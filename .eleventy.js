@@ -82,6 +82,12 @@ module.exports = async function (eleventyConfig) {
     });
   });
 
+  // Filtro para eliminar los corchetes, y su contenido, de un texto
+  eleventyConfig.addFilter("removeBrackets", (data) => {
+    if (!data) return "";
+    return data.replace(/\s*\[.*?\]\s*/g, "").trim();
+  });
+
   // Filtro para limitar el número de palabras
   eleventyConfig.addFilter("truncatewords", (data, numWords) => {
     if (!data) return "";
