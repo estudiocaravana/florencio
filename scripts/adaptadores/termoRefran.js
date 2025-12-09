@@ -51,7 +51,15 @@ function adaptarTermoRefran(
   // Variantes
   let bloqueVariantes = $el.find("#termo-bloque-variantes").first();
   let variantes = bloqueVariantes.find("#termo-variantes").first();
-  variantes.html("{{ " + dataName + ".variantes | safe }}");
+  variantes.html(
+    "{{ " +
+      dataName +
+      ".variantes | variantes('" +
+      urlBase +
+      "', " +
+      dataNameIndex +
+      ") | safe }}"
+  );
   bloqueVariantes.replaceWith(
     "{% if " +
       dataName +

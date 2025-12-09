@@ -241,6 +241,33 @@ module.exports = async function (eleventyConfig) {
     );
     return filtered;
   });
+
+  // Funciones para enlazar automáticamente las variantes de una palabra con su ficha, si existe
+  eleventyConfig.addFilter("variantes", (variantes, urlBase, collection) => {
+    if (!collection || !variantes) return null;
+
+    const palabras = variantes
+      // .split(/,|\s+e\s+/)
+      .split(/,/)
+      .map((v) => v.trim())
+      .filter((v) => v);
+
+    const variantesEnlazadas = palabras
+      .map((palabra) => {
+        const found = collection.find(
+          (item) => item.termo.toLowerCase() === palabra.toLowerCase()
+        );
+        if (found) {
+          return `<a href="${urlBase}/${found.termo.toLowerCase()}">${palabra}</a>`;
+        } else {
+          return palabra;
+        }
+      })
+      .join(", ");
+
+    return variantesEnlazadas;
+  });
+
   // directorios y njk
   return {
     markdownTemplateEngine: "njk",
