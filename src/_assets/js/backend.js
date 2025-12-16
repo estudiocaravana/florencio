@@ -245,7 +245,7 @@ export function Backend() {
     return userInfo;
   };
 
-  this.subirArchivo = async (archivo) => {
+  this.subirArchivo = async (archivo, termo) => {
     let archivo_id = null;
 
     if (archivo) {
@@ -253,6 +253,7 @@ export function Backend() {
       const formData = new FormData();
       // Carpeta pública
       formData.append("folder", CARPETA_PUBLICA);
+      formData.append("title", termo);
       formData.append("file", archivo);
 
       const resultadoFoto = await this.hazPeticion(
@@ -274,8 +275,8 @@ export function Backend() {
         throw new Error("Por favor, introduce o termo");
       }
 
-      datos.foto = await this.subirArchivo(datos.foto);
-      datos.audio = await this.subirArchivo(datos.audio);
+      datos.foto = await this.subirArchivo(datos.foto, datos.termo);
+      datos.audio = await this.subirArchivo(datos.audio, datos.termo);
 
       const resultadoNuevoTermino = await this.hazPeticion(
         () => ({
