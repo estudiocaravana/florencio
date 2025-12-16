@@ -307,9 +307,10 @@ document.querySelectorAll("#bloque-desplegable").forEach((bloque) => {
   });
 });
 
-function crearFileInput(bloque, id) {
+function crearFileInput(bloque, id, accept) {
   const fileInput = document.createElement("input");
   fileInput.type = "file";
+  fileInput.accept = accept;
   fileInput.id = id;
   fileInput.classList.add("oculto");
   bloque.parentNode.insertBefore(fileInput, bloque.nextSibling);
@@ -346,11 +347,11 @@ function crearFileInput(bloque, id) {
 }
 
 document.querySelectorAll("#novo-termo-foto-subir").forEach((bloque) => {
-  crearFileInput(bloque, "novo-termo-foto");
+  crearFileInput(bloque, "novo-termo-foto", "image/*");
 });
 
 document.querySelectorAll("#novo-termo-audio-subir").forEach((bloque) => {
-  crearFileInput(bloque, "novo-termo-audio");
+  crearFileInput(bloque, "novo-termo-audio", "audio/*");
 });
 
 /*
