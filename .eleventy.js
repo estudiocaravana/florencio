@@ -142,6 +142,25 @@ module.exports = async function (eleventyConfig) {
     "listaConcellos",
     creaListaDeM2M("lugar_id", "concello")
   );
+  // Filtro para convertir los colaboradores, tanto si son usuarios como si no, en una lista de nombres
+  eleventyConfig.addFilter("listaColaboradores", (termo) => {
+    if (!termo) return "";
+    let listaColaboradores = [];
+
+    if (termo.usuarios_colaboradores.length) {
+      listaColaboradores.push(
+        termo.usuarios_colaboradores.map((item) => {
+          return item.directus_users_id.first_name;
+        })
+      );
+    }
+
+    if (termo.usuarios) {
+      listaColaboradores.push(termo.usuarios);
+    }
+
+    return listaColaboradores.join(", ");
+  });
 
   // Creamos un filtro para extraer el informante de un objeto
   function creaInformante(quen, data_nacemento, nacemento, residencia) {

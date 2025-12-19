@@ -243,9 +243,11 @@ function adaptarTermoRefran(
   bloqueUsuarios
     .find("#termo-usuarios")
     .first()
-    .html("{{ " + dataName + ".usuarios }}");
+    .html("{{ " + dataName + " | listaColaboradores }}");
   bloqueUsuarios.replaceWith(
     "{% if " +
+      dataName +
+      ".usuarios_colaboradores | length or " +
       dataName +
       ".usuarios %}" +
       bloqueUsuarios.prop("outerHTML") +
