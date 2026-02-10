@@ -809,6 +809,41 @@ document.getElementById("ir-arriba").addEventListener("click", (event) => {
   window.scrollTo(0, 0);
 });
 
+document.querySelectorAll("#termo-localizacion-punto").forEach((punto) => {
+  const esquinaSuperiorIzquierda = [42.515756, -7.196293];
+  const esquinaInferiorDerecha = [42.179298, -6.736241];
+
+  for (const u of ubicacion) {
+    const copiaDePunto = punto.cloneNode(true);
+
+    const coordenadas = u.lugar_id.coordenadas.split(",");
+    // Le damos al punto la posición de la ubicación relativa a las coordenadas de las esquinas del mapa
+    const latitud = parseFloat(coordenadas[0]);
+    const longitud = parseFloat(coordenadas[1]);
+
+    const top =
+      ((esquinaSuperiorIzquierda[0] - latitud) /
+        (esquinaSuperiorIzquierda[0] - esquinaInferiorDerecha[0])) *
+      100;
+    const left =
+      ((longitud - esquinaSuperiorIzquierda[1]) /
+        (esquinaInferiorDerecha[1] - esquinaSuperiorIzquierda[1])) *
+      100;
+
+    copiaDePunto.style.top = top + "%";
+    copiaDePunto.style.left = left + "%";
+
+    // Le añadimos un title con el nombre de la ubicación para que se muestre al pasar el ratón por encima
+    copiaDePunto.title = u.lugar_id.nome;
+
+    // Añadimos la copia del punto al mapa
+    punto.parentNode.appendChild(copiaDePunto);
+  }
+
+  // Eliminamos el punto original, que no se corresponde con ninguna ubicación
+  punto.remove();
+});
+
 document.querySelectorAll("#termo-mapa-iframe").forEach((elementoMapa) => {
   let map;
 

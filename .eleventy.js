@@ -117,11 +117,14 @@ module.exports = async function (eleventyConfig) {
     return (data) => {
       if (!data) return "";
 
-      return data
-        .map((item) => {
-          return item[campo][nombre];
-        })
-        .join(", ");
+      const items = data.map((item) => {
+        return item[campo][nombre];
+      });
+
+      // Eliminamos los duplicados
+      const uniqueItems = [...new Set(items)];
+
+      return uniqueItems.join(", ");
     };
   }
 
