@@ -2,6 +2,7 @@ function adaptarElementoTermosRefrans($, el, assetsUrl, dataName, urlBase) {
   let modelo = $(el).children().first();
   modelo.attr("href", urlBase + "/{{ item.termo | slugify }}");
   modelo.attr("data-estados", "{{ item.status }}");
+  modelo.attr("data-tipo", "{{ item.tipo }}");
   modelo.attr("data-categorias", "{{ item.categorias | listaIdsCategoria }}");
   modelo.attr("data-campos", "{{ item.campo_semantico | listaIdsCampo }}");
   modelo.attr("data-concellos", "{{ item.ubicacion | listaConcellos }}");
@@ -10,19 +11,19 @@ function adaptarElementoTermosRefrans($, el, assetsUrl, dataName, urlBase) {
     .find("#termo-extracto")
     .first()
     .html(
-      "{{ item.definicion | stripHtml | removeBrackets | truncatewords(20) }}"
+      "{{ item.definicion | stripHtml | removeBrackets | truncatewords(20) }}",
     );
 
   let revision = modelo.find("#termo-revision").first();
   revision.removeClass("oculto");
   revision.html(
-    "{% if item.status == 'revision' %}" + revision.html() + "{% endif %}"
+    "{% if item.status == 'revision' %}" + revision.html() + "{% endif %}",
   );
 
   let descartado = modelo.find("#termo-descartado").first();
   descartado.removeClass("oculto");
   descartado.html(
-    "{% if item.status == 'archived' %}" + descartado.html() + "{% endif %}"
+    "{% if item.status == 'archived' %}" + descartado.html() + "{% endif %}",
   );
 
   const bucle =

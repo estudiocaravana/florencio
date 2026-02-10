@@ -27,10 +27,12 @@ function quitarTildes(texto) {
     .replace(/ú/g, "u");
 }
 
-function filtrar(lista, termos, nombreElementos = "Termos") {
+function filtrar(lista, termos) {
   let elementosPorPagina = 36;
 
   let pesosTermos = [];
+
+  console.log(filtrosAplicados);
 
   // Primero, aplicamos los filtros a los termos
   for (let i = 0; i < termos.length; i++) {
@@ -44,7 +46,7 @@ function filtrar(lista, termos, nombreElementos = "Termos") {
 
       if (filtroAplicado == "buscar") {
         let termoTexto = quitarTildes(
-          termo.querySelector("#termo-nome").innerText.trim().toLowerCase()
+          termo.querySelector("#termo-nome").innerText.trim().toLowerCase(),
         );
 
         // Colocamos antes los termos que empiecen por el texto buscado
@@ -63,7 +65,10 @@ function filtrar(lista, termos, nombreElementos = "Termos") {
         let filtrosTermoSeparados = filtroTermo.split(", ");
 
         filtrosTermoSeparados.forEach((filtroTermoSeparado) => {
-          if (filtroTermoSeparado == valorFiltro) {
+          const filtroTermoAdaptado = quitarTildes(
+            filtroTermoSeparado.toLowerCase(),
+          );
+          if (filtroTermoAdaptado == valorFiltro) {
             estaEnFiltro = true;
             return;
           }
@@ -90,7 +95,7 @@ function filtrar(lista, termos, nombreElementos = "Termos") {
     .filter(({ peso }) => peso > 0)
     .sort(
       (a, b) =>
-        b.peso - a.peso || a.termo.innerText.localeCompare(b.termo.innerText)
+        b.peso - a.peso || a.termo.innerText.localeCompare(b.termo.innerText),
     )
     .map(({ termo }) => termo);
 
@@ -118,7 +123,7 @@ function filtrar(lista, termos, nombreElementos = "Termos") {
   let textosResumen = [];
   if (filtrosAplicados["categorias"]) {
     const categoria = document.querySelector(
-      "#filtro-categorias a[data-id='" + filtrosAplicados["categorias"] + "']"
+      "#filtro-categorias a[data-id='" + filtrosAplicados["categorias"] + "']",
     );
     if (categoria) {
       textosResumen.push(categoria.innerText);
@@ -126,7 +131,7 @@ function filtrar(lista, termos, nombreElementos = "Termos") {
   }
   if (filtrosAplicados["estados"]) {
     const estado = document.querySelector(
-      "#filtro-estados a[data-id='" + filtrosAplicados["estados"] + "']"
+      "#filtro-estados a[data-id='" + filtrosAplicados["estados"] + "']",
     );
     if (estado) {
       textosResumen.push(estado.innerText);
@@ -137,7 +142,7 @@ function filtrar(lista, termos, nombreElementos = "Termos") {
   }
   if (filtrosAplicados["campos"]) {
     const campo = document.querySelector(
-      "#filtro-campos a[data-id='" + filtrosAplicados["campos"] + "']"
+      "#filtro-campos a[data-id='" + filtrosAplicados["campos"] + "']",
     );
     if (campo) {
       textosResumen.push('no campo de "' + campo.innerText + '"');
@@ -148,9 +153,15 @@ function filtrar(lista, termos, nombreElementos = "Termos") {
   }
 
   let textoResumen = "";
-  if (textosResumen.length > 0) {
-    if (!filtrosAplicados["categorias"]) {
-      textoResumen += nombreElementos + " ";
+  if (textosResumen.length > 0 || filtrosAplicados["tipo"]) {
+    if (filtrosAplicados["tipo"] == "termo") {
+      textoResumen += "Termos ";
+    } else {
+      if (filtrosAplicados["tipo"] == "refran") {
+        textoResumen += "Refráns ";
+      } else {
+        textoResumen += "Entradas ";
+      }
     }
     textoResumen += textosResumen.join(", ");
   } else {
@@ -159,7 +170,7 @@ function filtrar(lista, termos, nombreElementos = "Termos") {
   resumen.innerHTML = textoResumen;
 }
 
-function crearFiltro(lista, termos, nombreFiltro, nombreElementos = "Termos") {
+function crearFiltro(lista, termos, nombreFiltro) {
   let enlaces = document.querySelectorAll("#filtro-" + nombreFiltro + " a");
 
   enlaces.forEach((enlace) => {
@@ -180,7 +191,7 @@ function crearFiltro(lista, termos, nombreFiltro, nombreElementos = "Termos") {
       }
 
       paginaActual = 0;
-      filtrar(lista, termos, nombreElementos);
+      filtrar(lista, termos);
     });
   });
 }
@@ -188,13 +199,35 @@ function crearFiltro(lista, termos, nombreFiltro, nombreElementos = "Termos") {
 document.querySelectorAll("#termos-lista").forEach((lista) => {
   // Clonamos los termos para tener una copia que no se altere
   const termos = Array.from(lista.children).map((termo) =>
-    termo.cloneNode(true)
+    termo.cloneNode(true),
   );
 
   crearFiltro(lista, termos, "categorias");
   crearFiltro(lista, termos, "campos");
   crearFiltro(lista, termos, "concellos");
   crearFiltro(lista, termos, "estados");
+
+  const botonesTipo = document.querySelectorAll("#filtro-tipo button");
+  botonesTipo.forEach((boton) => {
+    boton.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      botonesTipo.forEach((boton) => {
+        boton.classList.remove("boton-activo");
+      });
+      boton.classList.add("boton-activo");
+
+      const tipoFiltrado = boton.id;
+
+      if (tipoFiltrado == "todos") {
+        delete filtrosAplicados["tipo"];
+      } else {
+        filtrosAplicados["tipo"] = tipoFiltrado;
+      }
+      paginaActual = 0;
+      filtrar(lista, termos);
+    });
+  });
 
   let buscador = document.querySelector("#fitro-buscador");
 
@@ -232,13 +265,12 @@ document.querySelectorAll("#termos-lista").forEach((lista) => {
 document.querySelectorAll("#refrans-lista").forEach((lista) => {
   // Clonamos los refrans para tener una copia que no se altere
   const refrans = Array.from(lista.children).map((termo) =>
-    termo.cloneNode(true)
+    termo.cloneNode(true),
   );
-  let nombreElementos = "Refráns";
 
-  crearFiltro(lista, refrans, "campos", nombreElementos);
-  crearFiltro(lista, refrans, "concellos", nombreElementos);
-  crearFiltro(lista, refrans, "estados", nombreElementos);
+  crearFiltro(lista, refrans, "campos");
+  crearFiltro(lista, refrans, "concellos");
+  crearFiltro(lista, refrans, "estados");
 
   let buscador = document.querySelector("#fitro-buscador");
 
@@ -247,7 +279,7 @@ document.querySelectorAll("#refrans-lista").forEach((lista) => {
     // console.log(textoBuscado);
     filtrosAplicados["buscar"] = textoBuscado;
     paginaActual = 0;
-    filtrar(lista, refrans, nombreElementos);
+    filtrar(lista, refrans);
   });
 
   const paginador = document.querySelector("#filtro-paginador");
@@ -257,7 +289,7 @@ document.querySelectorAll("#refrans-lista").forEach((lista) => {
       event.preventDefault();
       if (paginaActual > 0) {
         paginaActual--;
-        filtrar(lista, refrans, nombreElementos);
+        filtrar(lista, refrans);
       }
     });
   paginador
@@ -266,11 +298,11 @@ document.querySelectorAll("#refrans-lista").forEach((lista) => {
       event.preventDefault();
       if (paginaActual < totalPaginas - 1) {
         paginaActual++;
-        filtrar(lista, refrans, nombreElementos);
+        filtrar(lista, refrans);
       }
     });
 
-  filtrar(lista, refrans, nombreElementos);
+  filtrar(lista, refrans);
 });
 
 /*
@@ -403,7 +435,7 @@ if (!backend.estaLogueado) {
       let password = document.getElementById("registerPassword").value;
       let name = document.getElementById("registerName").value;
       let relacion_valdeorras = document.getElementById(
-        "registerRelacionValdeorras"
+        "registerRelacionValdeorras",
       ).value;
       let institucion = document.getElementById("registerInstitucion").value;
 
@@ -460,7 +492,7 @@ document
       "#novo-termo-campo," +
       "#novo-termo-foto-autoria," +
       "#novo-termo-informante-sexo," +
-      "#novo-termo-audio-sexo"
+      "#novo-termo-audio-sexo",
   )
   .forEach((el) => {
     new TomSelect(el, {
@@ -531,20 +563,20 @@ document.querySelectorAll("#novo-termo-enviar").forEach((boton) => {
       informante_sexo: document.getElementById("novo-termo-informante-sexo")
         .value,
       informante_data_nacemento: document.getElementById(
-        "novo-termo-informante-data_nacemento"
+        "novo-termo-informante-data_nacemento",
       ).value,
       informante_nacemento: document.getElementById(
-        "novo-termo-informante-nacemento"
+        "novo-termo-informante-nacemento",
       ).value,
       informante_residencia: document.getElementById(
-        "novo-termo-informante-residencia"
+        "novo-termo-informante-residencia",
       ).value,
 
       audio: document.getElementById("novo-termo-audio").files[0],
       audio_nome: document.getElementById("novo-termo-audio-nome").value,
       audio_sexo: document.getElementById("novo-termo-audio-sexo").value,
       audio_data_nacemento: document.getElementById(
-        "novo-termo-audio-data_nacemento"
+        "novo-termo-audio-data_nacemento",
       ).value,
       audio_nacemento: document.getElementById("novo-termo-audio-nacemento")
         .value,
@@ -643,13 +675,13 @@ if (botonRexistroPersoa) {
     let email = document.getElementById("rexistro-persoa-email").value;
     let password = document.getElementById("rexistro-persoa-password").value;
     let repassword = document.getElementById(
-      "rexistro-persoa-repassword"
+      "rexistro-persoa-repassword",
     ).value;
     let relacion_valdeorras = document.getElementById(
-      "rexistro-persoa-relacion"
+      "rexistro-persoa-relacion",
     ).value;
     let privacidade = document.getElementById(
-      "rexistro-persoa-privacidade"
+      "rexistro-persoa-privacidade",
     ).checked;
 
     alternaCargando(botonRexistroPersoa);
@@ -667,7 +699,7 @@ if (botonRexistroPersoa) {
 }
 
 let botonRexistroColectivo = document.getElementById(
-  "rexistro-colectivo-enviar"
+  "rexistro-colectivo-enviar",
 );
 if (botonRexistroColectivo) {
   botonRexistroColectivo.addEventListener("click", async (event) => {
@@ -677,16 +709,16 @@ if (botonRexistroColectivo) {
     let email = document.getElementById("rexistro-colectivo-email").value;
     let password = document.getElementById("rexistro-colectivo-password").value;
     let repassword = document.getElementById(
-      "rexistro-colectivo-repassword"
+      "rexistro-colectivo-repassword",
     ).value;
     let relacion_valdeorras = document.getElementById(
-      "rexistro-colectivo-relacion"
+      "rexistro-colectivo-relacion",
     ).value;
     let persoa_contacto = document.getElementById(
-      "rexistro-colectivo-contacto"
+      "rexistro-colectivo-contacto",
     ).value;
     let privacidade = document.getElementById(
-      "rexistro-colectivo-privacidade"
+      "rexistro-colectivo-privacidade",
     ).checked;
 
     alternaCargando(botonRexistroColectivo);
