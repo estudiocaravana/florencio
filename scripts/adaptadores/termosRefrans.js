@@ -1,6 +1,6 @@
-function adaptarElementoTermosRefrans($, el, assetsUrl, dataName, urlBase) {
+function adaptarElementoTermosRefrans($, el, assetsUrl) {
   let modelo = $(el).children().first();
-  modelo.attr("href", urlBase + "/{{ item.termo | slugify }}");
+  modelo.attr("href", "{{ item.tipo | urlBase }}/{{ item.termo | slugify }}");
   modelo.attr("data-estados", "{{ item.status }}");
   modelo.attr("data-tipo", "{{ item.tipo }}");
   modelo.attr("data-categorias", "{{ item.categorias | listaIdsCategoria }}");
@@ -27,9 +27,7 @@ function adaptarElementoTermosRefrans($, el, assetsUrl, dataName, urlBase) {
   );
 
   const bucle =
-    "{%- for item in " +
-    dataName +
-    " -%}\n" +
+    "{%- for item in termos -%}\n" +
     modelo.prop("outerHTML") +
     "{%- endfor -%}";
   $(el).html(bucle);

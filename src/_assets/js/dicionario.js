@@ -229,6 +229,19 @@ document.querySelectorAll("#termos-lista").forEach((lista) => {
     });
   });
 
+  // Comprobamos si la URL contiene el parámetro "buscar" para no activar el filtro de tipo
+  const urlParams = new URLSearchParams(window.location.search);
+  const buscarParam = urlParams.get("buscar");
+  if (!buscarParam) {
+    // Comprobamos si la URL contiene la palabra "termos" o "refrans" para aplicar el filtro correspondiente
+    const url = window.location.href;
+    if (url.indexOf("termos") > -1) {
+      document.querySelector("#filtro-tipo button#termo").click();
+    } else if (url.indexOf("refrans") > -1) {
+      document.querySelector("#filtro-tipo button#refran").click();
+    }
+  }
+
   let buscador = document.querySelector("#fitro-buscador");
 
   buscador.addEventListener("keyup", function (event) {
@@ -260,49 +273,6 @@ document.querySelectorAll("#termos-lista").forEach((lista) => {
     });
 
   filtrar(lista, termos);
-});
-
-document.querySelectorAll("#refrans-lista").forEach((lista) => {
-  // Clonamos los refrans para tener una copia que no se altere
-  const refrans = Array.from(lista.children).map((termo) =>
-    termo.cloneNode(true),
-  );
-
-  crearFiltro(lista, refrans, "campos");
-  crearFiltro(lista, refrans, "concellos");
-  crearFiltro(lista, refrans, "estados");
-
-  let buscador = document.querySelector("#fitro-buscador");
-
-  buscador.addEventListener("keyup", function (event) {
-    let textoBuscado = buscador.value.trim();
-    // console.log(textoBuscado);
-    filtrosAplicados["buscar"] = textoBuscado;
-    paginaActual = 0;
-    filtrar(lista, refrans);
-  });
-
-  const paginador = document.querySelector("#filtro-paginador");
-  paginador
-    .querySelector("#filtro-paginador-anterior")
-    .addEventListener("click", (event) => {
-      event.preventDefault();
-      if (paginaActual > 0) {
-        paginaActual--;
-        filtrar(lista, refrans);
-      }
-    });
-  paginador
-    .querySelector("#filtro-paginador-siguiente")
-    .addEventListener("click", (event) => {
-      event.preventDefault();
-      if (paginaActual < totalPaginas - 1) {
-        paginaActual++;
-        filtrar(lista, refrans);
-      }
-    });
-
-  filtrar(lista, refrans);
 });
 
 /*

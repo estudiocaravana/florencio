@@ -30,10 +30,10 @@ module.exports = async function (eleventyConfig) {
       },
       https: {
         key: fs.readFileSync(
-          `.certificados/local.florenciodelgadogurriaran.gal-key.pem`
+          `.certificados/local.florenciodelgadogurriaran.gal-key.pem`,
         ),
         cert: fs.readFileSync(
-          `.certificados/local.florenciodelgadogurriaran.gal.pem`
+          `.certificados/local.florenciodelgadogurriaran.gal.pem`,
         ),
       },
     };
@@ -98,6 +98,19 @@ module.exports = async function (eleventyConfig) {
     return words.slice(0, numWords).join(" ") + "...";
   });
 
+  // Filtro para obtener la url base de cada tipo de elemento
+  eleventyConfig.addFilter("urlBase", (data) => {
+    if (!data) return "";
+    switch (data) {
+      case "termo":
+        return "/termos/termo";
+      case "refran":
+        return "/refrans/refran";
+      default:
+        return "/" + data + "s/" + data;
+    }
+  });
+
   // Creamos un filtro para convertir un array de objetos
   // relacionados de muchos a muchos (M2M) en una lista separada por comas
   function creaListaDeM2M(campo, nombre) {
@@ -115,32 +128,32 @@ module.exports = async function (eleventyConfig) {
   // Filtro para convertir un array de ubicaciones en una lista
   eleventyConfig.addFilter(
     "listaUbicacion",
-    creaListaDeM2M("lugar_id", "nome")
+    creaListaDeM2M("lugar_id", "nome"),
   );
   // Filtro para convertir un array de categorias en una lista
   eleventyConfig.addFilter(
     "listaCategoria",
-    creaListaDeM2M("categoria_id", "nome")
+    creaListaDeM2M("categoria_id", "nome"),
   );
   // Filtro para convertir un array de categorias en una lista de ids
   eleventyConfig.addFilter(
     "listaIdsCategoria",
-    creaListaDeM2M("categoria_id", "id")
+    creaListaDeM2M("categoria_id", "id"),
   );
   // Filtro para convertir un array de campos semanticos en una lista
   eleventyConfig.addFilter(
     "listaCampo",
-    creaListaDeM2M("campo_semantico_id", "nome")
+    creaListaDeM2M("campo_semantico_id", "nome"),
   );
   // Filtro para convertir un array de campos semanticos en una lista de ids
   eleventyConfig.addFilter(
     "listaIdsCampo",
-    creaListaDeM2M("campo_semantico_id", "id")
+    creaListaDeM2M("campo_semantico_id", "id"),
   );
   // Filtro para convertir un array de ubicaciones en una lista de concellos
   eleventyConfig.addFilter(
     "listaConcellos",
-    creaListaDeM2M("lugar_id", "concello")
+    creaListaDeM2M("lugar_id", "concello"),
   );
   // Filtro para convertir los colaboradores, tanto si son usuarios como si no, en una lista de nombres
   eleventyConfig.addFilter("listaColaboradores", (termo) => {
@@ -151,7 +164,7 @@ module.exports = async function (eleventyConfig) {
       listaColaboradores.push(
         termo.usuarios_colaboradores.map((item) => {
           return item.directus_users_id.first_name;
-        })
+        }),
       );
     }
 
@@ -201,8 +214,8 @@ module.exports = async function (eleventyConfig) {
       "audio_quen",
       "audio_data_nacemento",
       "audio_nacemento",
-      "audio_residencia"
-    )
+      "audio_residencia",
+    ),
   );
   // Filtro para mostrar el informante de un termo
   eleventyConfig.addFilter(
@@ -211,8 +224,8 @@ module.exports = async function (eleventyConfig) {
       "nome",
       "ano_de_nacemento",
       "lugar_de_nacemento",
-      "ultimo_lugar_de_residencia"
-    )
+      "ultimo_lugar_de_residencia",
+    ),
   );
   // Filtro para mostrar fechas en formato dd/mm/yyyy
   eleventyConfig.addFilter("fecha", (data) => {
@@ -256,7 +269,7 @@ module.exports = async function (eleventyConfig) {
   eleventyConfig.addFilter("categoryFilter", function (collection, category) {
     if (!category) return collection;
     const filtered = collection.filter(
-      (item) => item.data.category == category
+      (item) => item.data.category == category,
     );
     return filtered;
   });
@@ -274,7 +287,7 @@ module.exports = async function (eleventyConfig) {
     const variantesEnlazadas = palabras
       .map((palabra) => {
         const found = collection.find(
-          (item) => item.termo.toLowerCase() === palabra.toLowerCase()
+          (item) => item.termo.toLowerCase() === palabra.toLowerCase(),
         );
         if (found) {
           return `<a href="${urlBase}/${found.termo.toLowerCase()}">${palabra}</a>`;

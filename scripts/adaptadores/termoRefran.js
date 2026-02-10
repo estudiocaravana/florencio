@@ -4,7 +4,7 @@ function adaptarTermoRefran(
   assetsUrl,
   dataName,
   dataNameIndex,
-  urlBase
+  urlBase,
 ) {
   const tokenTitle = dataName.toUpperCase();
   // Sustituimos el token [tokenTitle] del title de la página por el nombre del termo
@@ -13,8 +13,8 @@ function adaptarTermoRefran(
       .html()
       .replace(
         new RegExp("\\[" + tokenTitle + "\\]", "g"),
-        "{{ " + dataName + ".termo }}"
-      )
+        "{{ " + dataName + ".termo }}",
+      ),
   );
 
   const $el = $(el);
@@ -35,7 +35,7 @@ function adaptarTermoRefran(
       dataName +
       ".status == 'revision' %}" +
       revision.prop("outerHTML") +
-      "{% endif %}"
+      "{% endif %}",
   );
 
   // Marca "Descartado"
@@ -45,7 +45,7 @@ function adaptarTermoRefran(
       dataName +
       ".status == 'archived' %}" +
       descartado.prop("outerHTML") +
-      "{% endif %}"
+      "{% endif %}",
   );
 
   // Variantes
@@ -58,14 +58,14 @@ function adaptarTermoRefran(
       urlBase +
       "', " +
       dataNameIndex +
-      ") | safe }}"
+      ") | safe }}",
   );
   bloqueVariantes.replaceWith(
     "{% if " +
       dataName +
       ".variantes %}" +
       bloqueVariantes.prop("outerHTML") +
-      "{% endif %}"
+      "{% endif %}",
   );
 
   // Ejemplos
@@ -77,7 +77,7 @@ function adaptarTermoRefran(
       dataName +
       ".exemplos %}" +
       bloqueExemplos.prop("outerHTML") +
-      "{% endif %}"
+      "{% endif %}",
   );
 
   // Foto
@@ -96,7 +96,7 @@ function adaptarTermoRefran(
       dataName +
       ".galeria[0].foto_fonte %}" +
       bloqueFotoFonte.prop("outerHTML") +
-      "{% endif %}"
+      "{% endif %}",
   );
   bloqueFoto
     .find("#termo-foto-fonte")
@@ -109,7 +109,7 @@ function adaptarTermoRefran(
       dataName +
       ".galeria[0].foto_onde %}" +
       bloqueFotoOnde.prop("outerHTML") +
-      "{% endif %}"
+      "{% endif %}",
   );
   bloqueFoto
     .find("#termo-foto-onde")
@@ -122,7 +122,7 @@ function adaptarTermoRefran(
       dataName +
       ".galeria[0].foto_que %}" +
       bloqueFotoQue.prop("outerHTML") +
-      "{% endif %}"
+      "{% endif %}",
   );
   bloqueFoto
     .find("#termo-foto-que")
@@ -135,7 +135,7 @@ function adaptarTermoRefran(
       dataName +
       ".galeria[0].foto_autoria %}" +
       bloqueFotoAutoria.prop("outerHTML") +
-      "{% endif %}"
+      "{% endif %}",
   );
   bloqueFoto
     .find("#termo-foto-autoria")
@@ -147,7 +147,7 @@ function adaptarTermoRefran(
       dataName +
       ".galeria | length %}" +
       bloqueFoto.prop("outerHTML") +
-      "{% endif %}"
+      "{% endif %}",
   );
 
   // Audio
@@ -160,7 +160,7 @@ function adaptarTermoRefran(
         '<wave-audio-path-player src="' +
         assetsUrl +
         '/{{ audio.audio }}" wave-width="300" wave-height="40" color="#000000" wave-color="#f7f5f2" wave-slider="#000000" wave-progress-color="#000000"></wave-audio-path-player>' +
-        "</div>"
+        "</div>",
     );
   bloqueAudio
     .find("#termo-audio-lenda")
@@ -176,13 +176,11 @@ function adaptarTermoRefran(
       ".audios -%}\n" +
       bloqueAudio.prop("outerHTML") +
       "{%- endfor -%}" +
-      "{% endif %}"
+      "{% endif %}",
   );
 
   // Ficha
-  let bloqueFicha = $el.find("#termo-bloque-ficha").first();
-
-  let bloqueCategorias = bloqueFicha.find("#termo-bloque-categoria").first();
+  let bloqueCategorias = $el.find("#termo-bloque-categoria").first();
   bloqueCategorias
     .find("#termo-categoria")
     .first()
@@ -192,10 +190,10 @@ function adaptarTermoRefran(
       dataName +
       ".categorias | length %}" +
       bloqueCategorias.prop("outerHTML") +
-      "{% endif %}"
+      "{% endif %}",
   );
 
-  let bloqueCampos = bloqueFicha.find("#termo-bloque-campo").first();
+  let bloqueCampos = $el.find("#termo-bloque-campo").first();
   bloqueCampos
     .find("#termo-campo")
     .first()
@@ -205,17 +203,7 @@ function adaptarTermoRefran(
       dataName +
       ".campo_semantico | length %}" +
       bloqueCampos.prop("outerHTML") +
-      "{% endif %}"
-  );
-
-  bloqueFicha.replaceWith(
-    "{% if " +
-      dataName +
-      ".categorias | length or " +
-      dataName +
-      ".campo_semantico | length %}" +
-      bloqueFicha.prop("outerHTML") +
-      "{% endif %}"
+      "{% endif %}",
   );
 
   // Informantes
@@ -228,14 +216,14 @@ function adaptarTermoRefran(
         dataName +
         ".informantes -%}" +
         "{{ informante | informante }}<br>" +
-        "{%- endfor -%}"
+        "{%- endfor -%}",
     );
   bloqueInformantes.replaceWith(
     "{% if " +
       dataName +
       ".informantes | length %}" +
       bloqueInformantes.prop("outerHTML") +
-      "{% endif %}"
+      "{% endif %}",
   );
 
   // Usuarios
@@ -251,7 +239,7 @@ function adaptarTermoRefran(
       dataName +
       ".usuarios %}" +
       bloqueUsuarios.prop("outerHTML") +
-      "{% endif %}"
+      "{% endif %}",
   );
 
   // Mapa
@@ -261,7 +249,7 @@ function adaptarTermoRefran(
       dataName +
       ".ubicacion | length %}" +
       bloqueUbicacion.prop("outerHTML") +
-      "{% endif %}"
+      "{% endif %}",
   );
   $el
     .find("#termo-localizacion")
@@ -275,7 +263,7 @@ function adaptarTermoRefran(
         dataName +
         ".ubicacion | length %}" +
         '<div id="termo-mapa-iframe"></div>' +
-        "{% endif %}"
+        "{% endif %}",
     );
 
   $("head").append(
@@ -283,7 +271,7 @@ function adaptarTermoRefran(
       "  const ubicacion = {{ " +
       dataName +
       ".ubicacion | stringify | safe }};\n" +
-      "</script>"
+      "</script>",
   );
 
   // Argumentario
@@ -295,7 +283,7 @@ function adaptarTermoRefran(
       dataName +
       ".argumentario %}" +
       bloqueArgumentario.prop("outerHTML") +
-      "{% endif %}"
+      "{% endif %}",
   );
 
   // Enlace para completar el termo
@@ -306,7 +294,7 @@ function adaptarTermoRefran(
       "?termo={{ " +
       dataName +
       ".termo }}&tipo=" +
-      dataName
+      dataName,
   );
 
   // Comentarios
@@ -369,7 +357,9 @@ function adaptarTermoRefran(
       .first()
       .attr("href", urlBase + "/{{ termoAnterior.termo | slugify }}");
     termoAnterior.replaceWith(
-      "{% if termoAnterior %}" + termoAnterior.prop("outerHTML") + "{% endif %}"
+      "{% if termoAnterior %}" +
+        termoAnterior.prop("outerHTML") +
+        "{% endif %}",
     );
 
     termoSeguinte
@@ -377,7 +367,9 @@ function adaptarTermoRefran(
       .first()
       .attr("href", urlBase + "/{{ termoSeguinte.termo | slugify }}");
     termoSeguinte.replaceWith(
-      "{% if termoSeguinte %}" + termoSeguinte.prop("outerHTML") + "{% endif %}"
+      "{% if termoSeguinte %}" +
+        termoSeguinte.prop("outerHTML") +
+        "{% endif %}",
     );
 
     bloqueNavegacion.replaceWith(
@@ -391,7 +383,7 @@ function adaptarTermoRefran(
         " | siguiente(" +
         dataName +
         ".id) %}" +
-        bloqueNavegacion.prop("outerHTML")
+        bloqueNavegacion.prop("outerHTML"),
     );
   });
 
@@ -401,22 +393,22 @@ function adaptarTermoRefran(
 
   miniTermoAnterior.attr(
     "href",
-    urlBase + "/{{ miniTermoAnterior.termo | slugify }}"
+    urlBase + "/{{ miniTermoAnterior.termo | slugify }}",
   );
   miniTermoAnterior.replaceWith(
     "{% if miniTermoAnterior %}" +
       miniTermoAnterior.prop("outerHTML") +
-      "{% endif %}"
+      "{% endif %}",
   );
 
   miniTermoSeguinte.attr(
     "href",
-    urlBase + "/{{ miniTermoSeguinte.termo | slugify }}"
+    urlBase + "/{{ miniTermoSeguinte.termo | slugify }}",
   );
   miniTermoSeguinte.replaceWith(
     "{% if miniTermoSeguinte %}" +
       miniTermoSeguinte.prop("outerHTML") +
-      "{% endif %}"
+      "{% endif %}",
   );
 
   bloqueMiniNavegacion.replaceWith(
@@ -430,7 +422,7 @@ function adaptarTermoRefran(
       " | siguiente(" +
       dataName +
       ".id) %}" +
-      bloqueMiniNavegacion.prop("outerHTML")
+      bloqueMiniNavegacion.prop("outerHTML"),
   );
 }
 
