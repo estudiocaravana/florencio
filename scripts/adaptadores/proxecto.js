@@ -26,10 +26,6 @@ function crearListaUsuarios($, el, assetsUrl, coleccion) {
     "{%- endfor -%}";
 
   listaUsuarios.replaceWith(bucle);
-
-  bloque.replaceWith(
-    "{% if " + coleccion + " | length %}" + bloque.html() + "{% endif %}",
-  );
 }
 
 function adaptar($, assetsUrl) {
