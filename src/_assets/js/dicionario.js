@@ -489,7 +489,7 @@ function adaptaFormularioATipo(nombreTipo, tipo) {
   }
 
   document.querySelectorAll("#novo-termo-termo-label").forEach((label) => {
-    label.innerText = nombreTipo;
+    label.innerText = nombreTipo + "*";
   });
 }
 
@@ -518,6 +518,7 @@ document.querySelectorAll("#novo-termo-enviar").forEach((boton) => {
       termo: document.getElementById("novo-termo-termo").value,
       tipo: document.getElementById("novo-termo-tipo").value,
       definicion: document.getElementById("novo-termo-definicion").value,
+      exemplos: document.getElementById("novo-termo-exemplo").value,
 
       ubicacion: obtenValoresSelect("novo-termo-ubicacion"),
       campos_semanticos: obtenValoresSelect("novo-termo-campo"),
