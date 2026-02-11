@@ -255,6 +255,8 @@ function adaptarTermoRefran(
     .find("#termo-localizacion")
     .first()
     .html("{{ " + dataName + ".ubicacion | listaUbicacion }}");
+
+  // Dejamos de usar el mapa de Google para usar la imagen pintada por Javi
   $el
     .find("#termo-mapa")
     .first()

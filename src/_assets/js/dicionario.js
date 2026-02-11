@@ -836,6 +836,11 @@ document.querySelectorAll("#termo-localizacion-punto").forEach((punto) => {
     // Le añadimos un title con el nombre de la ubicación para que se muestre al pasar el ratón por encima
     copiaDePunto.title = u.lugar_id.nome;
 
+    copiaDePunto.setAttribute(
+      "href",
+      "https://maps.google.com/?q=" + latitud + "," + longitud,
+    );
+
     // Añadimos la copia del punto al mapa
     punto.parentNode.appendChild(copiaDePunto);
   }
