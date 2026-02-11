@@ -456,8 +456,7 @@ if (!backend.estaLogueado) {
 
 document
   .querySelectorAll(
-    "#novo-termo-tipo," +
-      "#novo-termo-ubicacion," +
+    "#novo-termo-ubicacion," +
       "#novo-termo-categoria," +
       "#novo-termo-campo," +
       "#novo-termo-foto-autoria," +

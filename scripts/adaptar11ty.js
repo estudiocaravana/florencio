@@ -38,22 +38,22 @@ const globby = require("fast-glob");
 
     $("meta[property='og:url']").attr(
       "content",
-      "https://dicionario.florenciodelgadogurriaran.gal{{ page.url }}"
+      "https://dicionario.florenciodelgadogurriaran.gal{{ page.url }}",
     );
 
     $("meta[property='og:image']").attr(
       "content",
-      "{{ '/_assets/img/rrss.png' | url }}"
+      "{{ '/_assets/img/rrss.png' | url }}",
     );
 
     $("head").append(
-      '<meta name="google-site-verification" content="MSsooqjcEmXehcdemvSle1r2DVUvba6vPtzGWx0vsi0" />'
+      '<meta name="google-site-verification" content="MSsooqjcEmXehcdemvSle1r2DVUvba6vPtzGWx0vsi0" />',
     );
 
     $("head").append('<meta name="robots" content="index, follow">');
 
     $("head").append(
-      '<link rel="canonical" href="https://dicionario.florenciodelgadogurriaran.gal{{ page.url }}">'
+      '<link rel="canonical" href="https://dicionario.florenciodelgadogurriaran.gal{{ page.url }}">',
     );
 
     // Borramos el "script type="application/ld+json" que está dando problemas
@@ -64,6 +64,10 @@ const globby = require("fast-glob");
     // HOME
     const adaptarHome = require("./adaptadores/home.js");
     adaptarHome($, assetsUrl);
+
+    // PROXECTO
+    const adaptarProxecto = require("./adaptadores/proxecto.js");
+    adaptarProxecto($, assetsUrl);
 
     // LISTA DE TERMOS E REFRÁNS
     // Reutilizamos los adaptadores de termos e refráns
@@ -99,13 +103,13 @@ const globby = require("fast-glob");
 
     // Añadimos el css y el js del diccionario donde corresponda
     $("head").append(
-      '<link rel="stylesheet" type="text/css" href="{{ \'/_assets/tom-select.css\' | url }}">'
+      '<link rel="stylesheet" type="text/css" href="{{ \'/_assets/tom-select.css\' | url }}">',
     );
     $("head").append(
-      '<link rel="stylesheet" type="text/css" href="{{ \'/_assets/css/dicionario.css\' | url }}">'
+      '<link rel="stylesheet" type="text/css" href="{{ \'/_assets/css/dicionario.css\' | url }}">',
     );
     $("body").append(
-      '<script type="module" src="{{ \'/_assets/js/dicionario.js\' | url }}"></script>'
+      '<script type="module" src="{{ \'/_assets/js/dicionario.js\' | url }}"></script>',
     );
     // También el js de google maps
     $("head").append(
@@ -114,7 +118,7 @@ const globby = require("fast-glob");
         'key: "AIzaSyBVOKF2PVPBE0a5ZwP9A-MAdLsJyXYSxeI",\n' +
         'v: "weekly",\n' +
         "});\n" +
-        "</script>\n"
+        "</script>\n",
     );
 
     // Escribimos el contenido de la plantilla en un archivo
