@@ -157,9 +157,12 @@ function adaptarTermoRefran(
     .first()
     .html(
       '<div class="">' +
-        '<wave-audio-path-player src="' +
+        '<wave-audio-path-player class="reproductorGrande" src="' +
         assetsUrl +
         '/{{ audio.audio }}" wave-width="300" wave-height="40" color="#000000" wave-color="#f7f5f2" wave-slider="#000000" wave-progress-color="#000000"></wave-audio-path-player>' +
+        '<wave-audio-path-player class="reproductorPequeno" src="' +
+        assetsUrl +
+        '/{{ audio.audio }}" wave-width="100" wave-height="40" color="#000000" wave-color="#f7f5f2" wave-slider="#000000" wave-progress-color="#000000"></wave-audio-path-player>' +
         "</div>",
     );
   bloqueAudio

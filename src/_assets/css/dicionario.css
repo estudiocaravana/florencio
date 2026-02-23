@@ -35,6 +35,24 @@ wave-audio-path-player::part(play) {
     padding: 0;
 }
 
+.reproductorGrande {
+    display: block;
+}
+
+.reproductorPequeno {
+    display: none;
+}
+
+@media (max-width: 570px) {
+    .reproductorGrande {
+        display: none;
+    }
+
+    .reproductorPequeno {
+        display: block;
+    }
+}
+
 /* Selector Tom Select */
 .ts-control {
     padding: 20px 10px 20px 15px;
