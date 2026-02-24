@@ -27,9 +27,7 @@ function adaptarElementoTermosRefrans($, el, assetsUrl) {
   );
 
   const bucle =
-    "{%- for item in termos -%}\n" +
-    modelo.prop("outerHTML") +
-    "{%- endfor -%}";
+    "{%- for item in todo -%}\n" + modelo.prop("outerHTML") + "{%- endfor -%}";
   $(el).html(bucle);
 
   $("#filtro-categorias").each((_, el) => {
