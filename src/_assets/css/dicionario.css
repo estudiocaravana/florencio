@@ -22,6 +22,10 @@
     white-space: wrap;
 }
 
+.w-libro p { 
+    margin: 0
+}
+
 /* Reproductor de audio */
 
 wave-audio-path-player {

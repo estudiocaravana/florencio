@@ -235,6 +235,11 @@ module.exports = async function (eleventyConfig) {
     if (!data) return false;
     return data.some((item) => item.foto);
   });
+  // Filtro para comprueba si el campo "informantes" tiene elementos
+  eleventyConfig.addFilter("tieneInformantes", (data) => {
+    if (!data) return false;
+    return data.some((item) => item.nome);
+  });
   // Filtro para mostrar fechas en formato dd/mm/yyyy
   eleventyConfig.addFilter("fecha", (data) => {
     if (!data) return "";

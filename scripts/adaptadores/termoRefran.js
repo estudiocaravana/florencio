@@ -224,7 +224,7 @@ function adaptarTermoRefran(
   bloqueInformantes.replaceWith(
     "{% if " +
       dataName +
-      ".informantes | length %}" +
+      ".informantes | tieneInformantes %}" +
       bloqueInformantes.prop("outerHTML") +
       "{% endif %}",
   );
