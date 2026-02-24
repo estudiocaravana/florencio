@@ -145,7 +145,7 @@ function adaptarTermoRefran(
   bloqueFoto.replaceWith(
     "{% if " +
       dataName +
-      ".galeria | length %}" +
+      ".galeria | tieneFotos %}" +
       bloqueFoto.prop("outerHTML") +
       "{% endif %}",
   );

@@ -230,6 +230,11 @@ module.exports = async function (eleventyConfig) {
       "ultimo_lugar_de_residencia",
     ),
   );
+  // Filtro para comprueba si una galería tiene fotos
+  eleventyConfig.addFilter("tieneFotos", (data) => {
+    if (!data) return false;
+    return data.some((item) => item.foto);
+  });
   // Filtro para mostrar fechas en formato dd/mm/yyyy
   eleventyConfig.addFilter("fecha", (data) => {
     if (!data) return "";
