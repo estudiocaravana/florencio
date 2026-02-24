@@ -164,11 +164,12 @@ module.exports = async function (eleventyConfig) {
     let listaColaboradores = [];
 
     if (termo.usuarios_colaboradores.length) {
-      listaColaboradores.push(
-        termo.usuarios_colaboradores.map((item) => {
-          return item.directus_users_id.first_name;
-        }),
-      );
+      for (let i = 0; i < termo.usuarios_colaboradores.length; i++) {
+        const colaborador = termo.usuarios_colaboradores[i];
+        if (colaborador.directus_users_id) {
+          listaColaboradores.push(colaborador.directus_users_id.first_name);
+        }
+      }
     }
 
     if (termo.usuarios) {
@@ -203,9 +204,9 @@ module.exports = async function (eleventyConfig) {
 
         texto += ")";
       }
-      if (data[residencia]) {
-        texto += ". Actualmente vive en " + data[residencia];
-      }
+      // if (data[residencia]) {
+      //   texto += ". Actualmente vive en " + data[residencia];
+      // }
       return texto;
     };
   }
